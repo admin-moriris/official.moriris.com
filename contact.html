@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Moriris</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    :root{--bg:#f6f0c9;--ink:#2f3a33;--card:rgba(255,253,243,.92);--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.08);--accent:#6aa57a;--accent-dark:#3e7b53}
+    html,body{margin:0;padding:0;background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7}
+    a{color:var(--accent-dark);text-decoration:none} a:hover{text-decoration:underline}
+    .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;gap:.5rem;padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5}
+    .lang-btn{border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;font-weight:700;color:var(--accent-dark);cursor:pointer}
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+    main{max-width:980px;margin:4.8rem auto 3rem;padding:0 1rem}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+    h1{margin:0 0 1rem}
+    .lead{color:#5d6a61;margin:.2rem 0 1rem}
+    .frame{width:100%;height:1200px;border:0;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12);background:#fff}
+    footer{padding:2rem 1rem;color:#5d6a61;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div><a href="/" style="font-weight:800">← Moriris</a></div>
+    <div>
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="card">
+      <h1 data-i18n="title">Contact</h1>
+      <p class="lead" data-i18n="lead">Please submit your inquiry via the form below.</p>
+
+      <!-- 👇 ここをあなたのGoogleフォーム埋め込みURLに差し替え -->
+      <iframe class="frame" src="GOOGLE_FORM_URL"></iframe>
+
+      <p class="lead" style="margin-top:1rem">
+        <span data-i18n="alt1">If the form does not display,</span>
+        <a href="GOOGLE_FORM_URL" target="_blank" rel="noopener" data-i18n="alt2">open it in a new tab</a>.
+      </p>
+
+      <p class="lead" data-i18n="privacy_note">
+        By submitting, you agree to our <a href="/privacy.html" target="_blank">Privacy Policy</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Moriris</footer>
+
+  <script>
+    const t={
+      en:{title:"Contact",lead:"Please submit your inquiry via the form below.",alt1:"If the form does not display,",alt2:"open it in a new tab",privacy_note:'By submitting, you agree to our <a href="/privacy.html" target="_blank">Privacy Policy</a>.'},
+      ja:{title:"お問い合わせ",lead:"下記フォームよりお問い合わせください。",alt1:"フォームが表示されない場合は",alt2:"新しいタブで開いてください",privacy_note:'送信により、<a href="/privacy.html" target="_blank">プライバシーポリシー</a>に同意したものとみなします。'}
+    };
+    function setLang(lang){
+      const d=t[lang]||t.en; document.documentElement.lang=lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{ el.innerHTML=d[el.dataset.i18n]||el.innerHTML; });
+      document.querySelectorAll(".lang-btn").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+      localStorage.setItem("moriris_lang",lang);
+    }
+    document.querySelectorAll(".lang-btn").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+    setLang(localStorage.getItem("moriris_lang")||((navigator.language||"en").startsWith("ja")?"ja":"en"));
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
