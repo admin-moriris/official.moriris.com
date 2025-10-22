@@ -54,21 +54,16 @@
       text-align:center;
       color:#fff;
       padding:8rem 1.5rem 6rem;
-      isolation:isolate;
+      background:transparent; /* 背景の暗いオーバーレイ削除 */
     }
-    .hero::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
-      z-index:0;
-    }
+    .hero::after{display:none;} /* ← 暗いグラデーションを完全に消す */
     .hero-inner{position:relative;z-index:1;max-width:960px}
-    .logo{width:min(520px,90vw);margin:0 auto 1rem;filter:drop-shadow(0 6px 20px rgba(0,0,0,.35))}
-    .tagline{font-size:1.15rem;opacity:.95;margin:.5rem 0 1.5rem}
+    .logo{width:min(520px,90vw);margin:0 auto 1rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.25))}
+    .tagline{font-size:1.15rem;opacity:.95;margin:.5rem 0 1.5rem;color:#2f3a33}
     .cta{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 1.3rem;border-radius:999px;font-weight:700;box-shadow:0 12px 24px rgba(61,122,82,.25)}
     .cta:hover{background:var(--accent-dark)}
 
-    /* Topbar (language switch) */
+    /* Topbar */
     .topbar{
       position:fixed;top:0;left:0;right:0;
       display:flex;justify-content:flex-end;gap:.5rem;
@@ -109,7 +104,6 @@
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
     .small{font-size:.92rem}
 
-    /* Membership tiles */
     .tiles{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
     .tile{background:#fff; border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
     .tile img{aspect-ratio:16/10;object-fit:cover}
@@ -157,7 +151,6 @@
   </nav>
 
   <main id="home">
-    <!-- WATCH -->
     <section id="watch" class="card">
       <h2 data-i18n="watch_title">✨ Watch</h2>
       <p class="small" data-i18n="watch_copy">Enjoy Moriris in calm, wordless short animations.</p>
@@ -166,7 +159,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="card about">
       <h2 data-i18n="about_title">🌿 About Moriris</h2>
       <div class="grid" style="align-items:center">
@@ -181,63 +173,9 @@
       </div>
     </section>
 
-    <!-- MEMBERSHIP -->
     <section id="membership" class="card">
       <h2 data-i18n="mem_title">🫶 Moriris Membership</h2>
       <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
-      <div class="tiles" style="margin-top:.5rem">
-        <div class="tile">
-          <img src="/assets/membership-main.jpg" alt="Moriris Friends">
-          <div class="tile-body"><div class="more" data-i18n="mem_tile1">Members Hub</div></div>
-        </div>
-        <div class="tile">
-          <img src="/assets/membership-ep.jpg" alt="Exclusive episodes">
-          <div class="tile-body"><div class="more" data-i18n="mem_tile2">Exclusive Episodes</div></div>
-        </div>
-        <div class="tile">
-          <img src="/assets/membership-book.jpg" alt="Digital picture books">
-          <div class="tile-body"><div class="more" data-i18n="mem_tile3">Digital Picture Books</div></div>
-        </div>
-      </div>
-      <p style="margin-top:.8rem">
-        <a class="btn" href="/members.html" data-i18n="mem_btn">See Membership Details</a>
-      </p>
-    </section>
-
-    <!-- ITEMS -->
-    <section id="items" class="card">
-      <h2 data-i18n="items_title">📚 Picture Books & Items</h2>
-      <div class="grid">
-        <a class="tile" href="https://www.amazon.co.jp/s?k=%E3%83%A2%E3%83%AA%E3%83%AA%E3%82%B9" target="_blank">
-          <img src="/assets/book-1.jpg" alt="Picture book 1">
-          <div class="tile-body"><div class="more" data-i18n="items_1">Moriris Book: A Small Adventure</div></div>
-        </a>
-        <a class="tile" href="#" target="_blank">
-          <img src="/assets/book-2.jpg" alt="Picture book 2">
-          <div class="tile-body"><div class="more" data-i18n="items_2">Moriris Book: The Curious Stone</div></div>
-        </a>
-      </div>
-      <p class="small" style="margin-top:.6rem">
-        <a href="#" class="pill" data-i18n="items_kindle">Also available on Kindle</a>
-      </p>
-    </section>
-
-    <!-- FOLLOW -->
-    <section id="follow" class="card">
-      <h2 data-i18n="follow_title">📱 Follow & Support</h2>
-      <p class="small" data-i18n="follow_copy">News, behind-the-scenes, and more.</p>
-      <p>
-        <a class="pill" href="https://www.youtube.com/@moriris_ch" target="_blank">YouTube</a>
-        <a class="pill" href="https://www.instagram.com/moriris_ch" target="_blank">Instagram</a>
-        <a class="pill" href="https://x.com/moriris_ch" target="_blank">X (Twitter)</a>
-        <a class="pill" href="https://www.tiktok.com/@moriris_ch" target="_blank">TikTok</a>
-      </p>
-    </section>
-
-    <section id="faq" class="card">
-      <h2 data-i18n="faq_title">❓ FAQ</h2>
-      <details><summary data-i18n="faq_q1">Is Moriris for kids?</summary><p class="small" data-i18n="faq_a1">It’s for all ages. The wordless style lets anyone enjoy the calm world.</p></details>
-      <details><summary data-i18n="faq_q2">What is included in Membership?</summary><p class="small" data-i18n="faq_a2">Members get ad-free pages, exclusive episodes after #2, and downloads like coloring pages.</p></details>
     </section>
 
     <section id="contact" class="card">
@@ -250,26 +188,63 @@
     © <span id="year"></span> Moriris · <span class="small">official.moriris.com</span>
   </footer>
 
-  <!-- JS: language switch -->
+  <!-- Language Switch JS -->
   <script>
-    const t = {
-      en:{tagline:"A silent world of kind creatures. Relax, breathe, and wander the gentle forest.",cta_watch:"Watch the Animation"},
-      ja:{tagline:"セリフのない、やさしい森の物語。深呼吸して、ゆっくり歩いていこう。",cta_watch:"アニメを見る"}
+    const translations = {
+      en: {
+        tagline:"A silent world of kind creatures. Relax, breathe, and wander the gentle forest.",
+        cta_watch:"Watch the Animation",
+        nav_home:"HOME", nav_about:"ABOUT", nav_membership:"MEMBERSHIP", nav_items:"ITEM", nav_faq:"FAQ", nav_blog:"BLOG", nav_contact:"CONTACT",
+        watch_title:"✨ Watch", watch_copy:"Enjoy Moriris in calm, wordless short animations.",
+        about_title:"🌿 About Moriris",
+        about_p1:"After humans disappeared, the forest began to breathe again.",
+        about_p2:"Soft creatures like Mokora, Notty, and Luf live peacefully there, reminding us that kindness can still bloom in silence.",
+        about_tags:"Created in Japan · Wordless · Gentle · Nature",
+        mem_title:"🫶 Moriris Membership", mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
+        contact_title:"📮 Contact", contact_copy:'For inquiries and collaboration, please email: <a href="mailto:hello@moriris.com">hello@moriris.com</a>'
+      },
+      ja: {
+        tagline:"セリフのない、やさしい森の物語。深呼吸して、ゆっくり歩いていこう。",
+        cta_watch:"アニメを見る",
+        nav_home:"ホーム", nav_about:"作品紹介", nav_membership:"メンバーシップ", nav_items:"アイテム", nav_faq:"よくある質問", nav_blog:"ブログ", nav_contact:"お問い合わせ",
+        watch_title:"✨ 視聴", watch_copy:"やさしい短編アニメでモリリスの世界をお楽しみください。",
+        about_title:"🌿 モリリスについて",
+        about_p1:"人類がいなくなったあと、森はまた静かに息をしはじめました。",
+        about_p2:"モコラ、ノッティ、ルフのような“ふわもこ”たちが穏やかに暮らし、言葉のないやさしさを思い出させてくれます。",
+        about_tags:"日本で制作 · セリフなし · やさしい · 自然",
+        mem_title:"🫶 モリリス・メンバーシップ", mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
+        contact_title:"📮 お問い合わせ", contact_copy:'お仕事やコラボのご連絡は <a href="mailto:hello@moriris.com">hello@moriris.com</a> まで'
+      }
     };
-    const setLang = (lang)=>{
-      const dict=t[lang]||t.en;
-      document.documentElement.lang=lang;
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key=el.dataset.i18n;
-        if(dict[key]) el.textContent=dict[key];
+
+    function setLang(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key]) {
+          if (key.endsWith("_copy") || key === "contact_copy") {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
+        }
       });
-      document.querySelectorAll(".lang-btn").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
-      localStorage.setItem("moriris_lang",lang);
-    };
-    document.querySelectorAll(".lang-btn").forEach(btn=>btn.onclick=()=>setLang(btn.dataset.lang));
-    const saved=localStorage.getItem("moriris_lang")||((navigator.language||"en").startsWith("ja")?"ja":"en");
+      document.querySelectorAll(".lang-btn").forEach(btn =>
+        btn.setAttribute("aria-pressed", btn.dataset.lang === lang)
+      );
+      localStorage.setItem("moriris_lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => setLang(btn.dataset.lang))
+    );
+
+    const saved = localStorage.getItem("moriris_lang") ||
+      ((navigator.language || "en").startsWith("ja") ? "ja" : "en");
     setLang(saved);
-    document.getElementById("year").textContent=new Date().getFullYear();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
