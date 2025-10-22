@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy – Moriris</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <style>
+    :root{
+      --bg:#f6f0c9;--ink:#2f3a33;--card:rgba(255,253,243,.9);--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.08);
+      --accent:#6aa57a;--accent-dark:#3e7b53;
+    }
+    html,body{margin:0;padding:0;background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7}
+    a{color:var(--accent-dark);text-decoration:none} a:hover{text-decoration:underline}
+    .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;gap:.5rem;padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5}
+    .lang-btn{border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;font-weight:700;color:var(--accent-dark);cursor:pointer}
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+    main{max-width:900px;margin:4.5rem auto 3rem;padding:0 1rem}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem}
+    h1{margin:0 0 1rem}
+    footer{padding:2rem 1rem;color:#5d6a61;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div><a href="/" style="font-weight:800">← Moriris</a></div>
+    <div>
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="card">
+      <h1 data-i18n="title">Privacy Policy</h1>
+      <p class="small" data-i18n="intro">
+        This policy explains how Moriris (“we”, “us”) handles your information across our website and membership pages.
+      </p>
+
+      <h3 data-i18n="sec1_t">1. Information We Collect</h3>
+      <ul>
+        <li data-i18n="sec1_1">Contact details you submit (name, email, phone, message).</li>
+        <li data-i18n="sec1_2">Order-related information you provide (e.g., Order ID).</li>
+        <li data-i18n="sec1_3">Usage data such as access logs and cookies for improving the site.</li>
+      </ul>
+
+      <h3 data-i18n="sec2_t">2. Purpose of Use</h3>
+      <ul>
+        <li data-i18n="sec2_1">Responding to inquiries and providing support.</li>
+        <li data-i18n="sec2_2">Providing members-only content and managing subscriptions.</li>
+        <li data-i18n="sec2_3">Improving content and preventing unauthorized use.</li>
+      </ul>
+
+      <h3 data-i18n="sec3_t">3. Sharing of Information</h3>
+      <p data-i18n="sec3_p">We do not sell personal information. We may share data with service vendors (e.g., payment, form handling) only to the extent necessary to operate the service.</p>
+
+      <h3 data-i18n="sec4_t">4. Cookies</h3>
+      <p data-i18n="sec4_p">We use cookies to remember language preferences and improve user experience. You can disable cookies in your browser settings.</p>
+
+      <h3 data-i18n="sec5_t">5. Data Retention</h3>
+      <p data-i18n="sec5_p">We retain personal data only as long as necessary for the purposes above or as required by law.</p>
+
+      <h3 data-i18n="sec6_t">6. Your Rights</h3>
+      <p data-i18n="sec6_p">You can request access, correction, or deletion of your personal information by contacting us.</p>
+
+      <h3 data-i18n="sec7_t">7. Contact</h3>
+      <p data-i18n="sec7_p">For privacy requests, please email: <a href="mailto:hello@moriris.com">hello@moriris.com</a></p>
+
+      <h3 data-i18n="sec8_t">8. Updates to This Policy</h3>
+      <p data-i18n="sec8_p">We may update this policy. The latest version will always be posted on this page.</p>
+
+      <p class="small" data-i18n="effective">Effective date: 2025-01-01</p>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Moriris</footer>
+
+  <script>
+    const t = {
+      en:{
+        title:"Privacy Policy",
+        intro:"This policy explains how Moriris (“we”, “us”) handles your information across our website and membership pages.",
+        sec1_t:"1. Information We Collect",
+        sec1_1:"Contact details you submit (name, email, phone, message).",
+        sec1_2:"Order-related information you provide (e.g., Order ID).",
+        sec1_3:"Usage data such as access logs and cookies for improving the site.",
+        sec2_t:"2. Purpose of Use",
+        sec2_1:"Responding to inquiries and providing support.",
+        sec2_2:"Providing members-only content and managing subscriptions.",
+        sec2_3:"Improving content and preventing unauthorized use.",
+        sec3_t:"3. Sharing of Information",
+        sec3_p:"We do not sell personal information. We may share data with service vendors (e.g., payment, form handling) only to the extent necessary to operate the service.",
+        sec4_t:"4. Cookies", sec4_p:"We use cookies to remember language preferences and improve user experience. You can disable cookies in your browser settings.",
+        sec5_t:"5. Data Retention", sec5_p:"We retain personal data only as long as necessary for the purposes above or as required by law.",
+        sec6_t:"6. Your Rights", sec6_p:"You can request access, correction, or deletion of your personal information by contacting us.",
+        sec7_t:"7. Contact", sec7_p:'For privacy requests, please email: <a href="mailto:hello@moriris.com">hello@moriris.com</a>',
+        sec8_t:"8. Updates to This Policy", sec8_p:"We may update this policy. The latest version will always be posted on this page.",
+        effective:"Effective date: 2025-01-01"
+      },
+      ja:{
+        title:"プライバシーポリシー",
+        intro:"本ポリシーは、当サイトおよびメンバーシップページにおける個人情報の取扱いについて定めるものです。",
+        sec1_t:"1. 取得する情報",
+        sec1_1:"お問い合わせ時にご提供いただく情報（氏名・メールアドレス・電話番号・メッセージ等）",
+        sec1_2:"ご注文に関する情報（例：注文ID など）",
+        sec1_3:"サイト改善のためのアクセスログやクッキー等の利用状況データ",
+        sec2_t:"2. 利用目的",
+        sec2_1:"お問い合わせ対応およびサポート提供のため",
+        sec2_2:"会員向けコンテンツの提供、サブスク管理のため",
+        sec2_3:"コンテンツ改善、不正利用の防止のため",
+        sec3_t:"3. 第三者提供",
+        sec3_p:"当方は個人情報を販売しません。決済・フォーム処理等の委託先に、サービス運営上必要な範囲で提供する場合があります。",
+        sec4_t:"4. クッキー", sec4_p:"言語設定の保持や利便性向上のためクッキーを使用します。ブラウザ設定により無効化できます。",
+        sec5_t:"5. 保管期間", sec5_p:"上記目的の達成に必要な期間、または法令に基づく期間のみ保存します。",
+        sec6_t:"6. お客様の権利", sec6_p:"保有個人データの開示・訂正・削除等のご請求は下記連絡先にご連絡ください。",
+        sec7_t:"7. 連絡先", sec7_p:'プライバシーに関するご連絡：<a href="mailto:hello@moriris.com">hello@moriris.com</a>',
+        sec8_t:"8. 本ポリシーの改定", sec8_p:"内容を更新する場合があります。最新版は本ページで告知します。",
+        effective:"施行日：2025-01-01"
+      }
+    };
+    function setLang(lang){
+      const d=t[lang]||t.en; document.documentElement.lang=lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k=el.dataset.i18n; if(d[k]!==undefined){ el.innerHTML=d[k]; }
+      });
+      document.querySelectorAll(".lang-btn").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+      localStorage.setItem("moriris_lang",lang);
+    }
+    document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLang(btn.dataset.lang)));
+    setLang(localStorage.getItem("moriris_lang")||((navigator.language||"en").startsWith("ja")?"ja":"en"));
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
