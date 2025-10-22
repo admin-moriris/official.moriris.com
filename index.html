@@ -18,102 +18,124 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
 
-  <!-- Favicon (optional) -->
   <link rel="icon" href="/assets/favicon.png" />
 
   <style>
     :root{
-      --bg:#f6f8f5;
+      --bg:#f6f0c9;           /* やさしい森の紙色 */
       --ink:#2f3a33;
       --ink-soft:#5d6a61;
       --accent:#6aa57a;
       --accent-dark:#3e7b53;
-      --card:#ffffff;
-      --radius:16px;
-      --shadow:0 8px 30px rgba(0,0,0,.08);
+      --card:#fffdf3;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7}
     img{max-width:100%;height:auto;display:block}
     a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
     /* Hero */
     .hero{
-      position:relative;
-      min-height:72vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-      background:#0f2017 url("/assets/hero-forest.jpg") center/cover no-repeat;
-      padding:8rem 1.5rem 6rem;
-      isolation:isolate;
+      position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;color:#fff;background:#0f2017 url("/assets/hero-forest.jpg") center/cover no-repeat;
+      padding:8rem 1.5rem 6rem;isolation:isolate;
     }
-    .hero::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.45));
-      z-index:0;
-    }
-    .hero-inner{position:relative;z-index:1;max-width:900px}
-    .logo{
-      width:min(520px,90vw);
-      margin:0 auto 1rem;
-      filter:drop-shadow(0 6px 20px rgba(0,0,0,.35));
-    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.45));z-index:0}
+    .hero-inner{position:relative;z-index:1;max-width:960px}
+    .logo{width:min(520px,90vw);margin:0 auto 1rem;filter:drop-shadow(0 6px 20px rgba(0,0,0,.35))}
     .tagline{font-size:1.15rem;opacity:.95;margin:.5rem 0 1.5rem}
-    .cta{
-      display:inline-block;background:var(--accent);color:#fff;
-      padding:.85rem 1.2rem;border-radius:999px;font-weight:600;
-      box-shadow:0 10px 20px rgba(61,122,82,.25);
-    }
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 1.3rem;border-radius:999px;font-weight:700;box-shadow:0 12px 24px rgba(61,122,82,.25)}
     .cta:hover{background:var(--accent-dark)}
-    main{max-width:980px;margin:-3rem auto 4rem;padding:0 1rem}
-    .card{
-      background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
-      padding:1.5rem;margin:1rem 0;
-    }
-    h2{margin:0 0 .75rem;font-size:1.6rem}
-    .grid{
-      display:grid;gap:1rem;
-      grid-template-columns:1fr 1fr;
-    }
-    .grid-1{grid-template-columns:1fr}
-    iframe{
-      width:100%;aspect-ratio:16/9;border:0;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12);
-    }
-    .about p{margin:.4rem 0;color:var(--ink-soft)}
-    .follow a{
-      display:inline-block;margin:.25rem .4rem;padding:.55rem .8rem;border-radius:999px;
-      background:#e9f3ec;color:var(--accent-dark);font-weight:600;
-    }
-    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
-    .small{font-size:.9rem}
 
-    @media (max-width:800px){
+    /* Top language bar */
+    .topbar{
+      position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
+      padding:.6rem 1rem;background:linear-gradient(to bottom, rgba(246,240,201,.9), rgba(246,240,201,.5));
+      backdrop-filter:saturate(120%) blur(4px);z-index:5;
+    }
+    .lang-btn{border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;font-weight:700;color:var(--accent-dark);cursor:pointer}
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+
+    /* Nav like the sample (centered links) */
+    nav.main{
+      max-width:1100px;margin:-2.8rem auto 0;padding:0 1rem;position:relative;z-index:2;
+    }
+    .nav-inner{
+      display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
+      background:rgba(255,253,243,.9);border-radius:999px;padding:.75rem 1rem;
+      box-shadow:var(--shadow);
+    }
+    .nav-inner a{font-weight:800;letter-spacing:.02em}
+
+    main{max-width:1040px;margin:1.5rem auto 4rem;padding:0 1rem}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem;margin:1rem 0}
+    h2{margin:0 0 .75rem;font-size:1.6rem}
+    .grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+    .grid-1{grid-template-columns:1fr}
+    iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+    .about p{margin:.45rem 0;color:var(--ink-soft)}
+    .pill{display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:700}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1rem;border-radius:12px;font-weight:700}
+    .btn:hover{background:var(--accent-dark)}
+    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
+    .small{font-size:.92rem}
+
+    /* Membership tiles */
+    .tiles{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
+    .tile{background:#fff; border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+    .tile img{aspect-ratio:16/10;object-fit:cover}
+    .tile .tile-body{padding:.9rem 1rem}
+    .tile .more{font-weight:800}
+
+    @media (max-width:900px){
       .grid{grid-template-columns:1fr}
-      .hero{min-height:68vh;padding:7rem 1rem 5rem}
+      .tiles{grid-template-columns:1fr 1fr}
+      .hero{min-height:66vh;padding:7rem 1rem 5rem}
+    }
+    @media (max-width:640px){
+      .tiles{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
+  <!-- Language bar -->
+  <div class="topbar" aria-label="Language switch">
+    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+  </div>
+
   <!-- HERO -->
   <header class="hero" role="banner" aria-label="Moriris hero">
     <div class="hero-inner">
       <img class="logo" src="/assets/logo-moriris.png" alt="Moriris Logo">
-      <p class="tagline">A silent world of kind creatures. Relax, breathe, and wander the gentle forest.</p>
-      <a class="cta" href="#watch">Watch the Animation</a>
+      <p class="tagline" data-i18n="tagline">A silent world of kind creatures. Relax, breathe, and wander the gentle forest.</p>
+      <a class="cta" href="#watch" data-i18n="cta_watch">Watch the Animation</a>
     </div>
   </header>
 
-  <main role="main">
+  <!-- NAV -->
+  <nav class="main" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#home" data-i18n="nav_home">HOME</a>
+      <a href="#about" data-i18n="nav_about">ABOUT</a>
+      <a href="#membership" data-i18n="nav_membership">MEMBERSHIP</a>
+      <a href="#items" data-i18n="nav_items">ITEM</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#blog" data-i18n="nav_blog">BLOG</a>
+      <a href="#contact" data-i18n="nav_contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <main id="home" role="main">
     <!-- WATCH -->
     <section id="watch" class="card">
-      <h2>✨ Watch</h2>
-      <p class="small">Enjoy Moriris in calm, wordless short animations.</p>
+      <h2 data-i18n="watch_title">✨ Watch</h2>
+      <p class="small" data-i18n="watch_copy">Enjoy Moriris in calm, wordless short animations.</p>
       <div class="grid grid-1" style="margin-top:.5rem">
         <iframe
           src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID"
@@ -124,13 +146,13 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="card about">
-      <h2>🌿 About Moriris</h2>
+    <section id="about" class="card about">
+      <h2 data-i18n="about_title">🌿 About Moriris</h2>
       <div class="grid" style="align-items:center">
         <div>
-          <p>After humans disappeared, the forest began to breathe again.</p>
-          <p>Soft creatures like Mokora, Notty, and Luf live peacefully there, reminding us that kindness can still bloom in silence.</p>
-          <p class="small">Created in Japan · Wordless · Gentle · Nature</p>
+          <p data-i18n="about_p1">After humans disappeared, the forest began to breathe again.</p>
+          <p data-i18n="about_p2">Soft creatures like Mokora, Notty, and Luf live peacefully there, reminding us that kindness can still bloom in silence.</p>
+          <p class="small" data-i18n="about_tags">Created in Japan · Wordless · Gentle · Nature</p>
         </div>
         <div>
           <img src="/assets/characters.jpg" alt="Moriris characters: Mokora and Notty">
@@ -138,22 +160,187 @@
       </div>
     </section>
 
-    <!-- FOLLOW -->
-    <section class="card follow">
-      <h2>📱 Follow & Support</h2>
-      <p class="small">News, behind-the-scenes, and more.</p>
-      <p>
-        <a href="https://www.youtube.com/@moriris_ch" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/moriris_ch" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://x.com/moriris_ch" target="_blank" rel="noopener">X (Twitter)</a>
-        <a href="https://www.tiktok.com/@moriris_ch" target="_blank" rel="noopener">TikTok</a>
+    <!-- MEMBERSHIP (コミュニティ/サブスク) -->
+    <section id="membership" class="card">
+      <h2 data-i18n="mem_title">🫶 Moriris Membership</h2>
+      <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
+      <div class="tiles" style="margin-top:.5rem">
+        <div class="tile">
+          <img src="/assets/membership-main.jpg" alt="Moriris Friends">
+          <div class="tile-body">
+            <div class="more" data-i18n="mem_tile1">Members Hub</div>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="/assets/membership-ep.jpg" alt="Exclusive episodes">
+          <div class="tile-body">
+            <div class="more" data-i18n="mem_tile2">Exclusive Episodes</div>
+          </div>
+        </div>
+        <div class="tile">
+          <img src="/assets/membership-book.jpg" alt="Digital picture books">
+          <div class="tile-body">
+            <div class="more" data-i18n="mem_tile3">Digital Picture Books</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:.8rem">
+        <a class="btn" href="/members.html" data-i18n="mem_btn">See Membership Details</a>
       </p>
+      <ul class="small" style="margin:.6rem 0 0;padding-left:1.1rem">
+        <li data-i18n="mem_benefit1">Ad-free viewing on members pages</li>
+        <li data-i18n="mem_benefit2">Episodes from #2 onward</li>
+        <li data-i18n="mem_benefit3">Original coloring pages & picture books</li>
+      </ul>
+    </section>
+
+    <!-- ITEMS (絵本など) -->
+    <section id="items" class="card">
+      <h2 data-i18n="items_title">📚 Picture Books & Items</h2>
+      <div class="grid">
+        <a class="tile" href="https://www.amazon.co.jp/s?k=%E3%83%A2%E3%83%AA%E3%83%AA%E3%82%B9" target="_blank" rel="noopener">
+          <img src="/assets/book-1.jpg" alt="Picture book 1">
+          <div class="tile-body"><div class="more" data-i18n="items_1">Moriris Book: A Small Adventure</div></div>
+        </a>
+        <a class="tile" href="#" target="_blank" rel="noopener">
+          <img src="/assets/book-2.jpg" alt="Picture book 2">
+          <div class="tile-body"><div class="more" data-i18n="items_2">Moriris Book: The Curious Stone</div></div>
+        </a>
+      </div>
+      <p class="small" style="margin-top:.6rem">
+        <a href="#" class="pill" data-i18n="items_kindle">Also available on Kindle</a>
+      </p>
+    </section>
+
+    <!-- FOLLOW -->
+    <section id="follow" class="card">
+      <h2 data-i18n="follow_title">📱 Follow & Support</h2>
+      <p class="small" data-i18n="follow_copy">News, behind-the-scenes, and more.</p>
+      <p>
+        <a class="pill" href="https://www.youtube.com/@moriris_ch" target="_blank" rel="noopener">YouTube</a>
+        <a class="pill" href="https://www.instagram.com/moriris_ch" target="_blank" rel="noopener">Instagram</a>
+        <a class="pill" href="https://x.com/moriris_ch" target="_blank" rel="noopener">X (Twitter)</a>
+        <a class="pill" href="https://www.tiktok.com/@moriris_ch" target="_blank" rel="noopener">TikTok</a>
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card">
+      <h2 data-i18n="faq_title">❓ FAQ</h2>
+      <details>
+        <summary data-i18n="faq_q1">Is Moriris for kids?</summary>
+        <p class="small" data-i18n="faq_a1">It’s for all ages. The wordless style lets anyone enjoy the calm world.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq_q2">What is included in Membership?</summary>
+        <p class="small" data-i18n="faq_a2">Members get ad-free pages, exclusive episodes after #2, and downloads like coloring pages.</p>
+      </details>
+    </section>
+
+    <!-- BLOG / CONTACT (プレースホルダ) -->
+    <section id="blog" class="card">
+      <h2 data-i18n="blog_title">📝 Blog</h2>
+      <p class="small" data-i18n="blog_copy">Updates and making-of notes. (Coming soon)</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2 data-i18n="contact_title">📮 Contact</h2>
+      <p class="small" data-i18n="contact_copy">For inquiries and collaboration, please email: <a href="mailto:hello@moriris.com">hello@moriris.com</a></p>
     </section>
   </main>
 
   <footer>
-    © 2025 Moriris · Created with love in Japan · <span class="small">official.moriris.com</span>
+    © <span id="year"></span> Moriris · <span class="small">official.moriris.com</span>
   </footer>
 
+  <!-- Language & small utilities -->
+  <script>
+    const t = {
+      en:{
+        tagline:"A silent world of kind creatures. Relax, breathe, and wander the gentle forest.",
+        cta_watch:"Watch the Animation",
+        nav_home:"HOME", nav_about:"ABOUT", nav_membership:"MEMBERSHIP", nav_items:"ITEM", nav_faq:"FAQ", nav_blog:"BLOG", nav_contact:"CONTACT",
+        watch_title:"✨ Watch", watch_copy:"Enjoy Moriris in calm, wordless short animations.",
+        about_title:"🌿 About Moriris",
+        about_p1:"After humans disappeared, the forest began to breathe again.",
+        about_p2:"Soft creatures like Mokora, Notty, and Luf live peacefully there, reminding us that kindness can still bloom in silence.",
+        about_tags:"Created in Japan · Wordless · Gentle · Nature",
+        mem_title:"🫶 Moriris Membership",
+        mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
+        mem_tile1:"Members Hub", mem_tile2:"Exclusive Episodes", mem_tile3:"Digital Picture Books",
+        mem_btn:"See Membership Details",
+        mem_benefit1:"Ad-free viewing on members pages",
+        mem_benefit2:"Episodes from #2 onward",
+        mem_benefit3:"Original coloring pages & picture books",
+        items_title:"📚 Picture Books & Items",
+        items_1:"Moriris Book: A Small Adventure",
+        items_2:"Moriris Book: The Curious Stone",
+        items_kindle:"Also available on Kindle",
+        follow_title:"📱 Follow & Support",
+        follow_copy:"News, behind-the-scenes, and more.",
+        faq_title:"❓ FAQ",
+        faq_q1:"Is Moriris for kids?", faq_a1:"It’s for all ages. The wordless style lets anyone enjoy the calm world.",
+        faq_q2:"What is included in Membership?", faq_a2:"Members get ad-free pages, exclusive episodes after #2, and downloads like coloring pages.",
+        blog_title:"📝 Blog", blog_copy:"Updates and making-of notes. (Coming soon)",
+        contact_title:"📮 Contact", contact_copy:'For inquiries and collaboration, please email: <a href="mailto:hello@moriris.com">hello@moriris.com</a>',
+      },
+      ja:{
+        tagline:"セリフのない、やさしい森の物語。深呼吸して、ゆっくり歩いていこう。",
+        cta_watch:"アニメを見る",
+        nav_home:"HOME", nav_about:"ABOUT", nav_membership:"MEMBERSHIP", nav_items:"ITEM", nav_faq:"FAQ", nav_blog:"BLOG", nav_contact:"CONTACT",
+        watch_title:"✨ 視聴", watch_copy:"やさしい短編アニメでモリリスの世界をお楽しみください。",
+        about_title:"🌿 モリリスについて",
+        about_p1:"人類がいなくなったあと、森はまた静かに息をしはじめました。",
+        about_p2:"モコラ、ノッティ、ルフのような“ふわもこ”たちが穏やかに暮らし、言葉のないやさしさを思い出させてくれます。",
+        about_tags:"日本で制作 · セリフなし · やさしい · 自然",
+        mem_title:"🫶 モリリス・メンバーシップ",
+        mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
+        mem_tile1:"メンバーズページ", mem_tile2:"限定エピソード", mem_tile3:"デジタル絵本",
+        mem_btn:"メンバーシップの詳細",
+        mem_benefit1:"会員ページで広告なし視聴", mem_benefit2:"第2話以降の限定アニメ", mem_benefit3:"オリジナル塗り絵や絵本",
+        items_title:"📚 絵本・アイテム",
+        items_1:"モリリス絵本：森で始まる小さな冒険",
+        items_2:"モリリス絵本：ふしぎな石",
+        items_kindle:"Kindleストアでも販売中",
+        follow_title:"📱 フォロー & サポート",
+        follow_copy:"最新情報やメイキングなどをお届けします。",
+        faq_title:"❓ よくある質問",
+        faq_q1:"子ども向けですか？", faq_a1:"全年齢向けです。セリフがないので、どなたでも穏やかな世界観を楽しめます。",
+        faq_q2:"メンバーシップには何が含まれますか？", faq_a2:"広告なしの会員ページ、第2話以降の限定アニメ、塗り絵などのダウンロード特典があります。",
+        blog_title:"📝 ブログ", blog_copy:"更新情報・制作ノート（準備中）",
+        contact_title:"📮 お問い合わせ", contact_copy:'お仕事やコラボのご連絡は <a href="mailto:hello@moriris.com">hello@moriris.com</a> まで',
+      }
+    };
+
+    const setLang = (lang) => {
+      const dict = t[lang] || t.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(dict[key]!==undefined){
+          if(key.endsWith("_copy") || key.startsWith("about_") || key.startsWith("faq_") || key==="contact_copy"){
+            el.innerHTML = dict[key];
+          }else{
+            el.textContent = dict[key];
+          }
+        }
+      });
+      document.querySelectorAll(".lang-btn").forEach(b=>{
+        b.setAttribute("aria-pressed", b.dataset.lang===lang ? "true" : "false");
+      });
+      localStorage.setItem("moriris_lang", lang);
+    };
+
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
+    });
+
+    // init
+    const saved = localStorage.getItem("moriris_lang") || (navigator.language||"en").startsWith("ja") ? "ja" : "en";
+    setLang(saved);
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
