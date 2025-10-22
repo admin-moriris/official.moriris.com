@@ -22,21 +22,15 @@
 
   <style>
     :root{
-      --bg:#f6f0c9;
-      --ink:#2f3a33;
-      --ink-soft:#5d6a61;
-      --accent:#6aa57a;
-      --accent-dark:#3e7b53;
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
       --card:rgba(255,253,243,0.85);
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
-      --input:#fff;
-      --border:#d9d5c3;
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
     html,body{
       margin:0;padding:0;
-      background: var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
+      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
       color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
       line-height:1.7;
@@ -45,11 +39,9 @@
     a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Hero（暗いオーバーレイなし） */
-    .hero{
-      position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
-      text-align:center;color:#2f3a33;padding:8rem 1.5rem 6rem;background:transparent;
-    }
+    /* HERO (no dark overlay) */
+    .hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;color:#2f3a33;padding:8rem 1.5rem 6rem;background:transparent}
     .hero::after{display:none}
     .hero-inner{position:relative;z-index:1;max-width:960px}
     .logo{width:min(520px,90vw);margin:0 auto 1rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))}
@@ -57,14 +49,16 @@
     .cta{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 1.3rem;border-radius:999px;font-weight:700;box-shadow:0 12px 24px rgba(61,122,82,.25)}
     .cta:hover{background:var(--accent-dark)}
 
-    /* Topbar */
-    .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5}
+    /* Topbar (Lang) */
+    .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
+      padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5}
     .lang-btn{border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;font-weight:700;color:var(--accent-dark);cursor:pointer}
     .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
 
     /* Nav */
     nav.main{max-width:1100px;margin:-2.8rem auto 0;padding:0 1rem;position:relative;z-index:2}
-    .nav-inner{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;background:rgba(255,253,243,.9);border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)}
+    .nav-inner{display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;background:rgba(255,253,243,.9);
+      border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)}
     .nav-inner a{font-weight:800;letter-spacing:.02em}
 
     main{max-width:1040px;margin:1.5rem auto 4rem;padding:0 1rem}
@@ -80,37 +74,28 @@
     .small{font-size:.92rem}
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
 
-    /* Tiles */
+    /* tiles */
     .tiles{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
     .tile{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
     .tile img{aspect-ratio:16/10;object-fit:cover}
     .tile .tile-body{padding:.9rem 1rem}
     .tile .more{font-weight:800}
 
-    /* FAQ */
     details{background:#fffdf8;border:1px solid #e8e2c9;border-radius:12px;padding:1rem;margin:.6rem 0}
     details summary{cursor:pointer;font-weight:800}
     details p{margin:.6rem 0 0}
-
-    /* Form */
-    .form-grid{display:grid;grid-template-columns:1fr;gap:.9rem}
-    label{font-weight:700}
-    input,textarea{width:100%;background:var(--input);border:1px solid var(--border);border-radius:10px;padding:.8rem;font-size:1rem}
-    textarea{min-height:180px;resize:vertical}
-    .submit{display:inline-block;background:#222;color:#fff;border:0;border-radius:10px;padding:.85rem 1.4rem;font-weight:800;cursor:pointer}
-    .submit:hover{opacity:.9}
 
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
       .hero{min-height:66vh;padding:7rem 1rem 5rem}
     }
-    @media (max-width:640px){ .tiles{grid-template-columns:1fr} }
+    @media (max-width:640px){.tiles{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-  <!-- Language Switch -->
+  <!-- Language -->
   <div class="topbar">
     <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
     <button class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
@@ -125,7 +110,7 @@
     </div>
   </header>
 
-  <!-- NAV -->
+  <!-- NAV (Contact/Blog を外しました) -->
   <nav class="main">
     <div class="nav-inner">
       <a href="#home" data-i18n="nav_home">HOME</a>
@@ -133,12 +118,11 @@
       <a href="#membership" data-i18n="nav_membership">MEMBERSHIP</a>
       <a href="#items" data-i18n="nav_items">ITEM</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
-      <a href="#blog" data-i18n="nav_blog">BLOG</a>
-      <a href="#contact" data-i18n="nav_contact">CONTACT</a>
     </div>
   </nav>
 
   <main id="home">
+
     <!-- WATCH -->
     <section id="watch" class="card">
       <h2 data-i18n="watch_title">✨ Watch</h2>
@@ -165,17 +149,22 @@
     <section id="membership" class="card">
       <h2 data-i18n="mem_title">🫶 Moriris Membership</h2>
       <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
+
       <div class="tiles" style="margin-top:.5rem">
         <div class="tile">
-          <img src="/assets/membership-main.jpg" alt="Moriris Friends"><div class="tile-body"><div class="more" data-i18n="mem_tile1">Members Hub</div></div>
+          <img src="/assets/membership-main.jpg" alt="Moriris Friends">
+          <div class="tile-body"><div class="more" data-i18n="mem_tile1">Members Hub</div></div>
         </div>
         <div class="tile">
-          <img src="/assets/membership-ep.jpg" alt="Exclusive episodes"><div class="tile-body"><div class="more" data-i18n="mem_tile2">Exclusive Episodes</div></div>
+          <img src="/assets/membership-ep.jpg" alt="Exclusive episodes">
+          <div class="tile-body"><div class="more" data-i18n="mem_tile2">Exclusive Episodes</div></div>
         </div>
         <div class="tile">
-          <img src="/assets/membership-book.jpg" alt="Digital picture books"><div class="tile-body"><div class="more" data-i18n="mem_tile3">Digital Picture Books</div></div>
+          <img src="/assets/membership-book.jpg" alt="Digital picture books">
+          <div class="tile-body"><div class="more" data-i18n="mem_tile3">Digital Picture Books</div></div>
         </div>
       </div>
+
       <p style="margin-top:.8rem"><a class="btn" href="/members.html" data-i18n="mem_btn">See Membership Details</a></p>
       <ul class="small" style="margin:.6rem 0 0;padding-left:1.1rem">
         <li data-i18n="mem_benefit1">Ad-free viewing on members pages</li>
@@ -189,16 +178,18 @@
       <h2 data-i18n="items_title">📚 Picture Books & Items</h2>
       <div class="grid">
         <a class="tile" href="#" target="_blank" rel="noopener">
-          <img src="/assets/book-1.jpg" alt="Picture book 1"><div class="tile-body"><div class="more" data-i18n="items_1">Moriris Book: A Small Adventure</div></div>
+          <img src="/assets/book-1.jpg" alt="Picture book 1">
+          <div class="tile-body"><div class="more" data-i18n="items_1">Moriris Book: A Small Adventure</div></div>
         </a>
         <a class="tile" href="#" target="_blank" rel="noopener">
-          <img src="/assets/book-2.jpg" alt="Picture book 2"><div class="tile-body"><div class="more" data-i18n="items_2">Moriris Book: The Curious Stone</div></div>
+          <img src="/assets/book-2.jpg" alt="Picture book 2">
+          <div class="tile-body"><div class="more" data-i18n="items_2">Moriris Book: The Curious Stone</div></div>
         </a>
       </div>
       <p class="small" style="margin-top:.6rem"><a href="#" class="pill" data-i18n="items_kindle">Also available on Kindle</a></p>
     </section>
 
-    <!-- FAQ（画像の内容を反映） -->
+    <!-- FAQ（画像内容を反映） -->
     <section id="faq" class="card">
       <h2 data-i18n="faq_title">❓ FAQ</h2>
 
@@ -230,71 +221,31 @@
         </p>
       </details>
     </section>
-
-    <!-- CONTACT（画像のレイアウトに寄せたフォーム） -->
-    <section id="contact" class="card">
-      <h2 data-i18n="contact_title">📮 Contact</h2>
-      <p class="small" data-i18n="contact_lead">Please fill out the form below.</p>
-
-      <form class="form-grid" action="https://formspree.io/f/XXXXXXXX" method="POST">
-        <div>
-          <label for="name" data-i18n="form_name">Name (required)</label>
-          <input id="name" name="name" type="text" required />
-        </div>
-        <div>
-          <label for="tel" data-i18n="form_tel">Phone number</label>
-          <input id="tel" name="tel" type="tel" />
-        </div>
-        <div>
-          <label for="email" data-i18n="form_email">Email (required)</label>
-          <input id="email" name="email" type="email" required />
-        </div>
-        <div>
-          <label for="subject" data-i18n="form_subject">Subject (required)</label>
-          <input id="subject" name="subject" type="text" required />
-        </div>
-        <div>
-          <label for="order" data-i18n="form_order">Order ID</label>
-          <input id="order" name="orderId" type="text" />
-        </div>
-        <div>
-          <label for="message" data-i18n="form_message">Message (required)</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <!-- honeypot -->
-        <input type="text" name="_gotcha" style="display:none" />
-
-        <button class="submit" type="submit" data-i18n="form_submit">Confirm & Send</button>
-      </form>
-
-      <p class="small" style="margin-top:.8rem">
-        <a href="/privacy.html" target="_blank" rel="noopener" data-i18n="privacy_link">Privacy Policy</a>
-      </p>
-    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Moriris · <a href="/privacy.html" style="color:inherit">Privacy</a> · <span class="small">official.moriris.com</span>
+    © <span id="year"></span> Moriris ·
+    <a href="/contact.html" data-i18n="footer_contact">Contact</a> ·
+    <a href="/privacy.html" data-i18n="footer_privacy">Privacy</a> ·
+    <span class="small">official.moriris.com</span>
   </footer>
 
-  <!-- Language JS -->
   <script>
     const translations = {
       en:{
         tagline:"A silent world of kind creatures. Relax, breathe, and wander the gentle forest.",
         cta_watch:"Watch the Animation",
-        nav_home:"HOME",nav_about:"ABOUT",nav_membership:"MEMBERSHIP",nav_items:"ITEM",nav_faq:"FAQ",nav_blog:"BLOG",nav_contact:"CONTACT",
-        watch_title:"✨ Watch",watch_copy:"Enjoy Moriris in calm, wordless short animations.",
-        about_title:"🌿 About Moriris",
-        about_p1:"After humans disappeared, the forest began to breathe again.",
+        nav_home:"HOME", nav_about:"ABOUT", nav_membership:"MEMBERSHIP", nav_items:"ITEM", nav_faq:"FAQ",
+        watch_title:"✨ Watch", watch_copy:"Enjoy Moriris in calm, wordless short animations.",
+        about_title:"🌿 About Moriris", about_p1:"After humans disappeared, the forest began to breathe again.",
         about_p2:"Soft creatures like Mokora, Notty, and Luf live peacefully there, reminding us that kindness can still bloom in silence.",
         about_tags:"Created in Japan · Wordless · Gentle · Nature",
-        mem_title:"🫶 Moriris Membership",mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
-        mem_tile1:"Members Hub",mem_tile2:"Exclusive Episodes",mem_tile3:"Digital Picture Books",
-        mem_btn:"See Membership Details",
-        mem_benefit1:"Ad-free viewing on members pages",mem_benefit2:"Episodes from #2 onward",mem_benefit3:"Original coloring pages & picture books",
-        items_title:"📚 Picture Books & Items",items_1:"Moriris Book: A Small Adventure",items_2:"Moriris Book: The Curious Stone",items_kindle:"Also available on Kindle",
+        mem_title:"🫶 Moriris Membership", mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
+        mem_tile1:"Members Hub", mem_tile2:"Exclusive Episodes", mem_tile3:"Digital Picture Books",
+        mem_btn:"See Membership Details", mem_benefit1:"Ad-free viewing on members pages",
+        mem_benefit2:"Episodes from #2 onward", mem_benefit3:"Original coloring pages & picture books",
+        items_title:"📚 Picture Books & Items", items_1:"Moriris Book: A Small Adventure", items_2:"Moriris Book: The Curious Stone",
+        items_kindle:"Also available on Kindle",
         faq_title:"❓ FAQ",
         faq_q_view:"How can I watch members-only content?",
         faq_a_view:"After joining, you’ll get access to the Members page with a monthly password. Enter the password on the limited page to enjoy exclusive content.",
@@ -304,59 +255,47 @@
         faq_a_share:"Public content can be shared freely. Please do not re-upload or redistribute members-only content.",
         faq_q_cancel:"How can I cancel the membership?",
         faq_a_cancel:"Please follow the instructions on the help page of our store platform. We’re sorry for the extra step.",
-        contact_title:"📮 Contact",
-        contact_lead:"Please fill out the form below.",
-        form_name:"Name (required)",form_tel:"Phone number",form_email:"Email (required)",form_subject:"Subject (required)",form_order:"Order ID",form_message:"Message (required)",form_submit:"Confirm & Send",
-        privacy_link:"Privacy Policy"
+        footer_contact:"Contact", footer_privacy:"Privacy"
       },
       ja:{
         tagline:"セリフのない、やさしい森の物語。深呼吸して、ゆっくり歩いていこう。",
         cta_watch:"アニメを見る",
-        nav_home:"ホーム",nav_about:"作品紹介",nav_membership:"メンバーシップ",nav_items:"アイテム",nav_faq:"よくある質問",nav_blog:"ブログ",nav_contact:"お問い合わせ",
-        watch_title:"✨ 視聴",watch_copy:"やさしい短編アニメでモリリスの世界をお楽しみください。",
+        nav_home:"ホーム", nav_about:"作品紹介", nav_membership:"メンバーシップ", nav_items:"アイテム", nav_faq:"よくある質問",
+        watch_title:"✨ 視聴", watch_copy:"やさしい短編アニメでモリリスの世界をお楽しみください。",
         about_title:"🌿 モリリスについて",
         about_p1:"人類がいなくなったあと、森はまた静かに息をしはじめました。",
         about_p2:"モコラ、ノッティ、ルフのような“ふわもこ”たちが穏やかに暮らし、言葉のないやさしさを思い出させてくれます。",
         about_tags:"日本で制作 · セリフなし · やさしい · 自然",
-        mem_title:"🫶 モリリス・メンバーシップ",mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
-        mem_tile1:"メンバーズページ",mem_tile2:"限定エピソード",mem_tile3:"デジタル絵本",
-        mem_btn:"メンバーシップの詳細",
-        mem_benefit1:"会員ページで広告なし視聴",mem_benefit2:"第2話以降の限定アニメ",mem_benefit3:"オリジナル塗り絵や絵本",
-        items_title:"📚 絵本・アイテム",items_1:"モリリス絵本：森で始まる小さな冒険",items_2:"モリリス絵本：ふしぎな石",items_kindle:"Kindleストアでも販売中",
+        mem_title:"🫶 モリリス・メンバーシップ", mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
+        mem_tile1:"メンバーズページ", mem_tile2:"限定エピソード", mem_tile3:"デジタル絵本",
+        mem_btn:"メンバーシップの詳細", mem_benefit1:"会員ページで広告なし視聴", mem_benefit2:"第2話以降の限定アニメ", mem_benefit3:"オリジナル塗り絵や絵本",
+        items_title:"📚 絵本・アイテム", items_1:"モリリス絵本：森で始まる小さな冒険", items_2:"モリリス絵本：ふしぎな石", items_kindle:"Kindleストアでも販売中",
         faq_title:"❓ よくある質問",
         faq_q_view:"コミュニティ入会後はどのように限定コンテンツを見られますか？",
-        faq_a_view:"ご入会いただくと、メンバーズページで毎月更新の限定ページURLとパスワードをご案内します。限定ページでパスワードを入力してお楽しみください。",
+        faq_a_view:"ご入会後、メンバーズページで毎月更新の限定URLとパスワードをご案内します。限定ページでパスワードを入力してお楽しみください。",
         faq_q_update:"限定コンテンツは定期的に更新されますか？",
         faq_a_update:"新作アニメや追加特典は随時アップロード予定です。最新情報は公式SNSでもお知らせします。",
         faq_q_share:"SNSでのシェアは可能ですか？",
-        faq_a_share:"公開されているコンテンツはシェア可能です。ただし、限定コンテンツの無断転載や再配布はご遠慮ください。",
-        faq_q_cancel:"コミュニティから退会するには、どうすればいいですか？",
-        faq_a_cancel:"退会方法はご利用のストア/決済サービスのヘルプページにてご案内しています。お手数ですが、そちらをご確認ください。",
-        contact_title:"📮 お問い合わせ",
-        contact_lead:"下記フォームにご入力ください。",
-        form_name:"お名前（必須）",form_tel:"電話番号",form_email:"メールアドレス（必須）",form_subject:"件名（必須）",form_order:"注文ID",form_message:"お問い合わせ内容（必須）",form_submit:"確認して送信",
-        privacy_link:"プライバシーポリシー"
+        faq_a_share:"公開コンテンツのシェアは可能です。ただし、限定コンテンツの無断転載・再配布はご遠慮ください。",
+        faq_q_cancel:"退会方法を教えてください。",
+        faq_a_cancel:"ご利用のストア/決済サービスのヘルプページの手順をご確認ください。",
+        footer_contact:"お問い合わせ", footer_privacy:"プライバシー"
       }
     };
 
     function setLang(lang){
-      const dict = translations[lang] || translations.en;
+      const d = translations[lang] || translations.en;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.dataset.i18n;
-        if(dict[key]!==undefined){
-          // 一部はHTML含む場合がある
-          if(key.endsWith("_lead")) el.textContent = dict[key];
-          else if(key==="about_p1"||key==="about_p2"||key.startsWith("faq_a_")||key==="contact_lead") el.textContent = dict[key];
-          else el.textContent = dict[key];
-        }
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n;
+        if(d[k] !== undefined){ el.textContent = d[k]; }
       });
-      document.querySelectorAll(".lang-btn").forEach(b=>b.setAttribute("aria-pressed", b.dataset.lang===lang));
+      document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===lang));
       localStorage.setItem("moriris_lang", lang);
     }
 
-    document.querySelectorAll(".lang-btn").forEach(btn=>btn.addEventListener("click",()=>setLang(btn.dataset.lang)));
-    const saved = localStorage.getItem("moriris_lang") || ((navigator.language||"en").startsWith("ja")?"ja":"en");
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.lang)));
+    const saved = localStorage.getItem("moriris_lang") || ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
     setLang(saved);
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
