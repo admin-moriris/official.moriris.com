@@ -15,8 +15,12 @@
   <meta property="og:description" content="A silent world of kind creatures. Relax, breathe, and wander the gentle forest." />
   <meta property="og:url" content="https://official.moriris.com/" />
   <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta property="og:site_name" content="Moriris" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta name="twitter:site" content="@moriris_world" /> <!-- ← updated -->
 
   <link rel="icon" href="/assets/favicon.png" />
 
@@ -84,6 +88,18 @@
     details{background:#fffdf8;border:1px solid #e8e2c9;border-radius:12px;padding:1rem;margin:.6rem 0}
     details summary{cursor:pointer;font-weight:800}
     details p{margin:.6rem 0 0}
+
+    /* Social */
+    .social{
+      display:flex;gap:.75rem;justify-content:center;align-items:center;
+      margin:2rem 0 0;
+    }
+    .social a{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:40px;height:40px;border-radius:999px;background:#ffffffcc;box-shadow:var(--shadow);
+    }
+    .social a:hover{background:#fff}
+    .social svg{width:22px;height:22px;fill:var(--accent-dark)}
 
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
@@ -221,6 +237,22 @@
         </p>
       </details>
     </section>
+
+    <!-- Social links (updated to @moriris_world) -->
+    <div class="social" aria-label="Moriris official social links">
+      <a href="https://www.youtube.com/@moriris_world" target="_blank" rel="noopener" aria-label="YouTube @moriris_world" title="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a4 4 0 0 0-2.8-2.8C18.8 3 12 3 12 3s-6.8 0-8.7.4A4 4 0 0 0 .5 6.2 41 41 0 0 0 0 12a41 41 0 0 0 .5 5.8 4 4 0 0 0 2.8 2.8C5.2 21 12 21 12 21s6.8 0 8.7-.4a4 4 0 0 0 2.8-2.8A41 41 0 0 0 24 12a41 41 0 0 0-.5-5.8ZM9.6 15.5V8.5l6.4 3.5-6.4 3.5z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/moriris_world" target="_blank" rel="noopener" aria-label="Instagram @moriris_world" title="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6.8-2.8a1.2 1.2 0 1 1-1.2-1.2 1.2 1.2 0 0 1 1.2 1.2z"/></svg>
+      </a>
+      <a href="https://x.com/moriris_world" target="_blank" rel="noopener" aria-label="X @moriris_world" title="X (Twitter)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7 8.1L23.4 22h-6.6l-5.2-6.8L5.5 22H2.4l7.5-8.7L1.3 2h6.7l4.7 6.2L18.9 2Zm-1.1 18h1.8L8.4 4H6.6l11.2 16Z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@moriris_world" target="_blank" rel="noopener" aria-label="TikTok @moriris_world" title="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2c.5 2.4 2 4.2 4.4 4.4v3a8.7 8.7 0 0 1-4.4-1.2v6.7a7.3 7.3 0 1 1-7.3-7.3c.3 0 .6 0 .8.1v3a3.9 3.9 0 1 0 3.9 3.9V2h2.6z"/></svg>
+      </a>
+    </div>
   </main>
 
   <footer>
