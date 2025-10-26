@@ -186,20 +186,39 @@
     </section>
 
     <!-- ITEMS -->
-    <section id="items" class="card">
-      <h2 data-i18n="items_title">📚 Picture Books & Items</h2>
-      <div class="grid">
-        <a class="tile" href="#" target="_blank" rel="noopener">
-          <img src="/assets/Picture book 1.png" alt="Picture book 1">
-          <div class="tile-body"><div class="more" data-i18n="items_1">Moriris Book: Episode 1</div></div>
-        </a>
-        <a class="tile" href="#" target="_blank" rel="noopener">
-          <img src="/assets/Picture book 2.png" alt="Picture book 2">
-          <div class="tile-body"><div class="more" data-i18n="items_2">Moriris Book: Episode 2</div></div>
-        </a>
+<section id="items" class="card">
+  <h2 data-i18n="items_title">📚 Picture Books & Items</h2>
+
+  <div class="grid">
+    <!-- ↓ 会員ページへ。#membership にしたい場合は href="#membership" に変更 -->
+    <a class="tile" href="/members.html" aria-label="Go to Moriris Membership">
+      <img src="/assets/Picture book 1.png" alt="Picture book 1">
+      <div class="tile-body">
+        <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
       </div>
-      <p class="small" style="margin-top:.6rem"><a href="#" class="pill" data-i18n="items_kindle">Also available on Kindle</a></p>
-    </section>
+    </a>
+
+    <!-- ↓ 会員ページへ。#membership にしたい場合は href="#membership" に変更 -->
+    <a class="tile" href="/members.html" aria-label="Go to Moriris Membership">
+      <img src="/assets/Picture book 2.png" alt="Picture book 2">
+      <div class="tile-body">
+        <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Kindle へ別タブ -->
+  <p class="small" style="margin-top:.6rem">
+    <a
+      class="pill"
+      data-i18n="items_kindle"
+      href="https://www.amazon.co.jp/s?i=digital-text&rh=p_27%3AMoriris%2BStudio&s=relevancerank&text=Moriris+Studio&ref=dp_byline_sr_ebooks_1"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open Moriris Studio on Kindle in a new tab"
+    >Also available on Kindle</a>
+  </p>
+</section>
 
     <!-- FAQ（画像内容を反映） -->
     <section id="faq" class="card">
