@@ -19,7 +19,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta name="twitter:site" content="@moriris_world" /> <!-- ← updated -->
+  <meta name="twitter:site" content="@moriris_world" />
 
   <link rel="icon" href="/assets/favicon.png" />
 
@@ -29,6 +29,9 @@
       --accent:#6aa57a; --accent-dark:#3e7b53;
       --card:rgba(255,253,243,0.85);
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+      /* added */
+      --warn:#fbd38d;      /* light orange */
+      --warn-ink:#8a4b16;  /* dark orange */
     }
     *{box-sizing:border-box}
     html,body{
@@ -74,6 +77,7 @@
     .pill{display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:700}
     .btn{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1rem;border-radius:12px;font-weight:700}
     .btn:hover{background:var(--accent-dark)}
+    .btn.disabled{background:#a9c2b1;opacity:.7;cursor:not-allowed;pointer-events:none;text-decoration:none}
     .small{font-size:.92rem}
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
 
@@ -100,6 +104,11 @@
     .social a:hover{background:#fff}
     .social svg{width:22px;height:22px;fill:var(--accent-dark)}
 
+    /* badges */
+    .badge{display:inline-block;font-size:.82rem;font-weight:800;
+      padding:.28rem .6rem;border-radius:999px;vertical-align:middle;margin-left:.5rem}
+    .badge.soon{background:var(--warn);color:var(--warn-ink);box-shadow:0 2px 6px rgba(0,0,0,.06)}
+
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
@@ -123,7 +132,7 @@
     </div>
   </header>
 
-  <!-- NAV (Contact/Blog を外しました) -->
+  <!-- NAV -->
   <nav class="main">
     <div class="nav-inner">
       <a href="#home" data-i18n="nav_home">HOME</a>
@@ -159,7 +168,10 @@
 
     <!-- MEMBERSHIP -->
     <section id="membership" class="card">
-      <h2 data-i18n="mem_title">🌳 Moriris Membership</h2>
+      <h2>
+        <span data-i18n="mem_title">🌳 Moriris Membership</span>
+        <span class="badge soon" data-i18n="mem_status">COMING SOON</span>
+      </h2>
       <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
 
       <div class="tiles" style="margin-top:.5rem">
@@ -173,7 +185,11 @@
         </div>
       </div>
 
-      <p style="margin-top:.8rem"><a class="btn" href="/members.html" data-i18n="mem_btn">See Membership Details</a></p>
+      <!-- Disabled CTA while preparing -->
+      <p style="margin-top:.8rem">
+        <a class="btn disabled" href="#" aria-disabled="true" data-i18n="mem_btn_soon">Coming Soon</a>
+      </p>
+
       <ul class="small" style="margin:.6rem 0 0;padding-left:1.1rem">
         <li data-i18n="mem_benefit1">Ad-free viewing on members pages</li>
         <li data-i18n="mem_benefit2">Episodes from #2 onward</li>
@@ -182,41 +198,41 @@
     </section>
 
     <!-- ITEMS -->
-<section id="items" class="card">
-  <h2 data-i18n="items_title">📚 Item</h2>
+    <section id="items" class="card">
+      <h2 data-i18n="items_title">📚 Item</h2>
 
-  <div class="grid">
-    <!-- ↓ membershipへ。 -->
-    <a class="tile" href="#membership" aria-label="Go to Moriris Membership">
-      <img src="/assets/Picture book 1.png" alt="Picture book 1">
-      <div class="tile-body">
-        <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
+      <div class="grid">
+        <!-- link to membership -->
+        <a class="tile" href="#membership" aria-label="Go to Moriris Membership">
+          <img src="/assets/Picture book 1.png" alt="Picture book 1">
+          <div class="tile-body">
+            <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
+          </div>
+        </a>
+
+        <!-- link to membership -->
+        <a class="tile" href="#membership" aria-label="Go to Moriris Membership">
+          <img src="/assets/Picture book 2.png" alt="Picture book 2">
+          <div class="tile-body">
+            <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
+          </div>
+        </a>
       </div>
-    </a>
 
-    <!-- ↓ membershipへ。 -->
-    <a class="tile" href="#membership" aria-label="Go to Moriris Membership">
-      <img src="/assets/Picture book 2.png" alt="Picture book 2">
-      <div class="tile-body">
-        <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
-      </div>
-    </a>
-  </div>
+      <!-- Kindle external -->
+      <p class="small" style="margin-top:.6rem">
+        <a
+          class="pill"
+          data-i18n="items_kindle"
+          href="https://www.amazon.co.jp/s?i=digital-text&rh=p_27%3AMoriris%2BStudio&s=relevancerank&text=Moriris+Studio&ref=dp_byline_sr_ebooks_1"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Moriris Studio on Kindle in a new tab"
+        >Also available on Kindle</a>
+      </p>
+    </section>
 
-  <!-- Kindle へ別タブ -->
-  <p class="small" style="margin-top:.6rem">
-    <a
-      class="pill"
-      data-i18n="items_kindle"
-      href="https://www.amazon.co.jp/s?i=digital-text&rh=p_27%3AMoriris%2BStudio&s=relevancerank&text=Moriris+Studio&ref=dp_byline_sr_ebooks_1"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Open Moriris Studio on Kindle in a new tab"
-    >Also available on Kindle</a>
-  </p>
-</section>
-
-    <!-- FAQ（画像内容を反映） -->
+    <!-- FAQ -->
     <section id="faq" class="card">
       <h2 data-i18n="faq_title"> FAQ</h2>
 
@@ -249,7 +265,7 @@
       </details>
     </section>
 
-    <!-- Social links (updated to @moriris_world) -->
+    <!-- Social links -->
     <div class="social" aria-label="Moriris official social links">
       <a href="https://www.youtube.com/@moriris_world" target="_blank" rel="noopener" aria-label="YouTube @moriris_world" title="YouTube">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a4 4 0 0 0-2.8-2.8C18.8 3 12 3 12 3s-6.8 0-8.7.4A4 4 0 0 0 .5 6.2 41 41 0 0 0 0 12a41 41 0 0 0 .5 5.8 4 4 0 0 0 2.8 2.8C5.2 21 12 21 12 21s6.8 0 8.7-.4a4 4 0 0 0 2.8-2.8A41 41 0 0 0 24 12a41 41 0 0 0-.5-5.8ZM9.6 15.5V8.5l6.4 3.5-6.4 3.5z"/></svg>
@@ -281,9 +297,13 @@
         about_title:"🌱 About Moriris", about_p1:"Moriris is a gentle, mysterious forest story of fluffy dinosaurs",
         about_p2:"— a short, wordless animation for all ages.",
         about_tags:"Created in Japan · Wordless · Gentle · Nature",
-        mem_title:"🌳 Moriris Membership", mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
+        mem_title:"🌳 Moriris Membership",
+        mem_status:"COMING SOON",            // added
+        mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
         mem_tile1:"Members Hub", mem_tile2:"Exclusive Episodes", mem_tile3:"Digital Picture Books",
-        mem_btn:"See Membership Details", mem_benefit1:"Ad-free viewing on members pages",
+        mem_btn:"See Membership Details",
+        mem_btn_soon:"Coming Soon",          // added
+        mem_benefit1:"Ad-free viewing on members pages",
         mem_benefit2:"Episodes from #2 onward", mem_benefit3:"Digital picture books",
         items_title:"📚 ITEM", items_1:"Picture Book: Episode 1", items_2:"Picture Book: Episode 2",
         items_kindle:"Also available on Kindle",
@@ -304,9 +324,13 @@
         about_title:"🌱 モリリスについて",
         about_p1:"『モリリス』は、ふわもこ恐竜たちが暮らす森のやさしくて不思議な物語。",
         about_p2:"セリフのない短編アニメで、子どもも大人も気軽に癒されながら楽しめます。",
-        mem_title:"🌳 モリリス・メンバーシップ", mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
+        mem_title:"🌳 モリリス・メンバーシップ",
+        mem_status:"準備中",                 // added
+        mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
         mem_tile1:"メンバーズページ", mem_tile2:"限定エピソード", mem_tile3:"デジタル絵本",
-        mem_btn:"メンバーシップの詳細", mem_benefit1:"会員ページで広告なし視聴", mem_benefit2:"第2話以降の限定アニメ", mem_benefit3:"デジタル絵本",
+        mem_btn:"メンバーシップの詳細",
+        mem_btn_soon:"準備中",               // added
+        mem_benefit1:"会員ページで広告なし視聴", mem_benefit2:"第2話以降の限定アニメ", mem_benefit3:"デジタル絵本",
         items_title:"📚 アイテム", items_1:"モリリス絵本：Episode 1", items_2:"モリリス絵本：Episode 2", items_kindle:"Kindleストアでも販売中",
         faq_title:"よくある質問",
         faq_q_view:"コミュニティ入会後はどのように限定コンテンツを見られますか？",
@@ -336,6 +360,11 @@
     const saved = localStorage.getItem("moriris_lang") || ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
     setLang(saved);
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // safety: disable clicks on disabled buttons
+    document.querySelectorAll('a.disabled').forEach(a=>{
+      a.addEventListener('click', e=>e.preventDefault());
+    });
   </script>
 </body>
 </html>
