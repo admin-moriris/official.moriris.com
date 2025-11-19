@@ -1,0 +1,64 @@
+<!-- Freeユーザー向けの購読UI（必要な位置に置く） -->
+<div id="subscribe-box" style="margin:24px 0; display:none">
+  <p>すべての会員動画を視聴するには購読してください。</p>
+  <button id="btn-subscribe" class="primary">Subscribe Standard Plan</button>
+  <p id="sub-msg" class="muted"></p>
+</div>
+
+<script>
+  // ==== あなたの価格IDに置換 ====
+  const PRICE_ID = "price_1SQPclQt8oBthclHuQnAy8rN"; // 月額 standard 用
+
+  // tier 判定後に呼ぶ（既存のプロファイル取得処理の末尾あたり）
+  async function showSubscribeIfFree(myTier) {
+    const box = document.getElementById('subscribe-box');
+    if (!box) return;
+    const isFree = !myTier || myTier === 'free' || myTier === 'none';
+    box.style.display = isFree ? 'block' : 'none';
+  }
+
+  // クリックで Checkout を開始
+  document.getElementById('btn-subscribe')?.addEventListener('click', startCheckout);
+
+  async function startCheckout() {
+    const msg = document.getElementById('sub-msg');
+    msg.textContent = 'Redirecting...';
+    try {
+      // 現在のユーザー情報とアクセストークン
+      const { data: { user }, error } = await sb.auth.getUser();
+      if (error || !user) { msg.textContent = 'ログインが必要です'; return; }
+
+      // Edge Function を叩いて Checkout セッション作成
+      const res = await fetch(
+        "https://sqwyfscumunyhsvsvejv.functions.supabase.co/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // verify_jwt=false でもそのまま送る。将来の強化用に残す。
+            "Authorization": `Bearer ${(await sb.auth.getSession()).data.session?.access_token||""}`
+          },
+          body: JSON.stringify({
+            user_id: user.id,                   // metadata.user_id に入れる
+            price_id: PRICE_ID,                 // 価格ID
+            success_url: location.origin + "/members.html?lang=" + (document.documentElement.lang||"ja"),
+            cancel_url: location.origin + "/members.html?lang=" + (document.documentElement.lang||"ja") + "&checkout=cancel"
+          })
+        }
+      );
+
+      if (!res.ok) {
+        const t = await res.text();
+        msg.textContent = "Error: " + t;
+        return;
+      }
+
+      const data = await res.json();
+      if (!data?.url) { msg.textContent = "Error: no session URL"; return; }
+      // Stripe Checkout へ遷移
+      window.location.href = data.url;
+    } catch (e) {
+      msg.textContent = "Error: " + String(e);
+    }
+  }
+</script>
