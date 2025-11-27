@@ -24,14 +24,10 @@
       color:var(--ink);
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     }
-    a{
-      color:#0b5130;
-      text-decoration:none;
-    }
-    a:hover{
-      text-decoration:underline;
-    }
+    a{color:#0b5130;text-decoration:none;}
+    a:hover{text-decoration:underline;}
 
+    /* ===== Header ===== */
     header{
       background:#f1ede4;
       padding:16px;
@@ -60,6 +56,7 @@
       color:#555;
     }
 
+    /* ===== Language Buttons ===== */
     .lang{
       display:flex;
       gap:6px;
@@ -78,6 +75,7 @@
       font-weight:600;
     }
 
+    /* ===== Main ===== */
     main{
       max-width:900px;
       margin:24px auto 40px;
@@ -91,10 +89,11 @@
     }
     .lead{
       font-size:15px;
-      line-height:1.8;
       color:var(--muted);
+      line-height:1.8;
       margin:0 0 14px;
     }
+
     .frame{
       width:100%;
       height:1200px;
@@ -118,24 +117,22 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    // 初期同意（広告系は使わない前提でOFF、解析はON）
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'granted'
+    gtag('consent','default',{
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'granted'
     });
-    gtag('config', 'G-HWRX6Q9K3E'); // SPAではないのでデフォルトのpage_viewでOK
+    gtag('config','G-HWRX6Q9K3E');
   </script>
 </head>
 
 <body>
+
   <header>
     <div class="inner">
       <div class="brand">
-        <a href="/">
-          <img src="/assets/logo-moriris.png" alt="Moriris" />
-        </a>
+        <img src="/assets/logo-moriris.png" alt="Moriris" />
         <h1>Contact</h1>
       </div>
 
@@ -149,50 +146,50 @@
   <main>
     <div class="card">
 
-      <!-- 日本語版 -->
+      <!-- ===== 日本語 ===== -->
       <div id="contact-ja">
         <p class="lead">
-          下記フォームよりお問い合わせください。内容を確認のうえ順次ご返信いたします。
+          下記フォームよりお問い合わせください。内容を確認のうえ、順次ご返信いたします。
         </p>
 
-        <iframe
-          class="frame"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
-        ></iframe>
+        <iframe class="frame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header">
+        </iframe>
 
         <p class="lead" style="margin-top:14px;">
           フォームが表示されない場合は、
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header" target="_blank" rel="noopener">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
+             target="_blank" rel="noopener">
             こちらをクリックして新しいタブで開いてください
           </a>。
         </p>
 
         <p class="lead" style="font-size:14px;">
-          送信により、<a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意したものとみなします。
+          送信により、<a href="/privacy.html" target="_blank">プライバシーポリシー</a>に同意したものとみなします。
         </p>
       </div>
 
-      <!-- 英語版 -->
+      <!-- ===== English ===== -->
       <div id="contact-en" style="display:none;">
         <p class="lead">
-          Please send us your inquiry using the form below. We will review your message and get back to you as soon as we can.
+          Please submit your inquiry using the form below. We will review your message and reply as soon as possible.
         </p>
 
-        <iframe
-          class="frame"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
-        ></iframe>
+        <iframe class="frame"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header">
+        </iframe>
 
         <p class="lead" style="margin-top:14px;">
           If the form does not display,
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header" target="_blank" rel="noopener">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
+             target="_blank" rel="noopener">
             click here to open it in a new tab
           </a>.
         </p>
 
         <p class="lead" style="font-size:14px;">
           By submitting this form, you agree to our
-          <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.
+          <a href="/privacy.html" target="_blank">Privacy Policy</a>.
         </p>
       </div>
 
@@ -221,5 +218,6 @@
       btnJa.classList.remove("active");
     };
   </script>
+
 </body>
 </html>
