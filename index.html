@@ -391,7 +391,7 @@
     document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.lang)));
     const saved = localStorage.getItem("moriris_lang") || ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
     setLang(saved);
-    document.getElementById("year").textContent = new Date().getFullYear();
+    //document.getElementById("year").textContent = new Date().getFullYear();
 
     // safety: disable clicks on disabled buttons
     document.querySelectorAll('a.disabled').forEach(a=>{
