@@ -126,7 +126,9 @@
     ad_personalization: 'denied',
     analytics_storage: 'granted'
   });
-  gtag('config', 'G-HWRX6Q9K3E'); // SPAではないのでデフォルトのpage_viewでOK
+  gtag('config', 'G-HWRX6Q9K3E', {
+    'debug_mode': true
+  });
 </script>
 </head>
 <body>
