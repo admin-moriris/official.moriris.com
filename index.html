@@ -71,6 +71,17 @@
     .grid-1{grid-template-columns:1fr}
     iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
     .about p{margin:.45rem 0;color:var(--ink-soft)}
+    .about-price{
+      margin-top:1rem;
+      padding:.55rem .9rem;
+      border-radius:999px;
+      background:#ffffffd9;
+      border:1px solid #e3ddc5;
+      font-weight:700;
+      color:var(--accent-dark);
+      display:inline-block;
+      font-size:.95rem;
+    }
     .pill{display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:700}
     .btn{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1rem;border-radius:12px;font-weight:700}
     .btn:hover{background:var(--accent-dark)}
@@ -180,8 +191,11 @@
       <h2 data-i18n="about_title">🌱 About Moriris</h2>
       <div class="grid" style="align-items:center">
         <div>
-          <p data-i18n="about_p1">A silent world of kind creatures. </p>
+          <p data-i18n="about_p1">A silent world of kind creatures.</p>
           <p data-i18n="about_p2">Relax, breathe, and wander the gentle forest.</p>
+          <p class="about-price" data-i18n="about_price">
+            Standard plan: US$4.99 per month, with a 5-day free trial to start.
+          </p>
         </div>
         <div><img src="/assets/characters.png" alt="Moriris characters: Mokora and Notty"></div>
       </div>
@@ -190,7 +204,7 @@
     <!-- MEMBERSHIP -->
     <section id="membership" class="card">
       <h2>
-        <span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP/span>
+        <span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP</span>
         <span class="badge soon" data-i18n="mem_status">COMING SOON</span>
       </h2>
       <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
@@ -334,6 +348,7 @@
         watch_title:"📺 Animation", watch_copy:"Enjoy Moriris in calm, wordless short animations.",
         about_title:"🌱 About Moriris", about_p1:"Moriris is a gentle, mysterious forest story of fluffy dinosaurs",
         about_p2:"— a short, wordless animation for all ages.",
+        about_price:"Standard plan: US$4.99 per month, with a 5-day free trial to start.",
         about_tags:"Created in Japan · Wordless · Gentle · Nature",
         mem_title:"🌳 MORIRIS MEMBERSHIP",
         mem_status:"COMING SOON",
@@ -362,6 +377,7 @@
         about_title:"🌱 モリリスについて",
         about_p1:"『モリリス』は、ふわもこ恐竜たちが暮らす森のやさしくて不思議な物語。",
         about_p2:"セリフのない短編アニメで、子どもも大人も気軽に癒されながら楽しめます。",
+        about_price:"スタンダードプラン：月額4.99ドル。最初の5日間は無料でお試しいただけます。",
         mem_title:"🌳 モリリス メンバーシップ",
         mem_status:"準備中",
         mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
