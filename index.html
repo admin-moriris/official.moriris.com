@@ -191,7 +191,6 @@
     <section id="membership" class="card">
       <h2>
         <span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP</span>
-        <span class="badge soon" data-i18n="mem_status">COMING SOON</span>
       </h2>
       <p class="small" data-i18n="mem_copy">A subscriber-only area for people who want to explore Moriris more deeply.</p>
 
@@ -206,9 +205,15 @@
         </div>
       </div>
 
-      <!-- Disabled CTA while preparing -->
+      <!-- CTA: open Members site in new tab -->
       <p style="margin-top:.8rem">
-        <a class="btn disabled" href="#" aria-disabled="true" data-i18n="mem_btn_soon">Coming Soon</a>
+        <a
+          class="btn"
+          href="https://member.moriris.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="mem_btn"
+        >Details</a>
       </p>
 
       <ul class="small" style="margin:.6rem 0 0;padding-left:1.1rem">
@@ -337,11 +342,9 @@
         about_p2:"— a short, wordless animation for all ages.",
         about_tags:"Created in Japan · Wordless · Gentle · Nature",
         mem_title:"🌳 MORIRIS MEMBERSHIP",
-        mem_status:"COMING SOON",
         mem_copy:"A subscriber-only area for people who want to explore Moriris more deeply.",
         mem_tile1:"Members Hub", mem_tile2:"Exclusive Episodes", mem_tile3:"Digital Picture Books",
-        mem_btn:"See Membership Details",
-        mem_btn_soon:"Coming Soon",
+        mem_btn:"Details",
         mem_benefit1:"Watch the episodes on the Members Site (Free plan includes Episodes 1–3)",
         mem_benefit2:"Unlock all episodes and digital picture books by upgrading to the Standard plan",
         mem_price:"Available for US$4.99 per month",
@@ -365,11 +368,9 @@
         about_p1:"『モリリス』は、ふわもこ恐竜たちが暮らす森のやさしくて不思議な物語。",
         about_p2:"セリフのない短編アニメで、子どもも大人も気軽に癒されながら楽しめます。",
         mem_title:"🌳 モリリス メンバーシップ",
-        mem_status:"準備中",
         mem_copy:"モリリスの世界をもっと深く楽しみたい方向けのサブスク会員エリアです。",
         mem_tile1:"メンバーズページ", mem_tile2:"限定エピソード", mem_tile3:"デジタル絵本",
-        mem_btn:"メンバーシップの詳細",
-        mem_btn_soon:"準備中",
+        mem_btn:"詳細を見る",
         mem_benefit1:"メンバーサイトで動画を視聴できます（Freeプランは第1〜3話まで）", 
         mem_benefit2:"スタンダードプラン登録で全エピソードとデジタル絵本が閲覧可能になります",
         mem_price:"月額4.99ドルでご利用いただけます",
@@ -401,9 +402,8 @@
     document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => setLang(btn.dataset.lang)));
     const saved = localStorage.getItem("moriris_lang") || ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
     setLang(saved);
-    //document.getElementById("year").textContent = new Date().getFullYear();
 
-    // safety: disable clicks on disabled buttons
+    // safety: disable clicks on disabled buttons（現在は該当なしだが残しても問題なし）
     document.querySelectorAll('a.disabled').forEach(a=>{
       a.addEventListener('click', e=>e.preventDefault());
     });
