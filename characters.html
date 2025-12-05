@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moriris – Characters</title>
+
+  <meta name="description" content="Meet all the gentle creatures from Moriris." />
+  <link rel="canonical" href="https://official.moriris.com/characters.html" />
+
+  <style>
+    :root{
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
+      --card:rgba(255,253,243,0.9);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.7;
+    }
+    img{max-width:100%;height:auto;display:block}
+    a{color:var(--accent-dark);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .topbar{
+      position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;
+      padding:.6rem 1rem;background:rgba(246,240,201,.7);backdrop-filter:saturate(120%) blur(4px);z-index:5
+    }
+    .lang-btn{
+      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
+      font-weight:700;color:var(--accent-dark);cursor:pointer;margin-left:.4rem;
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+    .topbar-left a{font-weight:700;}
+
+    main{max-width:1040px;margin:4.5rem auto 3rem;padding:0 1rem}
+    .card{
+      background:var(--card);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:1.5rem;margin:1rem 0
+    }
+    h1{margin:0 0 .75rem;font-size:1.8rem}
+    .small{font-size:.92rem;color:var(--ink-soft)}
+
+    .tiles{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);}
+    .tile{
+      background:#fff;border-radius:14px;overflow:hidden;
+      box-shadow:var(--shadow);display:flex;flex-direction:column;height:100%;
+    }
+    .tile img{width:100%;height:auto}
+    .tile-body{padding:.9rem 1rem;display:flex;flex-direction:column;gap:.25rem}
+    .name{font-weight:800;}
+    .title{font-size:.9rem;color:var(--ink-soft);}
+    .desc{font-size:.9rem;}
+
+    @media (max-width:900px){
+      .tiles{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:640px){
+      .tiles{grid-template-columns:1fr;}
+    }
+  </style>
+
+  <script>
+    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    });
+    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
+    gtag('event', 'page_view', {
+      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
+    });
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="/" data-i18n="back_home">← Back to top</a>
+    </div>
+    <div>
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="card">
+      <h1 data-i18n="char_page_title">🦕 Moriris Characters</h1>
+      <p class="small" data-i18n="char_page_copy">
+        Meet all the gentle creatures who live in the world of Moriris.
+      </p>
+    </section>
+
+    <section class="card">
+      <div id="character-grid" class="tiles"></div>
+    </section>
+  </main>
+
+  <script>
+    let charactersData = [];
+    let currentLang = "en";
+
+    function renderCharacters(){
+      const grid = document.getElementById("character-grid");
+      if (!grid || !charactersData.length) return;
+      const isJa = (currentLang === "ja");
+
+      grid.innerHTML = "";
+      charactersData.forEach(ch => {
+        const name = isJa ? (ch.name_ja || ch.name_en) : (ch.name_en || ch.name_ja);
+        const title = isJa ? (ch.title_ja || ch.title_en) : (ch.title_en || ch.title_ja);
+        const desc = isJa ? (ch.description_ja || ch.description_en) : (ch.description_en || ch.description_ja);
+
+        const card = document.createElement("article");
+        card.className = "tile";
+        card.innerHTML = `
+          <img src="${ch.image}" alt="${name}">
+          <div class="tile-body">
+            <div class="name">${name}</div>
+            <div class="title">${title}</div>
+            <div class="desc">${desc}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    const translations = {
+      en:{
+        back_home:"← Back to top",
+        char_page_title:"🦕 Moriris Characters",
+        char_page_copy:"Meet all the gentle creatures who live in the world of Moriris."
+      },
+      ja:{
+        back_home:"← トップページへ戻る",
+        char_page_title:"🦕 モリリスのキャラクター",
+        char_page_copy:"モリリスの世界で暮らす仲間たちを紹介します。"
+      }
+    };
+
+    function setLang(lang){
+      const dict = translations[lang] || translations.en;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n;
+        if(dict[k] !== undefined) el.textContent = dict[k];
+      });
+      document.querySelectorAll(".lang-btn").forEach(b =>
+        b.setAttribute("aria-pressed", b.dataset.lang===lang)
+      );
+      localStorage.setItem("moriris_lang", lang);
+      renderCharacters();
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => setLang(btn.dataset.lang))
+    );
+    const saved = localStorage.getItem("moriris_lang") ||
+      ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
+    setLang(saved);
+
+    fetch("/data/character.json")
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to load character.json");
+        return res.json();
+      })
+      .then(data => {
+        charactersData = Array.isArray(data) ? data : [];
+        renderCharacters();
+      })
+      .catch(err => console.error("Character load error:", err));
+  </script>
+</body>
+</html>
