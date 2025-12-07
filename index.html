@@ -164,18 +164,19 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
+  
     gtag('js', new Date());
+  
     gtag('consent', 'default', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       analytics_storage: 'granted'
     });
+  
+    // page_view は config だけで自動送信されるので event 呼び出しは不要
     gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
-    gtag('event', 'page_view', {
-      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
-    });
-  </script>  
+  </script> 
 </head>
 <body>
 
