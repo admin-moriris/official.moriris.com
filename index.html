@@ -146,6 +146,14 @@
     .social a:hover{background:#fff}
     .social svg{width:22px;height:22px;fill:var(--accent-dark)}
 
+    /* WATCH extra text */
+    .watch-extra{
+      margin-top:.75rem;
+    }
+    .watch-extra p{
+      margin:.25rem 0;
+    }
+
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
@@ -210,10 +218,17 @@
     <!-- WATCH -->
     <section id="watch" class="card">
       <h2 data-i18n="watch_title">📺 Animation</h2>
-      <p class="small" data-i18n="watch_copy">Enjoy Moriris in calm, wordless short animations.</p>
+      <p class="small" data-i18n="watch_copy">Start here.</p>
       <div class="grid grid-1" style="margin-top:.5rem">
         <iframe src="https://www.youtube.com/embed/JBy3kEuLAZY" title="Moriris Episode" allowfullscreen></iframe>
       </div>
+      <div class="small watch-extra">
+        <p data-i18n="watch_intro1">This short film introduces the world of Moriris.</p>
+        <p data-i18n="watch_intro2">Meet the characters who live in this forest.</p>
+      </div>
+      <p style="margin-top:.8rem">
+        <a href="/characters.html" class="btn" data-i18n="watch_meet_btn">Meet the Characters</a>
+      </p>
     </section>
 
     <!-- ABOUT -->
@@ -383,7 +398,10 @@
         nav_items:"ITEM",
         nav_faq:"FAQ",
         watch_title:"📺 Animation",
-        watch_copy:"Enjoy Moriris in calm, wordless short animations.",
+        watch_copy:"Start here.",
+        watch_intro1:"This short film introduces the world of Moriris.",
+        watch_intro2:"Meet the characters who live in this forest.",
+        watch_meet_btn:"Meet the Characters",
         about_title:"🌱 About Moriris",
         about_p1:"Moriris is a gentle, mysterious forest story of fluffy dinosaurs",
         about_p2:"— a short, wordless animation for all ages.",
@@ -424,7 +442,10 @@
         nav_items:"ITEM",
         nav_faq:"FAQ",
         watch_title:"📺 アニメ",
-        watch_copy:"やさしい短編アニメでモリリスの世界をお楽しみください。",
+        watch_copy:"モリリスの世界をお楽しみください。",
+        watch_intro1:"こちらはモリリスの紹介映像です。",
+        watch_intro2:"この森に暮らすキャラクターたちを見てみてください。",
+        watch_meet_btn:"キャラクターを見る",
         about_title:"🌱 モリリスについて",
         about_p1:"『モリリス』は、ふわもこ恐竜たちが暮らす森のやさしくて不思議な物語。",
         about_p2:"セリフのない短編アニメで、子どもも大人も気軽に癒されながら楽しめます。",
@@ -477,8 +498,9 @@
     document.querySelectorAll(".lang-btn").forEach(btn =>
       btn.addEventListener("click", () => setLang(btn.dataset.lang))
     );
-    const saved = localStorage.getItem("moriris_lang") ||
-      ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
+
+    // 初回デフォルトは必ず EN
+    const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
     document.querySelectorAll('a.disabled').forEach(a=>{
