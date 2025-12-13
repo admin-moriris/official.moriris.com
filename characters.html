@@ -44,6 +44,7 @@
       box-shadow:var(--shadow);padding:1.5rem;margin:1rem 0
     }
     h1{margin:0 0 .75rem;font-size:1.8rem}
+    h2{margin:0 0 .75rem;font-size:1.4rem}
     .small{font-size:.92rem;color:var(--ink-soft)}
 
     .tiles{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr);}
@@ -57,6 +58,21 @@
     .title{font-size:.9rem;color:var(--ink-soft);}
     .desc{font-size:.9rem;}
 
+    /* Membership CTA button */
+    .btn{
+      display:inline-block;
+      background:var(--accent);
+      color:#fff;
+      padding:.65rem 1.1rem;
+      border-radius:12px;
+      font-weight:700;
+      text-align:center;
+    }
+    .btn:hover{
+      background:var(--accent-dark);
+      text-decoration:none;
+    }
+
     @media (max-width:900px){
       .tiles{grid-template-columns:1fr 1fr;}
     }
@@ -65,6 +81,7 @@
     }
   </style>
 
+  <!-- GA4: internal flag + tag -->
   <script>
     document.cookie = "moriris_dev=1; path=/; max-age=31536000";
   </script>
@@ -107,6 +124,24 @@
     <section class="card">
       <div id="character-grid" class="tiles"></div>
     </section>
+
+    <!-- Membership CTA section -->
+    <section class="card">
+      <h2 data-i18n="mem_teaser_title">🌳 Moriris Membership</h2>
+      <p class="small" data-i18n="mem_teaser_copy">
+        For those who want to stay a little longer in the forest.
+      </p>
+      <p style="margin-top:.7rem">
+        <a
+          href="/membership.html"
+          class="btn"
+          id="mem-cta"
+          data-i18n="mem_teaser_btn"
+        >
+          Continue the story
+        </a>
+      </p>
+    </section>
   </main>
 
   <script>
@@ -142,12 +177,18 @@
       en:{
         back_home:"← Back to top",
         char_page_title:"🦕 Moriris Characters",
-        char_page_copy:"Meet all the gentle creatures who live in the world of Moriris."
+        char_page_copy:"Meet all the gentle creatures who live in the world of Moriris.",
+        mem_teaser_title:"🌳 Moriris Membership",
+        mem_teaser_copy:"For those who want to stay a little longer in the forest.",
+        mem_teaser_btn:"Continue the story"
       },
       ja:{
         back_home:"← トップページへ戻る",
         char_page_title:"🦕 モリリスのキャラクター",
-        char_page_copy:"モリリスの世界で暮らす仲間たちを紹介します。"
+        char_page_copy:"モリリスの世界で暮らす仲間たちを紹介します。",
+        mem_teaser_title:"🌳 モリリス メンバーシップ",
+        mem_teaser_copy:"森の世界に、もう少しだけ長くとどまりたいあなたへ。",
+        mem_teaser_btn:"メンバーシップの詳細を見る"
       }
     };
 
@@ -183,6 +224,19 @@
         renderCharacters();
       })
       .catch(err => console.error("Character load error:", err));
+
+    // GA4用・メンバーシップ遷移ボタンクリックイベント
+    const memCta = document.getElementById("mem-cta");
+    if (memCta) {
+      memCta.addEventListener("click", () => {
+        if (typeof gtag === "function") {
+          gtag('event', 'membership_cta_click', {
+            from_page: 'characters',
+            destination: '/membership.html'
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
