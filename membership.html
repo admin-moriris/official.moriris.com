@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MORIRIS MEMBERSHIP</title>
 
+  <!-- Basic SEO -->
   <meta name="description" content="Moriris Membership – stay a little longer in the forest with exclusive episodes and digital picture books." />
   <link rel="canonical" href="https://official.moriris.com/membership.html" />
+
+  <!-- OGP (必要なら追加可能) -->
+  <!--
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Moriris Membership" />
+  <meta property="og:url" content="https://official.moriris.com/membership.html" />
+  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta property="og:site_name" content="Moriris" />
+  -->
 
   <style>
     :root{
@@ -91,24 +101,22 @@
       margin-top:1.2rem;
     }
 
-    /* ▼ 追加：2枚の画像を並べるブロック */
+    /* ヒーロー下の画像2枚を枠いっぱいに表示 */
     .mem-hero-images{
       display:flex;
-      gap:1rem;
-      margin:1.2rem 0 1rem;
-      justify-content:center;
-      flex-wrap:wrap;
+      flex-direction:column;
+      gap:1.2rem;
+      margin:1.4rem 0 1.4rem;
     }
-    .mem-hero-images img{
-      width:250px;
-      max-width:46%;
+    .mem-hero-images-item img{
+      width:100%;
       border-radius:14px;
       box-shadow:var(--shadow);
     }
-    @media (max-width:600px){
-      .mem-hero-images img{
-        max-width:100%;
-      }
+    .mem-hero-caption{
+      margin-top:.4rem;
+      font-size:.95rem;
+      font-weight:700;
     }
 
     /* Plans */
@@ -143,7 +151,32 @@
     }
 
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center;font-size:.9rem}
+
+    @media (max-width:780px){
+      .plans{grid-template-columns:1fr}
+    }
   </style>
+
+  <script>
+    // GA4 開発者判定クッキー
+    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    });
+    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
+    gtag('event', 'page_view', {
+      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
+    });
+  </script>
 </head>
 
 <body>
@@ -170,18 +203,26 @@
         For those who want to stay a little longer in the forest.
       </p>
 
-      <!-- ▼ 追加：画像2枚 -->
+      <!-- 画像2枚（枠いっぱい＋下にテキスト） -->
       <div class="mem-hero-images">
-        <img src="/assets/Exclusive Episodes.png" alt="Exclusive Episodes">
-        <img src="/assets/Digital picture books.png" alt="Digital picture books">
+        <div class="mem-hero-images-item">
+          <img src="/assets/Exclusive Episodes.png" alt="Exclusive Episodes">
+          <p class="mem-hero-caption" data-i18n="mem_img1_caption">Exclusive Episodes</p>
+        </div>
+        <div class="mem-hero-images-item">
+          <img src="/assets/Digital picture books.png" alt="Digital picture books">
+          <p class="mem-hero-caption" data-i18n="mem_img2_caption">Digital picture books</p>
+        </div>
       </div>
 
       <div class="cta-row">
-        <a href="https://member.moriris.com/"
+        <a
+          href="https://member.moriris.com/"
           class="btn"
           target="_blank"
           rel="noopener noreferrer"
-          data-i18n="mempage_btn_main">
+          data-i18n="mempage_btn_main"
+        >
           Continue the story on the Members Site
         </a>
         <span class="small" data-i18n="mempage_note">
@@ -212,7 +253,13 @@
             <li data-i18n="plan_free_b3">No credit card required at sign-up</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a href="https://member.moriris.com/" class="btn-outline" data-i18n="plan_free_btn">
+            <a
+              href="https://member.moriris.com/"
+              class="btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="plan_free_btn"
+            >
               Join Free plan
             </a>
           </div>
@@ -231,7 +278,13 @@
             <li data-i18n="plan_standard_b3">5-day free trial for new members</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a href="https://member.moriris.com/" class="btn" data-i18n="plan_standard_btn">
+            <a
+              href="https://member.moriris.com/"
+              class="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="plan_standard_btn"
+            >
               Start Standard plan
             </a>
           </div>
@@ -249,8 +302,8 @@
       <h2 data-i18n="content_title">What you can enjoy</h2>
       <ul>
         <li data-i18n="content_b1">Wordless short animations set in the gentle forest of Moriris</li>
-        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu</li>
-        <li data-i18n="content_b3">A calm viewing experience for both children and adults</li>
+        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu and their friends</li>
+        <li data-i18n="content_b3">A calm viewing experience designed for both children and adults</li>
       </ul>
     </section>
 
@@ -258,10 +311,10 @@
 
   <footer>
     © Moriris Studio ·
-    <a href="/contact.html">Contact</a> ·
-    <a href="https://member.moriris.com/terms.html">Terms of Service</a> /
-    <a href="https://member.moriris.com/privacy.html">Privacy Policy</a> /
-    <a href="https://member.moriris.com/legal.html">Legal Notice</a> /
+    <a href="/contact.html" data-i18n="footer_contact" target="_blank" rel="noopener noreferrer">Contact</a> ·
+    <a href="https://member.moriris.com/terms.html" data-i18n="footer_terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> /
+    <a href="https://member.moriris.com/privacy.html" data-i18n="footer_privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> /
+    <a href="https://member.moriris.com/legal.html" data-i18n="footer_legal" target="_blank" rel="noopener noreferrer">Legal Notice</a> /
     <span class="small">official.moriris.com</span>
   </footer>
 
@@ -274,6 +327,8 @@
         badge_label:"Members-only area",
         mempage_title:"🌳 MORIRIS MEMBERSHIP",
         mempage_copy:"For those who want to stay a little longer in the forest.",
+        mem_img1_caption:"Exclusive Episodes",
+        mem_img2_caption:"Digital picture books",
         mempage_btn_main:"Continue the story on the Members Site",
         mempage_note:"You can start with the Free plan and upgrade to Standard anytime.",
         plans_title:"Plans",
@@ -288,55 +343,67 @@
         plan_standard_name:"Standard plan",
         plan_standard_tag:"Full access",
         plan_standard_price:"US$4.99 / month",
-        plan_standard_b1:"Unlock all episodes",
+        plan_standard_b1:"Unlock all episodes (including Episode 4 and beyond)",
         plan_standard_b2:"Access all digital picture books",
-        plan_standard_b3:"5-day free trial",
+        plan_standard_b3:"5-day free trial for new members",
         plan_standard_btn:"Start Standard plan",
-        plans_note:"Billing and plan changes are managed securely on member.moriris.com.",
+        plans_note:"Billing and account management are handled securely on the Members Site (member.moriris.com).",
         content_title:"What you can enjoy",
-        content_b1:"Wordless short animations set in Moriris forest",
-        content_b2:"Digital picture books of Mokora, Notty, and Rufu",
-        content_b3:"A relaxing viewing experience for all ages"
+        content_b1:"Wordless short animations set in the gentle forest of Moriris",
+        content_b2:"Digital picture books featuring Mokora, Notty, Rufu and their friends",
+        content_b3:"A calm viewing experience designed for both children and adults",
+        footer_contact:"Contact",
+        footer_terms:"Terms of Service",
+        footer_privacy:"Privacy Policy",
+        footer_legal:"Legal Notice"
       },
       ja:{
         back_home:"← トップページへ戻る",
         badge_label:"メンバー限定エリア",
         mempage_title:"🌳 モリリス メンバーシップ",
         mempage_copy:"森の世界に、もう少しだけ長くとどまりたいあなたへ。",
+        mem_img1_caption:"限定エピソード",
+        mem_img2_caption:"デジタル絵本",
         mempage_btn_main:"メンバーサイトで物語のつづきを見る",
-        mempage_note:"まずはFreeプランでお試しできます。",
+        mempage_note:"まずはFreeプランから始めて、必要に応じてStandardプランにアップグレードできます。",
         plans_title:"プラン",
-        plans_intro:"モリリスをどれくらい楽しむか選べます。",
+        plans_intro:"モリリスの世界を、どのくらい深く楽しむか選べます。",
         plan_free_name:"Freeプラン",
         plan_free_tag:"まずはお試し",
         plan_free_price:"月額 US$0",
-        plan_free_b1:"第1〜3話が視聴できます",
-        plan_free_b2:"モリリスの世界を体験",
-        plan_free_b3:"クレジットカード不要",
-        plan_free_btn:"Freeプランに登録",
+        plan_free_b1:"アニメ第1〜3話を視聴できます",
+        plan_free_b2:"モリリスの雰囲気を気軽に体験",
+        plan_free_b3:"登録時はクレジットカード不要",
+        plan_free_btn:"Freeプランに登録する",
         plan_standard_name:"Standardプラン",
         plan_standard_tag:"全コンテンツ解放",
         plan_standard_price:"月額 US$4.99",
-        plan_standard_b1:"全エピソードを視聴可能",
-        plan_standard_b2:"デジタル絵本読み放題",
-        plan_standard_b3:"5日間の無料トライアル",
-        plan_standard_btn:"Standardプランを開始",
-        plans_note:"決済は member.moriris.com 内で安全に行われます。",
-        content_title:"楽しめる内容",
-        content_b1:"森を舞台にしたセリフなし短編アニメ",
-        content_b2:"モコラ・ノッティ・ルフの絵本",
-        content_b3:"大人も子どもも楽しめる落ち着いた世界観"
+        plan_standard_b1:"第4話以降を含む全エピソードが視聴可能",
+        plan_standard_b2:"すべてのデジタル絵本が読み放題",
+        plan_standard_b3:"新規登録の方は5日間の無料トライアルつき",
+        plan_standard_btn:"Standardプランを始める",
+        plans_note:"決済やプラン変更などの管理は、すべてメンバーサイト（member.moriris.com）の安全な画面で行われます。",
+        content_title:"メンバーシップで楽しめるもの",
+        content_b1:"静かな森を舞台にした、セリフのない短編アニメ",
+        content_b2:"モコラ・ノッティ・ルフたちが登場するデジタル絵本",
+        content_b3:"子どもから大人まで、落ち着いた気持ちで楽しめるやさしい世界観",
+        footer_contact:"お問い合わせ",
+        footer_terms:"利用規約",
+        footer_privacy:"プライバシーポリシー",
+        footer_legal:"特定商取引法に基づく表記"
       }
     };
 
     function setLang(lang){
-      const dict = translations[lang];
+      const dict = translations[lang] || translations.en;
       currentLang = lang;
 
       document.documentElement.lang = lang;
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.dataset.i18n;
-        if(dict[key]) el.textContent = dict[key];
+        if(dict[key] !== undefined){
+          el.textContent = dict[key];
+        }
       });
 
       document.querySelectorAll(".lang-btn").forEach(btn=>{
