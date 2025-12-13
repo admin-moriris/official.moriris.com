@@ -28,7 +28,6 @@
     a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Topbar */
     .topbar{
       position:fixed;top:0;left:0;right:0;
       display:flex;justify-content:space-between;align-items:center;
@@ -66,6 +65,7 @@
     .btn{
       display:inline-block;background:var(--accent);color:#fff;
       padding:.75rem 1.2rem;border-radius:12px;font-weight:700;
+      text-align:center;
     }
     .btn:hover{background:var(--accent-dark)}
 
@@ -78,9 +78,7 @@
       color:var(--accent-dark);
       background:transparent;
     }
-    .btn-outline:hover{
-      background:rgba(255,255,255,.8);
-    }
+    .btn-outline:hover{background:rgba(255,255,255,.8)}
 
     .cta-row{
       display:flex;
@@ -90,7 +88,7 @@
       margin-top:1.2rem;
     }
 
-    /* ★ 横に2枚並べる画像ブロック */
+    /* ▼ 横2枚画像レイアウト */
     .mem-hero-images{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -110,12 +108,9 @@
     }
 
     @media(max-width:700px){
-      .mem-hero-images{
-        grid-template-columns:1fr;
-      }
+      .mem-hero-images{ grid-template-columns:1fr; }
     }
 
-    /* Plans */
     .plans{
       display:grid;gap:1.4rem;grid-template-columns:1fr 1fr;margin-top:.8rem;
     }
@@ -124,39 +119,56 @@
       box-shadow:var(--shadow);
     }
     .plan-header{
-      display:flex;justify-content:space-between;align-items:flex-end;
-      margin-bottom:.3rem;
+      display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.3rem;
     }
     .plan-name{font-weight:800;font-size:1.1rem}
     .plan-tag{
-      font-size:.8rem;
-      padding:.2rem .55rem;
-      border-radius:999px;
-      background:#f0f5f1;
-      color:var(--accent-dark);
-      font-weight:700;
+      font-size:.8rem;padding:.2rem .55rem;border-radius:999px;
+      background:#f0f5f1;color:var(--accent-dark);font-weight:700;
     }
-    .price{
-      font-size:1.25rem;font-weight:800;margin:.3rem 0 .6rem;
-    }
-    .plan ul{
-      margin:.3rem 0 0;padding-left:1.1rem;font-size:.92rem;
-    }
-    .note{
-      font-size:.9rem;color:var(--ink-soft);margin-top:.9rem;
-    }
+    .price{font-size:1.25rem;font-weight:800;margin:.3rem 0 .6rem}
+    .plan ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:.92rem}
+    .note{font-size:.9rem;color:var(--ink-soft);margin-top:.9rem}
 
-    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center;font-size:.9rem}
-
-    @media (max-width:780px){
-      .plans{grid-template-columns:1fr}
+    footer{
+      padding:2rem 1rem;
+      color:var(--ink-soft);
+      text-align:center;
+      font-size:.9rem
     }
   </style>
+
+  <!-- ▼ GA4 計測コード（このページで計測可能にする） -->
+  <script>
+    // 内部トラフィック識別用（必要なければ削除可）
+    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    });
+
+    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
+
+    gtag('event', 'page_view', {
+      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
+    });
+  </script>
+
 </head>
 
 <body>
 
-  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-left">
       <a href="/" data-i18n="back_home">← Back to top</a>
@@ -169,7 +181,6 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="card">
       <span class="badge" data-i18n="badge_label">Members-only area</span>
       <h1 data-i18n="mempage_title">🌳 MORIRIS MEMBERSHIP</h1>
@@ -178,7 +189,7 @@
         For those who want to stay a little longer in the forest.
       </p>
 
-      <!-- ★ 横に2枚並べる画像ブロック -->
+      <!-- ▼ 横2枚画像 -->
       <div class="mem-hero-images">
         <div class="mem-hero-images-item">
           <img src="/assets/Exclusive Episodes.png" alt="Exclusive Episodes">
@@ -200,13 +211,13 @@
         >
           Continue the story on the Members Site
         </a>
+
         <span class="small" data-i18n="mempage_note">
           You can start with the Free plan and upgrade to Standard anytime.
         </span>
       </div>
     </section>
 
-    <!-- PLANS -->
     <section class="card">
       <h2 data-i18n="plans_title">Plans</h2>
       <p class="small" data-i18n="plans_intro">
@@ -215,7 +226,6 @@
 
       <div class="plans">
 
-        <!-- Free -->
         <div class="plan">
           <div class="plan-header">
             <div class="plan-name" data-i18n="plan_free_name">Free plan</div>
@@ -232,7 +242,6 @@
           </div>
         </div>
 
-        <!-- Standard -->
         <div class="plan">
           <div class="plan-header">
             <div class="plan-name" data-i18n="plan_standard_name">Standard plan</div>
@@ -256,13 +265,12 @@
       </p>
     </section>
 
-    <!-- CONTENT -->
     <section class="card">
       <h2 data-i18n="content_title">What you can enjoy</h2>
       <ul>
         <li data-i18n="content_b1">Wordless short animations set in the gentle forest of Moriris</li>
         <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu</li>
-        <li data-i18n="content_b3">A calm viewing experience designed for both children and adults</li>
+        <li data-i18n="content_b3">A calm viewing experience for both children and adults</li>
       </ul>
     </section>
 
@@ -310,7 +318,7 @@
         content_title:"What you can enjoy",
         content_b1:"Wordless short animations set in the gentle forest of Moriris",
         content_b2:"Digital picture books featuring Mokora, Notty, Rufu",
-        content_b3:"A calm viewing experience designed for both children and adults",
+        content_b3:"A calm viewing experience for both children and adults",
         footer_contact:"Contact",
         footer_terms:"Terms of Service",
         footer_privacy:"Privacy Policy",
@@ -324,28 +332,28 @@
         mem_img1_caption:"限定エピソード",
         mem_img2_caption:"デジタル絵本",
         mempage_btn_main:"メンバーサイトで物語のつづきを見る",
-        mempage_note:"まずはFreeプランから始めて、Standardプランにアップグレードできます。",
+        mempage_note:"まずはFreeプランから始めて、必要なときにStandardプランへアップグレード可能です。",
         plans_title:"プラン",
         plans_intro:"モリリスの世界をどれくらい楽しむか選べます。",
         plan_free_name:"Freeプラン",
         plan_free_tag:"まずはお試し",
         plan_free_price:"月額 US$0",
-        plan_free_b1:"アニメ第1〜3話を視聴できます",
-        plan_free_b2:"モリリスの雰囲気を気軽に体験",
-        plan_free_b3:"登録時クレジットカード不要",
+        plan_free_b1:"第1〜3話を視聴できます",
+        plan_free_b2:"モリリスの雰囲気を体験",
+        plan_free_b3:"クレジットカード不要",
         plan_free_btn:"Freeプランに登録",
         plan_standard_name:"Standardプラン",
         plan_standard_tag:"全コンテンツ解放",
         plan_standard_price:"月額 US$4.99",
         plan_standard_b1:"第4話以降の全エピソードが視聴可能",
-        plan_standard_b2:"デジタル絵本が読み放題",
+        plan_standard_b2:"全デジタル絵本 読み放題",
         plan_standard_b3:"5日間の無料トライアル",
         plan_standard_btn:"Standardプランを開始",
-        plans_note:"決済およびプラン管理はメンバーサイト（member.moriris.com）で行います。",
+        plans_note:"決済やプラン変更はすべて member.moriris.com 内で安全に行われます。",
         content_title:"楽しめる内容",
         content_b1:"静かな森を舞台にしたセリフなし短編アニメ",
-        content_b2:"モコラ・ノッティ・ルフたちのデジタル絵本",
-        content_b3:"大人も子どもも落ち着いた気持ちで楽しめる世界観",
+        content_b2:"モコラ・ノッティ・ルフたちが登場するデジタル絵本",
+        content_b3:"大人も子どもも落ち着いて楽しめる世界観",
         footer_contact:"お問い合わせ",
         footer_terms:"利用規約",
         footer_privacy:"プライバシーポリシー",
@@ -354,13 +362,13 @@
     };
 
     function setLang(lang){
-      const dict = translations[lang];
+      const dict = translations[lang] || translations.en;
       currentLang = lang;
 
       document.documentElement.lang = lang;
       document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const k = el.dataset.i18n;
-        if(dict[k]) el.textContent = dict[k];
+        const key = el.dataset.i18n;
+        if(dict[key]) el.textContent = dict[key];
       });
 
       document.querySelectorAll(".lang-btn").forEach(btn=>{
@@ -374,8 +382,8 @@
       btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
     });
 
-    const savedLang = localStorage.getItem("moriris_lang") || "en";
-    setLang(savedLang);
+    const saved = localStorage.getItem("moriris_lang") || "en";
+    setLang(saved);
   </script>
 
 </body>
