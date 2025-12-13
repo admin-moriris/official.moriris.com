@@ -5,21 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MORIRIS MEMBERSHIP</title>
 
-  <!-- Basic SEO -->
   <meta name="description" content="Moriris Membership – stay a little longer in the forest with exclusive episodes and digital picture books." />
   <link rel="canonical" href="https://official.moriris.com/membership.html" />
-
-  <!-- OGP -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Moriris Membership" />
-  <meta property="og:url" content="https://official.moriris.com/membership.html" />
-  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta property="og:site_name" content="Moriris" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta name="twitter:site" content="@moriris_world" />
 
   <style>
     :root{
@@ -41,34 +28,29 @@
     a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Topbar (Lang) */
+    /* Topbar */
     .topbar{
-      position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
-      padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5
+      position:fixed;top:0;left:0;right:0;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:.6rem 1rem;
+      background:rgba(246,240,201,.7);
+      backdrop-filter:saturate(120%) blur(4px);
+      z-index:5;
     }
+    .topbar-left a{font-weight:700;}
     .lang-btn{
       border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
-      font-weight:700;color:var(--accent-dark);cursor:pointer
+      font-weight:700;color:var(--accent-dark);cursor:pointer;margin-left:.4rem;
     }
     .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
 
-    /* Nav */
-    nav.main{max-width:1100px;margin:3.2rem auto 0;padding:0 1rem;position:relative;z-index:2}
-    .nav-inner{
-      display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
-      background:rgba(255,253,243,.9);
-      border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)
-    }
-    .nav-inner a{font-weight:800;letter-spacing:.02em}
-
-    main{max-width:960px;margin:1.5rem auto 4rem;padding:0 1rem}
+    main{max-width:960px;margin:4.5rem auto 4rem;padding:0 1rem}
     .card{
       background:var(--card);border-radius:var(--radius);
       box-shadow:var(--shadow);padding:1.8rem 1.6rem;margin:1.2rem 0
     }
-    h1,h2{margin:0 0 .75rem}
-    h1{font-size:2rem}
-    h2{font-size:1.4rem}
+    h1{margin:0 0 .75rem;font-size:2rem}
+    h2{margin:0 0 .75rem;font-size:1.4rem}
     .small{font-size:.92rem;color:var(--ink-soft)}
 
     .badge{
@@ -87,6 +69,7 @@
       text-align:center;
     }
     .btn:hover{background:var(--accent-dark)}
+
     .btn-outline{
       display:inline-block;
       border:1px solid var(--accent-dark);
@@ -100,11 +83,35 @@
       background:rgba(255,255,255,.8);
     }
 
-    .hero-copy{
-      margin-top:.4rem;
-      margin-bottom:1.2rem;
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.8rem;
+      align-items:center;
+      margin-top:1.2rem;
     }
 
+    /* ▼ 追加：2枚の画像を並べるブロック */
+    .mem-hero-images{
+      display:flex;
+      gap:1rem;
+      margin:1.2rem 0 1rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .mem-hero-images img{
+      width:250px;
+      max-width:46%;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+    }
+    @media (max-width:600px){
+      .mem-hero-images img{
+        max-width:100%;
+      }
+    }
+
+    /* Plans */
     .plans{
       display:grid;gap:1.4rem;grid-template-columns:1fr 1fr;margin-top:.8rem;
     }
@@ -113,7 +120,7 @@
       box-shadow:var(--shadow);
     }
     .plan-header{
-      display:flex;justify-content:space-between;align-items:flex-end;gap:.6rem;
+      display:flex;justify-content:space-between;align-items:flex-end;
       margin-bottom:.3rem;
     }
     .plan-name{font-weight:800;font-size:1.1rem}
@@ -128,108 +135,53 @@
     .price{
       font-size:1.25rem;font-weight:800;margin:.3rem 0 .6rem;
     }
-    .price span{
-      font-size:.9rem;font-weight:500;
-    }
     .plan ul{
-      margin:.3rem 0 0;
-      padding-left:1.1rem;
-      font-size:.92rem;
+      margin:.3rem 0 0;padding-left:1.1rem;font-size:.92rem;
     }
-    .plan li{margin:.15rem 0;}
-
     .note{
-      font-size:.9rem;
-      color:var(--ink-soft);
-      margin-top:.9rem;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.8rem;
-      align-items:center;
-      margin-top:1.2rem;
-    }
-
-    .extras{
-      margin-top:1.4rem;
-    }
-    .extras h2{
-      font-size:1.2rem;
-    }
-    .extras ul{
-      margin:.4rem 0 0;
-      padding-left:1.1rem;
-      font-size:.92rem;
+      font-size:.9rem;color:var(--ink-soft);margin-top:.9rem;
     }
 
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center;font-size:.9rem}
-
-    @media (max-width:780px){
-      .plans{grid-template-columns:1fr}
-      nav.main{margin:3rem auto 0}
-    }
   </style>
-
-  <script>
-    // GA4で開発者を除外する
-    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-  
-    gtag('js', new Date());
-  
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'granted'
-    });
-  
-    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
-  </script> 
 </head>
+
 <body>
 
-  <!-- Language -->
+  <!-- Topbar: Back + Lang -->
   <div class="topbar">
-    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-    <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    <div class="topbar-left">
+      <a href="/" data-i18n="back_home">← Back to top</a>
+    </div>
+    <div>
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    </div>
   </div>
 
-  <!-- NAV -->
-  <nav class="main">
-    <div class="nav-inner">
-      <a href="/" data-i18n="nav_home">HOME</a>
-      <a href="/#about" data-i18n="nav_about">ABOUT</a>
-      <a href="/#characters" data-i18n="nav_characters">CHARACTERS</a>
-      <a href="/membership.html" data-i18n="nav_membership">MEMBERSHIP</a>
-      <a href="/#items" data-i18n="nav_items">ITEM</a>
-      <a href="/#faq" data-i18n="nav_faq">FAQ</a>
-    </div>
-  </nav>
-
   <main>
-    <!-- HERO / INTRO -->
+
+    <!-- HERO -->
     <section class="card">
       <span class="badge" data-i18n="badge_label">Members-only area</span>
       <h1 data-i18n="mempage_title">🌳 MORIRIS MEMBERSHIP</h1>
-      <p class="hero-copy small" data-i18n="mempage_copy">
+
+      <p class="small" data-i18n="mempage_copy">
         For those who want to stay a little longer in the forest.
       </p>
 
+      <!-- ▼ 追加：画像2枚 -->
+      <div class="mem-hero-images">
+        <img src="/assets/Exclusive Episodes.png" alt="Exclusive Episodes">
+        <img src="/assets/Digital picture books.png" alt="Digital picture books">
+      </div>
+
       <div class="cta-row">
-        <a
-          href="https://member.moriris.com/"
+        <a href="https://member.moriris.com/"
           class="btn"
           target="_blank"
           rel="noopener noreferrer"
-          data-i18n="mempage_btn_main"
-        >
+          data-i18n="mempage_btn_main">
           Continue the story on the Members Site
         </a>
         <span class="small" data-i18n="mempage_note">
@@ -246,59 +198,45 @@
       </p>
 
       <div class="plans">
-        <!-- Free plan -->
+
+        <!-- Free -->
         <div class="plan">
           <div class="plan-header">
             <div class="plan-name" data-i18n="plan_free_name">Free plan</div>
             <div class="plan-tag" data-i18n="plan_free_tag">Start here</div>
           </div>
-          <div class="price" data-i18n="plan_free_price">
-            US$0 <span>/ month</span>
-          </div>
+          <div class="price" data-i18n="plan_free_price">US$0 / month</div>
           <ul>
             <li data-i18n="plan_free_b1">Watch Episodes 1–3</li>
             <li data-i18n="plan_free_b2">See what Moriris feels like</li>
             <li data-i18n="plan_free_b3">No credit card required at sign-up</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a
-              href="https://member.moriris.com/"
-              class="btn-outline"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="plan_free_btn"
-            >
+            <a href="https://member.moriris.com/" class="btn-outline" data-i18n="plan_free_btn">
               Join Free plan
             </a>
           </div>
         </div>
 
-        <!-- Standard plan -->
+        <!-- Standard -->
         <div class="plan">
           <div class="plan-header">
             <div class="plan-name" data-i18n="plan_standard_name">Standard plan</div>
             <div class="plan-tag" data-i18n="plan_standard_tag">Full access</div>
           </div>
-          <div class="price" data-i18n="plan_standard_price">
-            US$4.99 <span>/ month</span>
-          </div>
+          <div class="price" data-i18n="plan_standard_price">US$4.99 / month</div>
           <ul>
             <li data-i18n="plan_standard_b1">Unlock all episodes (including Episode 4 and beyond)</li>
             <li data-i18n="plan_standard_b2">Access all digital picture books</li>
             <li data-i18n="plan_standard_b3">5-day free trial for new members</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a
-              href="https://member.moriris.com/"
-              class="btn"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="plan_standard_btn"
-            >
+            <a href="https://member.moriris.com/" class="btn" data-i18n="plan_standard_btn">
               Start Standard plan
             </a>
           </div>
         </div>
+
       </div>
 
       <p class="note" data-i18n="plans_note">
@@ -306,26 +244,24 @@
       </p>
     </section>
 
-    <!-- CONTENT TYPES -->
-    <section class="card extras">
+    <!-- CONTENT -->
+    <section class="card">
       <h2 data-i18n="content_title">What you can enjoy</h2>
       <ul>
-        <li data-i18n="content_b1">Wordless short animations set in the gentle, mysterious forest of Moriris</li>
-        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu and their friends</li>
-        <li data-i18n="content_b3">A calm viewing experience designed for both children and adults</li>
+        <li data-i18n="content_b1">Wordless short animations set in the gentle forest of Moriris</li>
+        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu</li>
+        <li data-i18n="content_b3">A calm viewing experience for both children and adults</li>
       </ul>
-      <p class="small" style="margin-top:.8rem" data-i18n="content_kindle">
-        Some picture books are also available as separate purchases on Kindle.
-      </p>
     </section>
+
   </main>
 
   <footer>
     © Moriris Studio ·
-    <a href="/contact.html" data-i18n="footer_contact" target="_blank" rel="noopener noreferrer">Contact</a> ·
-    <a href="https://member.moriris.com/terms.html" data-i18n="footer_terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> /
-    <a href="https://member.moriris.com/privacy.html" data-i18n="footer_privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> /
-    <a href="https://member.moriris.com/legal.html" data-i18n="footer_legal" target="_blank" rel="noopener noreferrer">Legal Notice</a> /
+    <a href="/contact.html">Contact</a> ·
+    <a href="https://member.moriris.com/terms.html">Terms of Service</a> /
+    <a href="https://member.moriris.com/privacy.html">Privacy Policy</a> /
+    <a href="https://member.moriris.com/legal.html">Legal Notice</a> /
     <span class="small">official.moriris.com</span>
   </footer>
 
@@ -334,12 +270,7 @@
 
     const translations = {
       en:{
-        nav_home:"HOME",
-        nav_about:"ABOUT",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
-        nav_items:"ITEM",
-        nav_faq:"FAQ",
+        back_home:"← Back to top",
         badge_label:"Members-only area",
         mempage_title:"🌳 MORIRIS MEMBERSHIP",
         mempage_copy:"For those who want to stay a little longer in the forest.",
@@ -357,85 +288,71 @@
         plan_standard_name:"Standard plan",
         plan_standard_tag:"Full access",
         plan_standard_price:"US$4.99 / month",
-        plan_standard_b1:"Unlock all episodes (including Episode 4 and beyond)",
+        plan_standard_b1:"Unlock all episodes",
         plan_standard_b2:"Access all digital picture books",
-        plan_standard_b3:"5-day free trial for new members",
+        plan_standard_b3:"5-day free trial",
         plan_standard_btn:"Start Standard plan",
-        plans_note:"Billing and account management are handled securely on the Members Site (member.moriris.com).",
+        plans_note:"Billing and plan changes are managed securely on member.moriris.com.",
         content_title:"What you can enjoy",
-        content_b1:"Wordless short animations set in the gentle, mysterious forest of Moriris",
-        content_b2:"Digital picture books featuring Mokora, Notty, Rufu and their friends",
-        content_b3:"A calm viewing experience designed for both children and adults",
-        content_kindle:"Some picture books are also available as separate purchases on Kindle.",
-        footer_contact:"Contact",
-        footer_terms:"Terms of Service",
-        footer_privacy:"Privacy Policy",
-        footer_legal:"Legal Notice"
+        content_b1:"Wordless short animations set in Moriris forest",
+        content_b2:"Digital picture books of Mokora, Notty, and Rufu",
+        content_b3:"A relaxing viewing experience for all ages"
       },
       ja:{
-        nav_home:"HOME",
-        nav_about:"ABOUT",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
-        nav_items:"ITEM",
-        nav_faq:"FAQ",
+        back_home:"← トップページへ戻る",
         badge_label:"メンバー限定エリア",
         mempage_title:"🌳 モリリス メンバーシップ",
         mempage_copy:"森の世界に、もう少しだけ長くとどまりたいあなたへ。",
         mempage_btn_main:"メンバーサイトで物語のつづきを見る",
-        mempage_note:"まずはFreeプランから始めて、必要に応じてStandardプランにアップグレードできます。",
+        mempage_note:"まずはFreeプランでお試しできます。",
         plans_title:"プラン",
-        plans_intro:"モリリスの世界を、どのくらい深く楽しむか選べます。",
+        plans_intro:"モリリスをどれくらい楽しむか選べます。",
         plan_free_name:"Freeプラン",
         plan_free_tag:"まずはお試し",
         plan_free_price:"月額 US$0",
-        plan_free_b1:"アニメ第1〜3話を視聴できます",
-        plan_free_b2:"モリリスの雰囲気を気軽に体験",
-        plan_free_b3:"登録時はクレジットカード不要",
-        plan_free_btn:"Freeプランに登録する",
+        plan_free_b1:"第1〜3話が視聴できます",
+        plan_free_b2:"モリリスの世界を体験",
+        plan_free_b3:"クレジットカード不要",
+        plan_free_btn:"Freeプランに登録",
         plan_standard_name:"Standardプラン",
         plan_standard_tag:"全コンテンツ解放",
         plan_standard_price:"月額 US$4.99",
-        plan_standard_b1:"第4話以降を含む全エピソードが視聴可能",
-        plan_standard_b2:"すべてのデジタル絵本が読み放題",
-        plan_standard_b3:"新規登録の方は5日間の無料トライアルつき",
-        plan_standard_btn:"Standardプランを始める",
-        plans_note:"決済やプラン変更などの管理は、すべてメンバーサイト（member.moriris.com）の安全な画面で行われます。",
-        content_title:"メンバーシップで楽しめるもの",
-        content_b1:"人類が消えたあとの静かな森を舞台にした、セリフのない短編アニメ",
-        content_b2:"モコラ・ノッティ・ルフたちが登場するデジタル絵本",
-        content_b3:"子どもから大人まで、落ち着いた気持ちで楽しめるやさしい世界観",
-        content_kindle:"一部の絵本は、単品購入用としてKindleでも販売しています。",
-        footer_contact:"お問い合わせ",
-        footer_terms:"利用規約",
-        footer_privacy:"プライバシーポリシー",
-        footer_legal:"特定商取引法に基づく表記"
+        plan_standard_b1:"全エピソードを視聴可能",
+        plan_standard_b2:"デジタル絵本読み放題",
+        plan_standard_b3:"5日間の無料トライアル",
+        plan_standard_btn:"Standardプランを開始",
+        plans_note:"決済は member.moriris.com 内で安全に行われます。",
+        content_title:"楽しめる内容",
+        content_b1:"森を舞台にしたセリフなし短編アニメ",
+        content_b2:"モコラ・ノッティ・ルフの絵本",
+        content_b3:"大人も子どもも楽しめる落ち着いた世界観"
       }
     };
 
     function setLang(lang){
-      const dict = translations[lang] || translations.en;
+      const dict = translations[lang];
       currentLang = lang;
+
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const k = el.dataset.i18n;
-        if(dict[k] !== undefined){
-          el.textContent = dict[k];
-        }
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.dataset.i18n;
+        if(dict[key]) el.textContent = dict[key];
       });
-      document.querySelectorAll(".lang-btn").forEach(b =>
-        b.setAttribute("aria-pressed", b.dataset.lang===lang)
-      );
+
+      document.querySelectorAll(".lang-btn").forEach(btn=>{
+        btn.setAttribute("aria-pressed", btn.dataset.lang===lang);
+      });
+
       localStorage.setItem("moriris_lang", lang);
     }
 
-    document.querySelectorAll(".lang-btn").forEach(btn =>
-      btn.addEventListener("click", () => setLang(btn.dataset.lang))
-    );
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
+    });
 
-    // 初回デフォルトは必ず EN
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
   </script>
+
 </body>
 </html>
