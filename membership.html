@@ -5,18 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MORIRIS MEMBERSHIP</title>
 
-  <!-- Basic SEO -->
   <meta name="description" content="Moriris Membership – stay a little longer in the forest with exclusive episodes and digital picture books." />
   <link rel="canonical" href="https://official.moriris.com/membership.html" />
-
-  <!-- OGP (必要なら追加可能) -->
-  <!--
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Moriris Membership" />
-  <meta property="og:url" content="https://official.moriris.com/membership.html" />
-  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta property="og:site_name" content="Moriris" />
-  -->
 
   <style>
     :root{
@@ -76,7 +66,6 @@
     .btn{
       display:inline-block;background:var(--accent);color:#fff;
       padding:.75rem 1.2rem;border-radius:12px;font-weight:700;
-      text-align:center;
     }
     .btn:hover{background:var(--accent-dark)}
 
@@ -101,10 +90,10 @@
       margin-top:1.2rem;
     }
 
-    /* ヒーロー下の画像2枚を枠いっぱいに表示 */
+    /* ★ 横に2枚並べる画像ブロック */
     .mem-hero-images{
-      display:flex;
-      flex-direction:column;
+      display:grid;
+      grid-template-columns:1fr 1fr;
       gap:1.2rem;
       margin:1.4rem 0 1.4rem;
     }
@@ -115,8 +104,15 @@
     }
     .mem-hero-caption{
       margin-top:.4rem;
-      font-size:.95rem;
+      text-align:center;
+      font-size:1rem;
       font-weight:700;
+    }
+
+    @media(max-width:700px){
+      .mem-hero-images{
+        grid-template-columns:1fr;
+      }
     }
 
     /* Plans */
@@ -156,32 +152,11 @@
       .plans{grid-template-columns:1fr}
     }
   </style>
-
-  <script>
-    // GA4 開発者判定クッキー
-    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'granted'
-    });
-    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
-    gtag('event', 'page_view', {
-      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
-    });
-  </script>
 </head>
 
 <body>
 
-  <!-- Topbar: Back + Lang -->
+  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-left">
       <a href="/" data-i18n="back_home">← Back to top</a>
@@ -203,7 +178,7 @@
         For those who want to stay a little longer in the forest.
       </p>
 
-      <!-- 画像2枚（枠いっぱい＋下にテキスト） -->
+      <!-- ★ 横に2枚並べる画像ブロック -->
       <div class="mem-hero-images">
         <div class="mem-hero-images-item">
           <img src="/assets/Exclusive Episodes.png" alt="Exclusive Episodes">
@@ -253,15 +228,7 @@
             <li data-i18n="plan_free_b3">No credit card required at sign-up</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a
-              href="https://member.moriris.com/"
-              class="btn-outline"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="plan_free_btn"
-            >
-              Join Free plan
-            </a>
+            <a href="https://member.moriris.com/" class="btn-outline" data-i18n="plan_free_btn">Join Free plan</a>
           </div>
         </div>
 
@@ -278,15 +245,7 @@
             <li data-i18n="plan_standard_b3">5-day free trial for new members</li>
           </ul>
           <div class="cta-row" style="margin-top:.9rem">
-            <a
-              href="https://member.moriris.com/"
-              class="btn"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-i18n="plan_standard_btn"
-            >
-              Start Standard plan
-            </a>
+            <a href="https://member.moriris.com/" class="btn" data-i18n="plan_standard_btn">Start Standard plan</a>
           </div>
         </div>
 
@@ -302,7 +261,7 @@
       <h2 data-i18n="content_title">What you can enjoy</h2>
       <ul>
         <li data-i18n="content_b1">Wordless short animations set in the gentle forest of Moriris</li>
-        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu and their friends</li>
+        <li data-i18n="content_b2">Digital picture books featuring Mokora, Notty, Rufu</li>
         <li data-i18n="content_b3">A calm viewing experience designed for both children and adults</li>
       </ul>
     </section>
@@ -345,12 +304,12 @@
         plan_standard_price:"US$4.99 / month",
         plan_standard_b1:"Unlock all episodes (including Episode 4 and beyond)",
         plan_standard_b2:"Access all digital picture books",
-        plan_standard_b3:"5-day free trial for new members",
+        plan_standard_b3:"5-day free trial",
         plan_standard_btn:"Start Standard plan",
         plans_note:"Billing and account management are handled securely on the Members Site (member.moriris.com).",
         content_title:"What you can enjoy",
         content_b1:"Wordless short animations set in the gentle forest of Moriris",
-        content_b2:"Digital picture books featuring Mokora, Notty, Rufu and their friends",
+        content_b2:"Digital picture books featuring Mokora, Notty, Rufu",
         content_b3:"A calm viewing experience designed for both children and adults",
         footer_contact:"Contact",
         footer_terms:"Terms of Service",
@@ -365,28 +324,28 @@
         mem_img1_caption:"限定エピソード",
         mem_img2_caption:"デジタル絵本",
         mempage_btn_main:"メンバーサイトで物語のつづきを見る",
-        mempage_note:"まずはFreeプランから始めて、必要に応じてStandardプランにアップグレードできます。",
+        mempage_note:"まずはFreeプランから始めて、Standardプランにアップグレードできます。",
         plans_title:"プラン",
-        plans_intro:"モリリスの世界を、どのくらい深く楽しむか選べます。",
+        plans_intro:"モリリスの世界をどれくらい楽しむか選べます。",
         plan_free_name:"Freeプラン",
         plan_free_tag:"まずはお試し",
         plan_free_price:"月額 US$0",
         plan_free_b1:"アニメ第1〜3話を視聴できます",
         plan_free_b2:"モリリスの雰囲気を気軽に体験",
-        plan_free_b3:"登録時はクレジットカード不要",
-        plan_free_btn:"Freeプランに登録する",
+        plan_free_b3:"登録時クレジットカード不要",
+        plan_free_btn:"Freeプランに登録",
         plan_standard_name:"Standardプラン",
         plan_standard_tag:"全コンテンツ解放",
         plan_standard_price:"月額 US$4.99",
-        plan_standard_b1:"第4話以降を含む全エピソードが視聴可能",
-        plan_standard_b2:"すべてのデジタル絵本が読み放題",
-        plan_standard_b3:"新規登録の方は5日間の無料トライアルつき",
-        plan_standard_btn:"Standardプランを始める",
-        plans_note:"決済やプラン変更などの管理は、すべてメンバーサイト（member.moriris.com）の安全な画面で行われます。",
-        content_title:"メンバーシップで楽しめるもの",
-        content_b1:"静かな森を舞台にした、セリフのない短編アニメ",
-        content_b2:"モコラ・ノッティ・ルフたちが登場するデジタル絵本",
-        content_b3:"子どもから大人まで、落ち着いた気持ちで楽しめるやさしい世界観",
+        plan_standard_b1:"第4話以降の全エピソードが視聴可能",
+        plan_standard_b2:"デジタル絵本が読み放題",
+        plan_standard_b3:"5日間の無料トライアル",
+        plan_standard_btn:"Standardプランを開始",
+        plans_note:"決済およびプラン管理はメンバーサイト（member.moriris.com）で行います。",
+        content_title:"楽しめる内容",
+        content_b1:"静かな森を舞台にしたセリフなし短編アニメ",
+        content_b2:"モコラ・ノッティ・ルフたちのデジタル絵本",
+        content_b3:"大人も子どもも落ち着いた気持ちで楽しめる世界観",
         footer_contact:"お問い合わせ",
         footer_terms:"利用規約",
         footer_privacy:"プライバシーポリシー",
@@ -395,15 +354,13 @@
     };
 
     function setLang(lang){
-      const dict = translations[lang] || translations.en;
+      const dict = translations[lang];
       currentLang = lang;
 
       document.documentElement.lang = lang;
       document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.dataset.i18n;
-        if(dict[key] !== undefined){
-          el.textContent = dict[key];
-        }
+        const k = el.dataset.i18n;
+        if(dict[k]) el.textContent = dict[k];
       });
 
       document.querySelectorAll(".lang-btn").forEach(btn=>{
@@ -417,8 +374,8 @@
       btn.addEventListener("click", ()=> setLang(btn.dataset.lang));
     });
 
-    const saved = localStorage.getItem("moriris_lang") || "en";
-    setLang(saved);
+    const savedLang = localStorage.getItem("moriris_lang") || "en";
+    setLang(savedLang);
   </script>
 
 </body>
