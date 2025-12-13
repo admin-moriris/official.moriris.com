@@ -126,34 +126,6 @@
       margin-top:.25rem;
     }
 
-    details{
-      background:#fffdf8;border:1px solid #e8e2c9;
-      border-radius:12px;padding:1rem;margin:.6rem 0
-    }
-    details summary{cursor:pointer;font-weight:800}
-    details p{margin:.6rem 0 0}
-
-    /* Social */
-    .social{
-      display:flex;gap:.75rem;justify-content:center;align-items:center;
-      margin:2rem 0 0;
-    }
-    .social a{
-      display:inline-flex;align-items:center;justify-content:center;
-      width:40px;height:40px;border-radius:999px;
-      background:#ffffffcc;box-shadow:var(--shadow);
-    }
-    .social a:hover{background:#fff}
-    .social svg{width:22px;height:22px;fill:var(--accent-dark)}
-
-    /* WATCH extra text */
-    .watch-extra{
-      margin-top:.75rem;
-    }
-    .watch-extra p{
-      margin:.25rem 0;
-    }
-
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
@@ -209,7 +181,6 @@
       <a href="#characters" data-i18n="nav_characters">CHARACTERS</a>
       <a href="#membership" data-i18n="nav_membership">MEMBERSHIP</a>
       <a href="#items" data-i18n="nav_items">ITEM</a>
-      <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
   </nav>
 
@@ -309,40 +280,6 @@
           aria-label="Open Moriris Studio on Kindle in a new tab"
         >Also available on Kindle</a>
       </p>
-    </section>
-
-    <!-- FAQ + Social -->
-    <section id="faq" class="card">
-      <h2 data-i18n="faq_title">FAQ</h2>
-
-      <details open>
-        <summary data-i18n="faq_q_view">How can I watch members-only content?</summary>
-        <p class="small" data-i18n="faq_a_view1">
-          After you access the Members Site and log in with your email address, you can watch Episodes 1–3 with the Free plan.
-        </p>
-        <p class="small" data-i18n="faq_a_view2">
-          By upgrading to the Standard plan, you can unlock all exclusive content, including Episodes 4 and beyond and digital picture books.
-        </p>
-      </details>
-
-      <details>
-        <summary data-i18n="faq_q_update">Will new content be added regularly?</summary>
-        <p class="small" data-i18n="faq_a_update">
-          Yes. New animations and bonuses are uploaded occasionally. We’ll announce updates on our official social media.
-        </p>
-      </details>
-
-      <details>
-        <summary data-i18n="faq_q_share">Can I share Moriris on social media?</summary>
-        <p class="small" data-i18n="faq_a_share">
-          Public content can be shared freely. Please do not re-upload or redistribute members-only content.
-        </p>
-      </details>
-
-      <div class="social" aria-label="Moriris official social links">
-        <!-- 4つのSNSアイコンは元のまま -->
-        <!-- 略 -->
-      </div>
     </section>
   </main>
 
