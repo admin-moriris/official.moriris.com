@@ -55,8 +55,9 @@
     header{
       max-width:1040px;margin:4.2rem auto 0;padding:0 1rem;
     }
+    /* Header simplified (no HOME/CHARACTERS/MEMBERSHIP links) */
     .topnav{
-      display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      display:flex;align-items:center;justify-content:space-between;
       background:rgba(255,253,243,.9);border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)
     }
     .brand{
@@ -64,8 +65,6 @@
       display:flex;align-items:center;gap:.6rem;
     }
     .brand img{width:34px;height:34px;border-radius:10px;box-shadow:var(--shadow)}
-    .links{display:flex;gap:1rem;flex-wrap:wrap}
-    .links a{font-weight:800}
 
     main{max-width:1040px;margin:1rem auto 4rem;padding:0 1rem}
     .card{
@@ -86,6 +85,12 @@
     }
     .btn:hover{background:var(--accent-dark)}
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
+
+    /* Back to top */
+    .backtop{
+      display:inline-flex;align-items:center;gap:.4rem;
+      font-weight:800;
+    }
   </style>
 
   <!-- GA4 -->
@@ -104,28 +109,28 @@
   </script>
 </head>
 
-<body>
+<body id="top">
   <div class="topbar">
     <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
     <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
   </div>
 
   <header>
-    <div class="topnav" aria-label="Page navigation">
+    <div class="topnav" aria-label="Page header">
       <div class="brand">
         <img src="/assets/logo-moriris.png" alt="Moriris">
         <span>Moriris</span>
       </div>
-      <div class="links">
-        <a href="/" data-i18n="nav_home">HOME</a>
-        <a href="/characters.html" data-i18n="nav_characters">CHARACTERS</a>
-        <a href="/membership.html" data-i18n="nav_membership">MEMBERSHIP</a>
-      </div>
+      <!-- Removed: HOME / CHARACTERS / MEMBERSHIP -->
     </div>
   </header>
 
   <main>
     <article class="card">
+      <p style="margin:.2rem 0 1rem">
+        <a class="backtop" href="#top" data-i18n="backtop">← Back to top</a>
+      </p>
+
       <h1 data-i18n="h1">What is Wordless Animation?</h1>
 
       <p data-i18n="p1">
@@ -154,8 +159,12 @@
       </p>
 
       <p style="margin-top:1rem">
-        <a class="btn" href="/" data-i18n="cta_watch">Watch the introduction</a>
+        <a class="btn" href="/characters.html" data-i18n="cta_characters">Meet the Characters</a>
         <a class="pill" href="/membership.html" data-i18n="cta_continue" style="margin-left:.4rem">Continue the story</a>
+      </p>
+
+      <p style="margin-top:1.2rem">
+        <a class="backtop" href="#top" data-i18n="backtop">← Back to top</a>
       </p>
     </article>
   </main>
@@ -170,9 +179,7 @@
       en:{
         seo_title: "What is Wordless Animation? | Moriris",
         seo_desc: "What is wordless animation? Learn how storytelling without dialogue creates emotion and atmosphere without language barriers.",
-        nav_home:"HOME",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
+        backtop:"← Back to top",
         h1:"What is Wordless Animation?",
         p1:"Wordless animation is storytelling without dialogue. It lets viewers relax, focus, and feel the atmosphere without language barriers.",
         h2a:"Why do creators choose “wordless”?",
@@ -183,16 +190,14 @@
         p2:"Moriris is designed to be watched quietly. Without dialogue, the animation leaves space for interpretation, emotion, and a subtle sense of unease.",
         h2c:"How to watch Moriris",
         p3:"Start with the short introduction film on the official site. If you want to stay a little longer, you can continue on the Members Site.",
-        cta_watch:"Watch the introduction",
+        cta_characters:"Meet the Characters",
         cta_continue:"Continue the story",
         footer_contact:"Contact"
       },
       ja:{
         seo_title: "セリフのないアニメとは？｜モリリス",
         seo_desc: "セリフのないアニメ（wordless animation）とは？言葉なしの表現が生む感情と空気感、そしてモリリスがセリフを使わない理由を紹介します。",
-        nav_home:"HOME",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
+        backtop:"← 上へ戻る",
         h1:"セリフのないアニメ（Wordless Animation）とは？",
         p1:"セリフのないアニメは、会話に頼らずに物語を伝える表現です。言語の壁がなく、雰囲気や感情に集中して楽しめます。",
         h2a:"なぜ「セリフなし」を選ぶの？",
@@ -203,7 +208,7 @@
         p2:"モリリスは「静かに見る」ことを前提に作られています。言葉がないからこそ、解釈の余白が生まれ、感情や、ほんの少しの不穏さが残ります。",
         h2c:"モリリスの見方",
         p3:"まずは公式サイトの短い紹介映像から。もっと森にとどまりたい人は、メンバーサイトで続きを楽しめます。",
-        cta_watch:"紹介映像を見る",
+        cta_characters:"キャラクターを見る",
         cta_continue:"物語のつづきを見る",
         footer_contact:"お問い合わせ"
       }
@@ -248,7 +253,7 @@
       btn.addEventListener("click", () => setLang(btn.dataset.lang))
     );
 
-    // default: saved or EN (現行仕様に合わせる)
+    // default: saved or EN
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
   </script>
