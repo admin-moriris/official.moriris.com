@@ -43,9 +43,26 @@
 
     /* Topbar (Lang) */
     .topbar{
-      position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
-      padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5
+      position:fixed;
+      top:0;left:0;right:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.6rem 1rem;
+      background:rgba(246,240,201,.7);
+      backdrop-filter:saturate(120%) blur(4px);
+      z-index:5;
     }
+    
+    .topbar-left a{
+      font-weight:700;
+    }
+    
+    .topbar-right{
+      display:flex;
+      gap:.4rem;
+    }
+
     .lang-btn{
       border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
       font-weight:700;color:var(--accent-dark);cursor:pointer
@@ -97,8 +114,13 @@
 
 <body id="top">
   <div class="topbar">
-    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-    <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    <div class="topbar-left">
+      <a href="/" data-i18n="back_home">← Back to top</a>
+    </div>
+    <div class="topbar-right">
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    </div>
   </div>
 
   <main>
