@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MORIRIS</title>
 
-  <!-- Basic SEO -->
+  <!-- Basic SEO (will be updated by JS per language) -->
   <meta name="description" content="Gentle, wordless animations from Japan. Relax and feel the calm of the forest with Moriris." />
   <link rel="canonical" href="https://official.moriris.com/" />
 
-  <!-- OGP -->
+  <!-- OGP (will be updated by JS per language) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Moriris" />
+  <meta property="og:description" content="Gentle, wordless animations from Japan. Relax and feel the calm of the forest with Moriris." />
   <meta property="og:url" content="https://official.moriris.com/" />
   <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
   <meta property="og:site_name" content="Moriris" />
 
-  <!-- Twitter -->
+  <!-- Twitter (will be updated by JS per language) -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Moriris" />
+  <meta name="twitter:description" content="Gentle, wordless animations from Japan. Relax and feel the calm of the forest with Moriris." />
   <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
   <meta name="twitter:site" content="@moriris_world" />
 
@@ -181,6 +184,8 @@
       <a href="#characters" data-i18n="nav_characters">CHARACTERS</a>
       <a href="#membership" data-i18n="nav_membership">MEMBERSHIP</a>
       <a href="#items" data-i18n="nav_items">ITEM</a>
+      <!-- NEW: SEO boost page -->
+      <a href="/about-wordless-animation.html" data-i18n="nav_wordless">WORDLESS</a>
     </div>
   </nav>
 
@@ -209,6 +214,13 @@
         <div>
           <p data-i18n="about_p1">Moriris is a gentle, mysterious forest story of fluffy dinosaurs</p>
           <p data-i18n="about_p2">— a short, wordless animation for all ages.</p>
+
+          <!-- NEW: light internal link -->
+          <p class="small" style="margin-top:.7rem">
+            <a class="pill" href="/about-wordless-animation.html" data-i18n="about_wordless_pill">
+              What is wordless animation?
+            </a>
+          </p>
         </div>
         <div><img src="/assets/characters.png" alt="Moriris characters: Mokora and Notty"></div>
       </div>
@@ -316,6 +328,18 @@
 
     const translations = {
       en:{
+        // NEW: SEO strings
+        seo_title:"Moriris – Wordless Animation Series",
+        seo_desc:"Moriris is a wordless animation series. Silent, gentle stories with a calm but slightly unsettling atmosphere.",
+        seo_og_title:"Moriris – Wordless Animation Series",
+        seo_og_desc:"Silent, gentle stories with a calm but slightly unsettling atmosphere.",
+        seo_tw_title:"Moriris – Wordless Animation Series",
+        seo_tw_desc:"Silent, gentle stories with a calm but slightly unsettling atmosphere.",
+
+        // NEW: nav/pill
+        nav_wordless:"WORDLESS",
+        about_wordless_pill:"What is wordless animation?",
+
         nav_home:"HOME",
         nav_about:"ABOUT",
         nav_characters:"CHARACTERS",
@@ -360,6 +384,18 @@
         footer_legal:"Legal Notice"
       },
       ja:{
+        // NEW: SEO strings
+        seo_title:"モリリス｜セリフのない短編アニメーション",
+        seo_desc:"モリリスはセリフのない短編アニメです。静かでやさしい物語の中に、少しだけ不穏さを残す世界観をお楽しみください。",
+        seo_og_title:"モリリス｜セリフのない短編アニメーション",
+        seo_og_desc:"静かでやさしい物語の中に、少しだけ不穏さを残す世界観。",
+        seo_tw_title:"モリリス｜セリフのない短編アニメーション",
+        seo_tw_desc:"静かでやさしい物語の中に、少しだけ不穏さを残す世界観。",
+
+        // NEW: nav/pill
+        nav_wordless:"セリフなしとは",
+        about_wordless_pill:"セリフのないアニメとは？",
+
         nav_home:"HOME",
         nav_about:"ABOUT",
         nav_characters:"CHARACTERS",
@@ -408,15 +444,40 @@
     function setLang(lang){
       const dict = translations[lang] || translations.en;
       currentLang = lang;
+
+      // html lang
       document.documentElement.lang = lang;
+
+      // UI text
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const k = el.dataset.i18n;
         if(dict[k] !== undefined) el.textContent = dict[k];
       });
+
+      // buttons
       document.querySelectorAll(".lang-btn").forEach(b =>
         b.setAttribute("aria-pressed", b.dataset.lang===lang)
       );
+
+      // SEO: title/meta/OG/Twitter
+      if (dict.seo_title) document.title = dict.seo_title;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && dict.seo_desc) metaDesc.setAttribute("content", dict.seo_desc);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc  = document.querySelector('meta[property="og:description"]');
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      const twDesc  = document.querySelector('meta[name="twitter:description"]');
+
+      if (ogTitle && dict.seo_og_title) ogTitle.setAttribute("content", dict.seo_og_title);
+      if (ogDesc  && dict.seo_og_desc)  ogDesc.setAttribute("content", dict.seo_og_desc);
+      if (twTitle && dict.seo_tw_title) twTitle.setAttribute("content", dict.seo_tw_title);
+      if (twDesc  && dict.seo_tw_desc)  twDesc.setAttribute("content", dict.seo_tw_desc);
+
       localStorage.setItem("moriris_lang", lang);
+
+      // re-render character names
       renderCharacterStrip();
     }
 
@@ -424,7 +485,7 @@
       btn.addEventListener("click", () => setLang(btn.dataset.lang))
     );
 
-    // 初回デフォルトは必ず EN
+    // 初回デフォルトは必ず EN（現行仕様維持）
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
