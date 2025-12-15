@@ -52,21 +52,7 @@
     }
     .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
 
-    header{
-      max-width:1040px;margin:4.2rem auto 0;padding:0 1rem;
-    }
-    /* Header simplified (no HOME/CHARACTERS/MEMBERSHIP links) */
-    .topnav{
-      display:flex;align-items:center;justify-content:space-between;
-      background:rgba(255,253,243,.9);border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)
-    }
-    .brand{
-      font-weight:900;letter-spacing:.02em;
-      display:flex;align-items:center;gap:.6rem;
-    }
-    .brand img{width:34px;height:34px;border-radius:10px;box-shadow:var(--shadow)}
-
-    main{max-width:1040px;margin:1rem auto 4rem;padding:0 1rem}
+    main{max-width:1040px;margin:2.5rem auto 4rem;padding:0 1rem}
     .card{
       background:var(--card);border-radius:var(--radius);
       box-shadow:var(--shadow);padding:1.6rem;margin:1rem 0
@@ -114,16 +100,6 @@
     <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
     <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
   </div>
-
-  <header>
-    <div class="topnav" aria-label="Page header">
-      <div class="brand">
-        <img src="/assets/logo-moriris.png" alt="Moriris">
-        <span>Moriris</span>
-      </div>
-      <!-- Removed: HOME / CHARACTERS / MEMBERSHIP -->
-    </div>
-  </header>
 
   <main>
     <article class="card">
