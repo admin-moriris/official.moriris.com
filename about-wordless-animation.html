@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Moriris</title>
+  <meta name="description" content="About wordless animation." />
+  <link rel="canonical" href="https://official.moriris.com/about-wordless-animation.html" />
+
+  <!-- OGP -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Moriris" />
+  <meta property="og:description" content="About wordless animation." />
+  <meta property="og:url" content="https://official.moriris.com/about-wordless-animation.html" />
+  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta property="og:site_name" content="Moriris" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Moriris" />
+  <meta name="twitter:description" content="About wordless animation." />
+  <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta name="twitter:site" content="@moriris_world" />
+
+  <style>
+    :root{
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
+      --card:rgba(255,253,243,0.90);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.75;
+    }
+    a{color:var(--accent-dark);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Topbar (Lang) */
+    .topbar{
+      position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
+      padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5
+    }
+    .lang-btn{
+      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
+      font-weight:700;color:var(--accent-dark);cursor:pointer
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+
+    header{
+      max-width:1040px;margin:4.2rem auto 0;padding:0 1rem;
+    }
+    .topnav{
+      display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      background:rgba(255,253,243,.9);border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)
+    }
+    .brand{
+      font-weight:900;letter-spacing:.02em;
+      display:flex;align-items:center;gap:.6rem;
+    }
+    .brand img{width:34px;height:34px;border-radius:10px;box-shadow:var(--shadow)}
+    .links{display:flex;gap:1rem;flex-wrap:wrap}
+    .links a{font-weight:800}
+
+    main{max-width:1040px;margin:1rem auto 4rem;padding:0 1rem}
+    .card{
+      background:var(--card);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:1.6rem;margin:1rem 0
+    }
+    h1{margin:.2rem 0 1rem;font-size:2rem}
+    h2{margin:1.4rem 0 .6rem;font-size:1.35rem}
+    p{margin:.6rem 0;color:var(--ink-soft)}
+    ul{margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)}
+    .pill{
+      display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
+      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:800
+    }
+    .btn{
+      display:inline-block;background:var(--accent);color:#fff;
+      padding:.75rem 1rem;border-radius:12px;font-weight:800
+    }
+    .btn:hover{background:var(--accent-dark)}
+    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
+  </style>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    });
+    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
+  </script>
+</head>
+
+<body>
+  <div class="topbar">
+    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+  </div>
+
+  <header>
+    <div class="topnav" aria-label="Page navigation">
+      <div class="brand">
+        <img src="/assets/logo-moriris.png" alt="Moriris">
+        <span>Moriris</span>
+      </div>
+      <div class="links">
+        <a href="/" data-i18n="nav_home">HOME</a>
+        <a href="/characters.html" data-i18n="nav_characters">CHARACTERS</a>
+        <a href="/membership.html" data-i18n="nav_membership">MEMBERSHIP</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="card">
+      <h1 data-i18n="h1">What is Wordless Animation?</h1>
+
+      <p data-i18n="p1">
+        Wordless animation is storytelling without dialogue.
+        It lets viewers relax, focus, and feel the atmosphere without language barriers.
+      </p>
+
+      <h2 data-i18n="h2a">Why do creators choose “wordless”?</h2>
+      <ul>
+        <li data-i18n="li1"><strong>Emotion first:</strong> facial expressions, timing, and movement carry the story.</li>
+        <li data-i18n="li2"><strong>Universal viewing:</strong> no subtitles needed, easier to share globally.</li>
+        <li data-i18n="li3"><strong>Atmosphere matters:</strong> silence can feel calm, intimate, or quietly unsettling.</li>
+      </ul>
+
+      <h2 data-i18n="h2b">Why Moriris is wordless</h2>
+      <p data-i18n="p2">
+        Moriris is designed to be watched quietly.
+        Without dialogue, the animation leaves space for interpretation, emotion,
+        and a subtle sense of unease.
+      </p>
+
+      <h2 data-i18n="h2c">How to watch Moriris</h2>
+      <p data-i18n="p3">
+        Start with the short introduction film on the official site.
+        If you want to stay a little longer, you can continue on the Members Site.
+      </p>
+
+      <p style="margin-top:1rem">
+        <a class="btn" href="/" data-i18n="cta_watch">Watch the introduction</a>
+        <a class="pill" href="/membership.html" data-i18n="cta_continue" style="margin-left:.4rem">Continue the story</a>
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    © Moriris Studio ·
+    <a href="/contact.html" target="_blank" rel="noopener noreferrer" data-i18n="footer_contact">Contact</a>
+  </footer>
+
+  <script>
+    const translations = {
+      en:{
+        seo_title: "What is Wordless Animation? | Moriris",
+        seo_desc: "What is wordless animation? Learn how storytelling without dialogue creates emotion and atmosphere without language barriers.",
+        nav_home:"HOME",
+        nav_characters:"CHARACTERS",
+        nav_membership:"MEMBERSHIP",
+        h1:"What is Wordless Animation?",
+        p1:"Wordless animation is storytelling without dialogue. It lets viewers relax, focus, and feel the atmosphere without language barriers.",
+        h2a:"Why do creators choose “wordless”?",
+        li1:"Emotion first: facial expressions, timing, and movement carry the story.",
+        li2:"Universal viewing: no subtitles needed, easier to share globally.",
+        li3:"Atmosphere matters: silence can feel calm, intimate, or quietly unsettling.",
+        h2b:"Why Moriris is wordless",
+        p2:"Moriris is designed to be watched quietly. Without dialogue, the animation leaves space for interpretation, emotion, and a subtle sense of unease.",
+        h2c:"How to watch Moriris",
+        p3:"Start with the short introduction film on the official site. If you want to stay a little longer, you can continue on the Members Site.",
+        cta_watch:"Watch the introduction",
+        cta_continue:"Continue the story",
+        footer_contact:"Contact"
+      },
+      ja:{
+        seo_title: "セリフのないアニメとは？｜モリリス",
+        seo_desc: "セリフのないアニメ（wordless animation）とは？言葉なしの表現が生む感情と空気感、そしてモリリスがセリフを使わない理由を紹介します。",
+        nav_home:"HOME",
+        nav_characters:"CHARACTERS",
+        nav_membership:"MEMBERSHIP",
+        h1:"セリフのないアニメ（Wordless Animation）とは？",
+        p1:"セリフのないアニメは、会話に頼らずに物語を伝える表現です。言語の壁がなく、雰囲気や感情に集中して楽しめます。",
+        h2a:"なぜ「セリフなし」を選ぶの？",
+        li1:"感情が中心：表情、間、動きで物語が伝わります。",
+        li2:"世界で共有しやすい：字幕がなくても見られ、拡散しやすくなります。",
+        li3:"空気感が主役：静けさが、癒しや親密さ、時に小さな不穏さを生みます。",
+        h2b:"モリリスがセリフを使わない理由",
+        p2:"モリリスは「静かに見る」ことを前提に作られています。言葉がないからこそ、解釈の余白が生まれ、感情や、ほんの少しの不穏さが残ります。",
+        h2c:"モリリスの見方",
+        p3:"まずは公式サイトの短い紹介映像から。もっと森にとどまりたい人は、メンバーサイトで続きを楽しめます。",
+        cta_watch:"紹介映像を見る",
+        cta_continue:"物語のつづきを見る",
+        footer_contact:"お問い合わせ"
+      }
+    };
+
+    function setLang(lang){
+      const dict = translations[lang] || translations.en;
+
+      // html lang
+      document.documentElement.lang = lang;
+
+      // text
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n;
+        if(dict[k] !== undefined) el.textContent = dict[k];
+      });
+
+      // buttons
+      document.querySelectorAll(".lang-btn").forEach(b =>
+        b.setAttribute("aria-pressed", b.dataset.lang===lang)
+      );
+
+      // SEO: title/meta/OG/Twitter
+      if (dict.seo_title) document.title = dict.seo_title;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && dict.seo_desc) metaDesc.setAttribute("content", dict.seo_desc);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc  = document.querySelector('meta[property="og:description"]');
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      const twDesc  = document.querySelector('meta[name="twitter:description"]');
+      if (ogTitle && dict.seo_title) ogTitle.setAttribute("content", dict.seo_title);
+      if (twTitle && dict.seo_title) twTitle.setAttribute("content", dict.seo_title);
+      if (ogDesc && dict.seo_desc)  ogDesc.setAttribute("content", dict.seo_desc);
+      if (twDesc && dict.seo_desc)  twDesc.setAttribute("content", dict.seo_desc);
+
+      localStorage.setItem("moriris_lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => setLang(btn.dataset.lang))
+    );
+
+    // default: saved or EN (現行仕様に合わせる)
+    const saved = localStorage.getItem("moriris_lang") || "en";
+    setLang(saved);
+  </script>
+</body>
+</html>
