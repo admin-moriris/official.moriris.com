@@ -47,13 +47,12 @@
 
     /* HERO */
     .hero{
-      position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
-      text-align:center;color:#2f3a33;padding:8rem 1.5rem 6rem;background:transparent
-    }
-    .hero-inner{position:relative;z-index:1;max-width:960px}
-    .logo{
-      width:min(520px,90vw);margin:0 auto 1rem;
-      filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))
+      position:relative;
+      min-height:52vh; /* 70vh → 52vh に短縮（余白感が減る） */
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;color:#2f3a33;
+      padding:5.2rem 1.5rem 3.2rem; /* 上下を詰める */
+      background:transparent;
     }
 
     /* Topbar (Lang) */
@@ -132,7 +131,10 @@
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
-      .hero{min-height:66vh;padding:7rem 1rem 5rem}
+      .hero{
+        min-height:46vh;            /* 66vh → 46vh */
+        padding:4.6rem 1rem 2.6rem; /* 7rem/5rem → 詰める */
+      }
     }
     @media (max-width:640px){
       .tiles{grid-template-columns:1fr}
