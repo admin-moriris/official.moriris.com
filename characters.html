@@ -58,7 +58,6 @@
     .title{font-size:.9rem;color:var(--ink-soft);}
     .desc{font-size:.9rem;}
 
-    /* Membership CTA button */
     .btn{
       display:inline-block;
       background:var(--accent);
@@ -81,14 +80,26 @@
     }
   </style>
 
-  <!-- GA4: internal flag + tag -->
+  <!-- internal cookie: ?internal=1 の時だけ -->
   <script>
-    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    if (location.search.includes("internal=1")) {
+      document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    }
   </script>
+
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
+
+    function isInternalTraffic(){
+      return document.cookie.includes("moriris_dev=1");
+    }
+    function isDebug(){
+      return location.search.includes("debug=1");
+    }
+
     gtag('js', new Date());
     gtag('consent', 'default', {
       ad_storage: 'denied',
@@ -96,20 +107,22 @@
       ad_personalization: 'denied',
       analytics_storage: 'granted'
     });
-    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
-    gtag('event', 'page_view', {
-      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
+    gtag('config', 'G-HWRX6Q9K3E', {
+      debug_mode: isDebug(),
+      traffic_type: isInternalTraffic() ? 'internal' : undefined,
+      linker: { domains: ['member.moriris.com'] }
     });
   </script>
 </head>
+
 <body>
   <div class="topbar">
     <div class="topbar-left">
-      <a href="/" data-i18n="back_home">← Back to top</a>
+      <a href="/" data-i18n="back_home" data-ga="nav_back_home">← Back to top</a>
     </div>
     <div>
-      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="true" data-ga="language_btn_en">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false" data-ga="language_btn_ja">JP</button>
     </div>
   </div>
 
@@ -125,19 +138,13 @@
       <div id="character-grid" class="tiles"></div>
     </section>
 
-    <!-- Membership CTA section -->
     <section class="card">
       <h2 data-i18n="mem_teaser_title">🌳 Moriris Membership</h2>
       <p class="small" data-i18n="mem_teaser_copy">
         For those who want to stay a little longer in the forest.
       </p>
       <p style="margin-top:.7rem">
-        <a
-          href="/membership.html"
-          class="btn"
-          id="mem-cta"
-          data-i18n="mem_teaser_btn"
-        >
+        <a href="/membership.html" class="btn" id="mem-cta" data-i18n="mem_teaser_btn" data-ga="cta_click_membership_page">
           Continue the story
         </a>
       </p>
@@ -145,6 +152,64 @@
   </main>
 
   <script>
+    // ---------- GA helper ----------
+    function gaLang(){
+      return localStorage.getItem("moriris_lang") || document.documentElement.lang || "en";
+    }
+    function gaEvent(name, params){
+      if (typeof gtag !== "function") return;
+      gtag("event", name, Object.assign({
+        page: location.pathname,
+        lang: gaLang()
+      }, params || {}));
+    }
+
+    // click tracking
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
+
+      const name = a.dataset.ga;
+      if (name) {
+        gaEvent(name, {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href,
+          outbound: isExternal ? 1 : 0
+        });
+        return;
+      }
+      if (isExternal) {
+        gaEvent("outbound_click", {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href
+        });
+      }
+    });
+
+    // scroll depth
+    (function(){
+      const thresholds = [25, 50, 75, 90];
+      const fired = new Set();
+      function onScroll(){
+        const doc = document.documentElement;
+        const scrollTop = window.scrollY || doc.scrollTop;
+        const height = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const pct = Math.round((scrollTop / height) * 100);
+        thresholds.forEach(t => {
+          if (pct >= t && !fired.has(t)) {
+            fired.add(t);
+            gaEvent("scroll_depth", { percent: t });
+          }
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+    })();
+
+    // ---------- page logic ----------
     let charactersData = [];
     let currentLang = "en";
 
@@ -193,25 +258,35 @@
     };
 
     function setLang(lang){
+      const prev = currentLang;
       const dict = translations[lang] || translations.en;
       currentLang = lang;
+
       document.documentElement.lang = lang;
+
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const k = el.dataset.i18n;
         if(dict[k] !== undefined) el.textContent = dict[k];
       });
+
       document.querySelectorAll(".lang-btn").forEach(b =>
         b.setAttribute("aria-pressed", b.dataset.lang===lang)
       );
+
       localStorage.setItem("moriris_lang", lang);
+
+      if (prev && prev !== lang) {
+        gaEvent("language_change", { lang_from: prev, lang_to: lang });
+      }
+
       renderCharacters();
     }
 
     document.querySelectorAll(".lang-btn").forEach(btn =>
       btn.addEventListener("click", () => setLang(btn.dataset.lang))
     );
-    const saved = localStorage.getItem("moriris_lang") ||
-      ((navigator.language||"en").startsWith("ja") ? "ja" : "en");
+
+    const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
     fetch("/data/character.json")
@@ -225,16 +300,16 @@
       })
       .catch(err => console.error("Character load error:", err));
 
-    // GA4用・メンバーシップ遷移ボタンクリックイベント
+    // ✅ 既存のイベントも維持（ファネルで使いやすい）
     const memCta = document.getElementById("mem-cta");
     if (memCta) {
       memCta.addEventListener("click", () => {
-        if (typeof gtag === "function") {
-          gtag('event', 'membership_cta_click', {
-            from_page: 'characters',
-            destination: '/membership.html'
-          });
-        }
+        gaEvent("membership_cta_click", {
+          cta_name: "from_characters",
+          plan: "none",
+          destination: "/membership.html",
+          outbound: 0
+        });
       });
     }
   </script>
