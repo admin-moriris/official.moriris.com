@@ -149,30 +149,13 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    function isInternalTraffic(){
-      return document.cookie.includes("moriris_dev=1");
-    }
-    function isDebug(){
-      return location.search.includes("debug=1");
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'granted'
-    });
-
-    // ✅ クロスドメイン（member.moriris.com）
-    // ✅ internal traffic（GA4側の internal フィルタ用）
+  
     gtag('config', 'G-HWRX6Q9K3E', {
-      debug_mode: isDebug(),
-      traffic_type: isInternalTraffic() ? 'internal' : undefined,
-      linker: { domains: ['member.moriris.com'] }
+      linker: {
+        domains: ['official.moriris.com', 'member.moriris.com']
+      }
     });
   </script>
 </head>
