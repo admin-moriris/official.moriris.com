@@ -46,15 +46,13 @@
     a:hover{text-decoration:underline}
 
     /* HERO */
-    .hero{
-      min-height:38vh;
-      padding:3.5rem 1.5rem 2rem;
-    }
+    .hero{ min-height:38vh; padding:3.5rem 1.5rem 2rem; }
     .logo{
       width:min(320px,80vw);
       margin:0 auto .8rem;
       filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));
     }
+
     /* Topbar (Lang) */
     .topbar{
       position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
@@ -115,84 +113,76 @@
       display:flex;gap:.75rem;flex-wrap:wrap;align-items:flex-end;
       margin-top:.6rem;margin-bottom:.4rem;
     }
-    .char-thumb{
-      flex:0 1 90px;
-      text-align:center;
-    }
-    .char-thumb img{
-      border-radius:14px;
-      box-shadow:var(--shadow);
-    }
-    .char-thumb-name{
-      font-size:.8rem;
-      margin-top:.25rem;
-    }
+    .char-thumb{flex:0 1 90px;text-align:center;}
+    .char-thumb img{border-radius:14px;box-shadow:var(--shadow);}
+    .char-thumb-name{font-size:.8rem;margin-top:.25rem;}
 
     @media (max-width:900px){
       .grid{grid-template-columns:1fr}
       .tiles{grid-template-columns:1fr 1fr}
-      .hero{
-        min-height:46vh;            /* 66vh → 46vh */
-        padding:4.6rem 1rem 2.6rem; /* 7rem/5rem → 詰める */
-      }
+      .hero{ min-height:46vh; padding:4.6rem 1rem 2.6rem; }
     }
     @media (max-width:640px){
       .tiles{grid-template-columns:1fr}
     }
-    
+
     .sns-row{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      margin:4px 0 4px;
+      display:flex;justify-content:center;gap:14px;margin:4px 0 4px;
     }
     .sns-icon{
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      background:#ffffff;
+      width:40px;height:40px;border-radius:999px;background:#ffffff;
       box-shadow:0 4px 12px rgba(0,0,0,.12);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      text-decoration:none;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;text-decoration:none;
     }
-    .sns-icon svg{
-      width:20px;
-      height:20px;
-      fill:#3f6f4b;
-    }
+    .sns-icon svg{width:20px;height:20px;fill:#3f6f4b;}
   </style>
 
+  <!-- ✅ internal cookie: 全員に付けない（?internal=1 の時だけ） -->
   <script>
-    // GA4で開発者を除外する
-    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    if (location.search.includes("internal=1")) {
+      document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    }
   </script>
+
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
-  
+
+    function isInternalTraffic(){
+      return document.cookie.includes("moriris_dev=1");
+    }
+    function isDebug(){
+      return location.search.includes("debug=1");
+    }
+
     gtag('js', new Date());
-  
+
     gtag('consent', 'default', {
       ad_storage: 'denied',
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       analytics_storage: 'granted'
     });
-  
-    // page_view は config だけで自動送信されるので event 呼び出しは不要
-    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
-  </script> 
+
+    // ✅ クロスドメイン（member.moriris.com）
+    // ✅ internal traffic（GA4側の internal フィルタ用）
+    gtag('config', 'G-HWRX6Q9K3E', {
+      debug_mode: isDebug(),
+      traffic_type: isInternalTraffic() ? 'internal' : undefined,
+      linker: { domains: ['member.moriris.com'] }
+    });
+  </script>
 </head>
+
 <body>
 
   <!-- Language -->
   <div class="topbar">
-    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-    <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    <button class="lang-btn" data-lang="en" aria-pressed="true" data-ga="language_btn_en">EN</button>
+    <button class="lang-btn" data-lang="ja" aria-pressed="false" data-ga="language_btn_ja">JP</button>
   </div>
 
   <!-- HERO -->
@@ -205,11 +195,11 @@
   <!-- NAV -->
   <nav class="main">
     <div class="nav-inner">
-      <a href="#home" data-i18n="nav_home">HOME</a>
-      <a href="#about" data-i18n="nav_about">ABOUT</a>
-      <a href="#characters" data-i18n="nav_characters">CHARACTERS</a>
-      <a href="#membership" data-i18n="nav_membership">MEMBERSHIP</a>
-      <a href="#items" data-i18n="nav_items">ITEM</a>
+      <a href="#home" data-i18n="nav_home" data-ga="nav_click_home">HOME</a>
+      <a href="#about" data-i18n="nav_about" data-ga="nav_click_about">ABOUT</a>
+      <a href="#characters" data-i18n="nav_characters" data-ga="nav_click_characters">CHARACTERS</a>
+      <a href="#membership" data-i18n="nav_membership" data-ga="nav_click_membership">MEMBERSHIP</a>
+      <a href="#items" data-i18n="nav_items" data-ga="nav_click_items">ITEM</a>
     </div>
   </nav>
 
@@ -219,15 +209,20 @@
     <section id="watch" class="card">
       <h2 data-i18n="watch_title">📺 Animation</h2>
       <p class="small" data-i18n="watch_copy">Start here.</p>
+
       <div class="grid grid-1" style="margin-top:.5rem">
         <iframe src="https://www.youtube.com/embed/6erVvINc38Y" title="Moriris Introduction" allowfullscreen></iframe>
       </div>
+
       <div class="small watch-extra">
         <p data-i18n="watch_intro1">This short film introduces the world of Moriris.</p>
         <p data-i18n="watch_intro2">A wordless animation set in a quiet forest that feels calm — and slightly strange.</p>
       </div>
+
       <p style="margin-top:.8rem">
-        <a href="/characters.html" class="btn" data-i18n="watch_meet_btn">Meet the Characters</a>
+        <a href="/characters.html" class="btn" data-i18n="watch_meet_btn" data-ga="cta_click_meet_characters">
+          Meet the Characters
+        </a>
       </p>
     </section>
 
@@ -241,7 +236,7 @@
           <p data-i18n="about_p3">This silent animation tells a story without dialogue, inviting you to relax, observe, and feel the atmosphere.</p>
 
           <p class="small" style="margin-top:.7rem">
-            <a class="pill" href="/about-wordless-animation.html" data-i18n="about_wordless_pill">
+            <a class="pill" href="/about-wordless-animation.html" data-i18n="about_wordless_pill" data-ga="pill_click_wordless">
               What is wordless animation?
             </a>
           </p>
@@ -256,7 +251,7 @@
       <p class="small" data-i18n="char_copy">Meet a few of the gentle creatures from Moriris.</p>
       <div id="character-strip" class="char-strip"></div>
       <p style="margin-top:.4rem;">
-        <a href="/characters.html" class="btn small" data-i18n="char_btn">
+        <a href="/characters.html" class="btn small" data-i18n="char_btn" data-ga="cta_click_view_all_characters">
           View all characters
         </a>
       </p>
@@ -278,7 +273,9 @@
         </div>
       </div>
       <p style="margin-top:.8rem">
-        <a class="btn" href="/membership.html" data-i18n="mem_btn">Continue the story</a>
+        <a class="btn" href="/membership.html" data-i18n="mem_btn" data-ga="cta_click_membership_page">
+          Continue the story
+        </a>
       </p>
     </section>
 
@@ -287,14 +284,14 @@
       <h2 data-i18n="items_title">📚 Item</h2>
 
       <div class="grid">
-        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page">
+        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep1">
           <img src="/assets/Picture book 1.png" alt="Picture book 1">
           <div class="tile-body">
             <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
           </div>
         </a>
 
-        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page">
+        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep2">
           <img src="/assets/Picture book 2.png" alt="Picture book 2">
           <div class="tile-body">
             <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
@@ -310,6 +307,7 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open Moriris Studio on Kindle in a new tab"
+          data-ga="outbound_click_kindle"
         >Also available on Kindle</a>
       </p>
     </section>
@@ -318,19 +316,19 @@
   <footer>
     <div class="sns-row">
       <a class="sns-icon" href="https://www.youtube.com/@moriris_world"
-         target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+         target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-ga="social_click_youtube">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/>
         </svg>
       </a>
       <a class="sns-icon" href="https://x.com/moriris_world"
-         target="_blank" rel="noopener noreferrer" aria-label="X">
+         target="_blank" rel="noopener noreferrer" aria-label="X" data-ga="social_click_x">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M18.9 4H16.4L12.9 8.3 10 4H5.1l5.2 7.4L5 20h2.5l3.8-4.7L14 20h4.9l-5.5-7.9L18.9 4zm-3 14-6-8.7L9.2 7h.9l6 8.7.7 1.3z"/>
         </svg>
       </a>
       <a class="sns-icon" href="https://www.tiktok.com/@moriris_world_"
-         target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+         target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-ga="social_click_tiktok">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M18.5 7.3a4.4 4.4 0 0 1-2.7-1V14a4.9 4.9 0 1 1-4.9-4.9 5 5 0 0 1 1 .1v2.1a2.8 2.8 0 0 0-1-.2 2.8 2.8 0 1 0 2.8 2.8V3.9h2.2a4.4 4.4 0 0 0 2.6 2.5z"/>
         </svg>
@@ -339,21 +337,82 @@
          href="https://www.pinterest.com/moriris_world/"
          target="_blank"
          rel="noopener noreferrer"
-         aria-label="Pinterest">
+         aria-label="Pinterest"
+         data-ga="social_click_pinterest">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2C6.9 2 3 5.4 3 10.2c0 3.2 1.8 5.8 4.6 6.9-.1-.6-.3-1.5 0-2.2.2-.6 1.4-5.8 1.4-5.8s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.6 2.1 1.7 2.1 2 0 3.6-2.1 3.6-5.1 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .9 2.6.1.1.1.2.1.4-.1.4-.3 1.1-.4 1.3-.1.2-.2.3-.4.2-1.5-.7-2.4-2.9-2.4-4.7 0-3.8 2.8-7.3 8-7.3 4.2 0 7.4 3 7.4 6.9 0 4.1-2.6 7.4-6.2 7.4-1.2 0-2.3-.6-2.7-1.4l-.7 2.6c-.3 1-.9 2.3-1.3 3.1.9.3 1.8.4 2.8.4 5.1 0 9-3.4 9-8.8C21 5.6 17.1 2 12 2z"/>
         </svg>
       </a>
     </div>
     © Moriris Studio ·
-    <a href="/contact.html" data-i18n="footer_contact" target="_blank" rel="noopener noreferrer">Contact</a> ·
-    <a href="https://member.moriris.com/terms.html" data-i18n="footer_terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> /
-    <a href="https://member.moriris.com/privacy.html" data-i18n="footer_privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> /
-    <a href="https://member.moriris.com/legal.html" data-i18n="footer_legal" target="_blank" rel="noopener noreferrer">Legal Notice</a> /
+    <a href="/contact.html" data-i18n="footer_contact" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_contact">Contact</a> ·
+    <a href="https://member.moriris.com/terms.html" data-i18n="footer_terms" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_terms">Terms of Service</a> /
+    <a href="https://member.moriris.com/privacy.html" data-i18n="footer_privacy" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_privacy">Privacy Policy</a> /
+    <a href="https://member.moriris.com/legal.html" data-i18n="footer_legal" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_legal">Legal Notice</a> /
     <span class="small">official.moriris.com</span>
   </footer>
 
   <script>
+    // ---------- GA helper ----------
+    function gaLang(){
+      return localStorage.getItem("moriris_lang") || document.documentElement.lang || "en";
+    }
+    function gaEvent(name, params){
+      if (typeof gtag !== "function") return;
+      gtag("event", name, Object.assign({
+        page: location.pathname,
+        lang: gaLang()
+      }, params || {}));
+    }
+
+    // クリック計測（data-ga があれば優先）
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
+
+      const name = a.dataset.ga;
+      if (name) {
+        gaEvent(name, {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href,
+          outbound: isExternal ? 1 : 0
+        });
+        return;
+      }
+
+      if (isExternal) {
+        gaEvent("outbound_click", {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href
+        });
+      }
+    });
+
+    // スクロール深度（25/50/75/90）
+    (function(){
+      const thresholds = [25, 50, 75, 90];
+      const fired = new Set();
+      function onScroll(){
+        const doc = document.documentElement;
+        const scrollTop = window.scrollY || doc.scrollTop;
+        const height = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const pct = Math.round((scrollTop / height) * 100);
+
+        thresholds.forEach(t => {
+          if (pct >= t && !fired.has(t)) {
+            fired.add(t);
+            gaEvent("scroll_depth", { percent: t });
+          }
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+    })();
+
+    // ---------- page logic ----------
     let charactersData = [];
     let currentLang = "en";
 
@@ -391,7 +450,6 @@
         nav_characters:"CHARACTERS",
         nav_membership:"MEMBERSHIP",
         nav_items:"ITEM",
-        nav_faq:"FAQ",
 
         watch_title:"📺 Animation",
         watch_copy:"Start here.",
@@ -437,7 +495,6 @@
         nav_characters:"CHARACTERS",
         nav_membership:"MEMBERSHIP",
         nav_items:"ITEM",
-        nav_faq:"FAQ",
 
         watch_title:"📺 アニメ",
         watch_copy:"モリリスの世界をお楽しみください。",
@@ -471,6 +528,7 @@
     };
 
     function setLang(lang){
+      const prev = currentLang;
       const dict = translations[lang] || translations.en;
       currentLang = lang;
 
@@ -503,6 +561,11 @@
 
       localStorage.setItem("moriris_lang", lang);
 
+      // ✅ language change event
+      if (prev && prev !== lang) {
+        gaEvent("language_change", { lang_from: prev, lang_to: lang });
+      }
+
       renderCharacterStrip();
     }
 
@@ -510,7 +573,6 @@
       btn.addEventListener("click", () => setLang(btn.dataset.lang))
     );
 
-    // 初回デフォルトは必ず EN（現行仕様維持）
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
@@ -518,7 +580,6 @@
       a.addEventListener('click', e=>e.preventDefault());
     });
 
-    // キャラクター情報読み込み（サムネ用）
     fetch("/data/character.json")
       .then(res => {
         if (!res.ok) throw new Error("Failed to load character.json");
