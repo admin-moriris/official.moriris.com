@@ -78,7 +78,7 @@
       color:var(--accent-dark);
       background:transparent;
     }
-    .btn-outline:hover{background:rgba(255,255,255,.8)}
+    .btn-outline:hover{background:rgba(255,255,255,.8);text-decoration:none}
 
     .cta-row{
       display:flex;
@@ -154,11 +154,25 @@
     }
   </style>
 
-  <!-- ▼ GA4 計測コード -->
+  <!-- ▼ Internal判定（全ユーザーにcookieを付与しない） -->
   <script>
-    document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    // ?internal=1 を付けた時だけ internal 用cookieを付与（自分の端末で使う）
+    if (location.search.includes("internal=1")) {
+      document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    }
+    function isInternalTraffic(){
+      return (
+        document.cookie.includes("moriris_dev=1") ||
+        location.hostname === "localhost" ||
+        location.hostname.endsWith(".local")
+      );
+    }
+    function isDebugMode(){
+      return location.search.includes("debug=1");
+    }
   </script>
 
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -173,13 +187,25 @@
       analytics_storage: 'granted'
     });
 
-    gtag('config', 'G-HWRX6Q9K3E', { 'debug_mode': true });
+    // クロスドメイン（official.moriris.com ↔ member.moriris.com）
+    const gaConfig = {
+      debug_mode: isDebugMode(),
+      linker: { domains: ['official.moriris.com','member.moriris.com'] }
+    };
 
-    gtag('event', 'page_view', {
-      dev_flag: document.cookie.includes('moriris_dev=1') ? 'internal' : 'user'
-    });
+    // Internal traffic の時だけ traffic_type を付与（GA4側で internal として除外できる）
+    if (isInternalTraffic()) {
+      gaConfig.traffic_type = 'internal';
+    }
+
+    gtag('config', 'G-HWRX6Q9K3E', gaConfig);
+
+    // 共通イベント送信ヘルパ
+    function gaEvent(name, params){
+      if (typeof gtag !== "function") return;
+      gtag("event", name, params || {});
+    }
   </script>
-
 </head>
 
 <body>
@@ -259,6 +285,8 @@
               href="https://member.moriris.com/"
               class="btn-outline"
               data-i18n="plan_free_btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Join Free plan
             </a>
@@ -282,6 +310,8 @@
               href="https://member.moriris.com/"
               class="btn"
               data-i18n="plan_standard_btn"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Start Standard plan
             </a>
@@ -438,12 +468,14 @@
 
     function setLang(lang){
       const dict = translations[lang] || translations.en;
+      const from = currentLang;
       currentLang = lang;
 
       document.documentElement.lang = lang;
+
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.dataset.i18n;
-        if(dict[key]) el.textContent = dict[key];
+        if (dict[key] !== undefined) el.textContent = dict[key];
       });
 
       document.querySelectorAll(".lang-btn").forEach(btn=>{
@@ -451,6 +483,15 @@
       });
 
       localStorage.setItem("moriris_lang", lang);
+
+      // GA4: 言語切替
+      if (from !== lang) {
+        gaEvent("language_change", {
+          page: "membership",
+          lang_from: from,
+          lang_to: lang
+        });
+      }
     }
 
     document.querySelectorAll(".lang-btn").forEach(btn=>{
@@ -460,14 +501,15 @@
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
-    // ▼ GA4: CTAクリック計測
+    // ▼ GA4: CTAクリック計測（Standard開始まで追うためのキーイベント）
     function trackMembershipCta(ctaName, plan){
-      if (typeof gtag !== "function") return;
-      gtag("event", "membership_cta_click", {
+      gaEvent("membership_cta_click", {
         cta_name: ctaName,     // "members_main" / "free_plan" / "standard_plan"
-        plan: plan,           // "free" / "standard" / "none"
+        plan: plan,            // "none" / "free" / "standard"
         lang: currentLang,
-        page: "membership"
+        page: "membership",
+        destination: "https://member.moriris.com/",
+        outbound: 1
       });
     }
 
