@@ -181,7 +181,16 @@
       <a href="#home" data-i18n="nav_home" data-ga="nav_click_home">HOME</a>
       <a href="#about" data-i18n="nav_about" data-ga="nav_click_about">ABOUT</a>
       <a href="#characters" data-i18n="nav_characters" data-ga="nav_click_characters">CHARACTERS</a>
-      <a href="#membership" data-i18n="nav_membership" data-ga="nav_click_membership">MEMBERSHIP</a>
+
+      <!-- MEMBERSHIPタブ（コードは残すが無効化・非表示） -->
+      <a href="#membership"
+         data-i18n="nav_membership"
+         data-ga="nav_click_membership"
+         class="disabled"
+         aria-disabled="true"
+         style="display:none;"
+      >MEMBERSHIP</a>
+
       <a href="#items" data-i18n="nav_items" data-ga="nav_click_items">ITEM</a>
     </div>
   </nav>
@@ -240,8 +249,8 @@
       </p>
     </section>
 
-    <!-- MEMBERSHIP -->
-    <section id="membership" class="card">
+    <!-- MEMBERSHIP（コードは残すが無効化・非表示） -->
+    <section id="membership" class="card" style="display:none;" aria-hidden="true">
       <h2><span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP</span></h2>
       <p class="small" data-i18n="mem_copy">
         For those who want to stay a little longer in the forest.
@@ -267,14 +276,16 @@
       <h2 data-i18n="items_title">📚 Item</h2>
 
       <div class="grid">
-        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep1">
+        <!-- membership.html への導線（コードは残すが無効化） -->
+        <a class="tile disabled" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep1" aria-disabled="true" tabindex="-1">
           <img src="/assets/Picture book 1.png" alt="Picture book 1">
           <div class="tile-body">
             <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
           </div>
         </a>
 
-        <a class="tile" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep2">
+        <!-- membership.html への導線（コードは残すが無効化） -->
+        <a class="tile disabled" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep2" aria-disabled="true" tabindex="-1">
           <img src="/assets/Picture book 2.png" alt="Picture book 2">
           <div class="tile-body">
             <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
