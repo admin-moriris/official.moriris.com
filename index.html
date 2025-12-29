@@ -191,7 +191,8 @@
          style="display:none;"
       >MEMBERSHIP</a>
 
-      <a href="#items" data-i18n="nav_items" data-ga="nav_click_items">ITEM</a>
+      <!-- ✅ Facility tab -->
+      <a href="#facility" data-i18n="nav_facility" data-ga="nav_click_facility">FOR FACILITIES</a>
     </div>
   </nav>
 
@@ -252,6 +253,29 @@
       </p>
     </section>
 
+    <!-- ✅ FACILITY -->
+    <section id="facility" class="card">
+      <h2 data-i18n="facility_title">🏫 For Facilities</h2>
+      <p class="small" data-i18n="facility_copy">
+        Information for childcare facilities, waiting rooms, and shared spaces.
+      </p>
+
+      <div class="grid grid-1" style="margin-top:.6rem">
+        <a class="tile" href="/facility-use.html" aria-label="Go to facility-use page" data-ga="cta_click_facility_use">
+          <img src="/assets/hero-forest.jpg" alt="Moriris for facilities">
+          <div class="tile-body">
+            <div class="more" data-i18n="facility_btn">Open the facility page</div>
+          </div>
+        </a>
+      </div>
+
+      <p class="small" style="margin-top:.6rem">
+        <a class="btn" href="/facility-use.html" data-i18n="facility_btn2" data-ga="cta_click_facility_use_btn">
+          Learn more
+        </a>
+      </p>
+    </section>
+
     <!-- MEMBERSHIP（コードは残すが無効化・非表示） -->
     <section id="membership" class="card" style="display:none;" aria-hidden="true">
       <h2><span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP</span></h2>
@@ -274,40 +298,6 @@
       </p>
     </section>
 
-    <!-- ITEMS -->
-    <section id="items" class="card">
-      <h2 data-i18n="items_title">📚 Item</h2>
-
-      <div class="grid">
-        <!-- membership.html への導線（コードは残すが無効化） -->
-        <a class="tile disabled" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep1" aria-disabled="true" tabindex="-1">
-          <img src="/assets/Picture book 1.png" alt="Picture book 1">
-          <div class="tile-body">
-            <div class="more" data-i18n="items_1">Moriris Book: Episode 1</div>
-          </div>
-        </a>
-
-        <!-- membership.html への導線（コードは残すが無効化） -->
-        <a class="tile disabled" href="/membership.html" aria-label="Go to MORIRIS MEMBERSHIP page" data-ga="item_click_book_ep2" aria-disabled="true" tabindex="-1">
-          <img src="/assets/Picture book 2.png" alt="Picture book 2">
-          <div class="tile-body">
-            <div class="more" data-i18n="items_2">Moriris Book: Episode 2</div>
-          </div>
-        </a>
-      </div>
-
-      <p class="small" style="margin-top:.6rem">
-        <a
-          class="pill"
-          data-i18n="items_kindle"
-          href="https://www.amazon.co.jp/s?i=digital-text&rh=p_27%3AMoriris%2BStudio&s=relevancerank&text=Moriris+Studio&ref=dp_byline_sr_ebooks_1"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open Moriris Studio on Kindle in a new tab"
-          data-ga="outbound_click_kindle"
-        >Also available on Kindle</a>
-      </p>
-    </section>
   </main>
 
   <footer>
@@ -446,7 +436,7 @@
         nav_about:"ABOUT",
         nav_characters:"CHARACTERS",
         nav_membership:"MEMBERSHIP",
-        nav_items:"ITEM",
+        nav_facility:"FOR FACILITIES",
 
         // Watch
         watch_title:"🎥 Videos",
@@ -471,16 +461,16 @@
         char_copy:"Meet a few of the gentle creatures from Moriris.",
         char_btn:"View all characters",
 
+        // Facility
+        facility_title:"🏫 For Facilities",
+        facility_copy:"Information for childcare facilities, waiting rooms, and shared spaces.",
+        facility_btn:"Open the facility page",
+        facility_btn2:"Learn more",
+
         // Membership (hidden)
         mem_title:"🌳 MORIRIS MEMBERSHIP",
         mem_copy:"For those who want to stay a little longer in the forest.",
         mem_btn:"Continue the story",
-
-        // Items
-        items_title:"📚 ITEM",
-        items_1:"Picture Book: Episode 1",
-        items_2:"Picture Book: Episode 2",
-        items_kindle:"Also available on Kindle",
 
         // Footer
         footer_contact:"Contact",
@@ -502,7 +492,7 @@
         nav_about:"ABOUT",
         nav_characters:"CHARACTERS",
         nav_membership:"MEMBERSHIP",
-        nav_items:"ITEM",
+        nav_facility:"法人・施設向け",
 
         // Watch
         watch_title:"🎥 動画",
@@ -527,16 +517,16 @@
         char_copy:"モリリスの仲間たちを一部ご紹介します。",
         char_btn:"キャラクター一覧を見る",
 
+        // Facility
+        facility_title:"🏫 法人・施設向け",
+        facility_copy:"保育施設・待合空間など、共有空間でのご利用についての案内です。",
+        facility_btn:"法人・施設向けページを開く",
+        facility_btn2:"詳しく見る",
+
         // Membership (hidden)
         mem_title:"🌳 モリリス メンバーシップ",
         mem_copy:"森の世界に、もう少しだけ長くとどまりたいあなたへ。",
         mem_btn:"物語のつづきを見る",
-
-        // Items
-        items_title:"📚 アイテム",
-        items_1:"モリリス絵本：Episode 1",
-        items_2:"モリリス絵本：Episode 2",
-        items_kindle:"Kindleストアでも販売中",
 
         // Footer
         footer_contact:"お問い合わせ",
