@@ -230,7 +230,6 @@
           <p data-i18n="about_p4">Moriris videos are designed for use both at home and in shared spaces, such as childcare facilities and waiting rooms.</p>
           <p data-i18n="about_p5">No dialogue. No instructions. Just a place to return to.</p>
 
-          <!-- Pill: 既存ページを維持しつつ、ラベルを用途寄りに変更 -->
           <p class="small" style="margin-top:.7rem">
             <a class="pill" href="/about-moriris-videos.html" data-i18n="about_wordless_pill" data-ga="pill_click_wordless">
               What are Moriris videos?
@@ -260,18 +259,17 @@
         Information for childcare facilities, waiting rooms, and shared spaces.
       </p>
 
-      <div class="grid grid-1" style="margin-top:.6rem">
-        <a class="tile" href="/facility-use.html" aria-label="Go to facility-use page" data-ga="cta_click_facility_use">
-          <img src="/assets/Moriris Friends.png" alt="Moriris for facilities">
-          <div class="tile-body">
-            <div class="more" data-i18n="facility_btn">Open the facility page</div>
-          </div>
-        </a>
-      </div>
-
-      <p class="small" style="margin-top:.6rem">
+      <!-- ✅ 普通のボタンで飛ぶ -->
+      <p style="margin-top:.8rem">
         <a class="btn" href="/facility-use.html" data-i18n="facility_btn2" data-ga="cta_click_facility_use_btn">
           Learn more
+        </a>
+      </p>
+
+      <!-- ✅ まだ準備中（押せない） -->
+      <p class="small" style="margin-top:.6rem">
+        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1" data-i18n="facility_comingsoon" data-ga="cta_click_facility_comingsoon">
+          Coming soon
         </a>
       </p>
     </section>
@@ -453,7 +451,7 @@
         about_p4:"Moriris videos are designed for use both at home and in shared spaces, such as childcare facilities and waiting rooms.",
         about_p5:"No dialogue. No instructions. Just a place to return to.",
 
-        // Pill (label only)
+        // Pill
         about_wordless_pill:"What are Moriris videos?",
 
         // Characters
@@ -464,8 +462,8 @@
         // Facility
         facility_title:"🏫 For Facilities",
         facility_copy:"Information for childcare facilities, waiting rooms, and shared spaces.",
-        facility_btn:"Open the facility page",
         facility_btn2:"Learn more",
+        facility_comingsoon:"Coming soon",
 
         // Membership (hidden)
         mem_title:"🌳 MORIRIS MEMBERSHIP",
@@ -487,11 +485,11 @@
         seo_tw_title:"Moriris｜用途別の森の環境動画",
         seo_tw_desc:"睡眠導入・集中・待ち時間・静かなひとときのための長尺環境動画。",
 
-        // Nav
-        nav_home:"HOME",
-        nav_about:"ABOUT",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
+        // Nav（✅ 日本語表示）
+        nav_home:"ホーム",
+        nav_about:"概要",
+        nav_characters:"キャラクター",
+        nav_membership:"メンバーシップ",
         nav_facility:"法人・施設向け",
 
         // Watch
@@ -509,7 +507,7 @@
         about_p4:"家庭での利用はもちろん、保育施設や待合空間などの共有空間での使用も想定して設計されています。",
         about_p5:"言葉はありません。説明もありません。ただ、戻ってこられる場所があるだけです。",
 
-        // Pill (label only)
+        // Pill
         about_wordless_pill:"Moririsの動画について",
 
         // Characters
@@ -520,8 +518,8 @@
         // Facility
         facility_title:"🏫 法人・施設向け",
         facility_copy:"保育施設・待合空間など、共有空間でのご利用についての案内です。",
-        facility_btn:"法人・施設向けページを開く",
-        facility_btn2:"詳しく見る",
+        facility_btn2:"法人・施設向けページへ",
+        facility_comingsoon:"準備中",
 
         // Membership (hidden)
         mem_title:"🌳 モリリス メンバーシップ",
@@ -585,6 +583,7 @@
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
+    // disabled anchors: prevent navigation
     document.querySelectorAll('a.disabled').forEach(a=>{
       a.addEventListener('click', e=>e.preventDefault());
     });
