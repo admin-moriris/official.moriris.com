@@ -191,7 +191,6 @@
          style="display:none;"
       >MEMBERSHIP</a>
 
-      <!-- ✅ Facility tab -->
       <a href="#facility" data-i18n="nav_facility" data-ga="nav_click_facility">FOR FACILITIES</a>
     </div>
   </nav>
@@ -245,8 +244,10 @@
       <h2 data-i18n="char_title">🦕 Characters</h2>
       <p class="small" data-i18n="char_copy">Meet a few of the gentle creatures from Moriris.</p>
       <div id="character-strip" class="char-strip"></div>
-      <p style="margin-top:.4rem;">
-        <a href="/characters.html" class="btn small" data-i18n="char_btn" data-ga="cta_click_view_all_characters">
+
+      <!-- ✅ pillデザインに統一 -->
+      <p style="margin-top:.6rem;">
+        <a href="/characters.html" class="pill" data-i18n="char_btn" data-ga="cta_click_view_all_characters">
           View all characters
         </a>
       </p>
@@ -259,17 +260,10 @@
         Information for childcare facilities, waiting rooms, and shared spaces.
       </p>
 
-      <!-- ✅ 普通のボタンで飛ぶ -->
-      <p style="margin-top:.8rem">
-        <a class="btn" href="/facility-use.html" data-i18n="facility_btn2" data-ga="cta_click_facility_use_btn">
+      <!-- ✅ pillデザインに統一 -->
+      <p style="margin-top:.6rem">
+        <a class="pill" href="/facility-use.html" data-i18n="facility_btn2" data-ga="cta_click_facility_use_btn">
           Learn more
-        </a>
-      </p>
-
-      <!-- ✅ まだ準備中（押せない） -->
-      <p class="small" style="margin-top:.6rem">
-        <a class="btn disabled" href="#" aria-disabled="true" tabindex="-1" data-i18n="facility_comingsoon" data-ga="cta_click_facility_comingsoon">
-          Coming soon
         </a>
       </p>
     </section>
@@ -463,7 +457,6 @@
         facility_title:"🏫 For Facilities",
         facility_copy:"Information for childcare facilities, waiting rooms, and shared spaces.",
         facility_btn2:"Learn more",
-        facility_comingsoon:"Coming soon",
 
         // Membership (hidden)
         mem_title:"🌳 MORIRIS MEMBERSHIP",
@@ -485,7 +478,7 @@
         seo_tw_title:"Moriris｜用途別の森の環境動画",
         seo_tw_desc:"睡眠導入・集中・待ち時間・静かなひとときのための長尺環境動画。",
 
-        // Nav（✅ 日本語表示）
+        // Nav
         nav_home:"ホーム",
         nav_about:"概要",
         nav_characters:"キャラクター",
@@ -510,16 +503,15 @@
         // Pill
         about_wordless_pill:"Moririsの動画について",
 
-        // Characters
-        char_title:"🦕 Characters",
+        // Characters（✅ 見出しを日本語に）
+        char_title:"🦕 キャラクター",
         char_copy:"モリリスの仲間たちを一部ご紹介します。",
-        char_btn:"キャラクター一覧を見る",
+        char_btn:"キャラクターを見る",
 
         // Facility
         facility_title:"🏫 法人・施設向け",
         facility_copy:"保育施設・待合空間など、共有空間でのご利用についての案内です。",
         facility_btn2:"法人・施設向けページへ",
-        facility_comingsoon:"準備中",
 
         // Membership (hidden)
         mem_title:"🌳 モリリス メンバーシップ",
@@ -583,7 +575,6 @@
     const saved = localStorage.getItem("moriris_lang") || "en";
     setLang(saved);
 
-    // disabled anchors: prevent navigation
     document.querySelectorAll('a.disabled').forEach(a=>{
       a.addEventListener('click', e=>e.preventDefault());
     });
