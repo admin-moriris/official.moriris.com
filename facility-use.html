@@ -30,6 +30,7 @@
       --accent:#6aa57a; --accent-dark:#3e7b53;
       --card:rgba(255,253,243,0.90);
       --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+      --disabled:#b9c6bf;
     }
     *{box-sizing:border-box}
     html,body{
@@ -74,11 +75,24 @@
       display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
       border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:800
     }
+
     .btn{
-      display:inline-block;background:var(--accent);color:#fff;
-      padding:.75rem 1rem;border-radius:12px;font-weight:800
+      display:inline-block;
+      background:var(--accent);
+      color:#fff;
+      padding:.75rem 1rem;
+      border-radius:12px;
+      font-weight:800;
     }
-    .btn:hover{background:var(--accent-dark)}
+
+    /* disabled button */
+    .btn.disabled{
+      background:var(--disabled);
+      color:#fff;
+      cursor:not-allowed;
+      pointer-events:none;
+    }
+
     footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
 
     .grid{
@@ -96,6 +110,7 @@
       padding:1rem;
       border:1px solid rgba(0,0,0,.06);
     }
+    .plan h3{margin:0 0 .3rem}
     .price{font-weight:900;margin:.25rem 0}
     .divider{height:1px;background:rgba(0,0,0,.08);margin:1rem 0}
 
@@ -114,27 +129,8 @@
       padding:1rem;
       border:1px solid rgba(0,0,0,.06);
     }
-    .plan h3{
-      margin-top: 0;
-      margin-bottom: .3rem;
-    }
-    
-    .diff .box h3{
-      margin-top: 0;
-      margin-bottom: .3rem;
-    }
+    .diff .box h3{margin:0 0 .3rem}
   </style>
-
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HWRX6Q9K3E', {
-      linker:{domains:['official.moriris.com','member.moriris.com']}
-    });
-  </script>
 </head>
 
 <body>
@@ -156,62 +152,6 @@
         Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.
       </p>
 
-      <div>
-        <span class="pill" data-i18n="pill1">For nursery schools</span>
-        <span class="pill" data-i18n="pill2">For waiting rooms</span>
-        <span class="pill" data-i18n="pill3">For calm facilities</span>
-      </div>
-
-      <h2 data-i18n="h2a">What you get</h2>
-      <ul>
-        <li data-i18n="li1"><strong>60-minute videos:</strong> fixed-length videos designed to loop naturally.</li>
-        <li data-i18n="li2"><strong>Ad-free:</strong> no interruptions during playback.</li>
-        <li data-i18n="li3"><strong>Wordless & calm:</strong> suitable for long-term background use.</li>
-      </ul>
-
-      <h2 data-i18n="h2yt">YouTube vs Facility Plan</h2>
-      <div class="diff">
-        <div class="box">
-          <h3 data-i18n="yt1">Facility Plan</h3>
-          <ul>
-            <li data-i18n="yt1li1">No ads</li>
-            <li data-i18n="yt1li2">Clear permission for facility use</li>
-            <li data-i18n="yt1li3">Easy access via member site</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3 data-i18n="yt2">YouTube</h3>
-          <ul>
-            <li data-i18n="yt2li1">Ads may appear</li>
-            <li data-i18n="yt2li2">Not optimized for facility operation</li>
-            <li data-i18n="yt2li3">Usage conditions may be unclear</li>
-          </ul>
-        </div>
-      </div>
-
-      <h2 data-i18n="h2c">Plans</h2>
-      <div class="grid">
-        <section class="plan">
-          <h3 data-i18n="free_title">Free</h3>
-          <div class="price">¥0</div>
-          <ul>
-            <li data-i18n="free_li1">One selected video (ad-free)</li>
-            <li data-i18n="free_li2">Facility use allowed</li>
-          </ul>
-        </section>
-
-        <section class="plan">
-          <h3 data-i18n="std_title">Standard</h3>
-          <div class="price" data-i18n="std_price">5-day trial → ¥2,980 / month</div>
-          <ul>
-            <li data-i18n="std_li1">Access to all facility videos (ad-free)</li>
-            <li data-i18n="std_li2">Videos for multiple purposes</li>
-          </ul>
-        </section>
-      </div>
-
-      <div class="divider"></div>
-
       <h2 data-i18n="h2d">How to start</h2>
       <ol>
         <li data-i18n="step1">Access the member site and register with your email address.</li>
@@ -220,9 +160,9 @@
       </ol>
 
       <p style="margin-top:1rem">
-        <a class="btn" href="https://member.moriris.com/" target="_blank" rel="noopener" data-i18n="cta_member">
-          Go to the Member Site →
-        </a>
+        <span class="btn disabled" aria-disabled="true" data-i18n="cta_member">
+          Go to the Member Site (Coming soon)
+        </span>
       </p>
     </article>
   </main>
@@ -239,70 +179,22 @@
         back_home:"← Back to top",
         h1:"Facility Use (Business)",
         p1:"Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.",
-        pill1:"For nursery schools",
-        pill2:"For waiting rooms",
-        pill3:"For calm facilities",
-        h2a:"What you get",
-        li1:"60-minute videos: fixed-length videos designed to loop naturally.",
-        li2:"Ad-free: no interruptions during playback.",
-        li3:"Wordless & calm: suitable for long-term background use.",
-        h2yt:"YouTube vs Facility Plan",
-        yt1:"Facility Plan",
-        yt1li1:"No ads",
-        yt1li2:"Clear permission for facility use",
-        yt1li3:"Easy access via member site",
-        yt2:"YouTube",
-        yt2li1:"Ads may appear",
-        yt2li2:"Not optimized for facility operation",
-        yt2li3:"Usage conditions may be unclear",
-        h2c:"Plans",
-        free_title:"Free",
-        free_li1:"One selected video (ad-free)",
-        free_li2:"Facility use allowed",
-        std_title:"Standard",
-        std_price:"5-day trial → ¥2,980 / month",
-        std_li1:"Access to all facility videos (ad-free)",
-        std_li2:"Videos for multiple purposes",
         h2d:"How to start",
         step1:"Access the member site and register with your email address.",
         step2:"You will start on the Free plan. Upgrade to Standard after logging in if needed.",
         step3:"Log in anytime, select a video on the member site, and play it on your facility screen.",
-        cta_member:"Go to the Member Site →",
+        cta_member:"Go to the Member Site (Coming soon)",
         footer_contact:"Contact"
       },
       ja:{
         back_home:"← トップページへ戻る",
         h1:"法人・施設向けのご利用",
         p1:"Moririsは、保育園や待合室などの静かな空間向けに制作された、セリフのない森の環境動画を提供しています。",
-        pill1:"保育園・幼児施設向け",
-        pill2:"待合室向け",
-        pill3:"静かな施設向け",
-        h2a:"提供内容",
-        li1:"60分動画：長さを固定し、自然にループする構成です。",
-        li2:"広告なし：再生中に中断されません。",
-        li3:"セリフなし・低刺激：長時間の流しっぱなしに適しています。",
-        h2yt:"YouTubeとの違い",
-        yt1:"施設向けプラン",
-        yt1li1:"広告なし",
-        yt1li2:"施設内上映の利用が明確",
-        yt1li3:"メンバーサイトから簡単に再生",
-        yt2:"YouTube",
-        yt2li1:"広告が表示される場合があります",
-        yt2li2:"施設運用に最適化されていません",
-        yt2li3:"利用条件が分かりにくい場合があります",
-        h2c:"プラン",
-        free_title:"Free",
-        free_li1:"指定の動画1本（広告なし）",
-        free_li2:"施設内での上映が可能",
-        std_title:"Standard",
-        std_price:"5日間トライアル → 月額 ¥2,980",
-        std_li1:"施設向け動画すべて利用可能（広告なし）",
-        std_li2:"用途別に利用できます",
         h2d:"導入の流れ",
         step1:"メンバーサイトにアクセスし、メールアドレスで会員登録します。",
         step2:"登録後はFreeプランで開始します。必要に応じてStandardへ登録してください。",
         step3:"メンバーサイトにログインし、動画を選んでそのまま施設で再生してください。",
-        cta_member:"メンバーサイトへ →",
+        cta_member:"メンバーサイトへ（準備中）",
         footer_contact:"お問い合わせ"
       }
     };
