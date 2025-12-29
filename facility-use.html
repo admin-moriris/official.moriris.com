@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✅ Updated SEO defaults (JS will overwrite per language) -->
+  <title>Facility Use | Moriris</title>
+  <meta name="description" content="Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn licensing, plans, and how to use." />
+  <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
+
+  <!-- ✅ Updated OGP defaults (JS will overwrite per language) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Facility Use | Moriris" />
+  <meta property="og:description" content="Long-form, wordless forest ambience videos for nursery schools, waiting rooms, and calm spaces. Plans and usage." />
+  <meta property="og:url" content="https://official.moriris.com/facility-use.html" />
+  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta property="og:site_name" content="Moriris" />
+
+  <!-- ✅ Updated Twitter defaults (JS will overwrite per language) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Facility Use | Moriris" />
+  <meta name="twitter:description" content="Long-form, wordless forest ambience videos for nursery schools, waiting rooms, and calm spaces. Plans and usage." />
+  <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta name="twitter:site" content="@moriris_world" />
+
+  <style>
+    :root{
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
+      --card:rgba(255,253,243,0.90);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.75;
+    }
+    a{color:var(--accent-dark);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:.6rem 1rem;
+      background:rgba(246,240,201,.7);
+      backdrop-filter:saturate(120%) blur(4px);
+      z-index:5;
+    }
+    .topbar-left a{font-weight:700;}
+    .topbar-right{display:flex;gap:.4rem;}
+    .lang-btn{
+      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
+      font-weight:700;color:var(--accent-dark);cursor:pointer
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+
+    main{max-width:1040px;margin:4.2rem auto 4rem;padding:0 1rem}
+    .card{
+      background:var(--card);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:1.6rem;margin:1rem 0
+    }
+    h1{margin:.2rem 0 1rem;font-size:2rem}
+    h2{margin:1.4rem 0 .6rem;font-size:1.35rem}
+    p{margin:.6rem 0;color:var(--ink-soft)}
+    ul{margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)}
+    .pill{
+      display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
+      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:800
+    }
+    .btn{
+      display:inline-block;background:var(--accent);color:#fff;
+      padding:.75rem 1rem;border-radius:12px;font-weight:800
+    }
+    .btn:hover{background:var(--accent-dark)}
+    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
+
+    /* page-specific */
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      margin-top:.8rem;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr;}
+    }
+    .plan{
+      background:rgba(255,255,255,0.55);
+      border-radius:14px;
+      padding:1rem;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .plan h3{margin:.2rem 0 .4rem;font-size:1.1rem}
+    .price{font-weight:900;color:var(--ink);margin:.25rem 0 .4rem}
+    .note{font-size:.95rem}
+    .fine{font-size:.92rem;color:var(--ink-soft)}
+    .divider{height:1px;background:rgba(0,0,0,.08);margin:1rem 0}
+  </style>
+
+  <!-- internal cookie: ?internal=1 の時だけ -->
+  <script>
+    if (location.search.includes("internal=1")) {
+      document.cookie = "moriris_dev=1; path=/; max-age=31536000";
+    }
+  </script>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-HWRX6Q9K3E', {
+      linker: {
+        domains: ['official.moriris.com', 'member.moriris.com']
+      }
+    });
+  </script>
+</head>
+
+<body id="top">
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="/" data-i18n="back_home" data-ga="nav_back_home">← Back to top</a>
+    </div>
+    <div class="topbar-right">
+      <button class="lang-btn" data-lang="en" aria-pressed="true" data-ga="language_btn_en">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false" data-ga="language_btn_ja">JP</button>
+    </div>
+  </div>
+
+  <main>
+    <article class="card">
+      <h1 data-i18n="h1">Facility Use (Business)</h1>
+
+      <p data-i18n="p1">
+        Moriris offers gentle, long-form, wordless forest ambience videos for calm spaces.
+        They are designed to stay in the background — suitable for nursery schools, waiting rooms, and care facilities.
+      </p>
+
+      <div>
+        <span class="pill" data-i18n="pill1">For nursery schools</span>
+        <span class="pill" data-i18n="pill2">For waiting rooms</span>
+        <span class="pill" data-i18n="pill3">For care & support</span>
+        <span class="pill" data-i18n="pill4">For calm spaces</span>
+      </div>
+
+      <h2 data-i18n="h2a">Where Moriris is used</h2>
+      <ul>
+        <li data-i18n="li1"><strong>Nursery schools / kindergartens:</strong> nap time, cool-down, quiet play.</li>
+        <li data-i18n="li2"><strong>Clinics / hospitals:</strong> waiting rooms, calming atmosphere.</li>
+        <li data-i18n="li3"><strong>Care & support facilities:</strong> quiet moments, rest, relaxation.</li>
+        <li data-i18n="li4"><strong>Offices / studios:</strong> focus time, soft ambience.</li>
+      </ul>
+
+      <h2 data-i18n="h2b">What you get</h2>
+      <ul>
+        <li data-i18n="li5"><strong>Long-form loops:</strong> 30–120 minutes designed to repeat naturally.</li>
+        <li data-i18n="li6"><strong>Wordless:</strong> no dialogue, minimal cues — easy to keep on.</li>
+        <li data-i18n="li7"><strong>Low-stimulation design:</strong> gentle pacing and calm visuals.</li>
+      </ul>
+
+      <h2 data-i18n="h2c">Plans</h2>
+      <p class="fine" data-i18n="p_plans_note">
+        Start small. If you’re not sure which plan fits, contact us and tell us your use case.
+      </p>
+
+      <div class="grid">
+        <section class="plan">
+          <h3 data-i18n="plan1_title">Trial (Recommended)</h3>
+          <div class="price" data-i18n="plan1_price">¥0 / 7 days</div>
+          <ul>
+            <li data-i18n="plan1_li1">One selected video (ad-free)</li>
+            <li data-i18n="plan1_li2">Facility use allowed during trial</li>
+            <li data-i18n="plan1_li3">Simple setup guidance</li>
+          </ul>
+        </section>
+
+        <section class="plan">
+          <h3 data-i18n="plan2_title">Standard</h3>
+          <div class="price" data-i18n="plan2_price">¥1,000–¥2,000 / month</div>
+          <ul>
+            <li data-i18n="plan2_li1">Access to facility playlist (ad-free)</li>
+            <li data-i18n="plan2_li2">Multiple purposes (sleep / waiting / calm)</li>
+            <li data-i18n="plan2_li3">New videos added periodically</li>
+          </ul>
+          <p class="fine note" data-i18n="plan2_note">
+            Pricing may vary by facility size and use case.
+          </p>
+        </section>
+
+        <section class="plan">
+          <h3 data-i18n="plan3_title">Extended</h3>
+          <div class="price" data-i18n="plan3_price">Custom</div>
+          <ul>
+            <li data-i18n="plan3_li1">Longer versions (2–3 hours)</li>
+            <li data-i18n="plan3_li2">Seasonal variants</li>
+            <li data-i18n="plan3_li3">Priority support</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2 data-i18n="h2d">Usage & licensing (simple)</h2>
+      <ul>
+        <li data-i18n="li8"><strong>Allowed:</strong> playing Moriris videos on screens in your facility for visitors or children.</li>
+        <li data-i18n="li9"><strong>Not allowed:</strong> re-uploading, re-editing, or redistributing the video files.</li>
+        <li data-i18n="li10"><strong>Recording:</strong> if your facility is filmed (e.g., PR video), please contact us in advance.</li>
+      </ul>
+      <p class="fine" data-i18n="p_license_note">
+        We keep this simple. If you have a specific situation, contact us and we will help.
+      </p>
+
+      <h2 data-i18n="h2e">How to start</h2>
+      <ol style="margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)">
+        <li data-i18n="step1">Tell us your facility type (nursery / clinic / care / other) and your purpose.</li>
+        <li data-i18n="step2">We’ll recommend the best video(s) and a plan.</li>
+        <li data-i18n="step3">You’ll receive an ad-free link or access method for facility use.</li>
+      </ol>
+
+      <p style="margin-top:1rem">
+        <a class="btn" href="/contact.html" target="_blank" rel="noopener noreferrer" data-i18n="cta_contact" data-ga="cta_click_contact_facility">Contact for Facility Use</a>
+      </p>
+
+      <p class="fine" style="margin-top:.6rem" data-i18n="p2">
+        If you prefer, you can also start from the public YouTube videos and reach out when you need an ad-free facility version.
+      </p>
+
+      <p style="margin-top:1rem">
+        <a href="/about-moriris-videos.html" data-i18n="cta_about" data-ga="cta_click_about_from_facility">Learn what Moriris videos are</a>
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    © Moriris Studio ·
+    <a href="/contact.html" target="_blank" rel="noopener noreferrer" data-i18n="footer_contact" data-ga="outbound_click_contact">Contact</a>
+  </footer>
+
+  <script>
+    // ---------- GA helper ----------
+    function gaLang(){
+      return localStorage.getItem("moriris_lang") || document.documentElement.lang || "en";
+    }
+    function gaEvent(name, params){
+      if (typeof gtag !== "function") return;
+      gtag("event", name, Object.assign({
+        page: location.pathname,
+        lang: gaLang()
+      }, params || {}));
+    }
+
+    // click tracking
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
+
+      const name = a.dataset.ga;
+      if (name) {
+        gaEvent(name, {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href,
+          outbound: isExternal ? 1 : 0
+        });
+        return;
+      }
+      if (isExternal) {
+        gaEvent("outbound_click", {
+          link_text: (a.textContent || "").trim().slice(0, 80),
+          link_url: href
+        });
+      }
+    });
+
+    // scroll depth
+    (function(){
+      const thresholds = [25, 50, 75, 90];
+      const fired = new Set();
+      function onScroll(){
+        const doc = document.documentElement;
+        const scrollTop = window.scrollY || doc.scrollTop;
+        const height = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const pct = Math.round((scrollTop / height) * 100);
+        thresholds.forEach(t => {
+          if (pct >= t && !fired.has(t)) {
+            fired.add(t);
+            gaEvent("scroll_depth", { percent: t });
+          }
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+    })();
+
+    // ---------- i18n ----------
+    let currentLang = "en";
+    const translations = {
+      en:{
+        // SEO
+        seo_title: "Facility Use | Moriris",
+        seo_desc: "Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn licensing, plans, and how to use.",
+
+        // UI
+        back_home:"← Back to top",
+
+        // Content
+        h1:"Facility Use (Business)",
+        p1:"Moriris offers gentle, long-form, wordless forest ambience videos for calm spaces. They are designed to stay in the background — suitable for nursery schools, waiting rooms, and care facilities.",
+
+        pill1:"For nursery schools",
+        pill2:"For waiting rooms",
+        pill3:"For care & support",
+        pill4:"For calm spaces",
+
+        h2a:"Where Moriris is used",
+        li1:"Nursery schools / kindergartens: nap time, cool-down, quiet play.",
+        li2:"Clinics / hospitals: waiting rooms, calming atmosphere.",
+        li3:"Care & support facilities: quiet moments, rest, relaxation.",
+        li4:"Offices / studios: focus time, soft ambience.",
+
+        h2b:"What you get",
+        li5:"Long-form loops: 30–120 minutes designed to repeat naturally.",
+        li6:"Wordless: no dialogue, minimal cues — easy to keep on.",
+        li7:"Low-stimulation design: gentle pacing and calm visuals.",
+
+        h2c:"Plans",
+        p_plans_note:"Start small. If you’re not sure which plan fits, contact us and tell us your use case.",
+
+        plan1_title:"Trial (Recommended)",
+        plan1_price:"¥0 / 7 days",
+        plan1_li1:"One selected video (ad-free)",
+        plan1_li2:"Facility use allowed during trial",
+        plan1_li3:"Simple setup guidance",
+
+        plan2_title:"Standard",
+        plan2_price:"¥1,000–¥2,000 / month",
+        plan2_li1:"Access to facility playlist (ad-free)",
+        plan2_li2:"Multiple purposes (sleep / waiting / calm)",
+        plan2_li3:"New videos added periodically",
+        plan2_note:"Pricing may vary by facility size and use case.",
+
+        plan3_title:"Extended",
+        plan3_price:"Custom",
+        plan3_li1:"Longer versions (2–3 hours)",
+        plan3_li2:"Seasonal variants",
+        plan3_li3:"Priority support",
+
+        h2d:"Usage & licensing (simple)",
+        li8:"Allowed: playing Moriris videos on screens in your facility for visitors or children.",
+        li9:"Not allowed: re-uploading, re-editing, or redistributing the video files.",
+        li10:"Recording: if your facility is filmed (e.g., PR video), please contact us in advance.",
+        p_license_note:"We keep this simple. If you have a specific situation, contact us and we will help.",
+
+        h2e:"How to start",
+        step1:"Tell us your facility type (nursery / clinic / care / other) and your purpose.",
+        step2:"We’ll recommend the best video(s) and a plan.",
+        step3:"You’ll receive an ad-free link or access method for facility use.",
+
+        cta_contact:"Contact for Facility Use",
+        p2:"If you prefer, you can also start from the public YouTube videos and reach out when you need an ad-free facility version.",
+
+        cta_about:"Learn what Moriris videos are",
+        footer_contact:"Contact"
+      },
+      ja:{
+        // SEO
+        seo_title: "法人・施設向けのご利用｜Moriris",
+        seo_desc: "Moririsは、保育園・待合室・福祉施設などの静かな空間向けに、用途別の長尺・無言の森の環境動画を提供しています。利用方法と簡単な利用条件をご案内します。",
+
+        // UI
+        back_home:"← トップページへ戻る",
+
+        // Content
+        h1:"法人・施設向けのご利用",
+        p1:"Moriris は、静かな空間づくりのための「長尺・セリフなし」の森の環境動画を提供しています。保育園の午睡やクールダウン、医療機関の待合室、福祉施設などで“流しっぱなし”にできる映像です。",
+
+        pill1:"保育園・幼児施設向け",
+        pill2:"待合室向け",
+        pill3:"福祉・支援施設向け",
+        pill4:"静かな空間づくり",
+
+        h2a:"想定している利用シーン",
+        li1:"保育園・幼児施設：午睡（睡眠導入）、クールダウン、静かな遊びの時間。",
+        li2:"クリニック・病院：待合室での落ち着いた雰囲気づくり。",
+        li3:"福祉・支援施設：休憩時間、リラックス、静かな時間。",
+        li4:"オフィス・スタジオ：集中時間や作業用の環境音的な映像。",
+
+        h2b:"提供内容",
+        li5:"長尺ループ：30〜120分。自然に繰り返せる構成です。",
+        li6:"セリフなし：説明や会話がなく、BGMのように流せます。",
+        li7:"低刺激設計：ゆっくりしたテンポで注意を奪いません。",
+
+        h2c:"プラン（目安）",
+        p_plans_note:"まずは小さく始められます。迷う場合は用途と施設の種類を添えてご連絡ください。",
+
+        plan1_title:"トライアル（おすすめ）",
+        plan1_price:"無料 / 7日間",
+        plan1_li1:"指定の動画1本（広告なし）",
+        plan1_li2:"期間中は施設内での上映が可能",
+        plan1_li3:"簡単な導入ガイド",
+
+        plan2_title:"スタンダード",
+        plan2_price:"月額 ¥1,000〜¥2,000",
+        plan2_li1:"施設用プレイリスト（広告なし）",
+        plan2_li2:"用途別（睡眠・待ち時間・静かな時間など）",
+        plan2_li3:"動画は随時追加予定",
+        plan2_note:"施設規模・用途により金額が前後する場合があります。",
+
+        plan3_title:"拡張（カスタム）",
+        plan3_price:"個別お見積り",
+        plan3_li1:"より長尺（2〜3時間版など）",
+        plan3_li2:"季節バリエーション",
+        plan3_li3:"優先サポート",
+
+        h2d:"利用条件（簡易）",
+        li8:"OK：施設内のモニター等で、来訪者・利用者向けに上映すること。",
+        li9:"NG：動画の再アップロード、再編集、二次配布（ファイル共有含む）。",
+        li10:"撮影：施設のPR動画等で映り込む可能性がある場合は事前にご相談ください。",
+        p_license_note:"できるだけシンプルに運用しています。特殊なケースは個別にご案内します。",
+
+        h2e:"導入の流れ",
+        step1:"施設の種類（保育園／医療／福祉／その他）と用途（午睡・待合室など）をお知らせください。",
+        step2:"用途に合う動画とプランをご提案します。",
+        step3:"施設利用向けの広告なしリンク／提供方法をご案内します。",
+
+        cta_contact:"施設利用について問い合わせる",
+        p2:"まずはYouTubeの公開動画で雰囲気を確認いただき、広告なしの施設利用版が必要になったタイミングでご連絡いただく形でも大丈夫です。",
+
+        cta_about:"Moririsの動画について見る",
+        footer_contact:"お問い合わせ"
+      }
+    };
+
+    function setLang(lang){
+      const prev = currentLang;
+      const dict = translations[lang] || translations.en;
+      currentLang = lang;
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n;
+        if(dict[k] !== undefined) el.textContent = dict[k];
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(b =>
+        b.setAttribute("aria-pressed", b.dataset.lang===lang)
+      );
+
+      // SEO: title/meta/OG/Twitter
+      if (dict.seo_title) document.title = dict.seo_title;
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && dict.seo_desc) metaDesc.setAttribute("content", dict.seo_desc);
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc  = document.querySelector('meta[property="og:description"]');
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      const twDesc  = document.querySelector('meta[name="twitter:description"]');
+
+      if (ogTitle && dict.seo_title) ogTitle.setAttribute("content", dict.seo_title);
+      if (twTitle && dict.seo_title) twTitle.setAttribute("content", dict.seo_title);
+      if (ogDesc && dict.seo_desc)  ogDesc.setAttribute("content", dict.seo_desc);
+      if (twDesc && dict.seo_desc)  twDesc.setAttribute("content", dict.seo_desc);
+
+      localStorage.setItem("moriris_lang", lang);
+
+      if (prev && prev !== lang) {
+        gaEvent("language_change", { lang_from: prev, lang_to: lang });
+      }
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn =>
+      btn.addEventListener("click", () => setLang(btn.dataset.lang))
+    );
+
+    const saved = localStorage.getItem("moriris_lang") || "en";
+    setLang(saved);
+  </script>
+</body>
+</html>
