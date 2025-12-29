@@ -6,13 +6,13 @@
 
   <!-- ✅ Updated SEO defaults (JS will overwrite per language) -->
   <title>Facility Use | Moriris</title>
-  <meta name="description" content="Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn licensing, plans, and how to use." />
+  <meta name="description" content="Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn plans, the difference from YouTube, and how to start." />
   <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
 
   <!-- ✅ Updated OGP defaults (JS will overwrite per language) -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Facility Use | Moriris" />
-  <meta property="og:description" content="Long-form, wordless forest ambience videos for nursery schools, waiting rooms, and calm spaces. Plans and usage." />
+  <meta property="og:description" content="Ad-free, long-form, wordless forest ambience videos for facilities. Plans, difference from YouTube, and how to start." />
   <meta property="og:url" content="https://official.moriris.com/facility-use.html" />
   <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
   <meta property="og:site_name" content="Moriris" />
@@ -20,7 +20,7 @@
   <!-- ✅ Updated Twitter defaults (JS will overwrite per language) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Facility Use | Moriris" />
-  <meta name="twitter:description" content="Long-form, wordless forest ambience videos for nursery schools, waiting rooms, and calm spaces. Plans and usage." />
+  <meta name="twitter:description" content="Ad-free, long-form, wordless forest ambience videos for facilities. Plans, difference from YouTube, and how to start." />
   <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
   <meta name="twitter:site" content="@moriris_world" />
 
@@ -85,7 +85,7 @@
     .grid{
       display:grid;
       gap:1rem;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       margin-top:.8rem;
     }
     @media (max-width: 900px){
@@ -102,6 +102,23 @@
     .note{font-size:.95rem}
     .fine{font-size:.92rem;color:var(--ink-soft)}
     .divider{height:1px;background:rgba(0,0,0,.08);margin:1rem 0}
+
+    .diff{
+      display:grid;
+      gap:.8rem;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      margin-top:.6rem;
+    }
+    @media (max-width: 900px){
+      .diff{grid-template-columns:1fr;}
+    }
+    .diff .box{
+      background:rgba(255,255,255,0.55);
+      border-radius:14px;
+      padding:1rem;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .diff .box h3{margin:.2rem 0 .4rem;font-size:1.05rem}
   </style>
 
   <!-- internal cookie: ?internal=1 の時だけ -->
@@ -117,7 +134,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
+
     gtag('config', 'G-HWRX6Q9K3E', {
       linker: {
         domains: ['official.moriris.com', 'member.moriris.com']
@@ -168,43 +185,59 @@
         <li data-i18n="li7"><strong>Low-stimulation design:</strong> gentle pacing and calm visuals.</li>
       </ul>
 
+      <h2 data-i18n="h2yt">Why not just YouTube?</h2>
+      <p class="fine" data-i18n="p_yt_intro">
+        You can always start from public YouTube videos. Facility plans are for when you want an ad-free, reliable setup with clear usage rules.
+      </p>
+      <div class="diff">
+        <div class="box">
+          <h3 data-i18n="yt_box1_title">Facility plans</h3>
+          <ul>
+            <li data-i18n="yt_box1_li1">Ad-free playback</li>
+            <li data-i18n="yt_box1_li2">Access via member site (easy to find and play)</li>
+            <li data-i18n="yt_box1_li3">Clear facility usage permission</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3 data-i18n="yt_box2_title">Public YouTube</h3>
+          <ul>
+            <li data-i18n="yt_box2_li1">Ads may appear depending on settings/region</li>
+            <li data-i18n="yt_box2_li2">Not optimized for facility operation</li>
+            <li data-i18n="yt_box2_li3">Usage terms can be unclear for facilities</li>
+          </ul>
+        </div>
+      </div>
+
       <h2 data-i18n="h2c">Plans</h2>
       <p class="fine" data-i18n="p_plans_note">
-        Start small. If you’re not sure which plan fits, contact us and tell us your use case.
+        Start with Free. Upgrade anytime after you log in, if you need more videos.
       </p>
 
       <div class="grid">
         <section class="plan">
-          <h3 data-i18n="plan1_title">Trial (Recommended)</h3>
-          <div class="price" data-i18n="plan1_price">¥0 / 7 days</div>
+          <h3 data-i18n="plan_free_title">Free</h3>
+          <div class="price" data-i18n="plan_free_price">¥0</div>
           <ul>
-            <li data-i18n="plan1_li1">One selected video (ad-free)</li>
-            <li data-i18n="plan1_li2">Facility use allowed during trial</li>
-            <li data-i18n="plan1_li3">Simple setup guidance</li>
+            <li data-i18n="plan_free_li1">One selected video (ad-free)</li>
+            <li data-i18n="plan_free_li2">Facility use allowed</li>
+            <li data-i18n="plan_free_li3">Simple setup guidance</li>
           </ul>
-        </section>
-
-        <section class="plan">
-          <h3 data-i18n="plan2_title">Standard</h3>
-          <div class="price" data-i18n="plan2_price">¥1,000–¥2,000 / month</div>
-          <ul>
-            <li data-i18n="plan2_li1">Access to facility playlist (ad-free)</li>
-            <li data-i18n="plan2_li2">Multiple purposes (sleep / waiting / calm)</li>
-            <li data-i18n="plan2_li3">New videos added periodically</li>
-          </ul>
-          <p class="fine note" data-i18n="plan2_note">
-            Pricing may vary by facility size and use case.
+          <p class="fine note" data-i18n="plan_free_note">
+            No time limit. You can keep using Free as long as it works for your facility.
           </p>
         </section>
 
         <section class="plan">
-          <h3 data-i18n="plan3_title">Extended</h3>
-          <div class="price" data-i18n="plan3_price">Custom</div>
+          <h3 data-i18n="plan_std_title">Standard</h3>
+          <div class="price" data-i18n="plan_std_price">5-day trial → ¥2,980 / month</div>
           <ul>
-            <li data-i18n="plan3_li1">Longer versions (2–3 hours)</li>
-            <li data-i18n="plan3_li2">Seasonal variants</li>
-            <li data-i18n="plan3_li3">Priority support</li>
+            <li data-i18n="plan_std_li1">Access to facility video library (ad-free)</li>
+            <li data-i18n="plan_std_li2">Multiple purposes (sleep / waiting / calm)</li>
+            <li data-i18n="plan_std_li3">New videos added periodically</li>
           </ul>
+          <p class="fine note" data-i18n="plan_std_note">
+            After the 5-day trial, the plan renews monthly at ¥2,980 unless canceled.
+          </p>
         </section>
       </div>
 
@@ -222,17 +255,16 @@
 
       <h2 data-i18n="h2e">How to start</h2>
       <ol style="margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)">
-        <li data-i18n="step1">Tell us your facility type (nursery / clinic / care / other) and your purpose.</li>
-        <li data-i18n="step2">We’ll recommend the best video(s) and a plan.</li>
-        <li data-i18n="step3">You’ll receive an ad-free link or access method for facility use.</li>
+        <li data-i18n="step1">Access the member site and create an account with your email address.</li>
+        <li data-i18n="step2">You will start on the Free plan automatically. If you need Standard, upgrade after you log in.</li>
+        <li data-i18n="step3">Log in anytime, choose a video inside the member site, and play it on your facility screen.</li>
       </ol>
+      <p class="fine" data-i18n="p_steps_note">
+        The member site is designed so staff can quickly find and play a suitable video for the moment.
+      </p>
 
       <p style="margin-top:1rem">
         <a class="btn" href="/contact.html" target="_blank" rel="noopener noreferrer" data-i18n="cta_contact" data-ga="cta_click_contact_facility">Contact for Facility Use</a>
-      </p>
-
-      <p class="fine" style="margin-top:.6rem" data-i18n="p2">
-        If you prefer, you can also start from the public YouTube videos and reach out when you need an ad-free facility version.
       </p>
 
       <p style="margin-top:1rem">
@@ -310,7 +342,7 @@
       en:{
         // SEO
         seo_title: "Facility Use | Moriris",
-        seo_desc: "Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn licensing, plans, and how to use.",
+        seo_desc: "Moriris offers gentle, long-form forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn plans, the difference from YouTube, and how to start.",
 
         // UI
         back_home:"← Back to top",
@@ -335,27 +367,33 @@
         li6:"Wordless: no dialogue, minimal cues — easy to keep on.",
         li7:"Low-stimulation design: gentle pacing and calm visuals.",
 
+        h2yt:"Why not just YouTube?",
+        p_yt_intro:"You can always start from public YouTube videos. Facility plans are for when you want an ad-free, reliable setup with clear usage rules.",
+        yt_box1_title:"Facility plans",
+        yt_box1_li1:"Ad-free playback",
+        yt_box1_li2:"Access via member site (easy to find and play)",
+        yt_box1_li3:"Clear facility usage permission",
+        yt_box2_title:"Public YouTube",
+        yt_box2_li1:"Ads may appear depending on settings/region",
+        yt_box2_li2:"Not optimized for facility operation",
+        yt_box2_li3:"Usage terms can be unclear for facilities",
+
         h2c:"Plans",
-        p_plans_note:"Start small. If you’re not sure which plan fits, contact us and tell us your use case.",
+        p_plans_note:"Start with Free. Upgrade anytime after you log in, if you need more videos.",
 
-        plan1_title:"Trial (Recommended)",
-        plan1_price:"¥0 / 7 days",
-        plan1_li1:"One selected video (ad-free)",
-        plan1_li2:"Facility use allowed during trial",
-        plan1_li3:"Simple setup guidance",
+        plan_free_title:"Free",
+        plan_free_price:"¥0",
+        plan_free_li1:"One selected video (ad-free)",
+        plan_free_li2:"Facility use allowed",
+        plan_free_li3:"Simple setup guidance",
+        plan_free_note:"No time limit. You can keep using Free as long as it works for your facility.",
 
-        plan2_title:"Standard",
-        plan2_price:"¥1,000–¥2,000 / month",
-        plan2_li1:"Access to facility playlist (ad-free)",
-        plan2_li2:"Multiple purposes (sleep / waiting / calm)",
-        plan2_li3:"New videos added periodically",
-        plan2_note:"Pricing may vary by facility size and use case.",
-
-        plan3_title:"Extended",
-        plan3_price:"Custom",
-        plan3_li1:"Longer versions (2–3 hours)",
-        plan3_li2:"Seasonal variants",
-        plan3_li3:"Priority support",
+        plan_std_title:"Standard",
+        plan_std_price:"5-day trial → ¥2,980 / month",
+        plan_std_li1:"Access to facility video library (ad-free)",
+        plan_std_li2:"Multiple purposes (sleep / waiting / calm)",
+        plan_std_li3:"New videos added periodically",
+        plan_std_note:"After the 5-day trial, the plan renews monthly at ¥2,980 unless canceled.",
 
         h2d:"Usage & licensing (simple)",
         li8:"Allowed: playing Moriris videos on screens in your facility for visitors or children.",
@@ -364,20 +402,19 @@
         p_license_note:"We keep this simple. If you have a specific situation, contact us and we will help.",
 
         h2e:"How to start",
-        step1:"Tell us your facility type (nursery / clinic / care / other) and your purpose.",
-        step2:"We’ll recommend the best video(s) and a plan.",
-        step3:"You’ll receive an ad-free link or access method for facility use.",
+        step1:"Access the member site and create an account with your email address.",
+        step2:"You will start on the Free plan automatically. If you need Standard, upgrade after you log in.",
+        step3:"Log in anytime, choose a video inside the member site, and play it on your facility screen.",
+        p_steps_note:"The member site is designed so staff can quickly find and play a suitable video for the moment.",
 
         cta_contact:"Contact for Facility Use",
-        p2:"If you prefer, you can also start from the public YouTube videos and reach out when you need an ad-free facility version.",
-
         cta_about:"Learn what Moriris videos are",
         footer_contact:"Contact"
       },
       ja:{
         // SEO
         seo_title: "法人・施設向けのご利用｜Moriris",
-        seo_desc: "Moririsは、保育園・待合室・福祉施設などの静かな空間向けに、用途別の長尺・無言の森の環境動画を提供しています。利用方法と簡単な利用条件をご案内します。",
+        seo_desc: "Moririsは、保育園・待合室・福祉施設などの静かな空間向けに、用途別の長尺・無言の森の環境動画を提供しています。YouTubeとの違い、プラン、導入方法をご案内します。",
 
         // UI
         back_home:"← トップページへ戻る",
@@ -402,27 +439,33 @@
         li6:"セリフなし：説明や会話がなく、BGMのように流せます。",
         li7:"低刺激設計：ゆっくりしたテンポで注意を奪いません。",
 
-        h2c:"プラン（目安）",
-        p_plans_note:"まずは小さく始められます。迷う場合は用途と施設の種類を添えてご連絡ください。",
+        h2yt:"YouTubeとの違い",
+        p_yt_intro:"まずはYouTubeの公開動画で雰囲気を確認できます。施設向けプランは「広告なしで安定して流したい」「施設利用の条件を明確にしたい」場合に便利です。",
+        yt_box1_title:"施設向けプラン",
+        yt_box1_li1:"広告なしで再生できます",
+        yt_box1_li2:"メンバーサイト内からすぐ選んで再生できます",
+        yt_box1_li3:"施設内上映の利用条件が明確です",
+        yt_box2_title:"YouTube（公開動画）",
+        yt_box2_li1:"設定や地域によって広告が出る可能性があります",
+        yt_box2_li2:"施設運用（探す/再生する）に最適化されていません",
+        yt_box2_li3:"施設利用の扱いが分かりにくい場合があります",
 
-        plan1_title:"トライアル（おすすめ）",
-        plan1_price:"無料 / 7日間",
-        plan1_li1:"指定の動画1本（広告なし）",
-        plan1_li2:"期間中は施設内での上映が可能",
-        plan1_li3:"簡単な導入ガイド",
+        h2c:"プラン",
+        p_plans_note:"まずはFreeで開始。必要になったらログイン後にStandardへアップグレードできます。",
 
-        plan2_title:"スタンダード",
-        plan2_price:"月額 ¥1,000〜¥2,000",
-        plan2_li1:"施設用プレイリスト（広告なし）",
-        plan2_li2:"用途別（睡眠・待ち時間・静かな時間など）",
-        plan2_li3:"動画は随時追加予定",
-        plan2_note:"施設規模・用途により金額が前後する場合があります。",
+        plan_free_title:"Free",
+        plan_free_price:"無料（¥0）",
+        plan_free_li1:"指定の動画1本（広告なし）",
+        plan_free_li2:"施設内での上映が可能",
+        plan_free_li3:"簡単な導入ガイド",
+        plan_free_note:"期限はありません。施設で問題なく使える限り、Freeのままご利用いただけます。",
 
-        plan3_title:"拡張（カスタム）",
-        plan3_price:"個別お見積り",
-        plan3_li1:"より長尺（2〜3時間版など）",
-        plan3_li2:"季節バリエーション",
-        plan3_li3:"優先サポート",
+        plan_std_title:"Standard",
+        plan_std_price:"5日間トライアル → 月額 ¥2,980",
+        plan_std_li1:"施設向け動画ライブラリ（広告なし）",
+        plan_std_li2:"用途別（睡眠・待ち時間・静かな時間など）",
+        plan_std_li3:"動画は随時追加予定",
+        plan_std_note:"5日間トライアル後、解約がない場合は月額¥2,980で自動更新されます。",
 
         h2d:"利用条件（簡易）",
         li8:"OK：施設内のモニター等で、来訪者・利用者向けに上映すること。",
@@ -431,13 +474,12 @@
         p_license_note:"できるだけシンプルに運用しています。特殊なケースは個別にご案内します。",
 
         h2e:"導入の流れ",
-        step1:"施設の種類（保育園／医療／福祉／その他）と用途（午睡・待合室など）をお知らせください。",
-        step2:"用途に合う動画とプランをご提案します。",
-        step3:"施設利用向けの広告なしリンク／提供方法をご案内します。",
+        step1:"メンバーサイトにアクセスし、メールアドレスで会員登録します。",
+        step2:"登録直後はFreeプランで開始します。Standardが必要な場合は、ログイン後にプラン登録（アップグレード）してください。",
+        step3:"今後はメンバーサイトにログインし、サイト内で動画を選んで再生し、そのまま施設で流してください。",
+        p_steps_note:"スタッフの方が“迷わず再生できる”ように、メンバーサイト内で用途別に整理していく予定です。",
 
         cta_contact:"施設利用について問い合わせる",
-        p2:"まずはYouTubeの公開動画で雰囲気を確認いただき、広告なしの施設利用版が必要になったタイミングでご連絡いただく形でも大丈夫です。",
-
         cta_about:"Moririsの動画について見る",
         footer_contact:"お問い合わせ"
       }
