@@ -4,27 +4,32 @@
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- SEO defaults -->
   <title>Facility Use | Moriris</title>
-  <meta name="description" content="Moriris offers ad-free, 60-minute forest ambience videos for nursery schools, waiting rooms, and calm spaces." />
+  <meta name="description" content="Moriris offers ad-free, 60-minute forest ambience videos for nursery schools, waiting rooms, and calm spaces. Learn plans and how to start." />
   <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
 
+  <!-- OGP -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Facility Use | Moriris" />
   <meta property="og:description" content="Ad-free, 60-minute, wordless forest ambience videos for facilities." />
   <meta property="og:url" content="https://official.moriris.com/facility-use.html" />
   <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta property="og:site_name" content="Moriris" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Facility Use | Moriris" />
+  <meta name="twitter:description" content="Ad-free, 60-minute forest ambience videos for nursery schools and waiting rooms." />
+  <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta name="twitter:site" content="@moriris_world" />
 
   <style>
     :root{
-      --bg:#f6f0c9;
-      --ink:#2f3a33;
-      --ink-soft:#5d6a61;
-      --accent:#6aa57a;
-      --accent-dark:#3e7b53;
-      --accent-soft:#e9f3ec;
-      --card:rgba(255,253,243,0.92);
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
+      --card:rgba(255,253,243,0.90);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
     html,body{
@@ -32,9 +37,8 @@
       background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
       color:var(--ink);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-      line-height:1.7;
+      line-height:1.75;
     }
-
     a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
@@ -44,183 +48,179 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:.55rem 1rem;
-      background:rgba(246,240,201,.75);
-      backdrop-filter:blur(4px);
+      padding:.6rem 1rem;
+      background:rgba(246,240,201,.7);
+      backdrop-filter:saturate(120%) blur(4px);
       z-index:5;
     }
+    .topbar-left a{font-weight:700;}
+    .topbar-right{display:flex;gap:.4rem;}
+    .lang-btn{
+      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
+      font-weight:700;color:var(--accent-dark);cursor:pointer
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
 
     main{max-width:1040px;margin:4.2rem auto 4rem;padding:0 1rem}
     .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:1.6rem;
+      background:var(--card);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:1.6rem;margin:1rem 0
     }
-
-    h1{margin:.2rem 0 .8rem;font-size:2rem}
-    h2{
-      margin:1.1rem 0 .4rem;   /* 上余白を縮小 */
-      font-size:1.35rem;
-      color:var(--accent-dark);
-    }
-
-    p{margin:.4rem 0;color:var(--ink-soft)}
-    ul,ol{margin:.4rem 0 .6rem 1.2rem;color:var(--ink-soft)}
-
+    h1{margin:.2rem 0 1rem;font-size:2rem}
+    h2{margin:1.4rem 0 .6rem;font-size:1.35rem}
+    p{margin:.6rem 0;color:var(--ink-soft)}
+    ul,ol{margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)}
     .pill{
-      display:inline-block;
-      margin:.25rem .25rem;
-      padding:.45rem .8rem;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:var(--accent-dark);
-      font-weight:700;
-      font-size:.9rem;
+      display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
+      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:800
     }
-
     .btn{
-      display:inline-block;
-      background:var(--accent);
-      color:#fff;
-      padding:.7rem 1.1rem;
-      border-radius:12px;
-      font-weight:800;
+      display:inline-block;background:var(--accent);color:#fff;
+      padding:.75rem 1rem;border-radius:12px;font-weight:800
     }
     .btn:hover{background:var(--accent-dark)}
+    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
 
     .grid{
       display:grid;
       gap:1rem;
-      grid-template-columns:repeat(2,1fr);
-      margin-top:.6rem;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      margin-top:.8rem;
     }
-    @media(max-width:900px){.grid{grid-template-columns:1fr}}
-
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+    }
     .plan{
-      background:#ffffffcc;
+      background:rgba(255,255,255,0.55);
       border-radius:14px;
       padding:1rem;
       border:1px solid rgba(0,0,0,.06);
     }
-
-    .plan h3{
-      margin-top: 0;
-      margin-bottom: .3rem;
-    }
-
-    .price{
-      font-weight:900;
-      color:#1f2f27;
-      margin:.1rem 0 .4rem;
-    }
+    .price{font-weight:900;margin:.25rem 0}
+    .divider{height:1px;background:rgba(0,0,0,.08);margin:1rem 0}
 
     .diff{
       display:grid;
       gap:.8rem;
-      grid-template-columns:repeat(2,1fr);
-      margin-top:.4rem;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      margin-top:.6rem;
     }
-    @media(max-width:900px){.diff{grid-template-columns:1fr}}
-
+    @media (max-width:900px){
+      .diff{grid-template-columns:1fr;}
+    }
     .diff .box{
-      background:#ffffffcc;
+      background:rgba(255,255,255,0.55);
       border-radius:14px;
       padding:1rem;
       border:1px solid rgba(0,0,0,.06);
     }
-
-    .diff h3{
-      margin:.1rem 0 .3rem;   /* 比較見出しの上余白を縮小 */
-      font-size:1.05rem;
-      color:var(--accent-dark);
+    .plan h3{
+      margin-top: 0;
+      margin-bottom: .3rem;
     }
-
+    
     .diff .box h3{
       margin-top: 0;
       margin-bottom: .3rem;
     }
-
-    footer{
-      padding:2rem 1rem;
-      text-align:center;
-      color:var(--ink-soft);
-    }
   </style>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HWRX6Q9K3E', {
+      linker:{domains:['official.moriris.com','member.moriris.com']}
+    });
+  </script>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="/" data-i18n="back_home">← Back to top</a>
+    </div>
+    <div class="topbar-right">
+      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+    </div>
+  </div>
+
   <main>
     <article class="card">
-      <h1>Facility Use (Business)</h1>
+      <h1 data-i18n="h1">Facility Use (Business)</h1>
 
-      <p>
+      <p data-i18n="p1">
         Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.
       </p>
 
       <div>
-        <span class="pill">For nursery schools</span>
-        <span class="pill">For waiting rooms</span>
-        <span class="pill">For calm facilities</span>
+        <span class="pill" data-i18n="pill1">For nursery schools</span>
+        <span class="pill" data-i18n="pill2">For waiting rooms</span>
+        <span class="pill" data-i18n="pill3">For calm facilities</span>
       </div>
 
-      <h2>What you get</h2>
+      <h2 data-i18n="h2a">What you get</h2>
       <ul>
-        <li><strong>60-minute videos:</strong> fixed length, easy to operate.</li>
-        <li><strong>Ad-free:</strong> no interruptions.</li>
-        <li><strong>Wordless & calm:</strong> suitable for long-term playback.</li>
+        <li data-i18n="li1"><strong>60-minute videos:</strong> fixed-length videos designed to loop naturally.</li>
+        <li data-i18n="li2"><strong>Ad-free:</strong> no interruptions during playback.</li>
+        <li data-i18n="li3"><strong>Wordless & calm:</strong> suitable for long-term background use.</li>
       </ul>
 
-      <h2>YouTube vs Facility Plan</h2>
+      <h2 data-i18n="h2yt">YouTube vs Facility Plan</h2>
       <div class="diff">
         <div class="box">
-          <h3>Facility Plan</h3>
+          <h3 data-i18n="yt1">Facility Plan</h3>
           <ul>
-            <li>No ads</li>
-            <li>Clear facility-use permission</li>
-            <li>Easy access via member site</li>
+            <li data-i18n="yt1li1">No ads</li>
+            <li data-i18n="yt1li2">Clear permission for facility use</li>
+            <li data-i18n="yt1li3">Easy access via member site</li>
           </ul>
         </div>
         <div class="box">
-          <h3>YouTube</h3>
+          <h3 data-i18n="yt2">YouTube</h3>
           <ul>
-            <li>Ads may appear</li>
-            <li>Not optimized for facility use</li>
-            <li>Usage conditions may be unclear</li>
+            <li data-i18n="yt2li1">Ads may appear</li>
+            <li data-i18n="yt2li2">Not optimized for facility operation</li>
+            <li data-i18n="yt2li3">Usage conditions may be unclear</li>
           </ul>
         </div>
       </div>
 
-      <h2>Plans</h2>
+      <h2 data-i18n="h2c">Plans</h2>
       <div class="grid">
         <section class="plan">
-          <h3>Free</h3>
+          <h3 data-i18n="free_title">Free</h3>
           <div class="price">¥0</div>
           <ul>
-            <li>One selected video (ad-free)</li>
-            <li>Facility use allowed</li>
+            <li data-i18n="free_li1">One selected video (ad-free)</li>
+            <li data-i18n="free_li2">Facility use allowed</li>
           </ul>
         </section>
 
         <section class="plan">
-          <h3>Standard</h3>
-          <div class="price">5-day trial → ¥2,980 / month</div>
+          <h3 data-i18n="std_title">Standard</h3>
+          <div class="price" data-i18n="std_price">5-day trial → ¥2,980 / month</div>
           <ul>
-            <li>All facility videos (ad-free)</li>
-            <li>Multiple purposes supported</li>
+            <li data-i18n="std_li1">Access to all facility videos (ad-free)</li>
+            <li data-i18n="std_li2">Videos for multiple purposes</li>
           </ul>
         </section>
       </div>
 
-      <h2>How to start</h2>
+      <div class="divider"></div>
+
+      <h2 data-i18n="h2d">How to start</h2>
       <ol>
-        <li>Register on the member site with your email address.</li>
-        <li>You will start on the Free plan.</li>
-        <li>Log in and play videos directly in your facility.</li>
+        <li data-i18n="step1">Access the member site and register with your email address.</li>
+        <li data-i18n="step2">You will start on the Free plan. Upgrade to Standard after logging in if needed.</li>
+        <li data-i18n="step3">Log in anytime, select a video on the member site, and play it on your facility screen.</li>
       </ol>
 
       <p style="margin-top:1rem">
-        <a class="btn" href="https://member.moriris.com/" target="_blank" rel="noopener">
+        <a class="btn" href="https://member.moriris.com/" target="_blank" rel="noopener" data-i18n="cta_member">
           Go to the Member Site →
         </a>
       </p>
@@ -228,7 +228,100 @@
   </main>
 
   <footer>
-    © Moriris Studio · <a href="/contact.html">Contact</a>
+    © Moriris Studio ·
+    <a href="/contact.html" data-i18n="footer_contact">Contact</a>
   </footer>
+
+  <script>
+    let currentLang="en";
+    const dict={
+      en:{
+        back_home:"← Back to top",
+        h1:"Facility Use (Business)",
+        p1:"Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.",
+        pill1:"For nursery schools",
+        pill2:"For waiting rooms",
+        pill3:"For calm facilities",
+        h2a:"What you get",
+        li1:"60-minute videos: fixed-length videos designed to loop naturally.",
+        li2:"Ad-free: no interruptions during playback.",
+        li3:"Wordless & calm: suitable for long-term background use.",
+        h2yt:"YouTube vs Facility Plan",
+        yt1:"Facility Plan",
+        yt1li1:"No ads",
+        yt1li2:"Clear permission for facility use",
+        yt1li3:"Easy access via member site",
+        yt2:"YouTube",
+        yt2li1:"Ads may appear",
+        yt2li2:"Not optimized for facility operation",
+        yt2li3:"Usage conditions may be unclear",
+        h2c:"Plans",
+        free_title:"Free",
+        free_li1:"One selected video (ad-free)",
+        free_li2:"Facility use allowed",
+        std_title:"Standard",
+        std_price:"5-day trial → ¥2,980 / month",
+        std_li1:"Access to all facility videos (ad-free)",
+        std_li2:"Videos for multiple purposes",
+        h2d:"How to start",
+        step1:"Access the member site and register with your email address.",
+        step2:"You will start on the Free plan. Upgrade to Standard after logging in if needed.",
+        step3:"Log in anytime, select a video on the member site, and play it on your facility screen.",
+        cta_member:"Go to the Member Site →",
+        footer_contact:"Contact"
+      },
+      ja:{
+        back_home:"← トップページへ戻る",
+        h1:"法人・施設向けのご利用",
+        p1:"Moririsは、保育園や待合室などの静かな空間向けに制作された、セリフのない森の環境動画を提供しています。",
+        pill1:"保育園・幼児施設向け",
+        pill2:"待合室向け",
+        pill3:"静かな施設向け",
+        h2a:"提供内容",
+        li1:"60分動画：長さを固定し、自然にループする構成です。",
+        li2:"広告なし：再生中に中断されません。",
+        li3:"セリフなし・低刺激：長時間の流しっぱなしに適しています。",
+        h2yt:"YouTubeとの違い",
+        yt1:"施設向けプラン",
+        yt1li1:"広告なし",
+        yt1li2:"施設内上映の利用が明確",
+        yt1li3:"メンバーサイトから簡単に再生",
+        yt2:"YouTube",
+        yt2li1:"広告が表示される場合があります",
+        yt2li2:"施設運用に最適化されていません",
+        yt2li3:"利用条件が分かりにくい場合があります",
+        h2c:"プラン",
+        free_title:"Free",
+        free_li1:"指定の動画1本（広告なし）",
+        free_li2:"施設内での上映が可能",
+        std_title:"Standard",
+        std_price:"5日間トライアル → 月額 ¥2,980",
+        std_li1:"施設向け動画すべて利用可能（広告なし）",
+        std_li2:"用途別に利用できます",
+        h2d:"導入の流れ",
+        step1:"メンバーサイトにアクセスし、メールアドレスで会員登録します。",
+        step2:"登録後はFreeプランで開始します。必要に応じてStandardへ登録してください。",
+        step3:"メンバーサイトにログインし、動画を選んでそのまま施設で再生してください。",
+        cta_member:"メンバーサイトへ →",
+        footer_contact:"お問い合わせ"
+      }
+    };
+
+    function setLang(l){
+      currentLang=l;
+      document.documentElement.lang=l;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k=el.dataset.i18n;
+        if(dict[l][k]) el.textContent=dict[l][k];
+      });
+      document.querySelectorAll(".lang-btn").forEach(b=>{
+        b.setAttribute("aria-pressed",b.dataset.lang===l);
+      });
+    }
+    document.querySelectorAll(".lang-btn").forEach(b=>{
+      b.onclick=()=>setLang(b.dataset.lang);
+    });
+    setLang(localStorage.getItem("moriris_lang")||"en");
+  </script>
 </body>
 </html>
