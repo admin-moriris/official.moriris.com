@@ -84,11 +84,8 @@
     .grid{
       display:grid;
       gap:1rem;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
+      grid-template-columns:1fr;
       margin-top:.8rem;
-    }
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr;}
     }
     .plan{
       background:rgba(255,255,255,0.55);
@@ -123,7 +120,6 @@
       margin-bottom: .3rem;
     }
 
-    /* small note */
     .note{
       font-size:.92rem;
       color:var(--ink-soft);
@@ -168,7 +164,6 @@
         Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.
       </p>
 
-      <!-- key offer -->
       <p class="note" data-i18n="p_free2">
         Watch <strong>2 videos free</strong> by registering your email address.
       </p>
@@ -186,14 +181,14 @@
         <li data-i18n="li3"><strong>Wordless & calm:</strong> suitable for long-term background use.</li>
       </ul>
 
-      <h2 data-i18n="h2yt">YouTube vs Facility Plan</h2>
+      <h2 data-i18n="h2yt">YouTube vs Video Platform for Facilities</h2>
       <div class="diff">
         <div class="box">
-          <h3 data-i18n="yt1">Facility Plan</h3>
+          <h3 data-i18n="yt1">Video Platform for Facilities</h3>
           <ul>
             <li data-i18n="yt1li1">No ads</li>
             <li data-i18n="yt1li2">Clear permission for facility use</li>
-            <li data-i18n="yt1li3">Easy access via Video Platform for Facilities</li>
+            <li data-i18n="yt1li3">Easy access via the platform</li>
           </ul>
         </div>
         <div class="box">
@@ -206,8 +201,9 @@
         </div>
       </div>
 
-      <!-- Free only (Standard mention minimized) -->
       <h2 data-i18n="h2c">Free access</h2>
+
+      <!-- ✅ 右側の四角を廃止し、運用説明を左（無料）に統合 -->
       <div class="grid">
         <section class="plan">
           <h3 data-i18n="free_title">Free (Email registration)</h3>
@@ -216,20 +212,21 @@
             <li data-i18n="free_li1"><strong>2 videos</strong> (ad-free)</li>
             <li data-i18n="free_li2">Facility use allowed</li>
           </ul>
+
           <p class="fineprint" data-i18n="free_note">
             Register with your email address to start.
           </p>
-          <p class="fineprint" data-i18n="upgrade_note">
-            Want all videos? You can upgrade inside the member site.
-          </p>
-        </section>
 
-        <!-- keep 2-column layout with a lightweight box (no plan name / no price) -->
-        <section class="plan" aria-hidden="true">
-          <h3 class="fineprint" style="margin:0 0 .35rem;" data-i18n="ops_title">For smooth operation</h3>
-          <div class="fineprint" data-i18n="ops_copy">
-            Use on a PC / tablet / TV in your facility. Start with 2 free videos first.
-          </div>
+          <!-- 運用説明：ここに入れる -->
+          <p class="fineprint" data-i18n="ops_title"><strong>Operation in facilities</strong></p>
+          <p class="fineprint" data-i18n="ops_copy">
+            Play on a PC / tablet / TV. Start with the 2 free videos first.
+          </p>
+
+          <!-- 「メンバーサイト」禁止：指定語彙に置換 -->
+          <p class="fineprint" data-i18n="upgrade_note">
+            Want all videos? You can upgrade inside the Video Platform for Facilities.
+          </p>
         </section>
       </div>
 
@@ -248,7 +245,7 @@
            target="_blank"
            rel="noopener"
            data-i18n="cta_member">
-          Watch 2 free videos (Email registration)
+          Go to Video Platform for Facilities (Free 2 videos)
         </a>
       </p>
 
@@ -278,11 +275,11 @@
         li1:"<strong>60-minute videos:</strong> fixed-length videos designed to loop naturally.",
         li2:"<strong>Ad-free:</strong> no interruptions during playback.",
         li3:"<strong>Wordless & calm:</strong> suitable for long-term background use.",
-        h2yt:"YouTube vs Facility Plan",
-        yt1:"Facility Plan",
+        h2yt:"YouTube vs Video Platform for Facilities",
+        yt1:"Video Platform for Facilities",
         yt1li1:"No ads",
         yt1li2:"Clear permission for facility use",
-        yt1li3:"Easy access via Video Platform for Facilities",
+        yt1li3:"Easy access via the platform",
         yt2:"YouTube",
         yt2li1:"Ads may appear",
         yt2li2:"Not optimized for facility operation",
@@ -293,14 +290,14 @@
         free_li1:"<strong>2 videos</strong> (ad-free)",
         free_li2:"Facility use allowed",
         free_note:"Register with your email address to start.",
-        upgrade_note:"Want all videos? You can upgrade inside the member site.",
-        ops_title:"For smooth operation",
-        ops_copy:"Use on a PC / tablet / TV in your facility. Start with 2 free videos first.",
+        ops_title:"<strong>Operation in facilities</strong>",
+        ops_copy:"Play on a PC / tablet / TV. Start with the 2 free videos first.",
+        upgrade_note:"Want all videos? You can upgrade inside the Video Platform for Facilities.",
         h2d:"How to start",
         step1:"Access the Video Platform for Facilities and register with your email address.",
         step2:"After registration, you can watch <strong>2 free videos</strong> (ad-free).",
         step3:"Log in anytime, select a video, and play it on your facility screen.",
-        cta_member:"Watch 2 free videos (Email registration)",
+        cta_member:"Go to Video Platform for Facilities (Free 2 videos)",
         privacy_note:"We use your email only for account access and important service notices.",
         footer_contact:"Contact"
       },
@@ -317,28 +314,28 @@
         li2:"<strong>広告なし：</strong>再生中に中断されません。",
         li3:"<strong>セリフなし・低刺激：</strong>長時間の流しっぱなしに適しています。",
         h2yt:"YouTubeとの違い",
-        yt1:"施設向けプラン",
+        yt1:"法人・施設向け映像配信サイト",
         yt1li1:"広告なし",
         yt1li2:"施設内上映の利用が明確",
-        yt1li3:"法人・施設向け映像配信サイトから簡単に再生",
+        yt1li3:"サイトから簡単に再生",
         yt2:"YouTube",
         yt2li1:"広告が表示される場合があります",
         yt2li2:"施設運用に最適化されていません",
         yt2li3:"利用条件が分かりにくい場合があります",
-        h2c:"無料で試す",
+        h2c:"無料（メール登録）",
         free_title:"無料（メール登録）",
         free_price:"¥0",
         free_li1:"動画<strong>2本</strong>（広告なし）",
         free_li2:"施設内での上映が可能",
         free_note:"メールアドレスで登録するとすぐ視聴できます。",
-        upgrade_note:"すべての動画を見たい場合は、メンバーサイト内でアップグレードできます。",
-        ops_title:"施設での運用について",
+        ops_title:"<strong>施設での運用について</strong>",
         ops_copy:"PC／タブレット／TVでそのまま再生できます。まずは無料2本からお試しください。",
+        upgrade_note:"すべての動画を見たい場合は、法人・施設向け映像配信サイト内でアップグレードできます。",
         h2d:"導入の流れ",
-        step1:"法人・施設向け映像配信サイトにアクセスし、メールアドレスで会員登録します。",
+        step1:"法人・施設向け映像配信サイト（Video Platform for Facilities）にアクセスし、メールアドレスで会員登録します。",
         step2:"登録後、無料で動画を<strong>2本</strong>視聴できます（広告なし）。",
         step3:"ログインして動画を選び、そのまま施設の画面で再生してください。",
-        cta_member:"無料で2本視聴する（メール登録）",
+        cta_member:"法人・施設向け映像配信サイトへ（無料2本）",
         privacy_note:"メールアドレスはログインと重要なお知らせのみに使用します。",
         footer_contact:"お問い合わせ"
       }
