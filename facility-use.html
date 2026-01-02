@@ -123,7 +123,7 @@
       margin-bottom: .3rem;
     }
 
-    /* NEW: small note / de-emphasize plan upsell */
+    /* small note */
     .note{
       font-size:.92rem;
       color:var(--ink-soft);
@@ -168,7 +168,7 @@
         Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.
       </p>
 
-      <!-- NEW: key offer -->
+      <!-- key offer -->
       <p class="note" data-i18n="p_free2">
         Watch <strong>2 videos free</strong> by registering your email address.
       </p>
@@ -206,7 +206,7 @@
         </div>
       </div>
 
-      <!-- UPDATED: Plans section de-emphasized, focus on Free -->
+      <!-- Free only (Standard mention minimized) -->
       <h2 data-i18n="h2c">Free access</h2>
       <div class="grid">
         <section class="plan">
@@ -219,13 +219,16 @@
           <p class="fineprint" data-i18n="free_note">
             Register with your email address to start.
           </p>
+          <p class="fineprint" data-i18n="upgrade_note">
+            Want all videos? You can upgrade inside the member site.
+          </p>
         </section>
 
-        <!-- OPTIONAL: keep Standard but very small; you requested small or none -->
-        <section class="plan" aria-hidden="false">
-          <h3 class="fineprint" style="margin:0 0 .35rem;" data-i18n="std_title_small">Standard (optional)</h3>
-          <div class="fineprint" data-i18n="std_small">
-            Want all videos? You can upgrade after logging in.
+        <!-- keep 2-column layout with a lightweight box (no plan name / no price) -->
+        <section class="plan" aria-hidden="true">
+          <h3 class="fineprint" style="margin:0 0 .35rem;" data-i18n="ops_title">For smooth operation</h3>
+          <div class="fineprint" data-i18n="ops_copy">
+            Use on a PC / tablet / TV in your facility. Start with 2 free videos first.
           </div>
         </section>
       </div>
@@ -240,7 +243,11 @@
       </ol>
 
       <p style="margin-top:1rem">
-        <a class="btn" href="https://member.moriris.com/" target="_blank" rel="noopener" data-i18n="cta_member">
+        <a class="btn"
+           href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_free2"
+           target="_blank"
+           rel="noopener"
+           data-i18n="cta_member">
           Watch 2 free videos (Email registration)
         </a>
       </p>
@@ -263,14 +270,14 @@
         back_home:"← Back to top",
         h1:"Facility Use (Business)",
         p1:"Moriris offers gentle, wordless forest ambience videos designed for calm spaces such as nursery schools and waiting rooms.",
-        p_free2:"Watch 2 videos free by registering your email address.",
+        p_free2:"Watch <strong>2 videos free</strong> by registering your email address.",
         pill1:"For nursery schools",
         pill2:"For waiting rooms",
         pill3:"For calm facilities",
         h2a:"What you get",
-        li1:"60-minute videos: fixed-length videos designed to loop naturally.",
-        li2:"Ad-free: no interruptions during playback.",
-        li3:"Wordless & calm: suitable for long-term background use.",
+        li1:"<strong>60-minute videos:</strong> fixed-length videos designed to loop naturally.",
+        li2:"<strong>Ad-free:</strong> no interruptions during playback.",
+        li3:"<strong>Wordless & calm:</strong> suitable for long-term background use.",
         h2yt:"YouTube vs Facility Plan",
         yt1:"Facility Plan",
         yt1li1:"No ads",
@@ -283,14 +290,15 @@
         h2c:"Free access",
         free_title:"Free (Email registration)",
         free_price:"¥0",
-        free_li1:"2 videos (ad-free)",
+        free_li1:"<strong>2 videos</strong> (ad-free)",
         free_li2:"Facility use allowed",
         free_note:"Register with your email address to start.",
-        std_title_small:"Standard (optional)",
-        std_small:"Want all videos? You can upgrade after logging in.",
+        upgrade_note:"Want all videos? You can upgrade inside the member site.",
+        ops_title:"For smooth operation",
+        ops_copy:"Use on a PC / tablet / TV in your facility. Start with 2 free videos first.",
         h2d:"How to start",
         step1:"Access the Video Platform for Facilities and register with your email address.",
-        step2:"After registration, you can watch 2 free videos (ad-free).",
+        step2:"After registration, you can watch <strong>2 free videos</strong> (ad-free).",
         step3:"Log in anytime, select a video, and play it on your facility screen.",
         cta_member:"Watch 2 free videos (Email registration)",
         privacy_note:"We use your email only for account access and important service notices.",
@@ -305,9 +313,9 @@
         pill2:"待合室向け",
         pill3:"静かな施設向け",
         h2a:"提供内容",
-        li1:"60分動画：長さを固定し、自然にループする構成です。",
-        li2:"広告なし：再生中に中断されません。",
-        li3:"セリフなし・低刺激：長時間の流しっぱなしに適しています。",
+        li1:"<strong>60分動画：</strong>長さを固定し、自然にループする構成です。",
+        li2:"<strong>広告なし：</strong>再生中に中断されません。",
+        li3:"<strong>セリフなし・低刺激：</strong>長時間の流しっぱなしに適しています。",
         h2yt:"YouTubeとの違い",
         yt1:"施設向けプラン",
         yt1li1:"広告なし",
@@ -320,14 +328,15 @@
         h2c:"無料で試す",
         free_title:"無料（メール登録）",
         free_price:"¥0",
-        free_li1:"動画2本（広告なし）",
+        free_li1:"動画<strong>2本</strong>（広告なし）",
         free_li2:"施設内での上映が可能",
         free_note:"メールアドレスで登録するとすぐ視聴できます。",
-        std_title_small:"Standard（任意）",
-        std_small:"すべての動画を見たい場合は、ログイン後にアップグレードできます。",
+        upgrade_note:"すべての動画を見たい場合は、メンバーサイト内でアップグレードできます。",
+        ops_title:"施設での運用について",
+        ops_copy:"PC／タブレット／TVでそのまま再生できます。まずは無料2本からお試しください。",
         h2d:"導入の流れ",
         step1:"法人・施設向け映像配信サイトにアクセスし、メールアドレスで会員登録します。",
-        step2:"登録後、無料で動画を2本視聴できます（広告なし）。",
+        step2:"登録後、無料で動画を<strong>2本</strong>視聴できます（広告なし）。",
         step3:"ログインして動画を選び、そのまま施設の画面で再生してください。",
         cta_member:"無料で2本視聴する（メール登録）",
         privacy_note:"メールアドレスはログインと重要なお知らせのみに使用します。",
