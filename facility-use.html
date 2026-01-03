@@ -92,13 +92,37 @@
     .note{ font-size:.95rem; color:var(--ink); font-weight: 600; margin-top:.4rem; }
     .fineprint{ font-size:.88rem; color:var(--ink-soft); opacity:.85; }
     
-    /* NEW: Scene sections */
+    /* Scene sections */
     .scenes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
     .scene-card { background: #fff; padding: 1rem; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .scene-card strong { color: var(--accent-dark); display: block; margin-bottom: 0.3rem; }
+
+    /* NEW: video embed */
+    .video-wrap{
+      margin:1.2rem 0 0;
+      background:rgba(255,255,255,0.65);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:1rem;
+    }
+    .video-title{margin:0 0 .5rem;color:var(--ink);font-weight:800}
+    .video-frame{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+      background:#000;
+    }
+    .video-frame iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
   </style>
 
-  </head>
+</head>
 
 <body>
   <div class="topbar">
@@ -123,6 +147,25 @@
         <span class="pill" data-i18n="pill1">For nursery schools</span>
         <span class="pill" data-i18n="pill2">For waiting rooms</span>
         <span class="pill" data-i18n="pill3">For calm facilities</span>
+      </div>
+
+      <!-- NEW: actual video preview -->
+      <div class="video-wrap" aria-label="Video preview">
+        <p class="video-title" data-i18n="video_title">Video Preview (YouTube)</p>
+        <div class="video-frame">
+          <!-- iFdCP1m4HjE -->
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE?rel=0&modestbranding=1&playsinline=1"
+            title="Moriris video preview"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="fineprint" style="margin-top:.6rem;">
+          <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener">Open on YouTube</a>
+        </p>
       </div>
 
       <h2 data-i18n="h2_scenes">Usage Scenes</h2>
@@ -220,6 +263,7 @@
         back_home:"← Back to home",
         h1:"Professional Facility Solution",
         p1:"Enhance your space with 'Moriris'. We provide high-quality, wordless forest ambience videos optimized for nursery schools, clinics, and care facilities.",
+        video_title:"Video Preview (YouTube)",
         p_free2:"Test the effects in your facility with 2 full-length videos.",
         pill1:"Nursery Schools",
         pill2:"Waiting Rooms",
@@ -230,7 +274,7 @@
         scene2_t:"Medical Waiting Rooms",
         scene2_c:"Reduces patient anxiety and makes the wait feel shorter. Safe for all ages with no sudden noises.",
         h2a:"Key Benefits",
-        li1: "<strong>Seamless Loop for Extended Play:</strong> Our 60-minute videos are designed for continuous looping. One simple setup provides hours of calm without further manual intervention.",
+        li1:"<strong>Seamless Loop for Extended Play:</strong> Our 60-minute videos are designed for continuous looping. One simple setup provides hours of calm without further manual intervention.",
         li2:"<strong>100% Ad-Free:</strong> No interruptions, no inappropriate ads, and no 'next video' distractions.",
         li3:"<strong>Calm & Wordless:</strong> No dialogue or music spikes. Designed for long-term background play.",
         h2yt:"Why Choose Our Professional Platform?",
@@ -248,7 +292,7 @@
         free_li1:"<strong>2 videos</strong> (Ad-free, Full-length)",
         free_li2:"Facility use allowed",
         ops_title:"<strong>Facility Operation</strong>",
-        ops_copy: "Simply play on a browser and set to loop. It can run all day long to maintain a peaceful atmosphere effortlessly.",
+        ops_copy:"Simply play on a browser and set to loop. It can run all day long to maintain a peaceful atmosphere effortlessly.",
         h2d:"Step by Step",
         step1:"Register your email on our Video Platform.",
         step2:"Access 2 free videos immediately.",
@@ -261,6 +305,7 @@
         back_home:"← トップページへ戻る",
         h1:"法人・施設向けのご利用",
         p1:"「モリリス」は、保育園やクリニック、公共施設などの静かな空間づくりを支援します。広告や著作権の心配なく、上質な環境動画を導入いただけます。",
+        video_title:"映像プレビュー（YouTube）",
         p_free2:"まずは2本の動画で、施設内の雰囲気の変化を実感してください。",
         pill1:"保育園・幼児施設",
         pill2:"病院・クリニック待合室",
@@ -271,7 +316,7 @@
         scene2_t:"病院・クリニック待合室",
         scene2_c:"待ち時間の不安やストレスを緩和。セリフや激しい音がないため、どなたでも安心してお過ごしいただけます。",
         h2a:"導入のメリット",
-        li1: "<strong>ループ再生・長時間の空間演出：</strong> 60分動画をシームレスにループ再生可能。一度の操作で、午前中やお昼寝の間など、必要な時間ずっと流し続けられます。",
+        li1:"<strong>ループ再生・長時間の空間演出：</strong> 60分動画をシームレスにループ再生可能。一度の操作で、午前中やお昼寝の間など、必要な時間ずっと流し続けられます。",
         li2:"<strong>完全広告なし：</strong> 再生が中断されたり、不適切な広告が流れる心配は一切ありません。",
         li3:"<strong>低刺激・セリフなし：</strong> 情操教育やリラックスを妨げない、環境音に特化した構成です。",
         h2yt:"YouTubeとの違い",
@@ -289,7 +334,7 @@
         free_li1:"動画<strong>2本</strong>（広告なし・フルサイズ）",
         free_li2:"施設内での上映が可能です",
         ops_title:"<strong>施設での運用について</strong>",
-        ops_copy: "PC／タブレット／Smart TVのブラウザで再生し、そのままループ設定にするだけ。途切れることなく一日中空間を彩ります。",
+        ops_copy:"PC／タブレット／Smart TVのブラウザで再生し、そのままループ設定にするだけ。途切れることなく一日中空間を彩ります。",
         h2d:"導入の流れ",
         step1:"配信サイトへアクセスし、メールアドレスで登録します。",
         step2:"登録後、すぐに2本の無料動画をご利用いただけます。",
