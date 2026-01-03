@@ -92,12 +92,10 @@
     .note{ font-size:.95rem; color:var(--ink); font-weight: 600; margin-top:.4rem; }
     .fineprint{ font-size:.88rem; color:var(--ink-soft); opacity:.85; }
     
-    /* Scene sections */
     .scenes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
     .scene-card { background: #fff; padding: 1rem; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .scene-card strong { color: var(--accent-dark); display: block; margin-bottom: 0.3rem; }
 
-    /* NEW: video embed */
     .video-wrap{
       margin:1.2rem 0 0;
       background:rgba(255,255,255,0.65);
@@ -119,6 +117,39 @@
       position:absolute; inset:0;
       width:100%; height:100%;
       border:0;
+    }
+
+    /* NEW: PDF links */
+    .pdf-wrap{
+      margin:1.2rem 0 0;
+      background:rgba(255,255,255,0.65);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:1rem;
+    }
+    .pdf-row{
+      display:flex;
+      gap:.8rem;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+      margin-top:.6rem;
+    }
+    .btn-outline{
+      display:inline-block;
+      background:rgba(255,255,255,0.9);
+      color:var(--accent-dark);
+      border:2px solid var(--accent);
+      padding:.85rem 1.3rem;
+      border-radius:12px;
+      font-weight:800;
+      font-size:1.05rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-outline:hover{
+      background:#fff;
+      transform:scale(1.02);
+      text-decoration:none;
     }
   </style>
 
@@ -149,11 +180,9 @@
         <span class="pill" data-i18n="pill3">For calm facilities</span>
       </div>
 
-      <!-- NEW: actual video preview -->
       <div class="video-wrap" aria-label="Video preview">
         <p class="video-title" data-i18n="video_title">Video Preview (YouTube)</p>
         <div class="video-frame">
-          <!-- iFdCP1m4HjE -->
           <iframe
             src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE?rel=0&modestbranding=1&playsinline=1"
             title="Moriris video preview"
@@ -165,6 +194,30 @@
         </div>
         <p class="fineprint" style="margin-top:.6rem;">
           <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener">Open on YouTube</a>
+        </p>
+      </div>
+
+      <!-- NEW: PDF proposal links (open in a new tab) -->
+      <div class="pdf-wrap" aria-label="Proposal PDF">
+        <p class="video-title" data-i18n="pdf_title">Proposal PDF (Open in a new tab)</p>
+        <p class="fineprint" data-i18n="pdf_desc">
+          You can share these PDFs with your manager or decision makers.
+        </p>
+        <div class="pdf-row">
+          <a class="btn-outline"
+             href="/data/%E5%B0%8E%E5%85%A5%E8%B3%87%E6%96%99_JP.pdf"
+             target="_blank"
+             rel="noopener"
+             data-i18n="pdf_btn_jp">Open PDF (Japanese)</a>
+
+          <a class="btn-outline"
+             href="/data/%E5%B0%8E%E5%85%A5%E8%B3%87%E6%96%99_EN.pdf"
+             target="_blank"
+             rel="noopener"
+             data-i18n="pdf_btn_en">Open PDF (English)</a>
+        </div>
+        <p class="fineprint" style="text-align:center;margin-top:.7rem;" data-i18n="pdf_note">
+          If the PDF does not open, please try downloading from your browser.
         </p>
       </div>
 
@@ -264,6 +317,13 @@
         h1:"Professional Facility Solution",
         p1:"Enhance your space with 'Moriris'. We provide high-quality, wordless forest ambience videos optimized for nursery schools, clinics, and care facilities.",
         video_title:"Video Preview (YouTube)",
+
+        pdf_title:"Proposal PDF (Open in a new tab)",
+        pdf_desc:"You can share these PDFs with your manager or decision makers.",
+        pdf_btn_jp:"Open PDF (Japanese)",
+        pdf_btn_en:"Open PDF (English)",
+        pdf_note:"If the PDF does not open, please try downloading from your browser.",
+
         p_free2:"Test the effects in your facility with 2 full-length videos.",
         pill1:"Nursery Schools",
         pill2:"Waiting Rooms",
@@ -306,6 +366,13 @@
         h1:"法人・施設向けのご利用",
         p1:"「モリリス」は、保育園やクリニック、公共施設などの静かな空間づくりを支援します。広告や著作権の心配なく、上質な環境動画を導入いただけます。",
         video_title:"映像プレビュー（YouTube）",
+
+        pdf_title:"導入検討用資料（PDF・別タブで開きます）",
+        pdf_desc:"院長／施設長／本部などの決裁者へ、そのまま共有できるPDFです。",
+        pdf_btn_jp:"PDFを開く（日本語）",
+        pdf_btn_en:"PDFを開く（English）",
+        pdf_note:"開けない場合は、ブラウザのダウンロード機能をお試しください。",
+
         p_free2:"まずは2本の動画で、施設内の雰囲気の変化を実感してください。",
         pill1:"保育園・幼児施設",
         pill2:"病院・クリニック待合室",
@@ -358,6 +425,9 @@
         b.setAttribute("aria-pressed",b.dataset.lang===l);
       });
       localStorage.setItem("moriris_lang", l);
+
+      // Optional: if you ever want to auto-hide the "other language" PDF button, do it here.
+      // For now, both are always visible.
     }
     document.querySelectorAll(".lang-btn").forEach(b=>{
       b.onclick=()=>setLang(b.dataset.lang);
