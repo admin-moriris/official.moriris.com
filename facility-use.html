@@ -91,7 +91,7 @@
 
     .note{ font-size:.95rem; color:var(--ink); font-weight: 600; margin-top:.4rem; }
     .fineprint{ font-size:.88rem; color:var(--ink-soft); opacity:.85; }
-    
+
     .scenes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
     .scene-card { background: #fff; padding: 1rem; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
     .scene-card strong { color: var(--accent-dark); display: block; margin-bottom: 0.3rem; }
@@ -119,9 +119,9 @@
       border:0;
     }
 
-    /* NEW: PDF links */
+    /* PDF links */
     .pdf-wrap{
-      margin:1.2rem 0 0;
+      margin:2rem 0 0; /* a bit more space near bottom */
       background:rgba(255,255,255,0.65);
       border:1px solid rgba(0,0,0,.06);
       border-radius:14px;
@@ -194,30 +194,6 @@
         </div>
         <p class="fineprint" style="margin-top:.6rem;">
           <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener">Open on YouTube</a>
-        </p>
-      </div>
-
-      <!-- NEW: PDF proposal links (open in a new tab) -->
-      <div class="pdf-wrap" aria-label="Proposal PDF">
-        <p class="video-title" data-i18n="pdf_title">Proposal PDF (Open in a new tab)</p>
-        <p class="fineprint" data-i18n="pdf_desc">
-          You can share these PDFs with your manager or decision makers.
-        </p>
-        <div class="pdf-row">
-          <a class="btn-outline"
-             href="/data/%E5%B0%8E%E5%85%A5%E8%B3%87%E6%96%99_JP.pdf"
-             target="_blank"
-             rel="noopener"
-             data-i18n="pdf_btn_jp">Open PDF (Japanese)</a>
-
-          <a class="btn-outline"
-             href="/data/%E5%B0%8E%E5%85%A5%E8%B3%87%E6%96%99_EN.pdf"
-             target="_blank"
-             rel="noopener"
-             data-i18n="pdf_btn_en">Open PDF (English)</a>
-        </div>
-        <p class="fineprint" style="text-align:center;margin-top:.7rem;" data-i18n="pdf_note">
-          If the PDF does not open, please try downloading from your browser.
         </p>
       </div>
 
@@ -297,10 +273,30 @@
         </a>
       </p>
 
-      <p class="fineprint" style="text-align: center; margin-top: 2rem;">
-        <span data-i18n="doc_request">Need a proposal document for your manager? </span>
-        <a href="/contact.html" data-i18n="footer_contact">Contact us</a>
-      </p>
+      <!-- MOVED: PDF proposal links to the very bottom of the page content -->
+      <div class="pdf-wrap" aria-label="Proposal PDF">
+        <p class="video-title" data-i18n="pdf_title">Proposal PDF (Open in a new tab)</p>
+        <p class="fineprint" data-i18n="pdf_desc">
+          You can share these PDFs with your manager or decision makers.
+        </p>
+        <div class="pdf-row">
+          <a class="btn-outline"
+             href="/data/%E5%B0%8E%E5%85%A5%E6%A4%9C%E8%A8%8E%E7%94%A8%E8%B3%87%E6%96%99.pdf"
+             target="_blank"
+             rel="noopener"
+             data-i18n="pdf_btn_jp">Open PDF (Japanese)</a>
+
+          <a class="btn-outline"
+             href="/data/Proposal%20PDF.pdf"
+             target="_blank"
+             rel="noopener"
+             data-i18n="pdf_btn_en">Open PDF (English)</a>
+        </div>
+        <p class="fineprint" style="text-align:center;margin-top:.7rem;" data-i18n="pdf_note">
+          If the PDF does not open, please try downloading from your browser.
+        </p>
+      </div>
+
     </article>
   </main>
 
@@ -358,7 +354,6 @@
         step2:"Access 2 free videos immediately.",
         step3:"Select a video and play it on your facility's screen.",
         cta_member:"Get Your Free 2 Videos Now",
-        doc_request:"Need a PDF proposal for your facility? ",
         footer_contact:"Contact us"
       },
       ja:{
@@ -407,7 +402,6 @@
         step2:"登録後、すぐに2本の無料動画をご利用いただけます。",
         step3:"ログインして動画を選び、そのまま施設の画面で再生してください。",
         cta_member:"無料で2本を試してみる",
-        doc_request:"導入検討用の資料（PDF）が必要な場合は、",
         footer_contact:"お問い合わせください"
       }
     };
@@ -425,9 +419,6 @@
         b.setAttribute("aria-pressed",b.dataset.lang===l);
       });
       localStorage.setItem("moriris_lang", l);
-
-      // Optional: if you ever want to auto-hide the "other language" PDF button, do it here.
-      // For now, both are always visible.
     }
     document.querySelectorAll(".lang-btn").forEach(b=>{
       b.onclick=()=>setLang(b.dataset.lang);
