@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Facility Use | Moriris</title>
-  <meta name="description" content="Moriris offers ad-free, 60-minute forest ambience videos for nursery schools, waiting rooms, and calm spaces. Watch 2 videos free by registering your email." />
+  <meta name="description" content="Ad-free, wordless 60-minute forest ambience videos for developmental support centers, clinics, and calm spaces. Try 2 videos free with email registration." />
   <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
 
   <style>
@@ -37,11 +37,11 @@
       backdrop-filter:saturate(120%) blur(4px);
       z-index:5;
     }
-    .topbar-left a{font-weight:700;}
+    .topbar-left a{font-weight:800;}
     .topbar-right{display:flex;gap:.4rem;}
     .lang-btn{
       border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
-      font-weight:700;color:var(--accent-dark);cursor:pointer
+      font-weight:800;color:var(--accent-dark);cursor:pointer
     }
     .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
 
@@ -51,50 +51,71 @@
       box-shadow:var(--shadow);padding:2rem;margin:1rem 0
     }
     h1{margin:.2rem 0 .6rem;font-size:2rem; color:var(--accent-dark);}
-    h2{margin:2rem 0 .8rem;font-size:1.45rem; border-bottom: 2px solid #e9f3ec; display:inline-block;}
-    h3{font-size: 1.15rem; margin-bottom: 0.5rem;}
+    h2{margin:2rem 0 .8rem;font-size:1.45rem; border-bottom:2px solid #e9f3ec; display:inline-block;}
+    h3{font-size:1.15rem; margin:.2rem 0 .5rem;}
     p{margin:.8rem 0;color:var(--ink-soft)}
     ul,ol{margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)}
     .pill{
       display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
-      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:800; font-size: 0.9rem;
+      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:900; font-size:.9rem;
+    }
+
+    .hero{
+      display:grid;
+      gap:1rem;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:start;
+      margin-top:.4rem;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+    }
+
+    .hero-cta{
+      background:rgba(255,255,255,0.7);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:1.2rem;
     }
     .btn{
       display:inline-block;background:var(--accent);color:#fff;
-      padding:.9rem 1.5rem;border-radius:12px;font-weight:800; font-size: 1.1rem;
-      transition: transform 0.2s ease;
+      padding:.9rem 1.5rem;border-radius:12px;font-weight:900; font-size:1.05rem;
+      transition:transform .2s ease, background .2s ease;
     }
-    .btn:hover{background:var(--accent-dark); transform: scale(1.02); text-decoration: none;}
-    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
-
-    .grid{
-      display:grid; gap:1rem; grid-template-columns:1fr; margin-top:.8rem;
-    }
-    .plan{
-      background:rgba(255,255,255,0.7); border-radius:14px; padding:1.5rem;
+    .btn:hover{background:var(--accent-dark); transform:scale(1.02); text-decoration:none;}
+    .btn-row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;justify-content:flex-start;margin-top:.8rem;}
+    .btn-sub{
+      display:inline-block;
+      background:rgba(255,255,255,0.9);
+      color:var(--accent-dark);
       border:2px solid var(--accent);
+      padding:.75rem 1.1rem;
+      border-radius:12px;
+      font-weight:900;
+      font-size:1rem;
+      transition:transform .2s ease, background .2s ease;
     }
-    .price{font-size: 2rem; font-weight:900;margin:.25rem 0; color: var(--accent-dark);}
+    .btn-sub:hover{background:#fff;transform:scale(1.02);text-decoration:none;}
+
+    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
     .divider{height:1px;background:rgba(0,0,0,.08);margin:2rem 0}
 
     .diff{
       display:grid; gap:.8rem; grid-template-columns:repeat(2, minmax(0, 1fr)); margin-top:.6rem;
     }
-    @media (max-width:900px){
-      .diff{grid-template-columns:1fr;}
-    }
+    @media (max-width:900px){ .diff{grid-template-columns:1fr;} }
     .diff .box{
       background:rgba(255,255,255,0.6); border-radius:14px; padding:1.2rem;
       border:1px solid rgba(0,0,0,.06);
     }
-    .box-pro{border: 2px solid var(--accent) !important;}
+    .box-pro{border:2px solid var(--accent) !important;}
 
-    .note{ font-size:.95rem; color:var(--ink); font-weight: 600; margin-top:.4rem; }
-    .fineprint{ font-size:.88rem; color:var(--ink-soft); opacity:.85; }
+    .note{ font-size:.95rem; color:var(--ink); font-weight:700; margin-top:.4rem; }
+    .fineprint{ font-size:.88rem; color:var(--ink-soft); opacity:.9; }
 
-    .scenes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
-    .scene-card { background: #fff; padding: 1rem; border-radius: 12px; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-    .scene-card strong { color: var(--accent-dark); display: block; margin-bottom: 0.3rem; }
+    .scenes { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); margin-top:1rem; }
+    .scene-card { background:#fff; padding:1rem; border-radius:12px; font-size:.95rem; box-shadow:0 4px 12px rgba(0,0,0,0.03); border:1px solid rgba(0,0,0,.04);}
+    .scene-card strong { color:var(--accent-dark); display:block; margin-bottom:.3rem; }
 
     .video-wrap{
       margin:1.2rem 0 0;
@@ -103,7 +124,7 @@
       border-radius:14px;
       padding:1rem;
     }
-    .video-title{margin:0 0 .5rem;color:var(--ink);font-weight:800}
+    .video-title{margin:0 0 .5rem;color:var(--ink);font-weight:900}
     .video-frame{
       position:relative;
       width:100%;
@@ -119,9 +140,26 @@
       border:0;
     }
 
+    .grid{display:grid; gap:1rem; grid-template-columns:1fr; margin-top:.8rem;}
+    .plan{
+      background:rgba(255,255,255,0.7); border-radius:14px; padding:1.5rem;
+      border:2px solid var(--accent);
+    }
+    .price{font-size:2rem; font-weight:950;margin:.25rem 0; color:var(--accent-dark);}
+
+    .faq{margin-top:.4rem;}
+    .faq details{
+      background:rgba(255,255,255,0.6);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:12px;
+      padding:.9rem 1rem;
+      margin:.6rem 0;
+    }
+    .faq summary{cursor:pointer; font-weight:900; color:var(--ink);}
+
     /* PDF links */
     .pdf-wrap{
-      margin:2rem 0 0; /* a bit more space near bottom */
+      margin:2rem 0 0;
       background:rgba(255,255,255,0.65);
       border:1px solid rgba(0,0,0,.06);
       border-radius:14px;
@@ -142,23 +180,18 @@
       border:2px solid var(--accent);
       padding:.85rem 1.3rem;
       border-radius:12px;
-      font-weight:800;
-      font-size:1.05rem;
-      transition: transform 0.2s ease, background 0.2s ease;
+      font-weight:900;
+      font-size:1.02rem;
+      transition: transform .2s ease, background .2s ease;
     }
-    .btn-outline:hover{
-      background:#fff;
-      transform:scale(1.02);
-      text-decoration:none;
-    }
+    .btn-outline:hover{background:#fff;transform:scale(1.02);text-decoration:none;}
   </style>
-
 </head>
 
 <body>
   <div class="topbar">
     <div class="topbar-left">
-      <a href="/" data-i18n="back_home">← Back to top</a>
+      <a href="/" data-i18n="back_home">← Back to home</a>
     </div>
     <div class="topbar-right">
       <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
@@ -168,16 +201,88 @@
 
   <main>
     <article class="card">
-      <h1 data-i18n="h1">Facility Use (Business)</h1>
+      <h1 data-i18n="h1">Facility Use</h1>
 
-      <p data-i18n="p1">
-        Professional ambient videos for facilities. Create a calm atmosphere without the stress of ads or complex licensing.
-      </p>
+      <div class="hero">
+        <div>
+          <p data-i18n="p1">
+            Moriris provides wordless, low-stimulation forest ambience videos for facilities.
+            Designed for calm-down time, waiting rooms, and quiet spaces—without ads or sudden scenes.
+          </p>
 
-      <div>
-        <span class="pill" data-i18n="pill1">For nursery schools</span>
-        <span class="pill" data-i18n="pill2">For waiting rooms</span>
-        <span class="pill" data-i18n="pill3">For calm facilities</span>
+          <div aria-label="tags">
+            <span class="pill" data-i18n="pill1">Developmental Support</span>
+            <span class="pill" data-i18n="pill2">Clinics / Waiting Rooms</span>
+            <span class="pill" data-i18n="pill3">Calm Spaces</span>
+          </div>
+
+          <p class="fineprint" data-i18n="p_micro">
+            60-minute loop · Wordless · Low stimulation · Ad-free professional playback
+          </p>
+        </div>
+
+        <aside class="hero-cta" aria-label="Primary CTA">
+          <h3 data-i18n="cta_box_t">Try 2 videos free (facility use allowed)</h3>
+          <p class="fineprint" data-i18n="cta_box_d">
+            Register your email and start immediately. Share the PDF with decision makers if needed.
+          </p>
+          <div class="btn-row">
+            <a class="btn"
+               href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_free2_top"
+               target="_blank" rel="noopener"
+               data-i18n="cta_member_top">Get Started for Free</a>
+            <a class="btn-sub" href="#pdf" data-i18n="cta_pdf">Open Proposal PDF</a>
+          </div>
+        </aside>
+      </div>
+
+      <h2 data-i18n="h2_scenes">Usage Scenes (Recommended)</h2>
+      <div class="scenes">
+        <div class="scene-card">
+          <strong data-i18n="scene1_t">Developmental Support Centers</strong>
+          <span data-i18n="scene1_c">
+            Suitable for calm-down time and transitions. Wordless visuals help reduce language load and overstimulation.
+          </span>
+        </div>
+        <div class="scene-card">
+          <strong data-i18n="scene2_t">Medical Waiting Rooms</strong>
+          <span data-i18n="scene2_c">
+            Helps reduce anxiety and makes waiting feel shorter. No sudden cuts or loud sounds.
+          </span>
+        </div>
+        <div class="scene-card">
+          <strong data-i18n="scene3_t">Quiet Rooms / Sensory-Friendly Spaces</strong>
+          <span data-i18n="scene3_c">
+            A gentle “background” that doesn’t demand attention—useful for quiet corners and rest areas.
+          </span>
+        </div>
+      </div>
+
+      <h2 data-i18n="h2a">Key Benefits</h2>
+      <ul>
+        <li data-i18n="li1"><strong>60-minute Seamless Loop:</strong> One click for an hour of calm. Designed for continuous playback.</li>
+        <li data-i18n="li2"><strong>Low Stimulation:</strong> Wordless visuals, slow motion, and no fast cuts.</li>
+        <li data-i18n="li3"><strong>100% Ad-Free:</strong> No inappropriate ads, no interruptions, no “next video” distractions.</li>
+      </ul>
+
+      <h2 data-i18n="h2yt">Why Choose Our Professional Platform?</h2>
+      <div class="diff">
+        <div class="box box-pro">
+          <h3 data-i18n="yt1">Video Platform for Facilities</h3>
+          <ul>
+            <li data-i18n="yt1li1">Completely Ad-free</li>
+            <li data-i18n="yt1li2"><strong>Official facility-use permission</strong></li>
+            <li data-i18n="yt1li3">Dedicated player (no distracting UI)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3 data-i18n="yt2">YouTube</h3>
+          <ul>
+            <li data-i18n="yt2li1">Unpredictable ads</li>
+            <li data-i18n="yt2li2">Not designed for facility operation</li>
+            <li data-i18n="yt2li3">“Up Next” and UI distractions</li>
+          </ul>
+        </div>
       </div>
 
       <div class="video-wrap" aria-label="Video preview">
@@ -193,47 +298,8 @@
           </iframe>
         </div>
         <p class="fineprint" style="margin-top:.6rem;">
-          <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener">Open on YouTube</a>
+          <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener" data-i18n="open_yt">Open on YouTube</a>
         </p>
-      </div>
-
-      <h2 data-i18n="h2_scenes">Usage Scenes</h2>
-      <div class="scenes">
-        <div class="scene-card">
-          <strong data-i18n="scene1_t">Nursery Schools</strong>
-          <span data-i18n="scene1_c">Ideal for pre-nap time. Gentle sounds and slow movements help children transition to sleep naturally.</span>
-        </div>
-        <div class="scene-card">
-          <strong data-i18n="scene2_t">Medical Waiting Rooms</strong>
-          <span data-i18n="scene2_c">Reduces patient anxiety and makes the wait feel shorter. Safe for all ages with no sudden noises.</span>
-        </div>
-      </div>
-
-      <h2 data-i18n="h2a">Key Benefits</h2>
-      <ul>
-        <li data-i18n="li1"><strong>60-minute Seamless Loop:</strong> No need for staff to operate. One click for an hour of peace.</li>
-        <li data-i18n="li2"><strong>100% Ad-Free:</strong> No inappropriate ads or "next video" distractions.</li>
-        <li data-i18n="li3"><strong>Low Stimulation:</strong> No dialogue or fast cuts. Perfect for long-term background use.</li>
-      </ul>
-
-      <h2 data-i18n="h2yt">Why Choose Our Professional Platform?</h2>
-      <div class="diff">
-        <div class="box box-pro">
-          <h3 data-i18n="yt1">Video Platform for Facilities</h3>
-          <ul>
-            <li data-i18n="yt1li1">Completely Ad-free</li>
-            <li data-i18n="yt1li2"><strong>Official Public Performance License</strong></li>
-            <li data-i18n="yt1li3">Stable, high-quality dedicated player</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3 data-i18n="yt2">YouTube</h3>
-          <ul>
-            <li data-i18n="yt2li1">Unpredictable ads</li>
-            <li data-i18n="yt2li2">Risk of copyright/ToS violation in business</li>
-            <li data-i18n="yt2li3">Interrupted by "Up Next" suggestions</li>
-          </ul>
-        </div>
       </div>
 
       <h2 data-i18n="h2c">Start for Free</h2>
@@ -244,12 +310,25 @@
           <p class="note" data-i18n="p_free2">Try 2 full-length videos for free in your facility.</p>
           <ul>
             <li data-i18n="free_li1"><strong>2 videos</strong> (Unlimited playback)</li>
-            <li data-i18n="free_li2">Full facility use rights included</li>
+            <li data-i18n="free_li2">Facility use allowed</li>
           </ul>
 
-          <p class="fineprint" data-i18n="ops_title"><strong>How to use in facilities</strong></p>
+          <p class="fineprint" data-i18n="ops_title"><strong>Operation (easy)</strong></p>
           <p class="fineprint" data-i18n="ops_copy">
             Works on any PC, tablet, or Smart TV browser. No special hardware required.
+          </p>
+
+          <p style="margin-top:1rem;">
+            <a class="btn"
+               href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_free2_mid"
+               target="_blank"
+               rel="noopener"
+               data-i18n="cta_member">
+              Get Started for Free
+            </a>
+          </p>
+          <p class="fineprint" data-i18n="cta_hint">
+            You can stop after trying the free videos.
           </p>
         </section>
       </div>
@@ -258,23 +337,35 @@
 
       <h2 data-i18n="h2d">How to start</h2>
       <ol>
-        <li data-i18n="step1">Click the button below to register on our Video Platform.</li>
-        <li data-i18n="step2">Access your 2 free videos immediately.</li>
-        <li data-i18n="step3">Log in and play whenever you need a calm moment.</li>
+        <li data-i18n="step1">Open the Video Platform and register your email.</li>
+        <li data-i18n="step2">Access 2 free videos immediately.</li>
+        <li data-i18n="step3">Play on your facility screen whenever you need a calm moment.</li>
       </ol>
 
-      <p style="margin-top:1.5rem; text-align: center;">
-        <a class="btn"
-           href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_free2"
-           target="_blank"
-           rel="noopener"
-           data-i18n="cta_member">
-          Get Started for Free
-        </a>
-      </p>
+      <h2 data-i18n="h2faq">FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary data-i18n="faq1q">Can we use it in a facility (public performance)?</summary>
+          <p class="fineprint" data-i18n="faq1a">
+            Yes. The facility plan is designed for use in facilities. If you need formal confirmation for internal approval, use the Proposal PDF below.
+          </p>
+        </details>
+        <details>
+          <summary data-i18n="faq2q">Does it work without staff operation?</summary>
+          <p class="fineprint" data-i18n="faq2a">
+            Yes. The videos are designed for long playback. Once started, it can run as background ambience.
+          </p>
+        </details>
+        <details>
+          <summary data-i18n="faq3q">What devices are supported?</summary>
+          <p class="fineprint" data-i18n="faq3a">
+            Any modern browser on PC, tablet, or Smart TV.
+          </p>
+        </details>
+      </div>
 
-      <!-- MOVED: PDF proposal links to the very bottom of the page content -->
-      <div class="pdf-wrap" aria-label="Proposal PDF">
+      <!-- PDF proposal links -->
+      <div id="pdf" class="pdf-wrap" aria-label="Proposal PDF">
         <p class="video-title" data-i18n="pdf_title">Proposal PDF (Open in a new tab)</p>
         <p class="fineprint" data-i18n="pdf_desc">
           You can share these PDFs with your manager or decision makers.
@@ -310,9 +401,69 @@
     const dict={
       en:{
         back_home:"← Back to home",
-        h1:"Professional Facility Solution",
-        p1:"Enhance your space with 'Moriris'. We provide high-quality, wordless forest ambience videos optimized for nursery schools, clinics, and care facilities.",
+
+        h1:"Facility Use (Business)",
+        p1:"Moriris provides wordless, low-stimulation forest ambience videos for facilities. Designed for calm-down time, waiting rooms, and quiet spaces—without ads or sudden scenes.",
+        p_micro:"60-minute loop · Wordless · Low stimulation · Ad-free professional playback",
+
+        pill1:"Developmental Support",
+        pill2:"Clinics / Waiting Rooms",
+        pill3:"Calm Spaces",
+
+        cta_box_t:"Try 2 videos free (facility use allowed)",
+        cta_box_d:"Register your email and start immediately. Share the PDF with decision makers if needed.",
+        cta_member_top:"Get Started for Free",
+        cta_pdf:"Open Proposal PDF",
+
+        h2_scenes:"Usage Scenes (Recommended)",
+        scene1_t:"Developmental Support Centers",
+        scene1_c:"Suitable for calm-down time and transitions. Wordless visuals help reduce language load and overstimulation.",
+        scene2_t:"Medical Waiting Rooms",
+        scene2_c:"Helps reduce anxiety and makes waiting feel shorter. No sudden cuts or loud sounds.",
+        scene3_t:"Quiet Rooms / Sensory-Friendly Spaces",
+        scene3_c:"A gentle “background” that doesn’t demand attention—useful for quiet corners and rest areas.",
+
+        h2a:"Key Benefits",
+        li1:"<strong>60-minute Seamless Loop:</strong> One click for an hour of calm. Designed for continuous playback.",
+        li2:"<strong>Low Stimulation:</strong> Wordless visuals, slow motion, and no fast cuts.",
+        li3:"<strong>100% Ad-Free:</strong> No inappropriate ads, no interruptions, no “next video” distractions.",
+
+        h2yt:"Why Choose Our Professional Platform?",
+        yt1:"Video Platform for Facilities",
+        yt1li1:"Completely Ad-free",
+        yt1li2:"<strong>Official facility-use permission</strong>",
+        yt1li3:"Dedicated player (no distracting UI)",
+        yt2:"YouTube",
+        yt2li1:"Unpredictable ads",
+        yt2li2:"Not designed for facility operation",
+        yt2li3:"“Up Next” and UI distractions",
+
         video_title:"Video Preview (YouTube)",
+        open_yt:"Open on YouTube",
+
+        h2c:"Start for Free",
+        free_title:"Free Trial (Email registration)",
+        free_price:"¥0",
+        p_free2:"Try 2 full-length videos for free in your facility.",
+        free_li1:"<strong>2 videos</strong> (Unlimited playback)",
+        free_li2:"Facility use allowed",
+        ops_title:"<strong>Operation (easy)</strong>",
+        ops_copy:"Works on any PC, tablet, or Smart TV browser. No special hardware required.",
+        cta_member:"Get Started for Free",
+        cta_hint:"You can stop after trying the free videos.",
+
+        h2d:"How to start",
+        step1:"Open the Video Platform and register your email.",
+        step2:"Access 2 free videos immediately.",
+        step3:"Play on your facility screen whenever you need a calm moment.",
+
+        h2faq:"FAQ",
+        faq1q:"Can we use it in a facility (public performance)?",
+        faq1a:"Yes. The facility plan is designed for use in facilities. If you need formal confirmation for internal approval, use the Proposal PDF below.",
+        faq2q:"Does it work without staff operation?",
+        faq2a:"Yes. The videos are designed for long playback. Once started, it can run as background ambience.",
+        faq3q:"What devices are supported?",
+        faq3a:"Any modern browser on PC, tablet, or Smart TV.",
 
         pdf_title:"Proposal PDF (Open in a new tab)",
         pdf_desc:"You can share these PDFs with your manager or decision makers.",
@@ -320,47 +471,74 @@
         pdf_btn_en:"Open PDF (English)",
         pdf_note:"If the PDF does not open, please try downloading from your browser.",
 
-        p_free2:"Test the effects in your facility with 2 full-length videos.",
-        pill1:"Nursery Schools",
-        pill2:"Waiting Rooms",
-        pill3:"Public Spaces",
-        h2_scenes:"Where Moriris Helps",
-        scene1_t:"Nursery & Kindergarten",
-        scene1_c:"Ideal for pre-nap time. Gentle sounds and slow movements help children transition to sleep naturally.",
-        scene2_t:"Medical Waiting Rooms",
-        scene2_c:"Reduces patient anxiety and makes the wait feel shorter. Safe for all ages with no sudden noises.",
-        h2a:"Key Benefits",
-        li1:"<strong>Seamless Loop for Extended Play:</strong> Our 60-minute videos are designed for continuous looping. One simple setup provides hours of calm without further manual intervention.",
-        li2:"<strong>100% Ad-Free:</strong> No interruptions, no inappropriate ads, and no 'next video' distractions.",
-        li3:"<strong>Calm & Wordless:</strong> No dialogue or music spikes. Designed for long-term background play.",
-        h2yt:"Why Choose Our Professional Platform?",
-        yt1:"Video Platform for Facilities",
-        yt1li1:"Completely Ad-free",
-        yt1li2:"<strong>Official Public Performance License</strong>",
-        yt1li3:"Stable dedicated player (no 'Up Next' videos)",
-        yt2:"YouTube",
-        yt2li1:"Unpredictable ads may appear",
-        yt2li2:"Copyright risk in business use",
-        yt2li3:"Interface not optimized for facilities",
-        h2c:"Start for Free",
-        free_title:"Free Trial Plan",
-        free_price:"¥0",
-        free_li1:"<strong>2 videos</strong> (Ad-free, Full-length)",
-        free_li2:"Facility use allowed",
-        ops_title:"<strong>Facility Operation</strong>",
-        ops_copy:"Simply play on a browser and set to loop. It can run all day long to maintain a peaceful atmosphere effortlessly.",
-        h2d:"Step by Step",
-        step1:"Register your email on our Video Platform.",
-        step2:"Access 2 free videos immediately.",
-        step3:"Select a video and play it on your facility's screen.",
-        cta_member:"Get Your Free 2 Videos Now",
         footer_contact:"Contact us"
       },
+
       ja:{
         back_home:"← トップページへ戻る",
+
         h1:"法人・施設向けのご利用",
-        p1:"「モリリス」は、保育園やクリニック、公共施設などの静かな空間づくりを支援します。広告や著作権の心配なく、上質な環境動画を導入いただけます。",
+        p1:"モリリスは、施設での「落ち着き時間」や待ち時間に使いやすい、低刺激・セリフなしの森の環境映像です。広告表示や急な場面転換がなく、安心して流せます。",
+        p_micro:"60分ループ · セリフなし · 低刺激 · 広告なしの専用再生",
+
+        pill1:"療育・発達支援",
+        pill2:"病院・クリニック待合室",
+        pill3:"静かな空間",
+
+        cta_box_t:"まずは無料で2本試せます（施設内上映OK）",
+        cta_box_d:"メール登録ですぐ開始。必要に応じて、下のPDFを決裁者に共有できます。",
+        cta_member_top:"無料で2本を試してみる",
+        cta_pdf:"導入資料PDFを開く",
+
+        h2_scenes:"活用シーン（おすすめ）",
+        scene1_t:"療育・発達支援施設",
+        scene1_c:"クールダウンや切り替え時間に。セリフなしの映像で、言語負荷や過刺激を減らしやすい設計です。",
+        scene2_t:"病院・クリニック待合室",
+        scene2_c:"待ち時間の不安をやわらげます。急なカットや大きな音がありません。",
+        scene3_t:"静養室・感覚過敏に配慮した空間",
+        scene3_c:"注意を引きすぎない“背景”として、静かなコーナーや休憩スペースに使えます。",
+
+        h2a:"導入のメリット",
+        li1:"<strong>60分のシームレスループ:</strong> 1回の操作で、落ち着き時間を長く支えます。",
+        li2:"<strong>低刺激設計:</strong> セリフなし／ゆっくりした動き／急な場面転換なし。",
+        li3:"<strong>完全広告なし:</strong> 不適切な広告や中断、次動画の誘導がありません。",
+
+        h2yt:"YouTubeとの違い",
+        yt1:"法人・施設向け映像配信サイト",
+        yt1li1:"最初から最後まで広告なし",
+        yt1li2:"<strong>施設内で流せる前提の利用設計</strong>",
+        yt1li3:"運用に特化したシンプルなプレイヤー",
+        yt2:"YouTube",
+        yt2li1:"予期せぬ広告が表示される",
+        yt2li2:"施設運用向けのUIではない",
+        yt2li3:"次の動画・関連動画の表示が多い",
+
         video_title:"映像プレビュー（YouTube）",
+        open_yt:"YouTubeで開く",
+
+        h2c:"まずは無料で試す",
+        free_title:"無料お試しプラン（メール登録）",
+        free_price:"¥0",
+        p_free2:"まずは2本の動画で、施設内の雰囲気の変化を確かめてください。",
+        free_li1:"動画<strong>2本</strong>（無制限再生）",
+        free_li2:"施設内での上映OK",
+        ops_title:"<strong>運用はかんたん</strong>",
+        ops_copy:"PC／タブレット／Smart TVのブラウザで再生できます。特別な機材は不要です。",
+        cta_member:"無料で2本を試してみる",
+        cta_hint:"無料動画の視聴だけで終了しても問題ありません。",
+
+        h2d:"導入の流れ",
+        step1:"配信サイトへアクセスし、メールアドレスで登録します。",
+        step2:"登録後、すぐに2本の無料動画をご利用いただけます。",
+        step3:"施設の画面で再生して、必要なときに流してください。",
+
+        h2faq:"よくある質問",
+        faq1q:"施設内で流しても大丈夫ですか？",
+        faq1a:"はい。施設での利用を想定したプランです。院長／施設長／本部などの承認が必要な場合は、下の導入資料PDFをご利用ください。",
+        faq2q:"スタッフが操作し続ける必要はありますか？",
+        faq2a:"いいえ。長時間再生に向いた構成です。開始後は背景映像として流せます。",
+        faq3q:"対応端末は？",
+        faq3a:"PC／タブレット／Smart TVなど、一般的なブラウザで利用できます。",
 
         pdf_title:"導入検討用資料（PDF・別タブで開きます）",
         pdf_desc:"院長／施設長／本部などの決裁者へ、そのまま共有できるPDFです。",
@@ -368,41 +546,7 @@
         pdf_btn_en:"PDFを開く（English）",
         pdf_note:"開けない場合は、ブラウザのダウンロード機能をお試しください。",
 
-        p_free2:"まずは2本の動画で、施設内の雰囲気の変化を実感してください。",
-        pill1:"保育園・幼児施設",
-        pill2:"病院・クリニック待合室",
-        pill3:"静かな公共施設",
-        h2_scenes:"活用シーン",
-        scene1_t:"保育園・幼稚園",
-        scene1_c:"お昼寝前の入眠導入に。穏やかな音とスローテンポな動きが、お子さまの自然な眠りをサポートします。",
-        scene2_t:"病院・クリニック待合室",
-        scene2_c:"待ち時間の不安やストレスを緩和。セリフや激しい音がないため、どなたでも安心してお過ごしいただけます。",
-        h2a:"導入のメリット",
-        li1:"<strong>ループ再生・長時間の空間演出：</strong> 60分動画をシームレスにループ再生可能。一度の操作で、午前中やお昼寝の間など、必要な時間ずっと流し続けられます。",
-        li2:"<strong>完全広告なし：</strong> 再生が中断されたり、不適切な広告が流れる心配は一切ありません。",
-        li3:"<strong>低刺激・セリフなし：</strong> 情操教育やリラックスを妨げない、環境音に特化した構成です。",
-        h2yt:"YouTubeとの違い",
-        yt1:"法人・施設向け映像配信サイト",
-        yt1li1:"最初から最後まで広告なし",
-        yt1li2:"<strong>施設内での上映権を公式に許諾</strong>",
-        yt1li3:"運用に特化したシンプルなプレイヤー",
-        yt2:"YouTube",
-        yt2li1:"予期せぬ広告が表示される",
-        yt2li2:"商業利用における著作権リスク",
-        yt2li3:"「次の動画」など不要な表示が多い",
-        h2c:"まずは無料で試す",
-        free_title:"無料お試しプラン",
-        free_price:"¥0",
-        free_li1:"動画<strong>2本</strong>（広告なし・フルサイズ）",
-        free_li2:"施設内での上映が可能です",
-        ops_title:"<strong>施設での運用について</strong>",
-        ops_copy:"PC／タブレット／Smart TVのブラウザで再生し、そのままループ設定にするだけ。途切れることなく一日中空間を彩ります。",
-        h2d:"導入の流れ",
-        step1:"配信サイトへアクセスし、メールアドレスで登録します。",
-        step2:"登録後、すぐに2本の無料動画をご利用いただけます。",
-        step3:"ログインして動画を選び、そのまま施設の画面で再生してください。",
-        cta_member:"無料で2本を試してみる",
-        footer_contact:"お問い合わせください"
+        footer_contact:"お問い合わせ"
       }
     };
 
@@ -411,7 +555,7 @@
       document.documentElement.lang=l;
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const k=el.dataset.i18n;
-        if(dict[l][k]!==undefined){
+        if(dict[l] && dict[l][k]!==undefined){
           el.innerHTML=dict[l][k];
         }
       });
@@ -420,6 +564,7 @@
       });
       localStorage.setItem("moriris_lang", l);
     }
+
     document.querySelectorAll(".lang-btn").forEach(b=>{
       b.onclick=()=>setLang(b.dataset.lang);
     });
