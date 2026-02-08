@@ -5,137 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Calm Loop Videos for Waiting Rooms & Facilities | Moriris</title>
-  <meta name="description" content="Low-stimulation loop videos with gentle nature visuals and sounds, designed for waiting rooms, clinics, and calm facility spaces. No ads. Try without commitment." />
+  <meta name="description" content="Low-stimulation loop videos with gentle forest visuals and sounds for waiting rooms and facilities. No ads. View samples without commitment." />
   <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
 
   <style>
-    /* （CSSは変更なしなので省略せず、そのまま使用してください） */
+    /* CSSは元のまま（変更なし） */
+    :root{
+      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
+      --accent:#6aa57a; --accent-dark:#3e7b53;
+      --card:rgba(255,253,243,0.95);
+      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.75;
+    }
+    a{color:var(--accent-dark);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .topbar{
+      position:fixed; top:0; left:0; right:0;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:.6rem 1rem;
+      background:rgba(246,240,201,.7);
+      backdrop-filter:saturate(120%) blur(4px);
+      z-index:5;
+    }
+    .topbar-left a{font-weight:800;}
+    .topbar-right{display:flex;gap:.4rem;}
+    .lang-btn{
+      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
+      font-weight:800;color:var(--accent-dark);cursor:pointer
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
+    main{max-width:1040px;margin:4.2rem auto 4rem;padding:0 1rem}
+    .card{
+      background:var(--card);border-radius:18px;
+      box-shadow:var(--shadow);padding:2rem;margin:1rem 0
+    }
+    h1{margin:.2rem 0 .6rem;font-size:2rem;color:var(--accent-dark);}
+    h2{margin:2rem 0 .8rem;font-size:1.45rem;border-bottom:2px solid #e9f3ec;display:inline-block;}
+    h3{font-size:1.15rem;margin:.2rem 0 .5rem;}
+    p{margin:.8rem 0;color:var(--ink-soft)}
+    ul,ol{margin:.6rem 0 .6rem 1.2rem;color:var(--ink-soft)}
+    .pill{display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:900;font-size:.9rem;}
+    .note{font-size:.95rem;color:var(--ink);font-weight:700;margin:.4rem 0;}
+    .fineprint{font-size:.88rem;color:var(--ink-soft);opacity:.9;}
+    .hero{display:grid;gap:1rem;grid-template-columns:1.2fr .8fr;align-items:start;}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;}}
+    .hero-cta{background:rgba(255,255,255,0.7);border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:1.2rem;}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:.9rem 1.5rem;border-radius:12px;font-weight:900;}
+    .btn-sub{display:inline-block;background:#fff;color:var(--accent-dark);border:2px solid var(--accent);padding:.75rem 1.1rem;border-radius:12px;font-weight:900;}
+    .scenes{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1rem;}
+    .scene-card{background:#fff;padding:1rem;border-radius:12px;}
+    .video-wrap{margin-top:1.2rem;background:rgba(255,255,255,0.65);border-radius:14px;padding:1rem;}
+    .video-frame{aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;}
+    .video-frame iframe{width:100%;height:100%;border:0;}
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-left">
-      <a href="/" data-i18n="back_home">← Back to home</a>
+<div class="topbar">
+  <div class="topbar-left"><a href="/">← Back to home</a></div>
+  <div class="topbar-right">
+    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang-btn" data-lang="ja">JP</button>
+  </div>
+</div>
+
+<main>
+<article class="card">
+  <h1 data-i18n="h1">Facility Use</h1>
+
+  <!-- 立場宣言 -->
+  <p class="note" data-i18n="position_note">
+    This page is for facilities exploring calm, low-stimulation video options.
+    No sales call or contract is required.
+  </p>
+
+  <div class="hero">
+    <div>
+      <p data-i18n="p1">
+        Moriris provides low-stimulation loop videos with gentle forest visuals and sounds,
+        designed to blend into waiting rooms and calm spaces.
+      </p>
+      <span class="pill">Waiting Rooms</span>
+      <span class="pill">Nurseries</span>
+      <span class="pill">Care Facilities</span>
+      <p class="fineprint">60-minute loop · Wordless · Low stimulation · Ad-free</p>
     </div>
-    <div class="topbar-right">
-      <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-      <button class="lang-btn" data-lang="ja" aria-pressed="false">JP</button>
+
+    <aside class="hero-cta">
+      <h3 data-i18n="cta_box_t">View sample videos for facility use</h3>
+      <p class="fineprint" data-i18n="cta_box_d">
+        First, check how the videos feel when played as background ambience.
+      </p>
+      <a class="btn" href="https://member.moriris.com/" target="_blank">View sample videos</a>
+    </aside>
+  </div>
+
+  <h2 data-i18n="h2_scenes">Typical use cases in facilities</h2>
+  <div class="scenes">
+    <div class="scene-card"><strong>Waiting rooms</strong><br>Calm background during waiting time.</div>
+    <div class="scene-card"><strong>Nursery nap time</strong><br>Gentle transition before rest.</div>
+    <div class="scene-card"><strong>Care facilities</strong><br>Quiet atmosphere without stimulation.</div>
+  </div>
+
+  <div class="video-wrap">
+    <p class="note" data-i18n="video_desc">
+      This preview shows how the video appears when used as background ambience.
+    </p>
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE" loading="lazy"></iframe>
     </div>
   </div>
 
-  <main>
-    <article class="card">
-      <h1 data-i18n="h1">Facility Use</h1>
+</article>
+</main>
 
-      <!-- ★ 追加：立場宣言（超重要） -->
-      <p class="note" data-i18n="position_note">
-        This page is for facilities exploring calm, low-stimulation video options.
-        No sales call or contract is required to view or try the videos.
-      </p>
+<footer style="text-align:center;padding:2rem;color:#5d6a61;">
+  © Moriris Studio · <a href="/contact.html">Contact</a>
+</footer>
 
-      <div class="hero">
-        <div>
-          <p data-i18n="p1">
-            Moriris provides wordless, low-stimulation forest ambience videos for facilities.
-            Designed to blend into waiting rooms and quiet spaces without demanding attention.
-          </p>
-
-          <div aria-label="tags">
-            <span class="pill" data-i18n="pill1">Developmental Support</span>
-            <span class="pill" data-i18n="pill2">Clinics / Waiting Rooms</span>
-            <span class="pill" data-i18n="pill3">Calm Spaces</span>
-          </div>
-
-          <p class="fineprint" data-i18n="p_micro">
-            60-minute loop · Wordless · Low stimulation · Ad-free playback
-          </p>
-        </div>
-
-        <!-- ★ CTAトーンを「確認・判断前提」に変更 -->
-        <aside class="hero-cta" aria-label="Primary CTA">
-          <h3 data-i18n="cta_box_t">View sample videos for facility use</h3>
-          <p class="fineprint" data-i18n="cta_box_d">
-            You can first check how the videos look and feel in real spaces.
-            No decision is required at this stage.
-          </p>
-          <div class="btn-row">
-            <a class="btn"
-               href="https://member.moriris.com/"
-               target="_blank" rel="noopener"
-               data-i18n="cta_member_top">View sample videos</a>
-            <a class="btn-sub" href="#pdf" data-i18n="cta_pdf">Open Proposal PDF</a>
-          </div>
-        </aside>
-      </div>
-
-      <!-- ★ noteと対応させた表現 -->
-      <h2 data-i18n="h2_scenes">Typical use cases in facilities</h2>
-      <div class="scenes">
-        <div class="scene-card">
-          <strong data-i18n="scene1_t">Developmental Support Centers</strong>
-          <span data-i18n="scene1_c">
-            Used during calm-down or transition time. Wordless visuals help reduce overstimulation.
-          </span>
-        </div>
-        <div class="scene-card">
-          <strong data-i18n="scene2_t">Medical Waiting Rooms</strong>
-          <span data-i18n="scene2_c">
-            Helps waiting feel calmer without drawing strong attention.
-          </span>
-        </div>
-        <div class="scene-card">
-          <strong data-i18n="scene3_t">Quiet Rooms / Sensory-Friendly Spaces</strong>
-          <span data-i18n="scene3_c">
-            Functions as a gentle background rather than something to watch.
-          </span>
-        </div>
-      </div>
-
-      <h2 data-i18n="h2a">Design principles</h2>
-      <ul>
-        <li data-i18n="li1"><strong>Seamless loop:</strong> Designed for long, repeated playback.</li>
-        <li data-i18n="li2"><strong>Low stimulation:</strong> Small movements, no narration, no sudden changes.</li>
-        <li data-i18n="li3"><strong>Ad-free:</strong> No interruptions or unintended content.</li>
-      </ul>
-
-      <!-- ★ Video preview 文脈修正 -->
-      <div class="video-wrap" aria-label="Video preview">
-        <p class="video-title" data-i18n="video_title">Video preview (background use)</p>
-        <p class="fineprint" data-i18n="video_desc">
-          This preview shows how the video appears when used as background ambience in a facility.
-        </p>
-        <div class="video-frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE?rel=0&modestbranding=1&playsinline=1"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-
-      <h2 data-i18n="h2c">If you decide to try</h2>
-      <p class="fineprint" data-i18n="trial_note">
-        You may try two full-length videos first. Continuing is optional.
-      </p>
-
-      <!-- （無料プラン・FAQ・PDF・YouTube比較は、元の構造のまま
-           ただし YouTube比較ブロックは FAQ の後に配置してください） -->
-
-    </article>
-  </main>
-
-  <footer>
-    © Moriris Studio ·
-    <a href="/contact.html" data-i18n="footer_contact">Contact</a>
-  </footer>
-
-  <!-- ★ i18n辞書に以下を追加してください -->
-  <script>
-    // dict.en.position_note
-    // dict.ja.position_note
-    // dict.en.video_desc
-    // dict.ja.video_desc
-  </script>
+<script>
+const dict={
+  en:{
+    h1:"Facility Use",
+    position_note:"This page is for facilities exploring calm, low-stimulation video options. No sales call or contract is required.",
+    p1:"Moriris provides low-stimulation loop videos with gentle forest visuals and sounds, designed to blend into waiting rooms and calm spaces.",
+    cta_box_t:"View sample videos for facility use",
+    cta_box_d:"First, check how the videos feel when played as background ambience.",
+    h2_scenes:"Typical use cases in facilities",
+    video_desc:"This preview shows how the video appears when used as background ambience."
+  },
+  ja:{
+    h1:"法人・施設向けのご利用",
+    position_note:"このページは、施設で使える落ち着いた映像を検討している方向けの案内です。営業連絡や契約を前提としたものではありません。",
+    p1:"モリリスは、森の映像と控えめな自然音を組み合わせた、低刺激のループ映像です。待合室や静かな空間に自然に馴染むよう設計されています。",
+    cta_box_t:"施設向け映像のサンプルを見る",
+    cta_box_d:"まずは、背景映像として流した際の雰囲気をご確認ください。",
+    h2_scenes:"施設で使われる主な場面",
+    video_desc:"施設内で背景映像として流した際の見え方を確認できます。"
+  }
+};
+document.querySelectorAll(".lang-btn").forEach(b=>{
+  b.onclick=()=>{
+    document.documentElement.lang=b.dataset.lang;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      el.textContent=dict[b.dataset.lang][el.dataset.i18n];
+    });
+  };
+});
+</script>
 </body>
 </html>
