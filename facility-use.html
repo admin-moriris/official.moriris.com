@@ -185,6 +185,10 @@
       transition: transform .2s ease, background .2s ease;
     }
     .btn-outline:hover{background:#fff;transform:scale(1.02);text-decoration:none;}
+
+    /* Japanese-only elements */
+    .ja-only{display:none;}
+    html[lang="ja"] .ja-only{display:block;}
   </style>
 </head>
 
@@ -330,6 +334,13 @@
         <li data-i18n="step2">Enter your card details and organization name to start the Standard plan (14-day free trial).</li>
         <li data-i18n="step3">Watch videos free for 14 days. After that, you’ll be billed automatically (cancel anytime).</li>
       </ol>
+
+      <p class="ja-only" style="margin-top:1rem;">
+        <a class="btn-outline"
+           href="/data/%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95%E3%82%AC%E3%82%A4%E3%83%89.pdf"
+           target="_blank"
+           rel="noopener">導入方法ガイド（PDF）</a>
+      </p>
 
       <h2 data-i18n="h2faq">FAQ</h2>
       <div class="faq">
