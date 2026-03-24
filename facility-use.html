@@ -3,16 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moriris｜睡眠・集中・待ち時間のための森の環境動画</title>
-  <meta name="description" content="Moriris は、保育施設・待合空間などで流せる長尺の森の環境動画サービスです。広告なし、60分ループ。14日間無料でお試しいただけます。" />
-  <link rel="canonical" href="https://official.moriris.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Moriris｜森の環境動画サービス" />
-  <meta property="og:description" content="保育施設・待合空間向けの長尺森動画。広告なし・60分ループ。" />
-  <meta property="og:url" content="https://official.moriris.com/" />
-  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@moriris_world" />
+  <title>法人・施設向けのご利用 | Moriris</title>
+  <meta name="description" content="広告なし・60分ループの森の環境動画。保育施設・待合空間・療養施設向けのサブスクリプションサービス。14日間無料でお試しいただけます。" />
+  <link rel="canonical" href="https://official.moriris.com/facility-use.html" />
 
     <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/logo-moriris.png">
@@ -26,7 +19,6 @@
       --ink: #2a2a25;
       --ink-soft: #6b6659;
       --moss: #4a6741;
-      --moss-light: #6b8f61;
       --cream: #faf7f0;
       --sand: #e8e0cc;
       --warm: #c8a96e;
@@ -41,11 +33,14 @@
       font-weight: 300;
     }
 
-    /* LANG */
-    .lang-bar {
+    /* TOP BAR */
+    .topbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: flex-end; padding: 14px 24px;
-      background: linear-gradient(to bottom, rgba(245,240,232,0.95), transparent);
+      display: flex; justify-content: flex-end; align-items: center;
+      padding: 14px 24px;
+      background: linear-gradient(to bottom, rgba(245,240,232,0.97), rgba(245,240,232,0.8));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,224,204,0.5);
     }
     .lang-toggle {
       display: flex; background: rgba(255,255,255,0.6);
@@ -59,135 +54,182 @@
     }
     .lang-btn[aria-pressed="true"] { background: var(--moss); color: #fff; }
 
-    /* HERO */
-    .hero {
-      min-height: 100svh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      position: relative; overflow: hidden; padding: 80px 24px 60px;
+    /* LAYOUT */
+    .page-hero-wrap {
+      position: relative;
+      overflow: hidden;
     }
-    .hero-bg {
+    .page-hero-wrap::before {
+      content: '';
       position: absolute; inset: 0;
       background:
         linear-gradient(to bottom, rgba(245,240,232,0.55) 0%, rgba(245,240,232,0.45) 50%, rgba(245,240,232,0.65) 100%),
-        url('/assets/hero.png') center/cover no-repeat;
+        url('/assets/hero_facility-use.png') center/cover no-repeat;
+      z-index: 0;
     }
-    .hero-bg::before {
-      content: ''; position: absolute; inset: 0;
+    .page-hero-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
       background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(245,240,232,0.5) 0%, transparent 70%);
+      z-index: 0;
     }
-    .hero-inner { position: relative; z-index: 1; text-align: center; max-width: 640px; }
-    .logo-wrap { margin-bottom: 32px; }
-    .logo-wrap img {
-      width: min(280px, 60vw); opacity: 0;
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+    .page-hero {
+      position: relative; z-index: 1;
+      padding: 120px 24px 60px;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
     }
-    .hero-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 300; font-style: italic;
-      color: var(--moss); letter-spacing: 0.02em; line-height: 1.4;
-      white-space: nowrap;
-      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
-    }
-    @media (max-width: 480px) {
-      .hero-tagline { white-space: normal; }
-    }
-    .hero-sub {
-      margin-top: 16px; font-size: clamp(0.75rem, 2vw, 0.85rem);
-      color: var(--ink-soft); letter-spacing: 0.12em;
-      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
-    }
-    .hero-cta {
-      margin-top: 40px; display: flex; gap: 12px;
-      justify-content: center; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 1.0s forwards;
-    }
-    .scroll-hint {
-      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-      opacity: 0; animation: fadeIn 1s ease 2s forwards;
-    }
-    .scroll-hint span { font-size: 10px; letter-spacing: 0.15em; color: var(--ink-soft); text-transform: uppercase; }
-    .scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--moss), transparent);
-      animation: scrollPulse 2s ease-in-out 2s infinite;
-    }
-
-    /* SECTIONS */
-    section { padding: 100px 24px; max-width: 960px; margin: 0 auto; }
     .section-label {
       font-family: 'Cormorant Garamond', serif; font-size: 11px;
       letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
       margin-bottom: 20px; display: block;
     }
-    .section-title {
+    .page-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;
-      color: var(--ink); line-height: 1.25; margin-bottom: 32px;
-      white-space: nowrap;
+      font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 300;
+      color: var(--ink); line-height: 1.2; margin-bottom: 24px;
     }
-    @media (max-width: 560px) {
-      .section-title { white-space: normal; }
-    }
+    .page-lead { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.9; margin-bottom: 12px; }
     .divider {
       width: 60px; height: 1px;
       background: linear-gradient(to right, transparent, var(--warm), transparent);
-      margin: 0 auto 32px;
+      margin: 32px auto;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+    .tag {
+      display: inline-block; padding: 6px 16px; border-radius: 999px;
+      background: rgba(74,103,65,0.08); color: var(--moss);
+      font-size: 0.78rem; letter-spacing: 0.08em; border: 1px solid rgba(74,103,65,0.2);
     }
 
-    /* VIDEO */
-    .video-section { text-align: center; }
+    main { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* CONTENT BLOCKS */
+    .block { margin-bottom: 64px; }
+    .block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300;
+      color: var(--ink); margin-bottom: 28px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--sand);
+    }
+    .body-text { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.9; margin-bottom: 12px; }
+
+    /* SCENES GRID */
+    .scenes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+    .scene-card {
+      background: var(--cream); border-radius: 16px; padding: 24px 20px;
+      border: 1px solid rgba(200,169,110,0.2);
+    }
+    .scene-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
+      color: var(--moss); margin-bottom: 10px; letter-spacing: 0.04em;
+    }
+    .scene-card-body { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.8; }
+
+    /* BENEFIT LIST */
+    .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .benefit-list li {
+      padding: 16px 20px; background: var(--cream); border-radius: 12px;
+      font-size: 0.88rem; color: var(--ink-soft); line-height: 1.8;
+      border-left: 3px solid var(--moss);
+    }
+    .benefit-list li strong { color: var(--ink); }
+
+    /* COMPARISON */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .compare-card {
+      background: var(--cream); border-radius: 16px; padding: 28px 24px;
+      border: 1px solid rgba(200,169,110,0.2);
+    }
+    .compare-card.featured { border-color: var(--moss); border-width: 2px; }
+    .compare-card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .compare-card.featured .compare-card-title { color: var(--moss); }
+    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .compare-list li { font-size: 0.82rem; color: var(--ink-soft); padding-left: 16px; position: relative; }
+    .compare-list li::before { content: '–'; position: absolute; left: 0; color: var(--warm); }
+    .compare-card.featured .compare-list li::before { content: '✓'; color: var(--moss); }
+
+    /* VIDEO PREVIEW */
     .video-wrap {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.08), 0 32px 64px rgba(74,103,65,0.12);
-      background: #1a1a14; margin-top: 40px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(74,103,65,0.12);
+      background: #1a1a14; margin-top: 8px;
     }
     .video-wrap iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-    .video-yt-link {
-      margin-top: 20px; display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.82rem; letter-spacing: 0.08em; color: var(--ink-soft);
-      text-decoration: none; border-bottom: 1px solid var(--sand); padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
+    .video-sub {
+      margin-top: 10px; font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.04em;
     }
-    .video-yt-link:hover { color: var(--moss); border-color: var(--moss); }
+    .video-sub a { color: var(--moss); text-decoration: none; border-bottom: 1px solid rgba(74,103,65,0.3); }
 
-    /* ABOUT */
-    .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-body p { font-size: clamp(0.88rem, 2vw, 0.95rem); color: var(--ink-soft); margin-bottom: 16px; line-height: 1.9; }
-    .about-visual { position: relative; }
-    .about-img-wrap {
-      border-radius: 16px; overflow: hidden; aspect-ratio: 4/5;
-      background: linear-gradient(135deg, #d4e8cc 0%, #c5d9be 30%, #a8c49e 60%, #8aad86 100%);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 20px 60px rgba(74,103,65,0.2);
+    /* PLAN */
+    .plan-card {
+      background: var(--cream); border-radius: 20px; padding: 40px;
+      border: 2px solid var(--moss);
+      box-shadow: 0 8px 32px rgba(74,103,65,0.1);
     }
-    .about-img-wrap img { width: 85%; height: 85%; object-fit: contain; }
-    .about-accent {
-      position: absolute; top: -20px; right: -20px; width: 80px; height: 80px;
-      border: 1px solid rgba(200,169,110,0.4); border-radius: 50%;
+    .plan-price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.6rem; font-weight: 400; color: var(--moss);
+      line-height: 1; margin: 12px 0;
     }
+    .plan-price span { font-size: 0.95rem; color: var(--ink-soft); margin-left: 4px; font-weight: 300; }
+    .plan-card .section-label {
+      font-family: 'Noto Serif JP', serif;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+    }
+    .plan-note { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 20px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 20px 0; }
+    .plan-features li {
+      font-size: 0.85rem; color: var(--ink-soft); padding-left: 20px; position: relative;
+    }
+    .plan-features li::before { content: '✓'; position: absolute; left: 0; color: var(--moss); font-weight: 600; }
+    .plan-features li strong { color: var(--ink); }
 
-    /* FACILITY */
-    .facility-wrapper { padding: 0 24px; margin: 0 auto; max-width: 1008px; }
-    .facility-section {
-      background: var(--cream); border-radius: 28px; padding: 80px 64px; text-align: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 4px 32px rgba(74,103,65,0.08);
+    /* STEPS */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .steps li {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--cream); border-radius: 12px; padding: 20px;
     }
-    .facility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
-    .facility-item {
-      padding: 28px 20px; background: rgba(255,255,255,0.6);
-      border-radius: 16px; border: 1px solid rgba(200,169,110,0.2);
+    .step-num {
+      font-family: 'Noto Serif JP', serif; font-size: 1.1rem;
+      font-weight: 400; color: var(--warm); min-width: 28px; line-height: 1.5;
     }
-    .facility-item-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
-      color: var(--moss); margin-bottom: 8px; letter-spacing: 0.05em;
+    .step-body { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.8; }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; gap: 8px; }
+    .faq details {
+      background: var(--cream); border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(200,169,110,0.2);
     }
-    .facility-item-body { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.7; }
+    .faq summary {
+      padding: 18px 20px; cursor: pointer; font-size: 0.9rem;
+      color: var(--ink); font-weight: 400; letter-spacing: 0.02em;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+      gap: 12px;
+    }
+    .faq summary::after { content: '+'; color: var(--warm); font-size: 1.2rem; font-weight: 300; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq-body { padding: 0 20px 18px; font-size: 0.84rem; color: var(--ink-soft); line-height: 1.9; }
+
+    /* PDF */
+    .pdf-block {
+      background: var(--cream); border-radius: 20px; padding: 36px 32px;
+      border: 1px solid rgba(200,169,110,0.3); text-align: center;
+    }
+    .pdf-desc { font-size: 0.85rem; color: var(--ink-soft); margin: 8px 0 24px; }
+    .pdf-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     /* BUTTONS */
     .btn-primary {
       display: inline-block; background: var(--moss); color: #fff;
-      padding: 14px 32px; border-radius: 999px;
+      padding: 14px 36px; border-radius: 999px;
       font-family: 'Noto Serif JP', serif; font-size: 0.85rem; letter-spacing: 0.06em;
       text-decoration: none; transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
       box-shadow: 0 4px 16px rgba(74,103,65,0.25);
@@ -200,47 +242,23 @@
       text-decoration: none; transition: all 0.25s;
     }
     .btn-outline:hover { background: var(--moss); color: #fff; }
-    .btn-ghost {
-      display: inline-block; color: var(--ink-soft); padding: 10px 24px;
-      border-radius: 999px; font-size: 0.82rem; letter-spacing: 0.08em;
-      text-decoration: none; border: 1px solid var(--sand); transition: all 0.2s;
-    }
-    .btn-ghost:hover { color: var(--moss); border-color: var(--moss); }
+    .hint-text { font-size: 0.76rem; color: var(--ink-soft); margin-top: 12px; }
 
     /* FOOTER */
-    footer { padding: 60px 24px 40px; text-align: center; border-top: 1px solid var(--sand); margin-top: 80px; }
-    .footer-logo { width: 100px; opacity: 0.5; margin: 0 auto 24px; }
-    .sns-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
-    .sns-icon {
-      width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--sand);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
-    }
-    .sns-icon:hover { border-color: var(--moss); transform: translateY(-2px); }
-    .sns-icon svg { width: 16px; height: 16px; fill: var(--ink-soft); transition: fill 0.2s; }
-    .sns-icon:hover svg { fill: var(--moss); }
-    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
-    .footer-links a { font-size: 0.75rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.06em; }
-    .footer-links a:hover { color: var(--moss); }
-    .footer-copy { font-size: 0.72rem; color: #a09a8e; letter-spacing: 0.08em; }
+    footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--sand); }
+    footer a { font-size: 0.78rem; color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--moss); }
+    .footer-copy { font-size: 0.72rem; color: #a09a8e; margin-top: 8px; }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
 
     @media (max-width: 768px) {
-      .about-section { grid-template-columns: 1fr; gap: 48px; }
-      .about-visual { order: -1; }
-      .about-img-wrap { aspect-ratio: 16/9; }
-      .facility-section { padding: 48px 28px; }
-      .facility-grid { grid-template-columns: 1fr; gap: 16px; }
-      section { padding: 72px 24px; }
+      .scenes { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .plan-card { padding: 28px 20px; }
+      .pdf-block { padding: 24px 20px; }
     }
   </style>
 
@@ -250,183 +268,284 @@
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-HWRX6Q9K3E', { linker: { domains: ['official.moriris.com', 'member.moriris.com'] } });
-    if (location.search.includes("internal=1")) document.cookie = "moriris_dev=1; path=/; max-age=31536000";
   </script>
 </head>
 <body>
-  <div class="lang-bar">
+
+  <div class="topbar">
+    
     <div class="lang-toggle">
       <button class="lang-btn" data-lang="ja" aria-pressed="true">JP</button>
       <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
     </div>
   </div>
 
-  <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <div class="logo-wrap"><img src="/assets/logo-moriris.png" alt="Moriris" /></div>
-      <p class="hero-tagline" data-i18n="hero_tagline">森のなかで、ゆっくり流れる時間。</p>
-      <p class="hero-sub" data-i18n="hero_sub">CALM NATURE VIDEOS FOR SHARED SPACES</p>
-      <div class="hero-cta">
-        <a href="https://member.moriris.com" class="btn-primary" data-i18n="hero_cta_trial" data-ga="hero_cta_trial">14日間無料で試す</a>
-        <a href="#about" class="btn-ghost" data-i18n="hero_cta_about" data-ga="hero_cta_about">サービスについて</a>
-      </div>
+  <div class="page-hero-wrap">
+  <div class="page-hero reveal">
+    <span class="section-label" data-i18n="page_label">For Facilities</span>
+    <h1 class="page-title" data-i18n="h1">法人・施設向けの<br>ご利用について</h1>
+    <p class="page-lead" data-i18n="p1_line1">保育施設・待合空間・療養施設など、静かな空間に映像のある環境を。</p>
+    <p class="page-lead" data-i18n="p1_line2">広告なし・60分ループの環境動画を、施設内でそのままお使いいただけます。</p>
+    <div class="tag-row">
+      <span class="tag" data-i18n="pill1">療育・発達支援</span>
+      <span class="tag" data-i18n="pill2">病院・クリニック待合室</span>
+      <span class="tag" data-i18n="pill3">保育施設</span>
     </div>
-    <div class="scroll-hint"><div class="scroll-line"></div><span>scroll</span></div>
-  </header>
-
-  <section class="video-section reveal" id="video">
-    <span class="section-label" data-i18n="video_label">Videos</span>
-    <h2 class="section-title" data-i18n="video_title">まずは、動画をご覧ください。</h2>
-    <div class="divider"></div>
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/LJ_G46tIyQg" title="Moriris" allowfullscreen></iframe>
+    <div style="margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_trial14_top" class="btn-primary" target="_blank" rel="noopener" data-i18n="cta_top">14日間無料で試す</a>
     </div>
-    <p style="margin-top: 24px;">
-      <a href="https://www.youtube.com/@moriris_world" class="video-yt-link" target="_blank" rel="noopener" data-ga="yt_channel_link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/></svg>
-        <span data-i18n="video_yt_link">YouTubeチャンネルで全動画を見る</span>
-      </a>
-    </p>
-  </section>
-
-  <section id="about">
-    <div class="about-section reveal">
-      <div class="about-body">
-        <span class="section-label" data-i18n="about_label">About</span>
-        <h2 class="section-title" data-i18n="about_title">言葉のない、森の映像。</h2>
-        <p data-i18n="about_p1">Moririsは、保育施設・待合空間・療養施設などで流せる長尺の環境動画サービスです。</p>
-        <p data-i18n="about_p2">60分ループ・広告なし。何かを語りかけるのではなく、そこに「あるだけ」の映像です。</p>
-        <p data-i18n="about_p3">ふわもこの恐竜のキャラクターが、静かな森の中をゆっくりと過ごします。</p>
-      </div>
-      <div class="about-visual">
-        <div class="about-accent"></div>
-        <div class="about-img-wrap"><img src="/assets/characters.png" alt="Moriris character" /></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="facility-wrapper">
-    <section class="facility-section reveal" id="facility">
-      <span class="section-label" data-i18n="facility_label">For Facilities</span>
-      <h2 class="section-title" data-i18n="facility_title">法人・施設のご担当者様へ</h2>
-      <div class="divider"></div>
-      <p style="color: var(--ink-soft); font-size: 0.9rem; max-width: 480px; margin: 0 auto;" data-i18n="facility_copy">
-        保育園・待合室・療養施設など、静かな空間に映像のある環境を。<br>月額4,980円、14日間無料でお試しいただけます。
-      </p>
-      <div class="facility-grid">
-        <div class="facility-item reveal reveal-delay-1">
-          <div class="facility-item-title" data-i18n="fitem1_title">60分ループ再生</div>
-          <p class="facility-item-body" data-i18n="fitem1_body">つけっぱなしでOK。繰り返し流しても違和感のない設計です。</p>
-        </div>
-        <div class="facility-item reveal reveal-delay-2">
-          <div class="facility-item-title" data-i18n="fitem2_title">広告・テロップなし</div>
-          <p class="facility-item-body" data-i18n="fitem2_body">集中や安静を妨げる要素を一切排除しています。</p>
-        </div>
-        <div class="facility-item reveal reveal-delay-3">
-          <div class="facility-item-title" data-i18n="fitem3_title">どの端末でも</div>
-          <p class="facility-item-body" data-i18n="fitem3_body">PC・タブレット・スマートフォン・テレビなど、ブラウザがあれば再生できます。</p>
-        </div>
-      </div>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://member.moriris.com" class="btn-primary" data-i18n="facility_cta1" data-ga="facility_cta_trial">14日間無料で試す</a>
-        <a href="/facility-use.html" class="btn-outline" data-i18n="facility_cta2" data-ga="facility_detail_link">詳細を見る</a>
-      </div>
-    </section>
+  </div>
   </div>
 
+  <div class="divider"></div>
+
+  <main>
+
+    <!-- SCENES -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2_scenes">活用シーン</h2>
+      <div class="scenes">
+        <div class="scene-card">
+          <div class="scene-card-title" data-i18n="scene1_t">療育・発達支援施設</div>
+          <p class="scene-card-body" data-i18n="scene1_c">クールダウンや切り替え時間に。セリフなしの映像で、言語負荷や過刺激を減らしやすい設計です。</p>
+        </div>
+        <div class="scene-card">
+          <div class="scene-card-title" data-i18n="scene2_t">病院・クリニック待合室</div>
+          <p class="scene-card-body" data-i18n="scene2_c">待ち時間の不安をやわらげます。急なカットや大きな音がありません。</p>
+        </div>
+        <div class="scene-card">
+          <div class="scene-card-title" data-i18n="scene3_t">静養室・感覚に配慮した空間</div>
+          <p class="scene-card-body" data-i18n="scene3_c">注意を引きすぎない「背景」として、静かなコーナーや休憩スペースに。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2a">導入のメリット</h2>
+      <ul class="benefit-list">
+        <li data-i18n="li1"><strong>60分のシームレスループ：</strong>1回の操作で、落ち着き時間を長く支えます。</li>
+        <li data-i18n="li2"><strong>低刺激設計：</strong>セリフなし・ゆっくりした動き・急な場面転換なし。</li>
+        <li data-i18n="li3"><strong>完全広告なし：</strong>不適切な広告や中断、次動画の誘導がありません。</li>
+      </ul>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2yt">YouTubeとの違い</h2>
+      <div class="compare-grid">
+        <div class="compare-card featured">
+          <div class="compare-card-title" data-i18n="yt1">Moriris 施設向けプラン</div>
+          <ul class="compare-list">
+            <li data-i18n="yt1li1">最初から最後まで広告なし</li>
+            <li data-i18n="yt1li2">施設内での上映を前提とした利用許諾</li>
+            <li data-i18n="yt1li3">シンプルな専用プレイヤー</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <div class="compare-card-title" data-i18n="yt2">YouTube</div>
+          <ul class="compare-list">
+            <li data-i18n="yt2li1">予期せぬ広告が表示される</li>
+            <li data-i18n="yt2li2">施設運用向けのUIではない</li>
+            <li data-i18n="yt2li3">次の動画・関連動画の表示が多い</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO PREVIEW -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="video_title">映像プレビュー</h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE?rel=0&modestbranding=1&playsinline=1" title="Moriris video preview" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <p class="video-sub">
+        <a href="https://www.youtube.com/watch?v=iFdCP1m4HjE" target="_blank" rel="noopener" data-i18n="open_yt">YouTubeで開く</a>
+      </p>
+    </div>
+
+    <!-- PLAN -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2c">まずは14日間無料で試す</h2>
+      <div class="plan-card">
+        <div class="section-label" data-i18n="free_title">14日間無料トライアル</div>
+        <div class="plan-price">¥0<span data-i18n="free_price_sub">→ ¥4,980/月</span></div>
+        <p class="plan-note" data-i18n="p_free2">14日間は全動画を見放題。以降は自動課金（いつでも解約可）。</p>
+        <ul class="plan-features">
+          <li data-i18n="free_li1"><strong>14日間無料</strong>（動画見放題）</li>
+          <li data-i18n="free_li2">施設内での上映OK</li>
+          <li data-i18n="free_li3">PC・タブレット・スマートフォン・Smart TVのブラウザで再生可能</li>
+        </ul>
+        <a class="btn-primary" href="https://member.moriris.com/?utm_source=official&utm_medium=cta&utm_campaign=facility_trial14_mid" target="_blank" rel="noopener" data-i18n="cta_member">14日間無料で試してみる</a>
+        <p class="hint-text" data-i18n="cta_hint">メール登録後、クレジットカード情報・法人名を入力してStandardプランに登録すると14日間無料でご利用いただけます。</p>
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2d">導入の流れ</h2>
+      <ol class="steps">
+        <li><span class="step-num">1</span><span class="step-body" data-i18n="step1">配信サイトへアクセスし、メールアドレスで登録します。</span></li>
+        <li><span class="step-num">2</span><span class="step-body" data-i18n="step2">決済画面でクレジットカード情報と法人名を入力し、Standardプランに登録します（14日間無料）。</span></li>
+        <li><span class="step-num">3</span><span class="step-body" data-i18n="step3">14日間は動画を見放題。以降は自動課金になります（いつでも解約可能）。</span></li>
+      </ol>
+      <div id="guide-pdf-wrap" style="margin-top: 20px; display: none;">
+        <a class="btn-outline" href="/data/導入方法ガイド.pdf" target="_blank" rel="noopener">📄 導入方法ガイド（PDF）</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="block reveal">
+      <h2 class="block-title" data-i18n="h2faq">よくある質問</h2>
+      <div class="faq">
+        <details>
+          <summary data-i18n="faq1q">施設内で流しても大丈夫ですか？</summary>
+          <p class="faq-body" data-i18n="faq1a">はい。施設での利用を想定したプランです。院長・施設長・本部などの承認が必要な場合は、下の導入資料PDFをご利用ください。</p>
+        </details>
+        <details>
+          <summary data-i18n="faq2q">スタッフが操作し続ける必要はありますか？</summary>
+          <p class="faq-body" data-i18n="faq2a">いいえ。長時間再生に向いた構成です。開始後は背景映像として流せます。</p>
+        </details>
+        <details>
+          <summary data-i18n="faq3q">対応端末は？</summary>
+          <p class="faq-body" data-i18n="faq3a">PC・タブレット・Smart TVなど、一般的なブラウザで利用できます。</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- PDF -->
+    <div class="block reveal">
+      <div class="pdf-block">
+        <div class="section-label" data-i18n="pdf_label">Proposal PDF</div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.3rem; color: var(--ink); margin-bottom: 4px;" data-i18n="pdf_title">導入検討用資料（PDF）</h3>
+        <p class="pdf-desc" data-i18n="pdf_desc">院長・施設長・本部などの決裁者へ、そのまま共有できるPDFです。</p>
+        <div class="pdf-btns">
+          <a class="btn-outline" href="/data/%E5%B0%8E%E5%85%A5%E6%A4%9C%E8%A8%8E%E7%94%A8%E8%B3%87%E6%96%99.pdf" target="_blank" rel="noopener" data-i18n="pdf_btn_jp">PDFを開く（日本語）</a>
+          <a class="btn-outline" href="/data/Proposal%20PDF.pdf" target="_blank" rel="noopener" data-i18n="pdf_btn_en">Open PDF (English)</a>
+        </div>
+        <p class="hint-text" data-i18n="pdf_note">開けない場合は、ブラウザのダウンロード機能をお試しください。</p>
+      </div>
+    </div>
+
+  </main>
+
   <footer>
-    <img class="footer-logo" src="/assets/logo-moriris.png" alt="Moriris" />
-    <div class="sns-row">
-      <a class="sns-icon" href="https://www.youtube.com/@moriris_world" target="_blank" rel="noopener" aria-label="YouTube" data-ga="social_youtube">
-        <svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/></svg>
-      </a>
-      <a class="sns-icon" href="https://x.com/moriris_world" target="_blank" rel="noopener" aria-label="X" data-ga="social_x">
-        <svg viewBox="0 0 24 24"><path d="M18.9 4H16.4L12.9 8.3 10 4H5.1l5.2 7.4L5 20h2.5l3.8-4.7L14 20h4.9l-5.5-7.9L18.9 4zm-3 14-6-8.7L9.2 7h.9l6 8.7.7 1.3z"/></svg>
-      </a>
-    </div>
-    <div class="footer-links">
-      <a href="/contact.html" data-i18n="footer_contact">お問い合わせ</a>
-      <a href="https://member.moriris.com/terms.html" target="_blank" rel="noopener" data-i18n="footer_terms">利用規約</a>
-      <a href="https://member.moriris.com/privacy.html" target="_blank" rel="noopener" data-i18n="footer_privacy">プライバシーポリシー</a>
-      <a href="https://member.moriris.com/legal.html" target="_blank" rel="noopener" data-i18n="footer_legal">特定商取引法に基づく表記</a>
-    </div>
-    <p class="footer-copy">© Moriris Studio · official.moriris.com</p>
+    <a href="/contact.html" data-i18n="footer_contact">お問い合わせ</a>
+    <p class="footer-copy">© Moriris Studio</p>
   </footer>
 
   <script>
     const dict = {
       ja: {
-        hero_tagline: "森のなかで、ゆっくり流れる時間。",
-        hero_sub: "CALM NATURE VIDEOS FOR SHARED SPACES",
-        hero_cta_trial: "14日間無料で試す", hero_cta_about: "サービスについて",
-        video_label: "Videos", video_title: "まずは、動画をご覧ください。",
-        video_yt_link: "YouTubeチャンネルで全動画を見る",
-        about_label: "About", about_title: "言葉のない、\n森の映像。",
-        about_p1: "Moririsは、保育施設・待合空間・療養施設などで流せる長尺の環境動画サービスです。",
-        about_p2: "60分ループ・広告なし。何かを語りかけるのではなく、そこに「あるだけ」の映像です。",
-        about_p3: "ふわもこの恐竜のキャラクターが、静かな森の中をゆっくりと過ごします。",
-        facility_label: "For Facilities", facility_title: "法人・施設のご担当者様へ",
-        facility_copy: "保育園・待合室・療養施設など、静かな空間に映像のある環境を。\n月額4,980円、14日間無料でお試しいただけます。",
-        fitem1_title: "60分ループ再生", fitem1_body: "つけっぱなしでOK。繰り返し流しても違和感のない設計です。",
-        fitem2_title: "広告・テロップなし", fitem2_body: "集中や安静を妨げる要素を一切排除しています。",
-        fitem3_title: "どの端末でも", fitem3_body: "PC・タブレット・スマートフォン・テレビなど、ブラウザがあれば再生できます。",
-        facility_cta1: "14日間無料で試す", facility_cta2: "詳細を見る",
-        footer_contact: "お問い合わせ", footer_terms: "利用規約",
-        footer_privacy: "プライバシーポリシー", footer_legal: "特定商取引法に基づく表記",
+        back_home: "← トップページへ",
+        page_label: "For Facilities",
+        h1: "法人・施設向けの\nご利用について",
+        p1_line1: "保育施設・待合空間・療養施設など、静かな空間に映像のある環境を。",
+        p1_line2: "広告なし・60分ループの環境動画を、施設内でそのままお使いいただけます。",
+        pill1: "療育・発達支援", pill2: "病院・クリニック待合室", pill3: "保育施設",
+        cta_top: "14日間無料で試す",
+        h2_scenes: "活用シーン",
+        scene1_t: "療育・発達支援施設", scene1_c: "クールダウンや切り替え時間に。セリフなしの映像で、言語負荷や過刺激を減らしやすい設計です。",
+        scene2_t: "病院・クリニック待合室", scene2_c: "待ち時間の不安をやわらげます。急なカットや大きな音がありません。",
+        scene3_t: "静養室・感覚に配慮した空間", scene3_c: "注意を引きすぎない「背景」として、静かなコーナーや休憩スペースに。",
+        h2a: "導入のメリット",
+        li1: "60分のシームレスループ：1回の操作で、落ち着き時間を長く支えます。",
+        li2: "低刺激設計：セリフなし・ゆっくりした動き・急な場面転換なし。",
+        li3: "完全広告なし：不適切な広告や中断、次動画の誘導がありません。",
+        h2yt: "YouTubeとの違い",
+        yt1: "Moriris 施設向けプラン",
+        yt1li1: "最初から最後まで広告なし", yt1li2: "施設内での上映を前提とした利用許諾", yt1li3: "シンプルな専用プレイヤー",
+        yt2: "YouTube",
+        yt2li1: "予期せぬ広告が表示される", yt2li2: "施設運用向けのUIではない", yt2li3: "次の動画・関連動画の表示が多い",
+        video_title: "映像プレビュー", open_yt: "YouTubeで開く",
+        h2c: "まずは14日間無料で試す",
+        free_title: "14日間無料トライアル", free_price_sub: "→ ¥4,980/月",
+        p_free2: "14日間は全動画を見放題。以降は自動課金（いつでも解約可）。",
+        free_li1: "14日間無料（動画見放題）", free_li2: "施設内での上映OK",
+        free_li3: "PC・タブレット・スマートフォン・Smart TVのブラウザで再生可能",
+        cta_member: "14日間無料で試してみる",
+        cta_hint: "メール登録後、クレジットカード情報・法人名を入力してStandardプランに登録すると14日間無料でご利用いただけます。",
+        h2d: "導入の流れ",
+        step1: "配信サイトへアクセスし、メールアドレスで登録します。",
+        step2: "決済画面でクレジットカード情報と法人名を入力し、Standardプランに登録します（14日間無料）。",
+        step3: "14日間は動画を見放題。以降は自動課金になります（いつでも解約可能）。",
+        h2faq: "よくある質問",
+        faq1q: "施設内で流しても大丈夫ですか？",
+        faq1a: "はい。施設での利用を想定したプランです。院長・施設長・本部などの承認が必要な場合は、下の導入資料PDFをご利用ください。",
+        faq2q: "スタッフが操作し続ける必要はありますか？",
+        faq2a: "いいえ。長時間再生に向いた構成です。開始後は背景映像として流せます。",
+        faq3q: "対応端末は？", faq3a: "PC・タブレット・Smart TVなど、一般的なブラウザで利用できます。",
+        pdf_label: "Proposal PDF",
+        pdf_title: "導入検討用資料（PDF）",
+        pdf_desc: "院長・施設長・本部などの決裁者へ、そのまま共有できるPDFです。",
+        pdf_btn_jp: "PDFを開く（日本語）", pdf_btn_en: "Open PDF (English)",
+        pdf_note: "開けない場合は、ブラウザのダウンロード機能をお試しください。",
+        footer_contact: "お問い合わせ",
       },
       en: {
-        hero_tagline: "Time moves gently in the forest.",
-        hero_sub: "CALM NATURE VIDEOS FOR SHARED SPACES",
-        hero_cta_trial: "Try free for 14 days", hero_cta_about: "About the service",
-        video_label: "Videos", video_title: "Start with a video.",
-        video_yt_link: "View all videos on YouTube",
-        about_label: "About", about_title: "Wordless nature\nfor quiet spaces.",
-        about_p1: "Moriris is a long-form ambient video service for nurseries, waiting rooms, and care facilities.",
-        about_p2: "60-minute loops. No ads. Not a story to follow — just a place to be.",
-        about_p3: "A fluffy dinosaur character drifts quietly through a calm forest world.",
-        facility_label: "For Facilities", facility_title: "For facility managers",
-        facility_copy: "Bring gentle movement to your shared space.\n¥4,980/month · Free 14-day trial.",
-        fitem1_title: "60-min loop", fitem1_body: "Designed to play on repeat without feeling repetitive.",
-        fitem2_title: "No ads or text", fitem2_body: "Nothing to disturb rest, focus, or calm.",
-        fitem3_title: "Any device", fitem3_body: "Works on any browser — TV, tablet, PC, or smartphone.",
-        facility_cta1: "Try free for 14 days", facility_cta2: "View details",
-        footer_contact: "Contact", footer_terms: "Terms of Service",
-        footer_privacy: "Privacy Policy", footer_legal: "Legal Notice",
+        back_home: "← Back to home",
+        page_label: "For Facilities",
+        h1: "Facility Use",
+        p1_line1: "Moriris provides wordless, low-stimulation forest videos for shared spaces.",
+        p1_line2: "60-minute loops, ad-free. Designed for continuous playback in facilities.",
+        pill1: "Developmental Support", pill2: "Clinics / Waiting Rooms", pill3: "Nurseries",
+        cta_top: "Try free for 14 days",
+        h2_scenes: "Usage Scenes",
+        scene1_t: "Developmental Support Centers", scene1_c: "Suitable for calm-down time and transitions. Wordless visuals help reduce language load.",
+        scene2_t: "Medical Waiting Rooms", scene2_c: "Helps reduce anxiety. No sudden cuts or loud sounds.",
+        scene3_t: "Quiet / Sensory-Friendly Spaces", scene3_c: "A gentle background that doesn't demand attention — for quiet corners and rest areas.",
+        h2a: "Key Benefits",
+        li1: "60-minute seamless loop: One click for an hour of calm.", li2: "Low stimulation: Wordless, slow motion, no fast cuts.",
+        li3: "100% ad-free: No ads, no interruptions, no 'up next' distractions.",
+        h2yt: "Why not just use YouTube?",
+        yt1: "Moriris Facility Plan",
+        yt1li1: "Completely ad-free", yt1li2: "Official facility-use permission included", yt1li3: "Simple, distraction-free player",
+        yt2: "YouTube",
+        yt2li1: "Unpredictable ads", yt2li2: "Not designed for facility use", yt2li3: "'Up next' and UI distractions",
+        video_title: "Video Preview", open_yt: "Open on YouTube",
+        h2c: "Start for Free",
+        free_title: "14-day Free Trial", free_price_sub: "→ ¥4,980/mo",
+        p_free2: "All videos free for 14 days. Auto-billed after trial. Cancel anytime.",
+        free_li1: "14-day free trial (all videos)", free_li2: "Facility use permitted",
+        free_li3: "Works on PC, tablet, smartphone, Smart TV browser",
+        cta_member: "Start 14-day Free Trial",
+        cta_hint: "After email registration, enter your card details and organization name to begin.",
+        h2d: "How to Start",
+        step1: "Visit the video platform and register with your email.",
+        step2: "Enter your card details and organization name to start the Standard plan (14-day free trial).",
+        step3: "Watch all videos free for 14 days. Auto-billed after. Cancel anytime.",
+        h2faq: "FAQ",
+        faq1q: "Can we use it in a facility?",
+        faq1a: "Yes. The plan is designed for facility use. Use the PDF below for internal approvals.",
+        faq2q: "Does it need staff operation?",
+        faq2a: "No. Once started it plays as continuous background ambience.",
+        faq3q: "What devices are supported?", faq3a: "Any modern browser on PC, tablet, or Smart TV.",
+        pdf_label: "Proposal PDF",
+        pdf_title: "Proposal PDF",
+        pdf_desc: "Share directly with decision makers at your facility.",
+        pdf_btn_jp: "Open PDF (Japanese)", pdf_btn_en: "Open PDF (English)",
+        pdf_note: "If the PDF doesn't open, try downloading from your browser.",
+        footer_contact: "Contact us",
       }
     };
+
     let currentLang = localStorage.getItem("moriris_lang") || "ja";
     function applyLang(lang) {
       currentLang = lang;
       const t = dict[lang] || dict.ja;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const k = el.dataset.i18n;
-        if (t[k] === undefined) return;
-        // facility_copyは<br>改行を使うのでinnerHTML
-        if (k === 'facility_copy') {
-          el.innerHTML = t[k].replace(/\n/g, '<br>');
-        } else {
-          el.textContent = t[k];
-        }
-      });
+      document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
       document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
-      const titles = { ja: "Moriris｜睡眠・集中・待ち時間のための森の環境動画", en: "Moriris – Calm Forest Videos for Shared Spaces" };
-      document.title = titles[lang] || titles.ja;
+      // 導入方法ガイドPDFは日本語のみ表示
+      const guidePdf = document.getElementById("guide-pdf-wrap");
+      if (guidePdf) guidePdf.style.display = lang === "ja" ? "block" : "none";
       localStorage.setItem("moriris_lang", lang);
     }
     document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.lang)));
     applyLang(currentLang);
-    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }); }, { threshold: 0.12 });
+
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }); }, { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-    function gaEvent(name, params) { if (typeof gtag !== "function") return; gtag("event", name, Object.assign({ page: location.pathname, lang: currentLang }, params || {})); }
-    document.addEventListener("click", (e) => {
-      const a = e.target.closest("a"); if (!a) return;
-      const href = a.getAttribute("href") || "";
-      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
-      if (a.dataset.ga) { gaEvent(a.dataset.ga, { link_url: href, outbound: isExternal ? 1 : 0 }); }
-      else if (isExternal) { gaEvent("outbound_click", { link_url: href }); }
-    });
   </script>
 </body>
 </html>
