@@ -187,7 +187,8 @@
     .faq summary {
       padding: 18px 20px; cursor: pointer; font-size: 0.9rem;
       color: var(--ink); font-weight: 400; letter-spacing: 0.02em;
-      list-style: none; display: flex; justify-content: flex-end; align-items: center;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+      gap: 12px;
     }
     .faq summary::after { content: '+'; color: var(--warm); font-size: 1.2rem; font-weight: 300; }
     .faq details[open] summary::after { content: '−'; }
@@ -362,6 +363,9 @@
         <li><span class="step-num">2</span><span class="step-body" data-i18n="step2">決済画面でクレジットカード情報と法人名を入力し、Standardプランに登録します（14日間無料）。</span></li>
         <li><span class="step-num">3</span><span class="step-body" data-i18n="step3">14日間は動画を見放題。以降は自動課金になります（いつでも解約可能）。</span></li>
       </ol>
+      <div id="guide-pdf-wrap" style="margin-top: 20px; display: none;">
+        <a class="btn-outline" href="/data/導入方法ガイド.pdf" target="_blank" rel="noopener">📄 導入方法ガイド（PDF）</a>
+      </div>
     </div>
 
     <!-- FAQ -->
@@ -506,6 +510,9 @@
       document.documentElement.lang = lang;
       document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
       document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
+      // 導入方法ガイドPDFは日本語のみ表示
+      const guidePdf = document.getElementById("guide-pdf-wrap");
+      if (guidePdf) guidePdf.style.display = lang === "ja" ? "block" : "none";
       localStorage.setItem("moriris_lang", lang);
     }
     document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.lang)));
