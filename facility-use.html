@@ -108,8 +108,8 @@
     /* CONTENT BLOCKS */
     .block { margin-bottom: 64px; }
     .block-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 400;
       color: var(--ink); margin-bottom: 28px;
       padding-bottom: 12px; border-bottom: 1px solid var(--sand);
     }
@@ -124,8 +124,12 @@
     .scene-card-title {
       font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
       color: var(--moss); margin-bottom: 10px; letter-spacing: 0.04em;
+      white-space: nowrap;
     }
-    .scene-card-body { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.8; }
+    .scene-card-body {
+      font-size: 0.82rem; color: var(--ink-soft); line-height: 1.8;
+      word-break: normal; overflow-wrap: break-word;
+    }
 
     /* BENEFIT LIST */
     .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -307,11 +311,11 @@
       <div class="scenes">
         <div class="scene-card">
           <div class="scene-card-title" data-i18n="scene1_t">療育・発達支援施設</div>
-          <p class="scene-card-body" data-i18n="scene1_c">クールダウンや切り替え時間に。セリフなしの映像で、言語負荷や過刺激を減らしやすい設計です。</p>
+          <p class="scene-card-body" data-i18n="scene1_c">クールダウンや切り替え時間に。<br>セリフなしの映像で、言語負荷や過刺激を減らしやすい設計です。</p>
         </div>
         <div class="scene-card">
           <div class="scene-card-title" data-i18n="scene2_t">病院・クリニック待合室</div>
-          <p class="scene-card-body" data-i18n="scene2_c">待ち時間の不安をやわらげます。急なカットや大きな音がありません。</p>
+          <p class="scene-card-body" data-i18n="scene2_c">待ち時間の不安をやわらげます。<br>急なカットや大きな音がありません。</p>
         </div>
         <div class="scene-card">
           <div class="scene-card-title" data-i18n="scene3_t">静養室・感覚に配慮した空間</div>
@@ -390,7 +394,7 @@
         <li><span class="step-num">3</span><span class="step-body" data-i18n="step3">14日間は動画を見放題。以降は自動課金になります（いつでも解約可能）。</span></li>
       </ol>
       <div id="guide-pdf-wrap" style="margin-top: 20px; display: none;">
-        <a class="btn-outline" href="/data/%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95%E3%82%AC%E3%82%A4%E3%83%89.pdf" target="_blank" rel="noopener">📄 導入方法ガイド（PDF）</a>
+        <a class="btn-outline" href="/data/%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95%E3%82%AB%E3%82%99%E3%82%A4%E3%83%88%E3%82%99.pdf" target="_blank" rel="noopener">📄 導入方法ガイド（PDF）</a>
       </div>
     </div>
 
