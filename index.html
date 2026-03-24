@@ -1,604 +1,419 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8" />  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moriris – Calm Forest Videos for Sleep & Focus</title>
-
-  <!-- Basic SEO (will be updated by JS per language) -->
-  <meta name="description" content="Moriris creates long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments. Gentle environments to stay with." />
+  <title>Moriris｜睡眠・集中・待ち時間のための森の環境動画</title>
+  <meta name="description" content="Moriris は、保育施設・待合空間などで流せる長尺の森の環境動画サービスです。広告なし、60分ループ。14日間無料でお試しいただけます。" />
   <link rel="canonical" href="https://official.moriris.com/" />
-
-  <!-- OGP (will be updated by JS per language) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Moriris – Calm Forest Videos for Sleep & Focus" />
-  <meta property="og:description" content="Long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments." />
+  <meta property="og:title" content="Moriris｜森の環境動画サービス" />
+  <meta property="og:description" content="保育施設・待合空間向けの長尺森動画。広告なし・60分ループ。" />
   <meta property="og:url" content="https://official.moriris.com/" />
   <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
-  <meta property="og:site_name" content="Moriris" />
-
-  <!-- Twitter (will be updated by JS per language) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Moriris – Calm Forest Videos for Sleep & Focus" />
-  <meta name="twitter:description" content="Long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments." />
-  <meta name="twitter:image" content="https://official.moriris.com/assets/ogp.jpg" />
   <meta name="twitter:site" content="@moriris_world" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#f6f0c9; --ink:#2f3a33; --ink-soft:#5d6a61;
-      --accent:#6aa57a; --accent-dark:#3e7b53;
-      --card:rgba(255,253,243,0.85);
-      --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.08);
-      --warn:#fbd38d;
-      --warn-ink:#8a4b16;
+    :root {
+      --bg: #f5f0e8;
+      --ink: #2a2a25;
+      --ink-soft: #6b6659;
+      --moss: #4a6741;
+      --moss-light: #6b8f61;
+      --cream: #faf7f0;
+      --sand: #e8e0cc;
+      --warm: #c8a96e;
     }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      background:var(--bg) url("/assets/hero-forest.jpg") center/cover fixed no-repeat;
-      color:var(--ink);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
-      line-height:1.7;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', 'Georgia', serif;
+      line-height: 1.8;
+      font-weight: 300;
     }
-    img{max-width:100%;height:auto;display:block}
-    a{color:var(--accent-dark);text-decoration:none}
-    a:hover{text-decoration:underline}
+
+    /* LANG */
+    .lang-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: flex-end; padding: 14px 24px;
+      background: linear-gradient(to bottom, rgba(245,240,232,0.95), transparent);
+    }
+    .lang-toggle {
+      display: flex; background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(8px); border-radius: 999px;
+      padding: 4px; gap: 2px; border: 1px solid rgba(200,169,110,0.3);
+    }
+    .lang-btn {
+      border: none; background: none; padding: 4px 14px; border-radius: 999px;
+      font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.08em; color: var(--ink-soft); cursor: pointer; transition: all 0.25s;
+    }
+    .lang-btn[aria-pressed="true"] { background: var(--moss); color: #fff; }
 
     /* HERO */
-    .hero{ min-height:38vh; padding:3.5rem 1.5rem 2rem; }
-    .logo{
-      width:min(320px,80vw);
-      margin:0 auto .8rem;
-      filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));
+    .hero {
+      min-height: 100svh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden; padding: 80px 24px 60px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(106,135,97,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 75% 70%, rgba(200,169,110,0.08) 0%, transparent 60%);
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; width: 500px; height: 500px;
+      top: -100px; right: -100px;
+      background: radial-gradient(circle, rgba(106,135,97,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner { position: relative; z-index: 1; text-align: center; max-width: 640px; }
+    .logo-wrap { margin-bottom: 32px; }
+    .logo-wrap img {
+      width: min(280px, 60vw); opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 300; font-style: italic;
+      color: var(--moss); letter-spacing: 0.02em; line-height: 1.4;
+      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+    }
+    .hero-sub {
+      margin-top: 16px; font-size: clamp(0.75rem, 2vw, 0.85rem);
+      color: var(--ink-soft); letter-spacing: 0.12em;
+      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards;
+    }
+    .hero-cta {
+      margin-top: 40px; display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 1.0s forwards;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      opacity: 0; animation: fadeIn 1s ease 2s forwards;
+    }
+    .scroll-hint span { font-size: 10px; letter-spacing: 0.15em; color: var(--ink-soft); text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--moss), transparent);
+      animation: scrollPulse 2s ease-in-out 2s infinite;
     }
 
-    /* Topbar (Lang) */
-    .topbar{
-      position:fixed;top:0;left:0;right:0;display:flex;justify-content:flex-end;gap:.5rem;
-      padding:.6rem 1rem;background:rgba(246,240,201,.6);backdrop-filter:saturate(120%) blur(4px);z-index:5
+    /* SECTIONS */
+    section { padding: 100px 24px; max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Cormorant Garamond', serif; font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
+      margin-bottom: 20px; display: block;
     }
-    .lang-btn{
-      border:0;background:#e9f3ec;padding:.4rem .7rem;border-radius:999px;
-      font-weight:700;color:var(--accent-dark);cursor:pointer
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;
+      color: var(--ink); line-height: 1.25; margin-bottom: 32px;
     }
-    .lang-btn[aria-pressed="true"]{background:var(--accent);color:#fff}
-
-    /* Nav */
-    nav.main{max-width:1100px;margin:-2.8rem auto 0;padding:0 1rem;position:relative;z-index:2}
-    .nav-inner{
-      display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
-      background:rgba(255,253,243,.9);
-      border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow)
-    }
-    .nav-inner a{font-weight:800;letter-spacing:.02em}
-
-    main{max-width:1040px;margin:1.5rem auto 4rem;padding:0 1rem}
-    .card{
-      background:var(--card);border-radius:var(--radius);
-      box-shadow:var(--shadow);padding:1.5rem;margin:1rem 0
-    }
-    h2{margin:0 0 .75rem;font-size:1.6rem}
-    .grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-    .grid-1{grid-template-columns:1fr}
-    iframe{
-      width:100%;aspect-ratio:16/9;border:0;border-radius:14px;
-      box-shadow:0 8px 24px rgba(0,0,0,.12)
-    }
-    .about p{margin:.45rem 0;color:var(--ink-soft)}
-    .pill{
-      display:inline-block;margin:.25rem .35rem;padding:.55rem .85rem;
-      border-radius:999px;background:#e9f3ec;color:var(--accent-dark);font-weight:700
-    }
-    .btn{
-      display:inline-block;background:var(--accent);color:#fff;
-      padding:.7rem 1rem;border-radius:12px;font-weight:700
-    }
-    .btn:hover{background:var(--accent-dark)}
-    .btn.disabled{
-      background:#a9c2b1;opacity:.7;cursor:not-allowed;pointer-events:none;text-decoration:none
-    }
-    .small{font-size:.92rem}
-    footer{padding:2rem 1rem;color:var(--ink-soft);text-align:center}
-
-    /* tiles */
-    .tiles{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);}
-    .tile{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-    .tile img{width:100%;height:auto}
-    .tile .tile-body{padding:.9rem 1rem}
-    .tile .more{font-weight:800}
-
-    /* character strip on top page */
-    .char-strip{
-      display:flex;gap:.75rem;flex-wrap:wrap;align-items:flex-end;
-      margin-top:.6rem;margin-bottom:.4rem;
-    }
-    .char-thumb{flex:0 1 90px;text-align:center;}
-    .char-thumb img{border-radius:14px;box-shadow:var(--shadow);}
-    .char-thumb-name{font-size:.8rem;margin-top:.25rem;}
-
-    @media (max-width:900px){
-      .grid{grid-template-columns:1fr}
-      .tiles{grid-template-columns:1fr 1fr}
-      .hero{ min-height:46vh; padding:4.6rem 1rem 2.6rem; }
-    }
-    @media (max-width:640px){
-      .tiles{grid-template-columns:1fr}
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--warm), transparent);
+      margin: 0 auto 32px;
     }
 
-    .sns-row{
-      display:flex;justify-content:center;gap:14px;margin:4px 0 4px;
+    /* VIDEO */
+    .video-section { text-align: center; }
+    .video-wrap {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.08), 0 32px 64px rgba(74,103,65,0.12);
+      background: #1a1a14; margin-top: 40px;
     }
-    .sns-icon{
-      width:40px;height:40px;border-radius:999px;background:#ffffff;
-      box-shadow:0 4px 12px rgba(0,0,0,.12);
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;text-decoration:none;
+    .video-wrap iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+    .video-yt-link {
+      margin-top: 20px; display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; letter-spacing: 0.08em; color: var(--ink-soft);
+      text-decoration: none; border-bottom: 1px solid var(--sand); padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
     }
-    .sns-icon svg{width:20px;height:20px;fill:#3f6f4b;}
+    .video-yt-link:hover { color: var(--moss); border-color: var(--moss); }
+
+    /* ABOUT */
+    .about-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-body p { font-size: clamp(0.88rem, 2vw, 0.95rem); color: var(--ink-soft); margin-bottom: 16px; line-height: 1.9; }
+    .about-visual { position: relative; }
+    .about-img-wrap {
+      border-radius: 16px; overflow: hidden; aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #d4e8cc 0%, #c5d9be 30%, #a8c49e 60%, #8aad86 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 20px 60px rgba(74,103,65,0.2);
+    }
+    .about-img-wrap img { width: 85%; height: 85%; object-fit: contain; }
+    .about-accent {
+      position: absolute; top: -20px; right: -20px; width: 80px; height: 80px;
+      border: 1px solid rgba(200,169,110,0.4); border-radius: 50%;
+    }
+
+    /* FACILITY */
+    .facility-wrapper { padding: 0 24px; margin: 0 auto; max-width: 1008px; }
+    .facility-section {
+      background: var(--cream); border-radius: 28px; padding: 80px 64px; text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 4px 32px rgba(74,103,65,0.08);
+    }
+    .facility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0; }
+    .facility-item {
+      padding: 28px 20px; background: rgba(255,255,255,0.6);
+      border-radius: 16px; border: 1px solid rgba(200,169,110,0.2);
+    }
+    .facility-item-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .facility-item-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
+      color: var(--moss); margin-bottom: 8px; letter-spacing: 0.05em;
+    }
+    .facility-item-body { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.7; }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-block; background: var(--moss); color: #fff;
+      padding: 14px 32px; border-radius: 999px;
+      font-family: 'Noto Serif JP', serif; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(74,103,65,0.25);
+    }
+    .btn-primary:hover { background: #3a5533; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,103,65,0.3); }
+    .btn-outline {
+      display: inline-block; border: 1px solid var(--moss); color: var(--moss);
+      padding: 13px 32px; border-radius: 999px;
+      font-family: 'Noto Serif JP', serif; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-outline:hover { background: var(--moss); color: #fff; }
+    .btn-ghost {
+      display: inline-block; color: var(--ink-soft); padding: 10px 24px;
+      border-radius: 999px; font-size: 0.82rem; letter-spacing: 0.08em;
+      text-decoration: none; border: 1px solid var(--sand); transition: all 0.2s;
+    }
+    .btn-ghost:hover { color: var(--moss); border-color: var(--moss); }
+
+    /* FOOTER */
+    footer { padding: 60px 24px 40px; text-align: center; border-top: 1px solid var(--sand); margin-top: 80px; }
+    .footer-logo { width: 100px; opacity: 0.5; margin: 0 auto 24px; }
+    .sns-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 28px; }
+    .sns-icon {
+      width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--sand);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
+    }
+    .sns-icon:hover { border-color: var(--moss); transform: translateY(-2px); }
+    .sns-icon svg { width: 16px; height: 16px; fill: var(--ink-soft); transition: fill 0.2s; }
+    .sns-icon:hover svg { fill: var(--moss); }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+    .footer-links a { font-size: 0.75rem; color: var(--ink-soft); text-decoration: none; letter-spacing: 0.06em; }
+    .footer-links a:hover { color: var(--moss); }
+    .footer-copy { font-size: 0.72rem; color: #a09a8e; letter-spacing: 0.08em; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      .about-section { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { order: -1; }
+      .about-img-wrap { aspect-ratio: 16/9; }
+      .facility-section { padding: 48px 28px; }
+      .facility-grid { grid-template-columns: 1fr; gap: 16px; }
+      section { padding: 72px 24px; }
+    }
   </style>
 
-  <!-- ✅ internal cookie: 全員に付けない（?internal=1 の時だけ） -->
-  <script>
-    if (location.search.includes("internal=1")) {
-      document.cookie = "moriris_dev=1; path=/; max-age=31536000";
-    }
-  </script>
-
-  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-  
-    gtag('config', 'G-HWRX6Q9K3E', {
-      linker: {
-        domains: ['official.moriris.com', 'member.moriris.com']
-      }
-    });
+    gtag('config', 'G-HWRX6Q9K3E', { linker: { domains: ['official.moriris.com', 'member.moriris.com'] } });
+    if (location.search.includes("internal=1")) document.cookie = "moriris_dev=1; path=/; max-age=31536000";
   </script>
 </head>
-
 <body>
-
-  <!-- Language -->
-  <div class="topbar">
-    <button class="lang-btn" data-lang="en" aria-pressed="true" data-ga="language_btn_en">EN</button>
-    <button class="lang-btn" data-lang="ja" aria-pressed="false" data-ga="language_btn_ja">JP</button>
+  <div class="lang-bar">
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="ja" aria-pressed="true">JP</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
 
-  <!-- HERO -->
   <header class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-inner">
-      <img class="logo" src="/assets/logo-moriris.png" alt="Moriris Logo">
+      <div class="logo-wrap"><img src="/assets/logo-moriris.png" alt="Moriris" /></div>
+      <p class="hero-tagline" data-i18n="hero_tagline">森のなかで、ゆっくり流れる時間。</p>
+      <p class="hero-sub" data-i18n="hero_sub">CALM NATURE VIDEOS FOR SHARED SPACES</p>
+      <div class="hero-cta">
+        <a href="https://member.moriris.com" class="btn-primary" data-i18n="hero_cta_trial" data-ga="hero_cta_trial">14日間無料で試す</a>
+        <a href="#about" class="btn-ghost" data-i18n="hero_cta_about" data-ga="hero_cta_about">サービスについて</a>
+      </div>
     </div>
+    <div class="scroll-hint"><div class="scroll-line"></div><span>scroll</span></div>
   </header>
 
-  <!-- NAV -->
-  <nav class="main">
-    <div class="nav-inner">
-      <a href="#home" data-i18n="nav_home" data-ga="nav_click_home">HOME</a>
-      <a href="#about" data-i18n="nav_about" data-ga="nav_click_about">ABOUT</a>
-      <a href="#characters" data-i18n="nav_characters" data-ga="nav_click_characters">CHARACTERS</a>
-
-      <!-- MEMBERSHIPタブ（コードは残すが無効化・非表示） -->
-      <a href="#membership"
-         data-i18n="nav_membership"
-         data-ga="nav_click_membership"
-         class="disabled"
-         aria-disabled="true"
-         style="display:none;"
-      >MEMBERSHIP</a>
-
-      <a href="#facility" data-i18n="nav_facility" data-ga="nav_click_facility">FOR FACILITIES</a>
+  <section class="video-section reveal" id="video">
+    <span class="section-label" data-i18n="video_label">Videos</span>
+    <h2 class="section-title" data-i18n="video_title">まずは、動画をご覧ください。</h2>
+    <div class="divider"></div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/LJ_G46tIyQg" title="Moriris" allowfullscreen></iframe>
     </div>
-  </nav>
+    <p style="margin-top: 24px;">
+      <a href="https://www.youtube.com/@moriris_world" class="video-yt-link" target="_blank" rel="noopener" data-ga="yt_channel_link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/></svg>
+        <span data-i18n="video_yt_link">YouTubeチャンネルで全動画を見る</span>
+      </a>
+    </p>
+  </section>
 
-  <main id="home">
-
-    <!-- WATCH -->
-    <section id="watch" class="card">
-      <h2 data-i18n="watch_title">🎥 Videos</h2>
-      <p class="small" data-i18n="watch_copy">Start here.</p>
-
-      <div class="grid grid-1" style="margin-top:.5rem">
-        <iframe src="https://www.youtube.com/embed/LJ_G46tIyQg" title="Moriris Introduction" allowfullscreen></iframe>
+  <section id="about">
+    <div class="about-section reveal">
+      <div class="about-body">
+        <span class="section-label" data-i18n="about_label">About</span>
+        <h2 class="section-title" data-i18n="about_title">言葉のない、<br>森の映像。</h2>
+        <p data-i18n="about_p1">Moririsは、保育施設・待合空間・療養施設などで流せる長尺の環境動画サービスです。</p>
+        <p data-i18n="about_p2">60分ループ・広告なし。何かを語りかけるのではなく、そこに「あるだけ」の映像です。</p>
+        <p data-i18n="about_p3">ふわもこの恐竜のキャラクターが、静かな森の中をゆっくりと過ごします。</p>
       </div>
-
-      <div class="small watch-extra">
-        <p data-i18n="watch_intro1">This short video introduces Moriris and what these calm forest videos are for.</p>
-        <p data-i18n="watch_intro2">Wordless, gentle scenes designed for sleep, focus, waiting time, and quiet moments.</p>
+      <div class="about-visual">
+        <div class="about-accent"></div>
+        <div class="about-img-wrap"><img src="/assets/characters.png" alt="Moriris character" /></div>
       </div>
+    </div>
+  </section>
 
-      <p style="margin-top:.8rem">
-        <a href="/characters.html" class="btn" data-i18n="watch_meet_btn" data-ga="cta_click_meet_characters">
-          Meet the Characters
-        </a>
+  <div class="facility-wrapper">
+    <section class="facility-section reveal" id="facility">
+      <span class="section-label" data-i18n="facility_label">For Facilities</span>
+      <h2 class="section-title" data-i18n="facility_title">法人・施設のご担当者様へ</h2>
+      <div class="divider"></div>
+      <p style="color: var(--ink-soft); font-size: 0.9rem; max-width: 480px; margin: 0 auto;" data-i18n="facility_copy">
+        保育園・待合室・療養施設など、静かな空間に映像のある環境を。<br>月額4,980円、14日間無料でお試しいただけます。
       </p>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="card about">
-      <h2 data-i18n="about_title">🌱 About Moriris</h2>
-      <div class="grid" style="align-items:center">
-        <div>
-          <p data-i18n="about_p1">Moriris creates long-form, wordless forest videos designed for specific purposes — sleep, focus, waiting time, and quiet moments.</p>
-          <p data-i18n="about_p2">These videos are not stories to follow. They are gentle environments to stay with.</p>
-          <p data-i18n="about_p3">Soft forests, slow time, subtle movement, and calm soundscapes. Nothing demands attention, yet something quietly remains.</p>
-          <p data-i18n="about_p4">Moriris videos are designed for use both at home and in shared spaces, such as childcare facilities and waiting rooms.</p>
-          <p data-i18n="about_p5">No dialogue. No instructions. Just a place to return to.</p>
-
-          <p class="small" style="margin-top:.7rem">
-            <a class="pill" href="/about-moriris-videos.html" data-i18n="about_wordless_pill" data-ga="pill_click_wordless">
-              What are Moriris videos?
-            </a>
-          </p>
+      <div class="facility-grid">
+        <div class="facility-item reveal reveal-delay-1">
+          <span class="facility-item-icon">🔁</span>
+          <div class="facility-item-title" data-i18n="fitem1_title">60分ループ再生</div>
+          <p class="facility-item-body" data-i18n="fitem1_body">つけっぱなしでOK。繰り返し流しても違和感のない設計です。</p>
         </div>
-        <div><img src="/assets/characters.png" alt="Moriris characters: Mokora and Notty"></div>
-      </div>
-    </section>
-
-    <!-- CHARACTERS (top page: thumbnails only) -->
-    <section id="characters" class="card">
-      <h2 data-i18n="char_title">🦕 Characters</h2>
-      <p class="small" data-i18n="char_copy">Meet a few of the gentle creatures from Moriris.</p>
-      <div id="character-strip" class="char-strip"></div>
-
-      <!-- ✅ pillデザインに統一 -->
-      <p style="margin-top:.6rem;">
-        <a href="/characters.html" class="pill" data-i18n="char_btn" data-ga="cta_click_view_all_characters">
-          View all characters
-        </a>
-      </p>
-    </section>
-
-    <!-- ✅ FACILITY -->
-    <section id="facility" class="card">
-      <h2 data-i18n="facility_title">🏫 For Facilities</h2>
-    
-      <p class="small" data-i18n="facility_copy">
-        Information for childcare facilities, waiting rooms, and shared spaces.
-      </p>
-    
-      <!-- NEW: stronger hook -->
-      <p class="small" style="margin-top:.35rem" data-i18n="facility_hook">
-        Sign up for email to try it free for 14 days.
-      </p>
-    
-      <!-- ✅ pillデザインに統一 -->
-      <p style="margin-top:.6rem">
-        <a class="pill" href="/facility-use.html"
-           data-i18n="facility_btn2"
-           data-ga="cta_click_facility_use_btn">
-          View details
-        </a>
-      </p>
-    </section>
-
-    <!-- MEMBERSHIP（コードは残すが無効化・非表示） -->
-    <section id="membership" class="card" style="display:none;" aria-hidden="true">
-      <h2><span data-i18n="mem_title">🌳 MORIRIS MEMBERSHIP</span></h2>
-      <p class="small" data-i18n="mem_copy">
-        For those who want to stay a little longer in the forest.
-      </p>
-
-      <div class="tiles" style="margin-top:.5rem">
-        <div class="tile">
-          <img src="/assets/Moriris Friends.png" alt="Moriris Friends">
+        <div class="facility-item reveal reveal-delay-2">
+          <span class="facility-item-icon">🚫</span>
+          <div class="facility-item-title" data-i18n="fitem2_title">広告・テロップなし</div>
+          <p class="facility-item-body" data-i18n="fitem2_body">集中や安静を妨げる要素を一切排除しています。</p>
         </div>
-        <div class="tile">
-          <img src="/assets/Moriris Friend.png" alt="Moriris Friends">
+        <div class="facility-item reveal reveal-delay-3">
+          <span class="facility-item-icon">📺</span>
+          <div class="facility-item-title" data-i18n="fitem3_title">どの端末でも</div>
+          <p class="facility-item-body" data-i18n="fitem3_body">PC・タブレット・スマートフォン・テレビなど、ブラウザがあれば再生できます。</p>
         </div>
       </div>
-      <p style="margin-top:.8rem">
-        <a class="btn" href="/membership.html" data-i18n="mem_btn" data-ga="cta_click_membership_page">
-          Continue the story
-        </a>
-      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://member.moriris.com" class="btn-primary" data-i18n="facility_cta1" data-ga="facility_cta_trial">14日間無料で試す</a>
+        <a href="/facility-use.html" class="btn-outline" data-i18n="facility_cta2" data-ga="facility_detail_link">詳細を見る</a>
+      </div>
     </section>
-
-  </main>
+  </div>
 
   <footer>
+    <img class="footer-logo" src="/assets/logo-moriris.png" alt="Moriris" />
     <div class="sns-row">
-      <a class="sns-icon" href="https://www.youtube.com/@moriris_world"
-         target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-ga="social_click_youtube">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/>
-        </svg>
+      <a class="sns-icon" href="https://www.youtube.com/@moriris_world" target="_blank" rel="noopener" aria-label="YouTube" data-ga="social_youtube">
+        <svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.6 4 12 4 12 4s-3.6 0-6.9.2c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 9.1 2 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.5.8 2.1c.7.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s3.6 0 6.9-.2c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM10 9.5l4.8 2.5L10 14.5V9.5z"/></svg>
       </a>
-      <a class="sns-icon" href="https://x.com/moriris_world"
-         target="_blank" rel="noopener noreferrer" aria-label="X" data-ga="social_click_x">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18.9 4H16.4L12.9 8.3 10 4H5.1l5.2 7.4L5 20h2.5l3.8-4.7L14 20h4.9l-5.5-7.9L18.9 4zm-3 14-6-8.7L9.2 7h.9l6 8.7.7 1.3z"/>
-        </svg>
-      </a>
-      <a class="sns-icon" href="https://www.tiktok.com/@moriris_world_"
-         target="_blank" rel="noopener noreferrer" aria-label="TikTok" data-ga="social_click_tiktok">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18.5 7.3a4.4 4.4 0 0 1-2.7-1V14a4.9 4.9 0 1 1-4.9-4.9 5 5 0 0 1 1 .1v2.1a2.8 2.8 0 0 0-1-.2 2.8 2.8 0 1 0 2.8 2.8V3.9h2.2a4.4 4.4 0 0 0 2.6 2.5z"/>
-        </svg>
-      </a>
-      <a class="sns-icon"
-         href="https://www.pinterest.com/moriris_world/"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Pinterest"
-         data-ga="social_click_pinterest">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6.9 2 3 5.4 3 10.2c0 3.2 1.8 5.8 4.6 6.9-.1-.6-.3-1.5 0-2.2.2-.6 1.4-5.8 1.4-5.8s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.6 0 1-.6 2.4-.9 3.7-.3 1.1.6 2.1 1.7 2.1 2 0 3.6-2.1 3.6-5.1 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .9 2.6.1.1.1.2.1.4-.1.4-.3 1.1-.4 1.3-.1.2-.2.3-.4.2-1.5-.7-2.4-2.9-2.4-4.7 0-3.8 2.8-7.3 8-7.3 4.2 0 7.4 3 7.4 6.9 0 4.1-2.6 7.4-6.2 7.4-1.2 0-2.3-.6-2.7-1.4l-.7 2.6c-.3 1-.9 2.3-1.3 3.1.9.3 1.8.4 2.8.4 5.1 0 9-3.4 9-8.8C21 5.6 17.1 2 12 2z"/>
-        </svg>
+      <a class="sns-icon" href="https://x.com/moriris_world" target="_blank" rel="noopener" aria-label="X" data-ga="social_x">
+        <svg viewBox="0 0 24 24"><path d="M18.9 4H16.4L12.9 8.3 10 4H5.1l5.2 7.4L5 20h2.5l3.8-4.7L14 20h4.9l-5.5-7.9L18.9 4zm-3 14-6-8.7L9.2 7h.9l6 8.7.7 1.3z"/></svg>
       </a>
     </div>
-    © Moriris Studio ·
-    <a href="/contact.html" data-i18n="footer_contact" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_contact">Contact</a> ·
-    <a href="https://member.moriris.com/terms.html" data-i18n="footer_terms" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_terms">Terms of Service</a> /
-    <a href="https://member.moriris.com/privacy.html" data-i18n="footer_privacy" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_privacy">Privacy Policy</a> /
-    <a href="https://member.moriris.com/legal.html" data-i18n="footer_legal" target="_blank" rel="noopener noreferrer" data-ga="outbound_click_legal">Legal Notice</a> /
-    <span class="small">official.moriris.com</span>
+    <div class="footer-links">
+      <a href="/contact.html" data-i18n="footer_contact">お問い合わせ</a>
+      <a href="https://member.moriris.com/terms.html" target="_blank" rel="noopener" data-i18n="footer_terms">利用規約</a>
+      <a href="https://member.moriris.com/privacy.html" target="_blank" rel="noopener" data-i18n="footer_privacy">プライバシーポリシー</a>
+      <a href="https://member.moriris.com/legal.html" target="_blank" rel="noopener" data-i18n="footer_legal">特定商取引法に基づく表記</a>
+    </div>
+    <p class="footer-copy">© Moriris Studio · official.moriris.com</p>
   </footer>
 
   <script>
-    // ---------- GA helper ----------
-    function gaLang(){
-      return localStorage.getItem("moriris_lang") || document.documentElement.lang || "en";
-    }
-    function gaEvent(name, params){
-      if (typeof gtag !== "function") return;
-      gtag("event", name, Object.assign({
-        page: location.pathname,
-        lang: gaLang()
-      }, params || {}));
-    }
-
-    // クリック計測（data-ga があれば優先）
-    document.addEventListener("click", (e) => {
-      const a = e.target.closest("a");
-      if (!a) return;
-
-      const href = a.getAttribute("href") || "";
-      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
-
-      const name = a.dataset.ga;
-      if (name) {
-        gaEvent(name, {
-          link_text: (a.textContent || "").trim().slice(0, 80),
-          link_url: href,
-          outbound: isExternal ? 1 : 0
-        });
-        return;
-      }
-
-      if (isExternal) {
-        gaEvent("outbound_click", {
-          link_text: (a.textContent || "").trim().slice(0, 80),
-          link_url: href
-        });
-      }
-    });
-
-    // スクロール深度（25/50/75/90）
-    (function(){
-      const thresholds = [25, 50, 75, 90];
-      const fired = new Set();
-      function onScroll(){
-        const doc = document.documentElement;
-        const scrollTop = window.scrollY || doc.scrollTop;
-        const height = Math.max(1, doc.scrollHeight - window.innerHeight);
-        const pct = Math.round((scrollTop / height) * 100);
-
-        thresholds.forEach(t => {
-          if (pct >= t && !fired.has(t)) {
-            fired.add(t);
-            gaEvent("scroll_depth", { percent: t });
-          }
-        });
-      }
-      window.addEventListener("scroll", onScroll, { passive:true });
-      onScroll();
-    })();
-
-    // ---------- page logic ----------
-    let charactersData = [];
-    let currentLang = "en";
-
-    function renderCharacterStrip(){
-      const strip = document.getElementById("character-strip");
-      if (!strip || !charactersData.length) return;
-      const isJa = (currentLang === "ja");
-
-      strip.innerHTML = "";
-      charactersData.slice(0, 3).forEach(ch => {
-        const name = isJa ? (ch.name_ja || ch.name_en) : (ch.name_en || ch.name_ja);
-        const item = document.createElement("div");
-        item.className = "char-thumb";
-        item.innerHTML = `
-          <img src="${ch.image}" alt="${name}">
-          <div class="char-thumb-name">${name}</div>
-        `;
-        strip.appendChild(item);
-      });
-    }
-
-    const translations = {
-      en:{
-        // SEO
-        seo_title:"Moriris – Calm Forest Videos for Sleep & Focus",
-        seo_desc:"Moriris creates long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments. Gentle environments to stay with.",
-        seo_og_title:"Moriris – Calm Forest Videos for Sleep & Focus",
-        seo_og_desc:"Long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments.",
-        seo_tw_title:"Moriris – Calm Forest Videos for Sleep & Focus",
-        seo_tw_desc:"Long-form, wordless forest videos for sleep, focus, waiting time, and quiet moments.",
-
-        // Nav
-        nav_home:"HOME",
-        nav_about:"ABOUT",
-        nav_characters:"CHARACTERS",
-        nav_membership:"MEMBERSHIP",
-        nav_facility:"FOR FACILITIES",
-
-        // Watch
-        watch_title:"🎥 Videos",
-        watch_copy:"Start here.",
-        watch_intro1:"This short video introduces Moriris and what these calm forest videos are for.",
-        watch_intro2:"Wordless, gentle scenes designed for sleep, focus, waiting time, and quiet moments.",
-        watch_meet_btn:"Meet the Characters",
-
-        // About
-        about_title:"🌱 About Moriris",
-        about_p1:"Moriris creates long-form, wordless forest videos designed for specific purposes — sleep, focus, waiting time, and quiet moments.",
-        about_p2:"These videos are not stories to follow. They are gentle environments to stay with.",
-        about_p3:"Soft forests, slow time, subtle movement, and calm soundscapes. Nothing demands attention, yet something quietly remains.",
-        about_p4:"Moriris videos are designed for use both at home and in shared spaces, such as childcare facilities and waiting rooms.",
-        about_p5:"No dialogue. No instructions. Just a place to return to.",
-
-        // Pill
-        about_wordless_pill:"What are Moriris videos?",
-
-        // Characters
-        char_title:"🦕 Characters",
-        char_copy:"Meet a few of the gentle creatures from Moriris.",
-        char_btn:"View all characters",
-
-        // Facility
-        facility_title:"🏫 For Facilities",
-        facility_copy:"For nursery schools, waiting rooms, and shared spaces.",
-        facility_hook:"Sign up for email to try it free for 14 days.",
-        facility_btn2:"View details",
-
-        // Membership (hidden)
-        mem_title:"🌳 MORIRIS MEMBERSHIP",
-        mem_copy:"For those who want to stay a little longer in the forest.",
-        mem_btn:"Continue the story",
-
-        // Footer
-        footer_contact:"Contact",
-        footer_terms:"Terms of Service",
-        footer_privacy:"Privacy Policy",
-        footer_legal:"Legal Notice"
+    const dict = {
+      ja: {
+        hero_tagline: "森のなかで、ゆっくり流れる時間。",
+        hero_sub: "CALM NATURE VIDEOS FOR SHARED SPACES",
+        hero_cta_trial: "14日間無料で試す", hero_cta_about: "サービスについて",
+        video_label: "Videos", video_title: "まずは、動画をご覧ください。",
+        video_yt_link: "YouTubeチャンネルで全動画を見る",
+        about_label: "About", about_title: "言葉のない、\n森の映像。",
+        about_p1: "Moririsは、保育施設・待合空間・療養施設などで流せる長尺の環境動画サービスです。",
+        about_p2: "60分ループ・広告なし。何かを語りかけるのではなく、そこに「あるだけ」の映像です。",
+        about_p3: "ふわもこの恐竜のキャラクターが、静かな森の中をゆっくりと過ごします。",
+        facility_label: "For Facilities", facility_title: "法人・施設のご担当者様へ",
+        facility_copy: "保育園・待合室・療養施設など、静かな空間に映像のある環境を。\n月額4,980円、14日間無料でお試しいただけます。",
+        fitem1_title: "60分ループ再生", fitem1_body: "つけっぱなしでOK。繰り返し流しても違和感のない設計です。",
+        fitem2_title: "広告・テロップなし", fitem2_body: "集中や安静を妨げる要素を一切排除しています。",
+        fitem3_title: "どの端末でも", fitem3_body: "PC・タブレット・スマートフォン・テレビなど、ブラウザがあれば再生できます。",
+        facility_cta1: "14日間無料で試す", facility_cta2: "詳細を見る",
+        footer_contact: "お問い合わせ", footer_terms: "利用規約",
+        footer_privacy: "プライバシーポリシー", footer_legal: "特定商取引法に基づく表記",
       },
-      ja:{
-        // SEO
-        seo_title:"Moriris｜睡眠・集中・待ち時間のための森の環境動画",
-        seo_desc:"Moriris は、睡眠導入・集中・待ち時間・静かなひとときなど、用途に合わせた長尺の森の環境動画を制作しています。",
-        seo_og_title:"Moriris｜用途別の森の環境動画",
-        seo_og_desc:"睡眠導入・集中・待ち時間・静かなひとときのための長尺環境動画。",
-        seo_tw_title:"Moriris｜用途別の森の環境動画",
-        seo_tw_desc:"睡眠導入・集中・待ち時間・静かなひとときのための長尺環境動画。",
-
-        // Nav
-        nav_home:"ホーム",
-        nav_about:"概要",
-        nav_characters:"キャラクター",
-        nav_membership:"メンバーシップ",
-        nav_facility:"法人・施設向け",
-
-        // Watch
-        watch_title:"🎥 動画",
-        watch_copy:"まずはこちらから。",
-        watch_intro1:"この短い動画は、Moriris の目的（用途別の環境動画）を紹介します。",
-        watch_intro2:"睡眠導入・集中・待ち時間・静かな時間のための、言葉のない穏やかな森の映像です。",
-        watch_meet_btn:"キャラクターを見る",
-
-        // About
-        about_title:"🌱 モリリスについて",
-        about_p1:"Moriris は、睡眠導入・集中・待ち時間・静かなひとときなど、用途に合わせた長尺の環境動画を制作しています。",
-        about_p2:"物語を追うための映像ではありません。そこに「居続ける」ための映像です。",
-        about_p3:"やさしい森、ゆっくり流れる時間、最小限の動きと穏やかな音。何かを強く主張することはなく、それでも静かに残る感覚があります。",
-        about_p4:"家庭での利用はもちろん、保育施設や待合空間などの共有空間での使用も想定して設計されています。",
-        about_p5:"言葉はありません。説明もありません。ただ、戻ってこられる場所があるだけです。",
-
-        // Pill
-        about_wordless_pill:"Moririsの動画について",
-
-        // Characters（✅ 見出しを日本語に）
-        char_title:"🦕 キャラクター",
-        char_copy:"モリリスの仲間たちを一部ご紹介します。",
-        char_btn:"キャラクターを見る",
-
-        // Facility
-        facility_title:"🏫 法人・施設向け",
-        facility_copy:"保育施設・待合空間など、共有空間でのご利用についての案内です。",
-        facility_hook:"メール登録で、14日間無料で試すことができます。",
-        facility_btn2:"詳細",
-
-        // Membership (hidden)
-        mem_title:"🌳 モリリス メンバーシップ",
-        mem_copy:"森の世界に、もう少しだけ長くとどまりたいあなたへ。",
-        mem_btn:"物語のつづきを見る",
-
-        // Footer
-        footer_contact:"お問い合わせ",
-        footer_terms:"利用規約",
-        footer_privacy:"プライバシーポリシー",
-        footer_legal:"特定商取引法に基づく表記"
+      en: {
+        hero_tagline: "Time moves gently in the forest.",
+        hero_sub: "CALM NATURE VIDEOS FOR SHARED SPACES",
+        hero_cta_trial: "Try free for 14 days", hero_cta_about: "About the service",
+        video_label: "Videos", video_title: "Start with a video.",
+        video_yt_link: "View all videos on YouTube",
+        about_label: "About", about_title: "Wordless nature\nfor quiet spaces.",
+        about_p1: "Moriris is a long-form ambient video service for nurseries, waiting rooms, and care facilities.",
+        about_p2: "60-minute loops. No ads. Not a story to follow — just a place to be.",
+        about_p3: "A fluffy dinosaur character drifts quietly through a calm forest world.",
+        facility_label: "For Facilities", facility_title: "For facility managers",
+        facility_copy: "Bring gentle movement to your shared space.\n¥4,980/month · Free 14-day trial.",
+        fitem1_title: "60-min loop", fitem1_body: "Designed to play on repeat without feeling repetitive.",
+        fitem2_title: "No ads or text", fitem2_body: "Nothing to disturb rest, focus, or calm.",
+        fitem3_title: "Any device", fitem3_body: "Works on any browser — TV, tablet, PC, or smartphone.",
+        facility_cta1: "Try free for 14 days", facility_cta2: "View details",
+        footer_contact: "Contact", footer_terms: "Terms of Service",
+        footer_privacy: "Privacy Policy", footer_legal: "Legal Notice",
       }
     };
-
-    function setLang(lang){
-      const prev = currentLang;
-      const dict = translations[lang] || translations.en;
+    let currentLang = localStorage.getItem("moriris_lang") || "ja";
+    function applyLang(lang) {
       currentLang = lang;
-
+      const t = dict[lang] || dict.ja;
       document.documentElement.lang = lang;
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const k = el.dataset.i18n;
-        if(dict[k] !== undefined) el.textContent = dict[k];
-      });
-
-      document.querySelectorAll(".lang-btn").forEach(b =>
-        b.setAttribute("aria-pressed", b.dataset.lang===lang)
-      );
-
-      // SEO: title/meta/OG/Twitter
-      if (dict.seo_title) document.title = dict.seo_title;
-
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc && dict.seo_desc) metaDesc.setAttribute("content", dict.seo_desc);
-
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      const ogDesc  = document.querySelector('meta[property="og:description"]');
-      const twTitle = document.querySelector('meta[name="twitter:title"]');
-      const twDesc  = document.querySelector('meta[name="twitter:description"]');
-
-      if (ogTitle && dict.seo_og_title) ogTitle.setAttribute("content", dict.seo_og_title);
-      if (ogDesc  && dict.seo_og_desc)  ogDesc.setAttribute("content", dict.seo_og_desc);
-      if (twTitle && dict.seo_tw_title) twTitle.setAttribute("content", dict.seo_tw_title);
-      if (twDesc  && dict.seo_tw_desc)  twDesc.setAttribute("content", dict.seo_tw_desc);
-
+      document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+      document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
+      const titles = { ja: "Moriris｜睡眠・集中・待ち時間のための森の環境動画", en: "Moriris – Calm Forest Videos for Shared Spaces" };
+      document.title = titles[lang] || titles.ja;
       localStorage.setItem("moriris_lang", lang);
-
-      // ✅ language change event
-      if (prev && prev !== lang) {
-        gaEvent("language_change", { lang_from: prev, lang_to: lang });
-      }
-
-      renderCharacterStrip();
     }
-
-    document.querySelectorAll(".lang-btn").forEach(btn =>
-      btn.addEventListener("click", () => setLang(btn.dataset.lang))
-    );
-
-    const saved = localStorage.getItem("moriris_lang") || "en";
-    setLang(saved);
-
-    document.querySelectorAll('a.disabled').forEach(a=>{
-      a.addEventListener('click', e=>e.preventDefault());
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.lang)));
+    applyLang(currentLang);
+    const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }); }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    function gaEvent(name, params) { if (typeof gtag !== "function") return; gtag("event", name, Object.assign({ page: location.pathname, lang: currentLang }, params || {})); }
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a"); if (!a) return;
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
+      if (a.dataset.ga) { gaEvent(a.dataset.ga, { link_url: href, outbound: isExternal ? 1 : 0 }); }
+      else if (isExternal) { gaEvent("outbound_click", { link_url: href }); }
     });
-
-    fetch("/data/character.json")
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to load character.json");
-        return res.json();
-      })
-      .then(data => {
-        charactersData = Array.isArray(data) ? data : [];
-        renderCharacterStrip();
-      })
-      .catch(err => console.error("Character load error:", err));
   </script>
 </body>
 </html>
