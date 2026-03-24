@@ -400,7 +400,16 @@
       currentLang = lang;
       const t = dict[lang] || dict.ja;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.dataset.i18n;
+        if (t[k] === undefined) return;
+        // facility_copyは<br>改行を使うのでinnerHTML
+        if (k === 'facility_copy') {
+          el.innerHTML = t[k].replace(/\n/g, '<br>');
+        } else {
+          el.textContent = t[k];
+        }
+      });
       document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
       const titles = { ja: "Moriris｜睡眠・集中・待ち時間のための森の環境動画", en: "Moriris – Calm Forest Videos for Shared Spaces" };
       document.title = titles[lang] || titles.ja;
