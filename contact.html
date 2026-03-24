@@ -1,214 +1,174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moriris – Contact</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>お問い合わせ | Moriris</title>
   <link rel="icon" href="/assets/favicon.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#faf8f4;
-      --panel:#ffffff;
-      --ink:#1d1b16;
-      --muted:#6b6964;
-      --accent:#75c29c;
-      --r:18px;
-      --sh:0 10px 30px rgba(0,0,0,.08);
+    :root {
+      --bg: #f5f0e8;
+      --ink: #2a2a25;
+      --ink-soft: #6b6659;
+      --moss: #4a6741;
+      --cream: #faf7f0;
+      --sand: #e8e0cc;
+      --warm: #c8a96e;
     }
-    *{box-sizing:border-box;}
-    html,body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
-      color:var(--ink);
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    }
-    a{color:#0b5130;text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    /* ===== Header ===== */
-    header{
-      background:#f1ede4;
-      padding:16px;
-      border-bottom:1px solid #e0d8c8;
-    }
-    header .inner{
-      max-width:900px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .brand img{
-      height:48px;
-    }
-    h1{
-      margin:0;
-      font-size:18px;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      color:#555;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', 'Georgia', serif;
+      line-height: 1.8;
+      font-weight: 300;
     }
 
-    /* ===== Language Buttons ===== */
-    .lang{
-      display:flex;
-      gap:6px;
+    /* TOP BAR */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: flex-end; align-items: center;
+      padding: 14px 24px;
+      background: rgba(245,240,232,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,224,204,0.5);
     }
-    .lang button{
-      padding:6px 12px;
-      border-radius:999px;
-      border:1px solid #ccc;
-      background:#fff;
-      cursor:pointer;
-      font-size:14px;
+    .lang-toggle {
+      display: flex; background: rgba(255,255,255,0.6); backdrop-filter: blur(8px);
+      border-radius: 999px; padding: 4px; gap: 2px; border: 1px solid rgba(200,169,110,0.3);
     }
-    .lang .active{
-      border-color:var(--accent);
-      color:#0b5130;
-      font-weight:600;
+    .lang-btn {
+      border: none; background: none; padding: 4px 14px; border-radius: 999px;
+      font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.08em; color: var(--ink-soft); cursor: pointer; transition: all 0.25s;
+    }
+    .lang-btn[aria-pressed="true"] { background: var(--moss); color: #fff; }
+
+    /* PAGE */
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 100px 24px 60px; }
+    .section-label {
+      font-family: 'Cormorant Garamond', serif; font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
+      margin-bottom: 20px; display: block;
+    }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 300;
+      color: var(--ink); line-height: 1.2; margin-bottom: 16px;
+    }
+    .page-lead { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.9; margin-bottom: 32px; }
+
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--warm), transparent);
+      margin: 0 0 32px;
     }
 
-    /* ===== Main ===== */
-    main{
-      max-width:900px;
-      margin:24px auto 40px;
-      padding:0 16px;
+    /* FORM CARD */
+    .form-card {
+      background: var(--cream); border-radius: 20px;
+      border: 1px solid rgba(200,169,110,0.2);
+      overflow: hidden;
     }
-    .card{
-      background:var(--panel);
-      border-radius:var(--r);
-      box-shadow:var(--sh);
-      padding:26px 22px;
+    .form-frame {
+      width: 100%;
+      height: 860px;
+      border: none;
+      display: block;
+      background: #fff;
     }
-    .lead{
-      font-size:15px;
-      color:var(--muted);
-      line-height:1.8;
-      margin:0 0 14px;
+    .form-fallback {
+      padding: 20px 24px;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--sand);
     }
+    .form-fallback a { color: var(--moss); text-decoration: none; border-bottom: 1px solid rgba(74,103,65,0.3); }
+    .form-fallback a:hover { border-color: var(--moss); }
 
-    .frame{
-      width:100%;
-      height:1200px;
-      border:0;
-      border-radius:14px;
-      box-shadow:0 8px 24px rgba(0,0,0,.12);
-      background:#fff;
-    }
-
-    footer{
-      text-align:center;
-      margin:40px 0 20px;
-      color:var(--muted);
-      font-size:12px;
-    }
+    footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--sand); }
+    footer a { font-size: 0.78rem; color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--moss); }
+    .footer-copy { font-size: 0.72rem; color: #a09a8e; margin-top: 8px; }
   </style>
 
-  <!-- Google tag (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('consent','default',{
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      analytics_storage:'granted'
-    });
-    gtag('config','G-HWRX6Q9K3E');
+    gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
+    gtag('config', 'G-HWRX6Q9K3E');
   </script>
 </head>
-
 <body>
 
-  <header>
-    <div class="inner">
-      <div class="brand">
-        <img src="/assets/logo-moriris.png" alt="Moriris" />
-        <h1>Contact</h1>
-      </div>
+  <div class="topbar">
+    
+    <div class="lang-toggle">
+      <button class="lang-btn" data-lang="ja" aria-pressed="true">JP</button>
+      <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
 
-      <div class="lang">
-        <button id="btn-en">EN</button>
-        <button id="btn-ja" class="active">JP</button>
+  <div class="page-wrap">
+    <span class="section-label">Contact</span>
+    <h1 class="page-title" id="page-title">お問い合わせ</h1>
+    <div class="divider"></div>
+    <p class="page-lead" id="page-lead">下記フォームよりお問い合わせください。内容を確認のうえ、順次ご返信いたします。</p>
+
+    <div class="form-card">
+      <iframe class="form-frame"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
+        title="Contact form">
+      </iframe>
+      <div class="form-fallback">
+        <span id="fallback-text">フォームが表示されない場合は</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header" target="_blank" rel="noopener" id="fallback-link">こちらをクリックして新しいタブで開いてください</a>。
       </div>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <div class="card">
-
-      <!-- ===== 日本語 ===== -->
-      <div id="contact-ja">
-        <p class="lead">
-          下記フォームよりお問い合わせください。内容を確認のうえ、順次ご返信いたします。
-        </p>
-
-        <iframe class="frame"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header">
-        </iframe>
-
-        <p class="lead" style="margin-top:14px;">
-          フォームが表示されない場合は、
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
-             target="_blank" rel="noopener">
-            こちらをクリックして新しいタブで開いてください
-          </a>。
-        </p>
-      </div>
-
-      <!-- ===== English ===== -->
-      <div id="contact-en" style="display:none;">
-        <p class="lead">
-          Please submit your inquiry using the form below. We will review your message and reply as soon as possible.
-        </p>
-
-        <iframe class="frame"
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header">
-        </iframe>
-
-        <p class="lead" style="margin-top:14px;">
-          If the form does not display,
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRtiqdAxuMA3vXgNvelh8L4KRdkcc-X_jBlwhbNlf0wiDYg/viewform?usp=header"
-             target="_blank" rel="noopener">
-            click here to open it in a new tab
-          </a>.
-        </p>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>&copy; Moriris Studio</footer>
+  <footer>
+    <a href="/" id="footer-home">トップページへ戻る</a>
+    <p class="footer-copy">© Moriris Studio</p>
+  </footer>
 
   <script>
-    const btnJa = document.getElementById("btn-ja");
-    const btnEn = document.getElementById("btn-en");
-    const ja = document.getElementById("contact-ja");
-    const en = document.getElementById("contact-en");
-
-    btnJa.onclick = () => {
-      ja.style.display = "block";
-      en.style.display = "none";
-      btnJa.classList.add("active");
-      btnEn.classList.remove("active");
+    const texts = {
+      ja: {
+        back: "← トップページへ", title: "お問い合わせ",
+        lead: "下記フォームよりお問い合わせください。内容を確認のうえ、順次ご返信いたします。",
+        fallback: "フォームが表示されない場合は", fallback_link: "こちらをクリックして新しいタブで開いてください",
+        footer: "トップページへ戻る",
+      },
+      en: {
+        back: "← Back to home", title: "Contact",
+        lead: "Please submit your inquiry using the form below. We will review your message and reply as soon as possible.",
+        fallback: "If the form does not display, ", fallback_link: "click here to open in a new tab",
+        footer: "Back to home",
+      }
     };
-
-    btnEn.onclick = () => {
-      ja.style.display = "none";
-      en.style.display = "block";
-      btnEn.classList.add("active");
-      btnJa.classList.remove("active");
-    };
+    let currentLang = localStorage.getItem("moriris_lang") || "ja";
+    function applyLang(lang) {
+      currentLang = lang;
+      const t = texts[lang] || texts.ja;
+      document.documentElement.lang = lang;
+      document.getElementById("page-title").textContent = t.title;
+      document.getElementById("page-lead").textContent = t.lead;
+      document.getElementById("fallback-text").textContent = t.fallback;
+      document.getElementById("fallback-link").textContent = t.fallback_link;
+      document.getElementById("footer-home").textContent = t.footer;
+      document.querySelectorAll(".lang-btn").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"));
+      localStorage.setItem("moriris_lang", lang);
+    }
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.lang)));
+    applyLang(currentLang);
   </script>
-
 </body>
 </html>
