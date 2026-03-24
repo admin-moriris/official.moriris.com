@@ -87,7 +87,11 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 300; font-style: italic;
       color: var(--moss); letter-spacing: 0.02em; line-height: 1.4;
+      white-space: nowrap;
       opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
+    }
+    @media (max-width: 480px) {
+      .hero-tagline { white-space: normal; }
     }
     .hero-sub {
       margin-top: 16px; font-size: clamp(0.75rem, 2vw, 0.85rem);
@@ -122,6 +126,10 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300;
       color: var(--ink); line-height: 1.25; margin-bottom: 32px;
+      white-space: nowrap;
+    }
+    @media (max-width: 560px) {
+      .section-title { white-space: normal; }
     }
     .divider {
       width: 60px; height: 1px;
@@ -172,7 +180,6 @@
       padding: 28px 20px; background: rgba(255,255,255,0.6);
       border-radius: 16px; border: 1px solid rgba(200,169,110,0.2);
     }
-    .facility-item-icon { font-size: 28px; margin-bottom: 12px; display: block; }
     .facility-item-title {
       font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600;
       color: var(--moss); margin-bottom: 8px; letter-spacing: 0.05em;
@@ -289,7 +296,7 @@
     <div class="about-section reveal">
       <div class="about-body">
         <span class="section-label" data-i18n="about_label">About</span>
-        <h2 class="section-title" data-i18n="about_title">言葉のない、<br>森の映像。</h2>
+        <h2 class="section-title" data-i18n="about_title">言葉のない、森の映像。</h2>
         <p data-i18n="about_p1">Moririsは、保育施設・待合空間・療養施設などで流せる長尺の環境動画サービスです。</p>
         <p data-i18n="about_p2">60分ループ・広告なし。何かを語りかけるのではなく、そこに「あるだけ」の映像です。</p>
         <p data-i18n="about_p3">ふわもこの恐竜のキャラクターが、静かな森の中をゆっくりと過ごします。</p>
@@ -311,17 +318,14 @@
       </p>
       <div class="facility-grid">
         <div class="facility-item reveal reveal-delay-1">
-          <span class="facility-item-icon">🔁</span>
           <div class="facility-item-title" data-i18n="fitem1_title">60分ループ再生</div>
           <p class="facility-item-body" data-i18n="fitem1_body">つけっぱなしでOK。繰り返し流しても違和感のない設計です。</p>
         </div>
         <div class="facility-item reveal reveal-delay-2">
-          <span class="facility-item-icon">🚫</span>
           <div class="facility-item-title" data-i18n="fitem2_title">広告・テロップなし</div>
           <p class="facility-item-body" data-i18n="fitem2_body">集中や安静を妨げる要素を一切排除しています。</p>
         </div>
         <div class="facility-item reveal reveal-delay-3">
-          <span class="facility-item-icon">📺</span>
           <div class="facility-item-title" data-i18n="fitem3_title">どの端末でも</div>
           <p class="facility-item-body" data-i18n="fitem3_body">PC・タブレット・スマートフォン・テレビなど、ブラウザがあれば再生できます。</p>
         </div>
