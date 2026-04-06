@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>コラム｜Moriris</title>
+  <meta name="description" content="保育施設・待合空間・療養施設での環境映像活用に関するコラム。低刺激の空間づくりについて、現場で使う視点からまとめています。" />
+  <link rel="icon" href="/assets/favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #faf8f4;
+      --surface:   #f3efe8;
+      --moss:      #5a6e4a;
+      --moss-dark: #3d4f31;
+      --moss-pale: #e8eddf;
+      --text:      #2c2c2c;
+      --text-mid:  #5c5c5c;
+      --text-light:#8c8c7a;
+      --border:    #ddd8cc;
+      --accent:    #8b7355;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .site-header .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .site-header .logo img {
+      height: 28px;
+      opacity: .9;
+    }
+
+    .site-header .logo span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: .08em;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .header-nav a {
+      font-size: .8rem;
+      letter-spacing: .12em;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .header-nav a:hover { color: var(--moss); }
+
+    .header-nav .cta {
+      background: var(--moss);
+      color: #fff;
+      padding: .45rem 1.1rem;
+      border-radius: 2px;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      transition: background .2s;
+    }
+
+    .header-nav .cta:hover { background: var(--moss-dark); color: #fff; }
+
+    /* ── Hero ── */
+    .column-hero {
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .column-hero .eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(.75rem, 1.5vw, .85rem);
+      letter-spacing: .25em;
+      color: var(--moss);
+      margin-bottom: 1rem;
+    }
+
+    .column-hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: .06em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .column-hero p {
+      font-size: clamp(.85rem, 1.5vw, .95rem);
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 2;
+      letter-spacing: .04em;
+    }
+
+    /* ── Layout ── */
+    .column-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .column-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .sidebar { order: -1; }
+    }
+
+    /* ── Article Grid ── */
+    .articles-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .articles-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      color: var(--text-mid);
+    }
+
+    #article-count {
+      font-size: .8rem;
+      color: var(--text-light);
+      letter-spacing: .05em;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    /* ── Card ── */
+    .article-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .25s, transform .25s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 8px 32px rgba(90,110,74,.12);
+      transform: translateY(-3px);
+    }
+
+    .card-thumb {
+      aspect-ratio: 16/9;
+      background: var(--moss-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-thumb .thumb-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--moss);
+      opacity: .35;
+      user-select: none;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .75rem;
+    }
+
+    .card-category {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      color: var(--moss);
+      background: var(--moss-pale);
+      padding: .2rem .65rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .card-date {
+      font-size: .72rem;
+      color: var(--text-light);
+      letter-spacing: .06em;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .card-title {
+      font-size: clamp(.9rem, 1.5vw, 1rem);
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: .04em;
+      color: var(--text);
+      margin-bottom: .65rem;
+    }
+
+    .card-desc {
+      font-size: .82rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      letter-spacing: .03em;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.1rem;
+      padding-top: .9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-reading {
+      font-size: .75rem;
+      color: var(--text-light);
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: .08em;
+    }
+
+    .card-arrow {
+      font-size: .75rem;
+      color: var(--moss);
+      letter-spacing: .08em;
+      transition: transform .2s;
+    }
+
+    .article-card:hover .card-arrow { transform: translateX(4px); }
+
+    /* ── Category Filter ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      font-family: 'Noto Serif JP', serif;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      padding: .35rem .9rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-mid);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all .2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--moss);
+      border-color: var(--moss);
+      color: #fff;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .sidebar-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .85rem;
+      letter-spacing: .2em;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-categories li {
+      list-style: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-categories a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .65rem 0;
+      font-size: .83rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+
+    .sidebar-categories a:hover { color: var(--moss); }
+
+    .sidebar-categories .cat-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .8rem;
+      color: var(--text-light);
+    }
+
+    .sidebar-cta {
+      background: var(--moss-pale);
+      border: 1px solid #c9d5b8;
+      border-radius: 4px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+    }
+
+    .sidebar-cta p {
+      font-size: .82rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      letter-spacing: .04em;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-cta a {
+      display: block;
+      background: var(--moss);
+      color: #fff;
+      text-decoration: none;
+      padding: .65rem;
+      border-radius: 2px;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      transition: background .2s;
+    }
+
+    .sidebar-cta a:hover { background: var(--moss-dark); }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-top: 6rem;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-footer .copyright {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .82rem;
+      color: var(--text-light);
+      letter-spacing: .1em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: .78rem;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: .08em;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--moss); }
+
+    /* ── Empty state ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--text-light);
+      font-size: .9rem;
+      letter-spacing: .06em;
+    }
+
+    /* ── Loading ── */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-light);
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: .15em;
+      font-size: .9rem;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .article-card {
+      animation: fadeUp .4s ease both;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <a href="/" class="logo">
+    <img src="/assets/logo-moriris.png" alt="Moriris" onerror="this.style.display='none'" />
+    <span>Moriris</span>
+  </a>
+  <nav class="header-nav">
+    <a href="/">ホーム</a>
+    <a href="/column/">コラム</a>
+    <a href="/contact.html">お問い合わせ</a>
+    <a href="https://member.moriris.com" class="cta">14日間無料で試す</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="column-hero">
+  <p class="eyebrow">COLUMN</p>
+  <h1>環境映像と空間づくりの<br>ヒント</h1>
+  <p>保育施設・待合空間・療養施設での低刺激な環境づくりについて、<br>現場で使う視点からまとめています。</p>
+</section>
+
+<!-- Main -->
+<div class="column-layout">
+  <main>
+    <!-- Filter -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-category="all">すべて</button>
+    </div>
+
+    <!-- Articles header -->
+    <div class="articles-header">
+      <h2>ARTICLES</h2>
+      <span id="article-count"></span>
+    </div>
+
+    <div class="loading" id="loading">読み込み中…</div>
+    <div class="article-grid" id="article-grid"></div>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <h3>CATEGORIES</h3>
+      <ul class="sidebar-categories" id="sidebar-categories"></ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-cta">
+        <p>保育施設・待合室などに。<br>14日間、無料でお試しいただけます。</p>
+        <a href="https://member.moriris.com">無料トライアルを始める</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <span class="copyright">© Moriris Studio · official.moriris.com</span>
+  <nav class="footer-links">
+    <a href="/contact.html">お問い合わせ</a>
+    <a href="https://member.moriris.com/terms.html">利用規約</a>
+    <a href="https://member.moriris.com/privacy.html">プライバシーポリシー</a>
+    <a href="https://member.moriris.com/legal.html">特定商取引法に基づく表記</a>
+  </nav>
+</footer>
+
+<script>
+  let allArticles = [];
+  let activeCategory = 'all';
+
+  async function loadArticles() {
+    try {
+      const res = await fetch('./articles.json');
+      allArticles = await res.json();
+      buildFilters();
+      renderArticles(allArticles);
+    } catch(e) {
+      document.getElementById('loading').textContent = '記事を読み込めませんでした。';
+    }
+  }
+
+  function buildFilters() {
+    const categories = [...new Set(allArticles.map(a => a.category))];
+    const filterBar = document.getElementById('filter-bar');
+    const sidebarCats = document.getElementById('sidebar-categories');
+
+    categories.forEach(cat => {
+      const count = allArticles.filter(a => a.category === cat).length;
+
+      // Filter button
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.category = cat;
+      btn.textContent = cat;
+      btn.addEventListener('click', () => setCategory(cat));
+      filterBar.appendChild(btn);
+
+      // Sidebar
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="#" data-cat="${cat}">
+        <span>${cat}</span>
+        <span class="cat-count">${count}</span>
+      </a>`;
+      li.querySelector('a').addEventListener('click', e => {
+        e.preventDefault();
+        setCategory(cat);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      sidebarCats.appendChild(li);
+    });
+  }
+
+  function setCategory(cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.category === cat);
+    });
+    const filtered = cat === 'all' ? allArticles : allArticles.filter(a => a.category === cat);
+    renderArticles(filtered);
+  }
+
+  function renderArticles(articles) {
+    const grid = document.getElementById('article-grid');
+    const loading = document.getElementById('loading');
+    const count = document.getElementById('article-count');
+
+    loading.style.display = 'none';
+    grid.innerHTML = '';
+    count.textContent = `${articles.length} 件`;
+
+    if (articles.length === 0) {
+      grid.innerHTML = '<p class="empty-state">この分類の記事はまだありません。</p>';
+      return;
+    }
+
+    articles.forEach((article, i) => {
+      const card = document.createElement('a');
+      card.href = `./${article.id}.html`;
+      card.className = 'article-card';
+      card.style.animationDelay = `${i * 60}ms`;
+
+      const thumb = article.image
+        ? `<img src="${article.image}" alt="${article.title}" loading="lazy" />`
+        : `<span class="thumb-placeholder">🌿</span>`;
+
+      card.innerHTML = `
+        <div class="card-thumb">${thumb}</div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">${article.category}</span>
+            <span class="card-date">${article.date}</span>
+          </div>
+          <p class="card-title">${article.title}</p>
+          <p class="card-desc">${article.description}</p>
+          <div class="card-footer">
+            <span class="card-reading">🕐 ${article.readingTime}</span>
+            <span class="card-arrow">読む →</span>
+          </div>
+        </div>`;
+
+      grid.appendChild(card);
+    });
+  }
+
+  loadArticles();
+</script>
+</body>
+</html>
