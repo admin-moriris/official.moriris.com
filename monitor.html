@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>モニター募集｜Moriris 1ヶ月無料キャンペーン</title>
+  <meta name="description" content="Moririsのモニター募集ページ。今だけ1ヶ月無料キャンペーン中！保育施設・待合室向けの森の環境動画サービスを、無料でお試しいただけます。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="モニター募集｜Moriris 1ヶ月無料キャンペーン" />
+  <meta property="og:description" content="今だけ1ヶ月無料！保育施設・待合室・療養施設向けの森の環境動画サービス Moriris のモニター募集中。" />
+  <meta property="og:url" content="https://official.moriris.com/monitor.html" />
+  <meta property="og:image" content="https://official.moriris.com/assets/ogp.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/logo-moriris.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HWRX6Q9K3E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HWRX6Q9K3E', { linker: { domains: ['official.moriris.com', 'member.moriris.com'] } });
+  </script>
+
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --ink: #2a2a25;
+      --ink-soft: #6b6659;
+      --moss: #4a6741;
+      --moss-light: #6b8f61;
+      --cream: #faf7f0;
+      --sand: #e8e0cc;
+      --warm: #c8a96e;
+      --amber: #f5a623;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', 'Georgia', serif;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 24px;
+      background: linear-gradient(to bottom, rgba(245,240,232,0.97), rgba(245,240,232,0.8));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232,224,204,0.5);
+    }
+    .topbar-logo { height: 28px; }
+    .topbar-login {
+      display: inline-block; padding: 8px 20px; border-radius: 999px;
+      background: var(--moss); color: #fff;
+      font-family: 'Noto Serif JP', serif; font-size: 0.78rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: background 0.25s;
+    }
+    .topbar-login:hover { background: #3a5533; }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(245,240,232,0.5) 0%, rgba(245,240,232,0.4) 60%, rgba(245,240,232,0.75) 100%),
+        url('/assets/hero-forest.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 640px; }
+    .campaign-badge {
+      display: inline-block; margin-bottom: 20px;
+      background: linear-gradient(135deg, #4a6741, #6b8f61);
+      color: #fff; padding: 6px 20px; border-radius: 999px;
+      font-size: 0.78rem; letter-spacing: 0.1em; font-weight: 400;
+    }
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 400; color: var(--ink);
+      line-height: 1.4; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--moss); font-style: normal; }
+    .hero-lead {
+      font-size: 0.95rem; color: var(--ink-soft); line-height: 2;
+      margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-cta {
+      display: flex; flex-direction: column; gap: 14px; align-items: center;
+    }
+    .btn-primary {
+      display: inline-block; background: var(--moss); color: #fff;
+      padding: 18px 48px; border-radius: 999px;
+      font-family: 'Noto Serif JP', serif; font-size: 1rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(74,103,65,0.3);
+    }
+    .btn-primary:hover { background: #3a5533; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(74,103,65,0.35); }
+    .btn-outline-sm {
+      display: inline-block; border: 1px solid var(--moss); color: var(--moss);
+      padding: 10px 28px; border-radius: 999px;
+      font-family: 'Noto Serif JP', serif; font-size: 0.82rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: all 0.25s;
+    }
+    .btn-outline-sm:hover { background: var(--moss); color: #fff; }
+    .hint-small { font-size: 0.74rem; color: var(--ink-soft); margin-top: 8px; }
+
+    /* DIVIDER */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--warm), transparent);
+      margin: 40px auto;
+    }
+
+    /* MAIN */
+    main { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .section { margin-bottom: 64px; }
+    .section-label {
+      font-family: 'Cormorant Garamond', serif; font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
+      margin-bottom: 12px; display: block;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 400;
+      color: var(--ink); margin-bottom: 24px;
+      padding-bottom: 10px; border-bottom: 1px solid var(--sand);
+    }
+    .body-text { font-size: 0.9rem; color: var(--ink-soft); line-height: 2; margin-bottom: 12px; }
+
+    /* STEPS */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .steps li {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: var(--cream); border-radius: 14px; padding: 22px 20px;
+      border: 1px solid rgba(200,169,110,0.2);
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      font-weight: 600; color: var(--moss); min-width: 32px; line-height: 1.4;
+    }
+    .step-body { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.9; }
+    .step-body strong { color: var(--ink); }
+    .step-note {
+      display: block; margin-top: 6px;
+      font-size: 0.78rem; color: var(--moss); letter-spacing: 0.02em;
+    }
+
+    /* CAMPAIGN DETAIL CARD */
+    .campaign-card {
+      background: var(--cream); border-radius: 20px; overflow: hidden;
+      border: 2px solid var(--moss);
+      box-shadow: 0 8px 32px rgba(74,103,65,0.1);
+    }
+    .campaign-card-header {
+      background: linear-gradient(135deg, #4a6741, #6b8f61);
+      padding: 24px 28px; color: #fff;
+    }
+    .campaign-card-header h3 {
+      font-family: 'Noto Serif JP', serif; font-size: 1.1rem; font-weight: 400;
+    }
+    .campaign-card-header p { font-size: 0.82rem; opacity: 0.85; margin-top: 4px; }
+    .campaign-card-body { padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+
+    .info-block {
+      background: rgba(74,103,65,0.06); border-radius: 12px; padding: 20px;
+      border: 1px solid rgba(74,103,65,0.15);
+    }
+    .info-block-title {
+      font-size: 0.85rem; font-weight: 400; color: var(--moss);
+      margin-bottom: 10px; padding-bottom: 8px;
+      border-bottom: 1px solid rgba(74,103,65,0.15);
+    }
+    .info-block ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .info-block ul li {
+      font-size: 0.84rem; color: var(--ink-soft); padding-left: 14px; position: relative;
+    }
+    .info-block ul li::before { content: '・'; position: absolute; left: 0; color: var(--moss); }
+
+    .warning-block {
+      background: #fffbeb; border-radius: 12px; padding: 18px 20px;
+      border: 1px solid #f5d87a;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .warning-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .warning-text { font-size: 0.83rem; color: #7a5c00; line-height: 1.8; }
+
+    .agree-btn-wrap {
+      text-align: center; padding: 8px 0 4px;
+    }
+    .btn-agree {
+      display: inline-block; background: linear-gradient(135deg, #4a6741, #6b8f61);
+      color: #fff; padding: 18px 48px; border-radius: 999px; width: 100%;
+      font-family: 'Noto Serif JP', serif; font-size: 1rem; letter-spacing: 0.06em;
+      text-decoration: none; transition: opacity 0.25s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(74,103,65,0.3); text-align: center;
+      display: block;
+    }
+    .btn-agree:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cancel-link {
+      display: block; text-align: center; margin-top: 14px;
+      font-size: 0.82rem; color: var(--ink-soft); text-decoration: none;
+    }
+    .cancel-link:hover { color: var(--moss); }
+
+    /* VIDEO */
+    .video-wrap {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(74,103,65,0.12);
+      background: #1a1a14;
+    }
+    .video-wrap iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+
+    /* FEATURES */
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .feature-list li {
+      padding: 14px 20px; background: var(--cream); border-radius: 12px;
+      font-size: 0.88rem; color: var(--ink-soft); line-height: 1.8;
+      border-left: 3px solid var(--moss);
+    }
+    .feature-list li strong { color: var(--ink); }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      text-align: center; padding: 48px 24px;
+      background: linear-gradient(to bottom, transparent, rgba(74,103,65,0.04));
+      border-radius: 20px; margin-top: 8px;
+    }
+    .cta-bottom-title {
+      font-family: 'Noto Serif JP', serif; font-size: 1.2rem;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .cta-bottom-sub { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 28px; }
+
+    /* FOOTER */
+    footer { padding: 40px 24px; text-align: center; border-top: 1px solid var(--sand); }
+    footer a { font-size: 0.78rem; color: var(--ink-soft); text-decoration: none; }
+    footer a:hover { color: var(--moss); }
+    .footer-copy { font-size: 0.72rem; color: #a09a8e; margin-top: 8px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.7rem; }
+      .campaign-card-body { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="/"><img class="topbar-logo" src="/assets/logo-moriris.png" alt="Moriris" /></a>
+    <a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_1m_login" class="topbar-login" target="_blank" rel="noopener">ログイン / 登録</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="campaign-badge">🌿 期間限定キャンペーン</span>
+      <h1 class="hero-title">
+        モニター施設募集中<br>
+        <em>1ヶ月間、無料でお試しください</em>
+      </h1>
+      <p class="hero-lead">
+        保育施設・待合室・療養施設むけの森の環境動画サービス「Moriris」。<br>
+        現在、モニター施設さまを募集しています。<br>
+        ご登録いただくと、1ヶ月間すべての動画を無料でご利用いただけます。
+      </p>
+      <div class="hero-cta">
+        <a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_1m_hero" class="btn-primary" target="_blank" rel="noopener" data-ga="monitor_hero_cta">
+          アカウント登録（無料）
+        </a>
+        <a href="#how-to" class="btn-outline-sm">参加方法を見る</a>
+        <p class="hint-small">登録は無料・クレジットカード不要。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <main>
+
+    <!-- WHAT IS MORIRIS -->
+    <div class="section reveal">
+      <span class="section-label">About Moriris</span>
+      <h2 class="section-title">Moririsとはどんなサービスですか？</h2>
+      <p class="body-text">
+        Moririsは、保育施設・待合室・療養施設などで流せる<strong>長尺の森の環境動画サービス</strong>です。
+        広告なし・60分ループ。セリフや音楽もなく、静かな自然映像がゆっくりと流れます。
+      </p>
+      <p class="body-text">
+        ふわもこの恐竜キャラクターが森の中をのんびり過ごす映像で、
+        子どもたちのクールダウン・気持ちの切り替え・待ち時間の安心感に活用されています。
+      </p>
+      <div class="video-wrap" style="margin-top: 20px;">
+        <iframe src="https://www.youtube-nocookie.com/embed/iFdCP1m4HjE?rel=0&modestbranding=1&playsinline=1" title="Moriris video preview" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section reveal">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">サービスの特徴</h2>
+      <ul class="feature-list">
+        <li><strong>広告なし・テロップなし：</strong>集中や安静を妨げる要素がありません。</li>
+        <li><strong>60分シームレスループ：</strong>一度つけたら操作不要。ずっと背景として流せます。</li>
+        <li><strong>低刺激設計：</strong>急な場面転換・大きな音なし。感覚過敏のある方にも配慮。</li>
+        <li><strong>どの端末でも：</strong>PC・タブレット・スマートフォン・テレビのブラウザで再生可能。</li>
+        <li><strong>施設内での上映OK：</strong>施設向けライセンスを含むプランです。</li>
+      </ul>
+    </div>
+
+    <!-- HOW TO JOIN -->
+    <div class="section reveal" id="how-to">
+      <span class="section-label">How to Join</span>
+      <h2 class="section-title">参加の流れ</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <span class="step-body">
+            <strong>アカウントを登録する（無料）</strong><br>
+            下のボタンから配信サイトにアクセスし、メールアドレスで登録してください。
+            登録直後は「Free（無料プラン）」になります。クレジットカードは不要です。
+            <span class="step-note">→ まずはアカウントを作るだけでOKです</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span class="step-body">
+            <strong>「1ヶ月無料で試す」ボタンを押す</strong><br>
+            ログイン後、アカウント画面（ACCOUNTタブ）に「1ヶ月無料で試す」ボタンが表示されます。
+            そちらを押すとキャンペーン参加の確認画面が表示されます。
+            <span class="step-note">→ 以下の「キャンペーン内容」をご確認のうえ、ご参加ください</span>
+          </span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span class="step-body">
+            <strong>1ヶ月間、すべての動画を無料でお使いいただけます</strong><br>
+            キャンペーン期間中は全動画を見放題。施設でそのままお流しいただけます。
+            <span class="step-note">→ 期間内にいつでもマイページから解約できます</span>
+          </span>
+        </li>
+      </ol>
+      <div style="text-align: center; margin-top: 28px;">
+        <a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_1m_step" class="btn-primary" target="_blank" rel="noopener" data-ga="monitor_step_cta">
+          アカウント登録（無料）はこちら
+        </a>
+        <p class="hint-small" style="margin-top: 12px;">登録後、ACCOUNTタブから「1ヶ月無料で試す」を押してください。</p>
+      </div>
+    </div>
+
+    <!-- CAMPAIGN DETAIL -->
+    <div class="section reveal">
+      <span class="section-label">Campaign Detail</span>
+      <h2 class="section-title">キャンペーンの内容について</h2>
+      <p class="body-text" style="margin-bottom: 20px;">
+        「1ヶ月無料で試す」を押すと、以下の確認画面が表示されます。内容をご確認のうえ、ご参加ください。
+      </p>
+
+      <div class="campaign-card">
+        <div class="campaign-card-header">
+          <h3>🌿 1ヶ月無料キャンペーン</h3>
+          <p>ご登録前に、以下の内容をご確認ください。</p>
+        </div>
+        <div class="campaign-card-body">
+
+          <div class="info-block">
+            <div class="info-block-title">ご協力のお願い</div>
+            <p style="font-size:0.83rem;color:var(--ink-soft);line-height:1.8;margin-bottom:10px;">
+              本キャンペーンをご利用いただく施設さまには、利用期間終了後に以下のご協力をお願いしております。
+            </p>
+            <ul>
+              <li>簡単なアンケートへのご回答（所要時間：約3〜5分）</li>
+              <li>ご感想の提供（モリリス公式サイト・SNSへの掲載を予定しております）</li>
+            </ul>
+          </div>
+
+          <div class="info-block">
+            <div class="info-block-title">掲載内容について</div>
+            <ul>
+              <li>ご感想は、施設名・施設種別とともに掲載させていただく場合がございます。</li>
+              <li>施設名の掲載を希望されない場合は、アンケート内でお知らせください。匿名（「関東の放課後等デイサービス」など）での掲載も可能です。</li>
+            </ul>
+          </div>
+
+          <div class="warning-block">
+            <span class="warning-icon">⚠️</span>
+            <p class="warning-text">
+              キャンペーン期間終了後は、通常プラン（月額4,980円）へ自動移行となります。<br>
+              引き続きご利用不要の場合は、期間内にマイページよりいつでも解約できます。
+            </p>
+          </div>
+
+          <div class="agree-btn-wrap">
+            <a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_1m_agree" class="btn-agree" target="_blank" rel="noopener" data-ga="monitor_agree_cta">
+              同意して1ヶ月無料を始める
+            </a>
+            <a href="/" class="cancel-link">キャンセル（トップページへ）</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BOTTOM -->
+    <div class="cta-bottom reveal">
+      <h2 class="cta-bottom-title">まずはアカウント登録から</h2>
+      <p class="cta-bottom-sub">無料登録後、ACCOUNTページの「1ヶ月無料で試す」からご参加ください。</p>
+      <a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_1m_bottom" class="btn-primary" target="_blank" rel="noopener" data-ga="monitor_bottom_cta">
+        アカウント登録（無料）
+      </a>
+      <p class="hint-small" style="margin-top: 14px;">すでにアカウントをお持ちの方は<a href="https://member.moriris.com/?utm_source=instagram&utm_medium=monitor_lp&utm_campaign=monitor_login" target="_blank" rel="noopener" style="color:var(--moss);text-decoration:underline;">こちらからログイン</a></p>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="/">トップページへ</a>
+    &nbsp;·&nbsp;
+    <a href="/contact.html">お問い合わせ</a>
+    &nbsp;·&nbsp;
+    <a href="https://member.moriris.com/terms.html" target="_blank" rel="noopener">利用規約</a>
+    <p class="footer-copy">© Moriris Studio</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    function gaEvent(name, params) {
+      if (typeof gtag !== "function") return;
+      gtag("event", name, Object.assign({ page: location.pathname }, params || {}));
+    }
+    document.addEventListener("click", e => {
+      const a = e.target.closest("a"); if (!a) return;
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//.test(href) && !href.includes(location.hostname);
+      if (a.dataset.ga) gaEvent(a.dataset.ga, { link_url: href, outbound: isExternal ? 1 : 0 });
+      else if (isExternal) gaEvent("outbound_click", { link_url: href });
+    });
+  </script>
+</body>
+</html>
